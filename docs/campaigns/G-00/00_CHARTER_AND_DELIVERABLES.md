@@ -6,7 +6,7 @@
 
 Crear el **lenguaje interno de dominio y el evaluador constitucional puro** sobre el cual todos los subsistemas posteriores pueden razonar acerca de qué es un proyecto, qué fuentes le pertenecen, qué identidades se preservan, qué obligaciones son compromisos, cómo se aplican reglas y cuándo falta conocimiento.
 
-G-00 es completo a nivel de sus obligaciones solo si proporciona modelos utilizables, validadores y operaciones con resultados precisos, pruebas de comportamiento y adversarios escritos. No se admite cerrar G-00 porque existan 19 archivos de origen, structs/datatypes sueltos, una schema superficial o una demo sin contratos.
+G-00 es completo a nivel de sus obligaciones solo si proporciona modelos utilizables, validadores y operaciones con resultados precisos, pruebas de comportamiento y adversarios escritos. No se admite cerrar G-00 porque existan archivos o clases de datos aislados, una schema superficial o una demo sin contratos.
 
 ## Funcionalidades completas dentro del ámbito
 

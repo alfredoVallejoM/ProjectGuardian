@@ -50,6 +50,11 @@
     "detailed_technical_decisions": 24,
     "implementation_cuts": "B00…B09",
     "status": "SPECIFIED_NOT_IMPLEMENTED",
-    "ratification": "PENDING"
+    "ratification": "PENDING",
+    "additional_boundary_contracts": [
+      "src/guardian/persistence/schema_registry.py",
+      "src/guardian/constitution/amendments.py"
+    ],
+    "note": "Both start in G-00 only for read/validation/proposal contracts; full schema evolution G-01/G-12 and protected approvals G-09"
   }
 }

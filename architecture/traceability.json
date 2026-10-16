@@ -1860,7 +1860,7 @@
     },
     {
       "path": "src/guardian/constitution/amendments.py",
-      "first_campaign": "G-09"
+      "first_campaign": "G-00"
     },
     {
       "path": "src/guardian/constitution/authority_resolution.py",

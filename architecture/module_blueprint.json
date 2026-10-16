@@ -487,15 +487,15 @@
       "path": "src/guardian/constitution/amendments.py",
       "owner": "constitution",
       "owner_scope": "constitution",
-      "first_campaign": "G-09",
-      "purpose": "Amendment contract evaluated against preceding policy",
+      "first_campaign": "G-00",
+      "purpose": "Pure AmendmentRequest descriptor and proposal validation in G-00; authorized amendments and protected policy admission developed in G-09",
       "group_invariant": "pure protected policy",
       "forbidden": "No Git writes, external I/O or automatic scientific authority",
       "inputs": "Typed revision-scoped contracts from declared ports",
       "outputs": "Typed outcome with provenance and scope",
       "test_target": "tests/constitution/test_constitution_amendments.py",
       "status": "DESIGN_ONLY_NOT_IMPLEMENTED",
-      "creation_gate": "Create only with a real consumer, cohesive invariant, direct tests and package-level obligation trace; do not scaffold empty files."
+      "creation_gate": "G-00 may create structural proposal contract only, never ratify or publish amendment; protected change implementation is G-09"
     },
     {
       "path": "src/guardian/constitution/authority_resolution.py",

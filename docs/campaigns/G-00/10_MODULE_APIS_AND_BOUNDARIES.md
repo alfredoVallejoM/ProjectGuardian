@@ -35,7 +35,7 @@
 | `application/contract_service.py` | inspect_objective/capability/obligation, validate_draft | Sin modificación normativa ni autoapproval | `tests/application/test_application_contract_service.py` |
 | `persistence/schema_registry.py` | validate_envelope, lookup_descriptor, decode_record, check_reader_compatibility | Fail closed de features, no migración de registros histórica | `tests/persistence/test_schema_registry.py` |
 
-Los 19 primeros aparecen como apertura propuesta en G-00 del atlas vigente. La vigésima ruta es un límite compartido inicialmente atribuido a G-01; debe adelantar su **contrato de lectura y validación** a G-00, conservando la migración de esquemas en G-01/G-12. Es una rectificación de asignación de responsabilidad a documentar en el atlas, no una obligación nueva.
+Las 19 rutas de dominio/constitución/aplicación se complementan con dos límites compartidos cuyo **contrato inicial** debe existir en G-00: `persistence/schema_registry.py` (lector y validador de esquemas; migración completa G-01/G-12) y `constitution/amendments.py` (creación pura de propuestas de enmienda; autorización/publicación protegida G-09). Ambas atribuciones se registran en el atlas sin alterar las obligaciones canónicas. Las funciones futuras no se presentan como implementadas por G-00.
 
 ## Operaciones mínimas públicas (semántica antes que sintaxis final)
 
@@ -75,4 +75,3 @@ No generar 20 archivos vacíos; abrir solo los que una obligación y consumidor 
 ## Criterios de aceptación por módulo
 
 Cada módulo materializado debe tener owner e invariantes; API mínima utilizable; tests positivos y negativos derivados de G00-Fxx; casos de referencia de dos proyectos; contrato con consumidores posteriores; código en paths autorizados y sin dependencia de Git/SQLite/SDKs en el dominio. En G-00 se verificará el **grafo de dependencias de código realmente escrito**; que el atlas declare un límite no demuestra que lo respete.
-
