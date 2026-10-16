@@ -36,3 +36,10 @@
 ## Principio de permanencia
 Una precisión posterior no sustituye el alcance anterior, salvo operación explícita `SUPERSEDE` con justificación, autoridad, correspondencia histórica y análisis de impacto. El proyecto no exige cinco agentes: opera con humanos, cero/uno/varios agentes. El grafo, el programa y la auditoría se subordinan al contrato íntegro del proyecto, no al último resumen narrativo.
 
+
+## Desarrollo y revisión arquitectónica concreta
+- [142 rutas de módulos y tests previstos](architecture/03_MODULE_BLUEPRINT.md), sin obligación de generarlas todas.
+- [Matriz por las 163 obligaciones](traceability/OBLIGATION_IMPLEMENTATION_MATRIX.md), propuesta de asignación por módulo y test.
+- [Entidades y servicios](architecture/06_DOMAIN_INTERFACES.md).
+- [Interfaz gráfica independiente](architecture/08_WEB_CLIENT.md), cliente TypeScript propuesto, no ratificado.
+- [Secuencia de discusión de arquitectura](architecture/07_ARCHITECTURE_REVIEW_SEQUENCE.md).

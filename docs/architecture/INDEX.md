@@ -1,14 +1,13 @@
-# Arquitectura técnica — punto de partida de nuestra siguiente discusión
+# Arquitectura técnica — índice para la siguiente deliberación
 
-- [Dependencias de módulos](01_DEPENDENCY_RULES.md)
-- [Primer mapa narrativo de responsabilidades](02_FILE_RESPONSIBILITIES.md)
-- [Mapa exhaustivo de 126 archivos potenciales](03_MODULE_BLUEPRINT.md)
-- [Decisiones de diseño concretas que debemos resolver](04_CONCRETE_DESIGN_DISCUSSION.md)
-- [Orden de desarrollo de obligaciones y archivos](05_DEVELOPMENT_SEQUENCE.md)
+- [Reglas de dependencia entre módulos](01_DEPENDENCY_RULES.md)
+- [Responsabilidades por subsistema](02_FILE_RESPONSIBILITIES.md)
+- [Atlas de 142 ubicaciones prospectivas de fuente y pruebas](03_MODULE_BLUEPRINT.md)
+- [Decisiones de arquitectura concretas](04_CONCRETE_DESIGN_DISCUSSION.md)
+- [Orden de autoría y desarrollo](05_DEVELOPMENT_SEQUENCE.md)
+- [Entidades, contratos y servicios](06_DOMAIN_INTERFACES.md)
+- [Orden de revisión y ratificación](07_ARCHITECTURE_REVIEW_SEQUENCE.md)
+- [Cliente gráfico y interfaces TypeScript](08_WEB_CLIENT.md)
+- [Matriz de 163 obligaciones asignadas](../traceability/OBLIGATION_IMPLEMENTATION_MATRIX.md)
 
-**Fuente estructurada:** `architecture/module_blueprint.json`. La topología es objetivo; no crea la obligación de generar 121 archivos. Prioridad de revisión: ownership de dominio, graph support/assurance, cambios normativos, perímetro de confianza y contracts de interfaces.
-
-
-- [Modelo de entidades, contratos y servicios](06_DOMAIN_INTERFACES.md)
-- [Orden de la revisión arquitectónica](07_ARCHITECTURE_REVIEW_SEQUENCE.md)
-
+**Autoridades propuestas:** `architecture/module_blueprint.json` para rutas, `architecture/obligation_implementation_workmap.json` para asignaciones de obligaciones y `architecture/campaigns.json` para contratos originales. Son diseños no ratificados, sin código ni pruebas materiales. El número 142 **no** es un objetivo de crear físicamente 142 archivos: manda la cohesión y la existencia de consumidores reales.

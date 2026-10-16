@@ -39,9 +39,12 @@ Este documento fija **preguntas de arquitectura concretas**, alternativas y crit
 **Propuesta:** protocolo universal para humanos y agentes, cinco roles opcionales; A3 posterior a A2 sólo cuando es independiente y la política lo exige. No vendor lock-in. **Prueba:** monoagente puede crear entrega pero no emitirse auditoría independiente ficticia.
 
 ## AD-D13 — Física y cohesión de módulos
-La topología de 126 archivos es un **atlas de responsabilidades**, no un objetivo numérico. La apertura de un archivo nuevo exige motivos de separación (distinta estabilidad, change reason, invariant, owner, test surface). No hacer skeletons; mantener cada módulo coherente aunque tenga muchas líneas.
+La topología de 142 archivos es un **atlas de responsabilidades**, no un objetivo numérico. La apertura de un archivo nuevo exige motivos de separación (distinta estabilidad, change reason, invariant, owner, test surface). No hacer skeletons; mantener cada módulo coherente aunque tenga muchas líneas.
 
 ## Resultado de la deliberación
 Ratificar, enmendar o mantener HOLD por cada decisión anterior mediante ADR y análisis de impacto. Ningún resumen de esta conversación debe reemplazar las 34 necesidades, 30 ADR y 163 obligaciones existentes.
 
 
+
+## AD-D14 — Cliente web como adaptador de presentación
+**Propuesta:** TypeScript y componentes React o equivalentes, consumiendo API versionada. El núcleo Python conserva toda la evaluación normativa. **Alternativa:** duplicar estados y conformidad en navegador. **Criterio:** paridad de estados CLI/API/UI/MCP, accesibilidad, rechazo de aprobación por UI sin identidad del servidor y no dependencia del núcleo de ninguna librería frontend. La tecnología exacta sigue pendiente de ratificación.

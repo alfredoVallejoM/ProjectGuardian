@@ -33,7 +33,10 @@ CLI/API/UI/MCP sin lógica duplicada; perfiles de proyectos, agents opcionales, 
 - Dependencias permitidas y prohibidas.
 - Consumers y rutas de origen.
 - Tests positivos, mutaciones negativas y evidencias.
-- Impacto sobre G-00…G-13 y mapeo de 126 rutas prospectivas.
+- Impacto sobre G-00…G-13 y mapeo de 142 rutas prospectivas.
 
-Los módulos se crean solamente al implementar su primer consumidor; no se persigue materializar 126 archivos por obligación numérica.
+Los módulos se crean solamente al implementar su primer consumidor; no se persigue materializar 142 archivos por obligación numérica.
 
+
+## 9 — Cliente web y contratos de presentación
+Concretar TypeScript, servidor API, modelo de caching por ProjectRevision y SupportProfile, representaciones muchos-a-muchos, grafos n-arios, permisos, accesibilidad, paginación y pruebas de paridad con CLI/MCP. No duplicar el evaluador normativo en la UI.

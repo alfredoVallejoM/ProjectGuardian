@@ -36,3 +36,6 @@ Algoritmos de grafos por listas de adyacencia + índices inversos, DFS/BFS O(V+E
 ## Política de test
 Cada contrato produce positivo, negativo, frontera, mutación adversaria, prueba entre módulos, comparación de proyección/autoridad, y cuando corresponda recursos, concurrencia, crash/replay, seguridad y autenticidad. Los tests unitarios no sustituyen flujos E2E ni verificadores matemáticos independientes.
 
+
+## Cliente interactivo (tecnología propuesta no ratificada)
+El núcleo Guardian se desarrolla en Python tipado. La interfaz gráfica se diseña como cliente TypeScript modular (componentes React o equivalente), bajo `clients/web/`, consumiendo el mismo contrato de API que CLI/MCP. No importa clases de negocio Python ni implementa su propia semántica de certificación. Sus 16 módulos prospectivos se registran en el atlas para G-11 y podrán fusionarse por cohesión, no por meta numérica.

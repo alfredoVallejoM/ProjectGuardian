@@ -32,3 +32,6 @@ No crear scaffolds vacíos. Cada módulo se abre en su primera campaña propieta
 ## Persistencia pura frente a adaptadores
 `persistence/events.py`, `snapshots.py`, `canonicalization.py`, `schema_registry.py` y `recovery.py` poseen reglas de serialización, eventos, snapshots y propuestas de recuperación sin E/S; el Git real vive en `adapters/git/` y el SQL real en `adapters/sqlite/`. No deben duplicarse implementaciones de persistencia.
 
+
+## Cliente gráfico
+`clients/web/src` constituye un cliente TypeScript previsto en G-11; la API autentica y responde por proyecto/revisión/perfil. Las vistas no implementan lógica normativa ni escriben a SQLite. El mapa detallado de responsabilidades está en `docs/architecture/08_WEB_CLIENT.md` y `architecture/module_blueprint.json`.

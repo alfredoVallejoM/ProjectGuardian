@@ -31,3 +31,6 @@ Perfil opcional de cinco agentes: A0 organiza, A1 recupera matemática/fuentes, 
 ## Aislamiento de lenguaje/proveedor
 Integración de agentes detrás de `AgentExecutor` y herramientas con contratos estables; no SDK obligatorio. Desarrolladores humanos reciben el mismo Project Contract. MCP y HTTP pueden ser adaptadores, no núcleos. La autenticidad de identidad/permiso viene del host confiable, no de JSON autodescrito.
 
+
+## Cliente gráfico y vistas de múltiples dimensiones
+Un cliente web independiente implementará exploración de obligaciones, arquitectura especificada/observada, relaciones n-arias, campañas, SupportCone/ImpactCone, certificados y auditorías. Su interfaz está subordinada a API typed + Gatekeeper; jamás concede ratificación por modificar estado local. El diseño del cliente figura en `docs/architecture/08_WEB_CLIENT.md` y permanece pendiente de decisión final sobre framework, empaquetado y despliegue.
