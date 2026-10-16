@@ -21,3 +21,5 @@
 
 ## Contrato común de cierre
 **Development complete** exige toda implementación, tests, adversarios y verificadores desarrollados. **Campaign closed** exige además auditoría, runs, integración, recursos y receipts reales. Todas las filas están SPECIFIED_NOT_IMPLEMENTED. Los 34 requisitos y 30 ADR se relacionan mediante los registros architecture/; cambios semánticos por ChangeSet ratificado.
+
+**G-00 en detalle:** [especificación completa de fundamentos, operaciones, tests y decisiones](G-00/INDEX.md) — 12 obligaciones originales desarrolladas en 120 cláusulas subordinadas, pendientes de ratificación e implementación.

@@ -163,8 +163,8 @@
     },
     {
       "path": "persistence",
-      "first_campaign": "G-01",
-      "invariant": "Pure record formats and replay; external I/O in adapters",
+      "first_campaign": "G-00",
+      "invariant": "G-00 starts pure schema descriptor and typed codec; G-01/G-12 add event persistence and recovery; Git and SQLite I/O remain adapters",
       "count": 5
     },
     {
@@ -1929,15 +1929,15 @@
       "path": "src/guardian/persistence/schema_registry.py",
       "owner": "persistence",
       "owner_scope": "persistence",
-      "first_campaign": "G-01",
-      "purpose": "Versioned schema lookup, required normative feature compatibility",
+      "first_campaign": "G-00",
+      "purpose": "Foundational schema descriptor/typed validation/feature compatibility from G-00; schema migration and replay in G-01/G-12",
       "group_invariant": "Pure record/replay/canonicalization semantics; Git and SQLite I/O belong only to adapters",
       "forbidden": "No direct filesystem/network/SQLite/Git access; no normative edits",
       "inputs": "Versioned immutable records and typed observations",
       "outputs": "Deterministic validated record or recovery proposal",
       "test_target": "tests/persistence/test_schema_registry.py",
       "status": "DESIGN_ONLY_NOT_IMPLEMENTED",
-      "creation_gate": "Only create with tested consumer and non-overlapping responsibility; no empty scaffold."
+      "creation_gate": "Open on G-00 normative envelope and fail-closed feature contracts, not on full schema migration work"
     },
     {
       "path": "clients/web/src/app/bootstrap.ts",

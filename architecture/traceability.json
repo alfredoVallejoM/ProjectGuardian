@@ -2272,7 +2272,7 @@
     },
     {
       "path": "src/guardian/persistence/schema_registry.py",
-      "first_campaign": "G-01"
+      "first_campaign": "G-00"
     },
     {
       "path": "clients/web/src/app/bootstrap.ts",
@@ -2347,5 +2347,14 @@
     "All 163 obligations now have candidate modules/tests, but semantic equivalence and closure evidence are not ratified or materially verified"
   ],
   "qualification": false,
-  "obligation_to_module_workmap": "architecture/obligation_implementation_workmap.json"
+  "obligation_to_module_workmap": "architecture/obligation_implementation_workmap.json",
+  "g00_refinement_refs": {
+    "canonical_campaign": "architecture/campaigns.json#G-00",
+    "subordinate_clauses": "architecture/g00_functional_refinement.json",
+    "tests_and_adversaries": "architecture/g00_validation_plan.json",
+    "api_contracts": "architecture/g00_api_contracts.json",
+    "design_choices": "architecture/g00_design_decisions.json",
+    "index": "docs/campaigns/G-00/INDEX.md",
+    "authority": "PROPOSED_DETAIL_NOT_IMPLEMENTED_OR_RATIFIED"
+  }
 }

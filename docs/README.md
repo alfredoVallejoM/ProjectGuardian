@@ -46,3 +46,6 @@ Una precisión posterior no sustituye el alcance anterior, salvo operación expl
 
 ## Publicación y coherencia
 - [Auditoría estática de la publicación](../docs/assurance/DESIGN_PUBLICATION_AUDIT.md): cotejo documental y límites de la evidencia.
+
+### Profundización de la campaña fundacional
+- [G-00 completa](campaigns/G-00/INDEX.md): modelos, interfaces, 120 cláusulas de comportamiento, 58 operaciones, 36 adversarios, 7 verticales y diez cortes de desarrollo. **Diseño sin implementación.**

@@ -16,7 +16,7 @@
   "certifications_issued": false,
   "requirements_fine_grained_semantic_crosswalk_qualified": false,
   "source_conversations_archived_in_repo": false,
-  "planning_ledger_structural_check": "PASS_REMOTE_STRUCTURAL_READBACK_DESIGN_ONLY",
+  "planning_ledger_structural_check": "G00_DETAILED_DESIGN_PUBLISHED_NEEDS_STATIC_VERIFICATION",
   "notes": [
     "Planning-only records uploaded, no production modules materialized",
     "Source design conversation normalized not copied verbatim",
@@ -38,5 +38,18 @@
     "no_tests_executed": true,
     "navigation_links_checked": 89,
     "summary": "34 requirements, 30 ADR, 14 campaigns, 163 obligations, 142 proposed module entries, 163 obligation->module assignments, navigation links present"
+  },
+  "g00_detailed_program": {
+    "campaign": "G-00",
+    "original_obligations": 12,
+    "refined_functional_clauses": 120,
+    "logical_test_contracts": 120,
+    "adversarial_mutations": 36,
+    "in_memory_verticals": 7,
+    "api_operation_contracts": 58,
+    "detailed_technical_decisions": 24,
+    "implementation_cuts": "B00…B09",
+    "status": "SPECIFIED_NOT_IMPLEMENTED",
+    "ratification": "PENDING"
   }
 }

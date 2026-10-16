@@ -28,3 +28,6 @@ Leer [decisiones de ubicación y patrones](docs/architecture/04_CONCRETE_DESIGN_
 
 ## Contorno técnico
 Python 3.12+ tipado, monolito modular, domain inmutable + functional core/imperative shell, puertos y adaptadores; Git como autoridad, SQLite como índice derivado, verificadores externos por ámbito, CLI/API/UI/MCP y agent SDK optativos. Sin microservicios por defecto ni hard cap de LOC.
+
+## Campaña fundacional desarrollada en detalle
+La [especificación completa de G-00](docs/campaigns/G-00/INDEX.md) documenta identidad, proyectos, fuentes, ontología de obligaciones, scope, constitución, referencias, schemas, evaluador, APIs, falsaciones y criterios de cierre. Los números son compromisos de diseño y **no reflejan tests o código desarrollados**.
