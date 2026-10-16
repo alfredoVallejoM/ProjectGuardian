@@ -1,0 +1,2235 @@
+{
+  "schema": "guardian/g00-validation-plan/v1",
+  "status": "DESIGN_PROPOSED_NOT_EXECUTED",
+  "campaign": "G-00",
+  "parent_obligations": 12,
+  "functional_clauses": 120,
+  "logical_clause_test_specs": 120,
+  "adversarial_scenarios": 36,
+  "integrated_verticals": 7,
+  "tests": [
+    {
+      "logical_test_id": "G00-01-T01",
+      "clause_id": "G00-01-F01",
+      "positive_acceptance": "Un parser devuelve instancias con discriminante correcto y rechaza intercambio entre clases",
+      "negative_mutation": "La misma cadena se acepta como el tipo de identificador equivocado",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-01-T02",
+      "clause_id": "G00-01-F02",
+      "positive_acceptance": "La igualdad de entidades exige namespace y clase además del valor",
+      "negative_mutation": "Una entidad de proyecto B equivale a otra de A por tener el mismo texto",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-01-T03",
+      "clause_id": "G00-01-F03",
+      "positive_acceptance": "Una entrada fuera de la gramática devuelve InvalidIdentity con path y causa",
+      "negative_mutation": "Se admite ID vacío, path traversal o texto con delimitadores inseguros",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-01-T04",
+      "clause_id": "G00-01-F04",
+      "positive_acceptance": "Un alias resuelve solo cuando hay un candidato exacto en el ámbito",
+      "negative_mutation": "El primer alias duplicado gana por orden de diccionario",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-01-T05",
+      "clause_id": "G00-01-F05",
+      "positive_acceptance": "El mismo EntityId se mantiene tras el cambio de alias o ruta",
+      "negative_mutation": "El identificador canónico se regenera porque se movió el archivo",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-01-T06",
+      "clause_id": "G00-01-F06",
+      "positive_acceptance": "La referencia resuelve a revisión exacta o produce error tipado",
+      "negative_mutation": "Una branch mutable se considera RevisionId certificable",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-01-T07",
+      "clause_id": "G00-01-F07",
+      "positive_acceptance": "Algoritmo y hex completo se conservan al serializar",
+      "negative_mutation": "Digest abreviado o algoritmo distinto se acepta como idéntico",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-01-T08",
+      "clause_id": "G00-01-F08",
+      "positive_acceptance": "Ejecutar validadores con mismos inputs no usa hora ni RNG",
+      "negative_mutation": "El constructor puro invoca time o uuid internamente y cambia resultados",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-01-T09",
+      "clause_id": "G00-01-F09",
+      "positive_acceptance": "El roundtrip conserva tipo nominal, valor y namespace",
+      "negative_mutation": "Todos los IDs se serializan como string sin tipo recuperable",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-01-T10",
+      "clause_id": "G00-01-F10",
+      "positive_acceptance": "Registrar DuplicateLogicalId sin fusionar obligaciones",
+      "negative_mutation": "La segunda entidad sobrescribe la primera",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-02-T01",
+      "clause_id": "G00-02-F01",
+      "positive_acceptance": "Renombrar display name no cambia ProjectId ni constitución",
+      "negative_mutation": "Cambiar nombre recrea proyecto y borra linaje",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-02-T02",
+      "clause_id": "G00-02-F02",
+      "positive_acceptance": "Fuente fuera de allowlist da denegación o requerimiento de importación",
+      "negative_mutation": "Un repo arbitrario se convierte en fuente normativa",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-02-T03",
+      "clause_id": "G00-02-F03",
+      "positive_acceptance": "Cada modo tiene sus campos obligatorios y no altera contrato central",
+      "negative_mutation": "SIDECAR se interpreta como fuente secundaria de verdad editable",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-02-T04",
+      "clause_id": "G00-02-F04",
+      "positive_acceptance": "Dos proyectos alternados mantienen estados y refs propios",
+      "negative_mutation": "Se usa un global current_project implícito",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-02-T05",
+      "clause_id": "G00-02-F05",
+      "positive_acceptance": "Una importación sin alcance produce REQUIRES_APPROVAL",
+      "negative_mutation": "Contratos externos se incorporan por similitud textual",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-02-T06",
+      "clause_id": "G00-02-F06",
+      "positive_acceptance": "Permiso para un SourceCut no concede todo otro repositorio",
+      "negative_mutation": "Importar un archivo autoriza todos los archivos del repo",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-02-T07",
+      "clause_id": "G00-02-F07",
+      "positive_acceptance": "Las reglas se evalúan sobre revisión indicada, nunca latest accidental",
+      "negative_mutation": "Actualizar policy global cambia evaluación histórica sin revisión",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-02-T08",
+      "clause_id": "G00-02-F08",
+      "positive_acceptance": "Una vista federada conserva commit y autoridad de cada fuente",
+      "negative_mutation": "Se aplica un único SHA como revisión de todos los repos",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-02-T09",
+      "clause_id": "G00-02-F09",
+      "positive_acceptance": "El resolver distingue ProjectId y no mezcla alias",
+      "negative_mutation": "Los dos proyectos comparten una tabla autoritativa de nombres",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-02-T10",
+      "clause_id": "G00-02-F10",
+      "positive_acceptance": "Validar no modifica fuentes, contratos ni config",
+      "negative_mutation": "Validación cambia el registro del proyecto en memoria",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-03-T01",
+      "clause_id": "G00-03-F01",
+      "positive_acceptance": "Branch sin resolución a corte fijo no vale para cierre de cobertura",
+      "negative_mutation": "main se almacena como commit inmutable",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-03-T02",
+      "clause_id": "G00-03-F02",
+      "positive_acceptance": "Una cita se liga a documento y revisión, no solo título",
+      "negative_mutation": "Un nombre de documento sin corte se trata como versión completa",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-03-T03",
+      "clause_id": "G00-03-F03",
+      "positive_acceptance": "Cambiar include set genera revisión de universo, no reinterpreta corte viejo",
+      "negative_mutation": "Todo archivo del mundo se presume incluido",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-03-T04",
+      "clause_id": "G00-03-F04",
+      "positive_acceptance": "Una exclusión no documentada produce diagnóstico",
+      "negative_mutation": "Se excluye archivo problemático para declarar cobertura",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-03-T05",
+      "clause_id": "G00-03-F05",
+      "positive_acceptance": "La evaluación conserva SOURCE_MISSING y no afirma exhaustividad",
+      "negative_mutation": "Fuente no descargada se marca reconciled",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-03-T06",
+      "clause_id": "G00-03-F06",
+      "positive_acceptance": "Dos cuts del mismo repo no se suman como poblaciones semánticas disjuntas",
+      "negative_mutation": "El número de archivos se duplica como capacidades",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-03-T07",
+      "clause_id": "G00-03-F07",
+      "positive_acceptance": "Un árbol remoto leído no se declara censo AST completo",
+      "negative_mutation": "Pointer de blob se trata como implementacion certificada",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-03-T08",
+      "clause_id": "G00-03-F08",
+      "positive_acceptance": "Un README o comentario no altera constitution aprobada",
+      "negative_mutation": "Una instrucción en fichero fuente autoriza cambiar reglas",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-03-T09",
+      "clause_id": "G00-03-F09",
+      "positive_acceptance": "Universo con known_missing no permite claim de cobertura completa",
+      "negative_mutation": "Se declara 100% porque todas las filas ya registradas tienen ref",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-03-T10",
+      "clause_id": "G00-03-F10",
+      "positive_acceptance": "Informe puede explicar qué universo quedó fuera",
+      "negative_mutation": "Una cifra de cobertura carece de denominador y exclusiones",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-04-T01",
+      "clause_id": "G00-04-F01",
+      "positive_acceptance": "El parser conserva estado y no presupone aprobación",
+      "negative_mutation": "Una propuesta se toma como norma ratificada",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-04-T02",
+      "clause_id": "G00-04-F02",
+      "positive_acceptance": "Un registro autodenominado aprobado sin contexto confiable no concede autoridad",
+      "negative_mutation": "Un campo approver textual basta para ratificar",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-04-T03",
+      "clause_id": "G00-04-F03",
+      "positive_acceptance": "Regla inválida no entra al evaluador como obligación cumplida",
+      "negative_mutation": "Una norma sin scope se aplica universalmente",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-04-T04",
+      "clause_id": "G00-04-F04",
+      "positive_acceptance": "El código observado no redefine requisito aprobado",
+      "negative_mutation": "El último commit corrige automáticamente la especificación",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-04-T05",
+      "clause_id": "G00-04-F05",
+      "positive_acceptance": "Ausencia de contexto emite UNKNOWN_AUTHORITY o REQUIRES_APPROVAL",
+      "negative_mutation": "JSON presentado por agente autentica al principal",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-04-T06",
+      "clause_id": "G00-04-F06",
+      "positive_acceptance": "La regla antigua persiste como histórica pero no se sobreescribe",
+      "negative_mutation": "Una decisión posterior sin aprobación reemplaza la anterior",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-04-T07",
+      "clause_id": "G00-04-F07",
+      "positive_acceptance": "Detectar conflicto sin preferencia heurística",
+      "negative_mutation": "El documento más reciente gana por defecto",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-04-T08",
+      "clause_id": "G00-04-F08",
+      "positive_acceptance": "El conflicto bloquea solo el ámbito pertinente y se conserva",
+      "negative_mutation": "La UI oculta un conflicto para cerrar el proyecto",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-04-T09",
+      "clause_id": "G00-04-F09",
+      "positive_acceptance": "Decisión de proyecto ajeno requiere importación y autoridad",
+      "negative_mutation": "Una regla externa gobierna proyecto sin permiso",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-04-T10",
+      "clause_id": "G00-04-F10",
+      "positive_acceptance": "La enmienda permanece pendiente de aceptación externa",
+      "negative_mutation": "Evaluador constitucional ratifica su propia modificación",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-05-T01",
+      "clause_id": "G00-05-F01",
+      "positive_acceptance": "Una capacidad puede derivar de un objetivo sin heredar estado completo",
+      "negative_mutation": "Objetivo equivale a campaign ticket",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-05-T02",
+      "clause_id": "G00-05-F02",
+      "positive_acceptance": "Una capacidad existe como contrato aunque no haya código",
+      "negative_mutation": "Crear archivo vacio marca capacidad IMPLEMENTED",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-05-T03",
+      "clause_id": "G00-05-F03",
+      "positive_acceptance": "Una propiedad comparte capacidades sin duplicar su identidad",
+      "negative_mutation": "Una prueba registrada se transforma en Property",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-05-T04",
+      "clause_id": "G00-05-F04",
+      "positive_acceptance": "El validador separa obligación aprobada de borrador",
+      "negative_mutation": "Un TODO sin fuente se acepta como obligación ratificada",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-05-T05",
+      "clause_id": "G00-05-F05",
+      "positive_acceptance": "Una obligación normativa sin aceptación exigida es diagnosticada",
+      "negative_mutation": "La aceptación se reduce a existe test",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-05-T06",
+      "clause_id": "G00-05-F06",
+      "positive_acceptance": "Spec sin ejecución mantiene NOT_RUN",
+      "negative_mutation": "Una función test_ en un archivo acredita PASS",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-05-T07",
+      "clause_id": "G00-05-F07",
+      "positive_acceptance": "Import real no se considera norma ratificada",
+      "negative_mutation": "El diseño se reescribe para coincidir con import actual",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-05-T08",
+      "clause_id": "G00-05-F08",
+      "positive_acceptance": "Una misma obligación en dos campañas conserva ID y revisión",
+      "negative_mutation": "Copiar texto a nueva campaña crea nueva autoridad paralela",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-05-T09",
+      "clause_id": "G00-05-F09",
+      "positive_acceptance": "Doble owner/productor no fuerza jerarquía uno-a-uno inventada",
+      "negative_mutation": "Se rechaza legítimo uso compartido de propiedad",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-05-T10",
+      "clause_id": "G00-05-F10",
+      "positive_acceptance": "Un objetivo de investigación se visualiza sin exigirse como desarrollo actual",
+      "negative_mutation": "Un constructor mueve CURRENT a RESEARCH para ocultar falta",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-06-T01",
+      "clause_id": "G00-06-F01",
+      "positive_acceptance": "Dimensiones no especificadas se registran desconocidas",
+      "negative_mutation": "Campo ausente equivale a falso",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-06-T02",
+      "clause_id": "G00-06-F02",
+      "positive_acceptance": "No se acepta eval de código ni operadores no registrados",
+      "negative_mutation": "Se ejecuta Python arbitrario de un contrato",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-06-T03",
+      "clause_id": "G00-06-F03",
+      "positive_acceptance": "Los cuatro casos tienen roundtrip y testigos distintos",
+      "negative_mutation": "Conflicto se convierte en unknown",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-06-T04",
+      "clause_id": "G00-06-F04",
+      "positive_acceptance": "AND(YES,UNKNOWN)=UNKNOWN y AND(YES,NO)=NO",
+      "negative_mutation": "AND desconocido produce YES por identidad vacía",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-06-T05",
+      "clause_id": "G00-06-F05",
+      "positive_acceptance": "OR(NO,UNKNOWN)=UNKNOWN y NOT(CONFLICT)=CONFLICT",
+      "negative_mutation": "NOT UNKNOWN se convierte en YES",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-06-T06",
+      "clause_id": "G00-06-F06",
+      "positive_acceptance": "Feature ausente en lista incompleta da UNKNOWN",
+      "negative_mutation": "Feature X no listado se considera NO",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-06-T07",
+      "clause_id": "G00-06-F07",
+      "positive_acceptance": "Obligación FUTURE aplicable no es CURRENT sin cambio autorizado",
+      "negative_mutation": "Constructor altera milestone para cerrar",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-06-T08",
+      "clause_id": "G00-06-F08",
+      "positive_acceptance": "Desconocido no ejecuta plugin ni confiere PASS",
+      "negative_mutation": "Script ajeno devuelve PASS sin admisión",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-06-T09",
+      "clause_id": "G00-06-F09",
+      "positive_acceptance": "Agotamiento produce ResourceLimited con diagnóstico",
+      "negative_mutation": "Análisis parcial declara completo",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-06-T10",
+      "clause_id": "G00-06-F10",
+      "positive_acceptance": "Una evidencia de proyecto B no se usa automáticamente en A",
+      "negative_mutation": "Una afirmación sin scope se acepta universalmente",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-07-T01",
+      "clause_id": "G00-07-F01",
+      "positive_acceptance": "Los nueve ejes son distinguibles en parse y serialización",
+      "negative_mutation": "Un PASS de Audit se trata como Material.PASS",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-07-T02",
+      "clause_id": "G00-07-F02",
+      "positive_acceptance": "Status Source no altera code status",
+      "negative_mutation": "Git tree leído se declara implementación",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-07-T03",
+      "clause_id": "G00-07-F03",
+      "positive_acceptance": "No convertir future en current mediante observación textual",
+      "negative_mutation": "Decision PROPOSED activa CURRENT sin aprobación",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-07-T04",
+      "clause_id": "G00-07-F04",
+      "positive_acceptance": "Un test escrito no cambia Material a PASS",
+      "negative_mutation": "Estado de compilación no ejecutada se considera PASS",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-07-T05",
+      "clause_id": "G00-07-F05",
+      "positive_acceptance": "Definir estado Audit no concede dictamen auditado",
+      "negative_mutation": "Constructor se autocalifica auditor independiente",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-07-T06",
+      "clause_id": "G00-07-F06",
+      "positive_acceptance": "G00 no dispone de método issue_certificate",
+      "negative_mutation": "StatusObservation produce certificado",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-07-T07",
+      "clause_id": "G00-07-F07",
+      "positive_acceptance": "MIGRATION_PARITY_PENDING permanece separado",
+      "negative_mutation": "Un smoke test cierra migración histórica",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-07-T08",
+      "clause_id": "G00-07-F08",
+      "positive_acceptance": "Una observación no se convierte en StatusProjection confiable",
+      "negative_mutation": "Se escribe completed true para saltar gates",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-07-T09",
+      "clause_id": "G00-07-F09",
+      "positive_acceptance": "Reporte indica ausencia de ejecución material",
+      "negative_mutation": "NOT_RUN se borra del informe por conveniencia",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-07-T10",
+      "clause_id": "G00-07-F10",
+      "positive_acceptance": "Un resumen deja visible evidencia pendiente",
+      "negative_mutation": "Solo se muestra verde DONE aunque QUALIFIED=UNQUALIFIED",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-08-T01",
+      "clause_id": "G00-08-F01",
+      "positive_acceptance": "Faltante revision en contrato normativo se rechaza",
+      "negative_mutation": "Se acepta referencia latest flotante",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-08-T02",
+      "clause_id": "G00-08-F02",
+      "positive_acceptance": "ObligationId no resuelve como Capability",
+      "negative_mutation": "El mismo texto sustituye a tipos distintos",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-08-T03",
+      "clause_id": "G00-08-F03",
+      "positive_acceptance": "Revision histórica existe solo como historical y no current",
+      "negative_mutation": "Resolver elige último documento",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-08-T04",
+      "clause_id": "G00-08-F04",
+      "positive_acceptance": "No se elige por orden de inserción",
+      "negative_mutation": "Duplicación de alias colapsa entidades",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-08-T05",
+      "clause_id": "G00-08-F05",
+      "positive_acceptance": "Ciclo legítimo de relaciones no se rechaza como dependencia ejecutiva",
+      "negative_mutation": "Todo ciclo matemático es considerado fallo",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-08-T06",
+      "clause_id": "G00-08-F06",
+      "positive_acceptance": "Import grant limitado no autoriza repo completo",
+      "negative_mutation": "Cualquier link externo es autorizado",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-08-T07",
+      "clause_id": "G00-08-F07",
+      "positive_acceptance": "../ y rutas absolutas se rechazan",
+      "negative_mutation": "Ruta escapa root del repo",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-08-T08",
+      "clause_id": "G00-08-F08",
+      "positive_acceptance": "OrphanRef no produce fallback a entidad genérica",
+      "negative_mutation": "Falta ref y se crea objeto placeholder ratificado",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-08-T09",
+      "clause_id": "G00-08-F09",
+      "positive_acceptance": "URL arbitraria no es Git immutable source",
+      "negative_mutation": "Se trata SourcePath como EntityId",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-08-T10",
+      "clause_id": "G00-08-F10",
+      "positive_acceptance": "Mismo View+Ref da mismo outcome sin side effects",
+      "negative_mutation": "Resolver crea automáticamente una nueva revision",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-09-T01",
+      "clause_id": "G00-09-F01",
+      "positive_acceptance": "Roundtrip mantiene schema+record_type",
+      "negative_mutation": "Un objeto sin version se admite con default normativo",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-09-T02",
+      "clause_id": "G00-09-F02",
+      "positive_acceptance": "Desconocida da UNSUPPORTED_NORMATIVE_FEATURE",
+      "negative_mutation": "Un lector viejo ignora nueva obligación",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-09-T03",
+      "clause_id": "G00-09-F03",
+      "positive_acceptance": "Unknown enum no se transforma en status UNKNOWN de otro eje",
+      "negative_mutation": "Variante desconocida se mapea a primer enum",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-09-T04",
+      "clause_id": "G00-09-F04",
+      "positive_acceptance": "Acceptance omitida no se convierte en lista validada",
+      "negative_mutation": "Un None equivale a array de pruebas vacío",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-09-T05",
+      "clause_id": "G00-09-F05",
+      "positive_acceptance": "Import+export produce mismo contrato tipado",
+      "negative_mutation": "Se pierden project IDs",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-09-T06",
+      "clause_id": "G00-09-F06",
+      "positive_acceptance": "Roundtrip preserva big integers",
+      "negative_mutation": "Se redondea un ID numérico o resource bound",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-09-T07",
+      "clause_id": "G00-09-F07",
+      "positive_acceptance": "Invalid numeric syntax produce DecodeError",
+      "negative_mutation": "NaN se usa para invalidar comparaciones",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-09-T08",
+      "clause_id": "G00-09-F08",
+      "positive_acceptance": "Desconocido informativo no cambia evaluación",
+      "negative_mutation": "Campo extra cambia decisión de cierre",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-09-T09",
+      "clause_id": "G00-09-F09",
+      "positive_acceptance": "Lector antiguo bloquea cambio de meaning",
+      "negative_mutation": "Schema viejo acepta campos de nueva regla ignorándolos",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-09-T10",
+      "clause_id": "G00-09-F10",
+      "positive_acceptance": "Mismo descriptor resulta misma validación",
+      "negative_mutation": "Codec cambia comportamiento por update remoto",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-10-T01",
+      "clause_id": "G00-10-F01",
+      "positive_acceptance": "Sin datos de contexto se devuelve error explícito",
+      "negative_mutation": "Evaluador lee variables de entorno",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-10-T02",
+      "clause_id": "G00-10-F02",
+      "positive_acceptance": "Entrada estructural inválida no se trata como FAIL científico",
+      "negative_mutation": "Malformed schema da PASS",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-10-T03",
+      "clause_id": "G00-10-F03",
+      "positive_acceptance": "Regla no soportada queda UNKNOWN_UNEVALUATED",
+      "negative_mutation": "Se omite regla desconocida del denominador",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-10-T04",
+      "clause_id": "G00-10-F04",
+      "positive_acceptance": "NOT_APPLICABLE requiere NO probado",
+      "negative_mutation": "UNKNOWN se ignora y el total es PASS",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-10-T05",
+      "clause_id": "G00-10-F05",
+      "positive_acceptance": "Propuesta contradictoria no adquiere autoridad",
+      "negative_mutation": "Último documento gana",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-10-T06",
+      "clause_id": "G00-10-F06",
+      "positive_acceptance": "Mismo input genera mismo diagnóstico",
+      "negative_mutation": "Un callback externo cambia resultados",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-10-T07",
+      "clause_id": "G00-10-F07",
+      "positive_acceptance": "El runtime no ejecuta eval/exec en policy",
+      "negative_mutation": "Script del proyecto es cargado como norma",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-10-T08",
+      "clause_id": "G00-10-F08",
+      "positive_acceptance": "ResourceLimited nunca es PASS",
+      "negative_mutation": "Timeout se trata como cumplimiento",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-10-T09",
+      "clause_id": "G00-10-F09",
+      "positive_acceptance": "Una violación no oculta otras reglas",
+      "negative_mutation": "Solo devuelve true",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-10-T10",
+      "clause_id": "G00-10-F10",
+      "positive_acceptance": "Permutar entrada produce misma salida estable",
+      "negative_mutation": "Se altera FactSet o dicta resultado según reloj",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-11-T01",
+      "clause_id": "G00-11-F01",
+      "positive_acceptance": "Hecho no sobreescribe obligación sin enmienda",
+      "negative_mutation": "Código observado define política nueva",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-11-T02",
+      "clause_id": "G00-11-F02",
+      "positive_acceptance": "Scopes disjuntos no se bloquean entre sí",
+      "negative_mutation": "Todo desacuerdo textual es CONFLICT global",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-11-T03",
+      "clause_id": "G00-11-F03",
+      "positive_acceptance": "La precedencia temporal se explica por revisiones autorizadas",
+      "negative_mutation": "Se borra historia para resolver",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-11-T04",
+      "clause_id": "G00-11-F04",
+      "positive_acceptance": "El informe no pierde uno de los witness refs",
+      "negative_mutation": "Conflicto con evidencia positiva y negativa se llama UNKNOWN",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-11-T05",
+      "clause_id": "G00-11-F05",
+      "positive_acceptance": "Resolver sin política explícita devuelve Conflict/Unknown",
+      "negative_mutation": "El último archivo se impone",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-11-T06",
+      "clause_id": "G00-11-F06",
+      "positive_acceptance": "Sin aprobación no se retira regla anterior",
+      "negative_mutation": "Texto SUPERSEDED sin autoridad basta",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-11-T07",
+      "clause_id": "G00-11-F07",
+      "positive_acceptance": "Componentes independientes no se marcan fail global",
+      "negative_mutation": "Un conflicto pequeño impide orientación de todo el proyecto",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-11-T08",
+      "clause_id": "G00-11-F08",
+      "positive_acceptance": "Report completo lista reglas en disputa",
+      "negative_mutation": "Se descarta contradicción al agregar resultados",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-11-T09",
+      "clause_id": "G00-11-F09",
+      "positive_acceptance": "Permutación de fuentes no altera ConflictRecord",
+      "negative_mutation": "Hash/set iteration cambia qué claim se bloquea",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-11-T10",
+      "clause_id": "G00-11-F10",
+      "positive_acceptance": "Norma proyecto A no compite con B automáticamente",
+      "negative_mutation": "Similaridades entre repos crean mismo conflicto normativo",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-12-T01",
+      "clause_id": "G00-12-F01",
+      "positive_acceptance": "Mutación que confunde EntityId/RevisionId falla test",
+      "negative_mutation": "Solo comprobar que tipo existe",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-12-T02",
+      "clause_id": "G00-12-F02",
+      "positive_acceptance": "Fuente faltante impide afirmar complete",
+      "negative_mutation": "Todos los SourceRef se aceptan",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-12-T03",
+      "clause_id": "G00-12-F03",
+      "positive_acceptance": "Auto-aprobación de texto se detecta",
+      "negative_mutation": "Solo probar decisión feliz",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-12-T04",
+      "clause_id": "G00-12-F04",
+      "positive_acceptance": "Propiedad compartida no se duplica ni se autocertifica",
+      "negative_mutation": "Modelo solo permite relación uno-a-uno",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-12-T05",
+      "clause_id": "G00-12-F05",
+      "positive_acceptance": "Truth table ejecutada coincide con contrato",
+      "negative_mutation": "UNKNOWN y NO pasan indistintos",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-12-T06",
+      "clause_id": "G00-12-F06",
+      "positive_acceptance": "No existe promoción automática de ejes",
+      "negative_mutation": "Un flag completed controla todos estados",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-12-T07",
+      "clause_id": "G00-12-F07",
+      "positive_acceptance": "Lectores viejos rechazan nueva norma no comprendida",
+      "negative_mutation": "Se aceptan enums desconocidos",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "required_methods": [
+        "BOUNDARY_AND_ADVERSARIAL",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-12-T08",
+      "clause_id": "G00-12-F08",
+      "positive_acceptance": "Determinismo, no IO, reporte de reglas no examinadas",
+      "negative_mutation": "Falla una norma y reporte oculta otras",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "required_methods": [
+        "CROSS_MODULE_REFERENCE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-12-T09",
+      "clause_id": "G00-12-F09",
+      "positive_acceptance": "Ninguna autoridad se mezcla por nombre",
+      "negative_mutation": "Project B hereda decision de A",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "required_methods": [
+        "PROPERTY_AND_NEGATIVE",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "logical_test_id": "G00-12-T10",
+      "clause_id": "G00-12-F10",
+      "positive_acceptance": "Al menos una mutación por familia dispara diagnóstico correcto",
+      "negative_mutation": "Una mutación de regla ratificada queda PASS",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "required_methods": [
+        "CONTRACT_AND_MUTATION",
+        "NEGATIVE_BOUNDARY",
+        "EXACT_SCOPE"
+      ],
+      "test_file_allocation": "TO_BE_CHOSEN_BY_MODULE_COHESION_NOT_ONE_FILE_PER_CLAUSE",
+      "status": "SPECIFIED_NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    }
+  ],
+  "attacks": [
+    {
+      "id": "ADV-01",
+      "parent_obligation": "G00-01",
+      "mutation": "Use the same raw string as ProjectId and RevisionId",
+      "expected_diagnostic": "WRONG_ID_KIND",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-02",
+      "parent_obligation": "G00-01",
+      "mutation": "Deserialize a reference without entity kind",
+      "expected_diagnostic": "INVALID_ID_SCHEMA",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-03",
+      "parent_obligation": "G00-01",
+      "mutation": "Alias resolves to two entities in the same namespace",
+      "expected_diagnostic": "AMBIGUOUS_ALIAS",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-04",
+      "parent_obligation": "G00-02",
+      "mutation": "Read another project's obligation under matching human name",
+      "expected_diagnostic": "FORBIDDEN_CROSS_PROJECT_REF",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-05",
+      "parent_obligation": "G00-02",
+      "mutation": "Approve all of an external repository based on a file-level grant",
+      "expected_diagnostic": "UNAPPROVED_IMPORT_SCOPE",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-06",
+      "parent_obligation": "G00-02",
+      "mutation": "Change a project's display name and regenerate its ProjectId",
+      "expected_diagnostic": "LOGICAL_ID_DRIFT",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-07",
+      "parent_obligation": "G00-03",
+      "mutation": "Use branch HEAD string as immutable source revision",
+      "expected_diagnostic": "SOURCE_CUT_NOT_PINNED",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-08",
+      "parent_obligation": "G00-03",
+      "mutation": "Declare a universe complete with known_missing records",
+      "expected_diagnostic": "SOURCE_COVERAGE_UNKNOWN",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-09",
+      "parent_obligation": "G00-03",
+      "mutation": "Sum overlapping base/delta files as disjoint semantic capabilities",
+      "expected_diagnostic": "SOURCE_POPULATION_DOUBLE_COUNT",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-10",
+      "parent_obligation": "G00-04",
+      "mutation": "Declare RATIFIED without a trusted approval context",
+      "expected_diagnostic": "UNTRUSTED_RATIFICATION",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-11",
+      "parent_obligation": "G00-04",
+      "mutation": "Load a foreign project's rule as local constitution",
+      "expected_diagnostic": "FOREIGN_CONSTITUTION_RULE",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-12",
+      "parent_obligation": "G00-04",
+      "mutation": "Treat most recently edited requirement as supercession",
+      "expected_diagnostic": "MISSING_APPROVED_SUPERSESSION",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-13",
+      "parent_obligation": "G00-05",
+      "mutation": "Equate a capability with the path of its implementation",
+      "expected_diagnostic": "CAPABILITY_ID_COLLAPSE",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-14",
+      "parent_obligation": "G00-05",
+      "mutation": "Create admitted obligation with empty acceptance criteria",
+      "expected_diagnostic": "REQUIRED_ACCEPTANCE_MISSING",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-15",
+      "parent_obligation": "G00-05",
+      "mutation": "Duplicate a Property when referenced by two campaigns",
+      "expected_diagnostic": "DUPLICATE_LOGICAL_ID",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-16",
+      "parent_obligation": "G00-06",
+      "mutation": "Interpret an absent feature list as a negative witness",
+      "expected_diagnostic": "APPLICABILITY_UNKNOWN",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-17",
+      "parent_obligation": "G00-06",
+      "mutation": "Convert NOT(UNKNOWN) to YES",
+      "expected_diagnostic": "FOUR_VALUE_NEGATION_INCORRECT",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-18",
+      "parent_obligation": "G00-06",
+      "mutation": "Treat evidence of both inclusion and exclusion as NO",
+      "expected_diagnostic": "APPLICABILITY_CONFLICT",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-19",
+      "parent_obligation": "G00-06",
+      "mutation": "Accept an executable Python expression as ScopePredicate",
+      "expected_diagnostic": "UNSAFE_SCOPE_PREDICATE",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-20",
+      "parent_obligation": "G00-06",
+      "mutation": "Run out of evaluation steps then return PASS",
+      "expected_diagnostic": "EVALUATION_RESOURCE_LIMITED",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-21",
+      "parent_obligation": "G00-07",
+      "mutation": "Map Implementation.DEVELOPED to Material.PASS",
+      "expected_diagnostic": "ILLEGAL_STATUS_PROMOTION",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-22",
+      "parent_obligation": "G00-07",
+      "mutation": "Map Audit.PASS directly to Scientific QUALIFIED",
+      "expected_diagnostic": "ILLEGAL_STATUS_PROMOTION",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-23",
+      "parent_obligation": "G00-07",
+      "mutation": "Treat Material.NOT_RUN as a passing test",
+      "expected_diagnostic": "MATERIAL_NOT_RUN",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-24",
+      "parent_obligation": "G00-08",
+      "mutation": "Resolve entity by latest revision when explicit revision missing",
+      "expected_diagnostic": "REVISION_REQUIRED",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-25",
+      "parent_obligation": "G00-08",
+      "mutation": "Use an absolute or parent-traversal Git path",
+      "expected_diagnostic": "INVALID_SOURCE_PATH",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-26",
+      "parent_obligation": "G00-08",
+      "mutation": "Create ratified placeholder for unresolved EntityRef",
+      "expected_diagnostic": "ORPHAN_REFERENCE",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-27",
+      "parent_obligation": "G00-09",
+      "mutation": "Ignore required normative feature unknown to reader",
+      "expected_diagnostic": "UNSUPPORTED_NORMATIVE_FEATURE",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-28",
+      "parent_obligation": "G00-09",
+      "mutation": "Treat null and empty acceptance list as equivalent defaults",
+      "expected_diagnostic": "INVALID_SCHEMA_SEMANTICS",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-29",
+      "parent_obligation": "G00-09",
+      "mutation": "Coerce unknown status enum to first known member",
+      "expected_diagnostic": "UNSUPPORTED_VARIANT",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-30",
+      "parent_obligation": "G00-10",
+      "mutation": "Return PASS without evaluating one required RuleRevision",
+      "expected_diagnostic": "RULE_SET_INCOMPLETE",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-31",
+      "parent_obligation": "G00-10",
+      "mutation": "Let a pure evaluator read wall clock / environment to decide",
+      "expected_diagnostic": "IMPURE_EVALUATION",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-32",
+      "parent_obligation": "G00-10",
+      "mutation": "Run a project-provided callback as a trusted RuleEvaluator",
+      "expected_diagnostic": "UNTRUSTED_RULE_EXECUTOR",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-33",
+      "parent_obligation": "G00-11",
+      "mutation": "Silently prefer the newest of two incompatible ratified rules",
+      "expected_diagnostic": "UNRESOLVED_NORMATIVE_CONFLICT",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-34",
+      "parent_obligation": "G00-11",
+      "mutation": "Block a disjoint project with another project's conflict",
+      "expected_diagnostic": "CONFLICT_SCOPE_LEAK",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-35",
+      "parent_obligation": "G00-11",
+      "mutation": "Drop one witness when merging conflict diagnostics",
+      "expected_diagnostic": "CONFLICT_WITNESS_LOSS",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    },
+    {
+      "id": "ADV-36",
+      "parent_obligation": "G00-12",
+      "mutation": "Modify a normative condition and make tests pass by deleting adversarial case",
+      "expected_diagnostic": "VERIFICATION_CONTRACT_DRIFT",
+      "type": "REJECTION_OR_FAIL_CLOSED",
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN"
+    }
+  ],
+  "verticals": [
+    {
+      "id": "G00-V01",
+      "name": "Two isolated projects",
+      "scenario": "Create projects A/B with overlapping aliases, distinct source universes and decisions; validate separate snapshots and block foreign reference",
+      "parent_obligations": [
+        "G00-01",
+        "G00-02",
+        "G00-03",
+        "G00-08"
+      ],
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN",
+      "qualification": "NONE"
+    },
+    {
+      "id": "G00-V02",
+      "name": "Founding mathematical specification",
+      "scenario": "One objective supports 2 capabilities, a shared Property, 3 Obligations, one current and one future campaign; inspect without code or tests",
+      "parent_obligations": [
+        "G00-05",
+        "G00-07",
+        "G00-08"
+      ],
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN",
+      "qualification": "NONE"
+    },
+    {
+      "id": "G00-V03",
+      "name": "Incomplete historical SourceUniverse",
+      "scenario": "Two overlapping Git cuts, one unavailable source, declared exclusions and candidate coverage claim; refuse complete source certification",
+      "parent_obligations": [
+        "G00-02",
+        "G00-03",
+        "G00-11"
+      ],
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN",
+      "qualification": "NONE"
+    },
+    {
+      "id": "G00-V04",
+      "name": "Policy proposal versus ratification",
+      "scenario": "Create proposal and authenticated-context decision, evaluate two incompatible scoped rules; conflict/localization no self-approval",
+      "parent_obligations": [
+        "G00-04",
+        "G00-10",
+        "G00-11"
+      ],
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN",
+      "qualification": "NONE"
+    },
+    {
+      "id": "G00-V05",
+      "name": "Four-valued applicability",
+      "scenario": "Evaluate YES/NO/UNKNOWN/CONFLICT and nested ALL/ANY/NOT with complete/incomplete feature sets, conflicts and budget limit",
+      "parent_obligations": [
+        "G00-06",
+        "G00-09",
+        "G00-10"
+      ],
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN",
+      "qualification": "NONE"
+    },
+    {
+      "id": "G00-V06",
+      "name": "Schema backwards reader",
+      "scenario": "Roundtrip 4 domain entity kinds, deny unknown normative feature while preserving authorized informational extension",
+      "parent_obligations": [
+        "G00-01",
+        "G00-05",
+        "G00-09"
+      ],
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN",
+      "qualification": "NONE"
+    },
+    {
+      "id": "G00-V07",
+      "name": "Deterministic end-to-end in memory",
+      "scenario": "Take valid snapshot+rules+facts+profile, evaluate constitutional status, permute map order and assert identical reports and zero mutations",
+      "parent_obligations": [
+        "G00-07",
+        "G00-10",
+        "G00-11",
+        "G00-12"
+      ],
+      "test_status": "NOT_AUTHORED",
+      "run_status": "NOT_RUN",
+      "qualification": "NONE"
+    }
+  ],
+  "closure_policy": "G00-12 cannot be DevelopmentComplete unless every G00-XX-FYY has appropriate authored tests and required negative mutations; material runs, independent audit, receipts are later closure gates",
+  "results_observed": 0
+}
