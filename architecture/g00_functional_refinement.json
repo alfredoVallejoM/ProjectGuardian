@@ -1,0 +1,2372 @@
+{
+  "schema": "guardian/g00-functional-refinement/v1",
+  "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION",
+  "campaign": "G-00",
+  "canonical_campaign_authority": "architecture/campaigns.json",
+  "original_parent_obligations": 12,
+  "functional_clauses": 120,
+  "does_not_modify_original_obligation_population": true,
+  "scope": "Domain and Constitution foundational contracts; exclude Git material read, full graph, admissions, claims",
+  "clauses": [
+    {
+      "id": "G00-01-F01",
+      "parent_obligation": "G00-01",
+      "functionality": "Identidades nominales",
+      "required_behavior": "Implementar constructores distintos para ProjectId, EntityId, RevisionId y ContentDigest",
+      "acceptance": "Un parser devuelve instancias con discriminante correcto y rechaza intercambio entre clases",
+      "falsification": "La misma cadena se acepta como el tipo de identificador equivocado",
+      "modules": [
+        "src/guardian/domain/identity.py"
+      ],
+      "test_contract_id": "G00-01-T01",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-01-F02",
+      "parent_obligation": "G00-01",
+      "functionality": "Namespace y clase",
+      "required_behavior": "Asociar EntityId a ProjectId y EntityKind exactos",
+      "acceptance": "La igualdad de entidades exige namespace y clase además del valor",
+      "falsification": "Una entidad de proyecto B equivale a otra de A por tener el mismo texto",
+      "modules": [
+        "src/guardian/domain/identity.py"
+      ],
+      "test_contract_id": "G00-01-T02",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-01-F03",
+      "parent_obligation": "G00-01",
+      "functionality": "Gramática estable",
+      "required_behavior": "Validar longitud, alfabeto, prefijos y sintaxis de ID canónico",
+      "acceptance": "Una entrada fuera de la gramática devuelve InvalidIdentity con path y causa",
+      "falsification": "Se admite ID vacío, path traversal o texto con delimitadores inseguros",
+      "modules": [
+        "src/guardian/domain/identity.py"
+      ],
+      "test_contract_id": "G00-01-T03",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-01-F04",
+      "parent_obligation": "G00-01",
+      "functionality": "Alias separado",
+      "required_behavior": "Modelar Alias como referencia legible con ámbito y procedencia",
+      "acceptance": "Un alias resuelve solo cuando hay un candidato exacto en el ámbito",
+      "falsification": "El primer alias duplicado gana por orden de diccionario",
+      "modules": [
+        "src/guardian/domain/identity.py"
+      ],
+      "test_contract_id": "G00-01-T04",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-01-F05",
+      "parent_obligation": "G00-01",
+      "functionality": "Renombrado conservador",
+      "required_behavior": "Permitir cambiar nombre de presentación/ruta sin cambiar LogicalId",
+      "acceptance": "El mismo EntityId se mantiene tras el cambio de alias o ruta",
+      "falsification": "El identificador canónico se regenera porque se movió el archivo",
+      "modules": [
+        "src/guardian/domain/identity.py"
+      ],
+      "test_contract_id": "G00-01-T05",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-01-F06",
+      "parent_obligation": "G00-01",
+      "functionality": "Revisión pinneada",
+      "required_behavior": "Representar cada EntityRef con RevisionId obligatorio para evaluación normativa",
+      "acceptance": "La referencia resuelve a revisión exacta o produce error tipado",
+      "falsification": "Una branch mutable se considera RevisionId certificable",
+      "modules": [
+        "src/guardian/domain/identity.py"
+      ],
+      "test_contract_id": "G00-01-T06",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-01-F07",
+      "parent_obligation": "G00-01",
+      "functionality": "Digest con algoritmo",
+      "required_behavior": "Validar algoritmo, codificación y longitud de ContentDigest",
+      "acceptance": "Algoritmo y hex completo se conservan al serializar",
+      "falsification": "Digest abreviado o algoritmo distinto se acepta como idéntico",
+      "modules": [
+        "src/guardian/domain/identity.py"
+      ],
+      "test_contract_id": "G00-01-T07",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-01-F08",
+      "parent_obligation": "G00-01",
+      "functionality": "Generación exterior",
+      "required_behavior": "Recibir IDs generados como entrada y solo validarlos en domain",
+      "acceptance": "Ejecutar validadores con mismos inputs no usa hora ni RNG",
+      "falsification": "El constructor puro invoca time o uuid internamente y cambia resultados",
+      "modules": [
+        "src/guardian/domain/identity.py"
+      ],
+      "test_contract_id": "G00-01-T08",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-01-F09",
+      "parent_obligation": "G00-01",
+      "functionality": "Roundtrip de tipos",
+      "required_behavior": "Serializar y deserializar todos los ID sin perder kind ni project",
+      "acceptance": "El roundtrip conserva tipo nominal, valor y namespace",
+      "falsification": "Todos los IDs se serializan como string sin tipo recuperable",
+      "modules": [
+        "src/guardian/domain/identity.py"
+      ],
+      "test_contract_id": "G00-01-T09",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-01-F10",
+      "parent_obligation": "G00-01",
+      "functionality": "Colisiones explícitas",
+      "required_behavior": "Detectar IDs repetidos de distinta entidad en un mismo namespace y clase",
+      "acceptance": "Registrar DuplicateLogicalId sin fusionar obligaciones",
+      "falsification": "La segunda entidad sobrescribe la primera",
+      "modules": [
+        "src/guardian/domain/identity.py"
+      ],
+      "test_contract_id": "G00-01-T10",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-02-F01",
+      "parent_obligation": "G00-02",
+      "functionality": "Identidad del proyecto",
+      "required_behavior": "Definir ProjectDefinition con ID estable y metadatos separados",
+      "acceptance": "Renombrar display name no cambia ProjectId ni constitución",
+      "falsification": "Cambiar nombre recrea proyecto y borra linaje",
+      "modules": [
+        "src/guardian/domain/project.py"
+      ],
+      "test_contract_id": "G00-02-T01",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-02-F02",
+      "parent_obligation": "G00-02",
+      "functionality": "Fuentes autorizadas",
+      "required_behavior": "Registrar repositorios y políticas de fuente por proyecto",
+      "acceptance": "Fuente fuera de allowlist da denegación o requerimiento de importación",
+      "falsification": "Un repo arbitrario se convierte en fuente normativa",
+      "modules": [
+        "src/guardian/domain/project.py"
+      ],
+      "test_contract_id": "G00-02-T02",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-02-F03",
+      "parent_obligation": "G00-02",
+      "functionality": "Tres modos",
+      "required_behavior": "Representar EMBEDDED, SIDECAR y FEDERATED como descriptores válidos",
+      "acceptance": "Cada modo tiene sus campos obligatorios y no altera contrato central",
+      "falsification": "SIDECAR se interpreta como fuente secundaria de verdad editable",
+      "modules": [
+        "src/guardian/domain/project.py"
+      ],
+      "test_contract_id": "G00-02-T03",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-02-F04",
+      "parent_obligation": "G00-02",
+      "functionality": "Selección explícita",
+      "required_behavior": "Requerir ProjectId en vistas y llamadas de dominio",
+      "acceptance": "Dos proyectos alternados mantienen estados y refs propios",
+      "falsification": "Se usa un global current_project implícito",
+      "modules": [
+        "src/guardian/domain/project.py"
+      ],
+      "test_contract_id": "G00-02-T04",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-02-F05",
+      "parent_obligation": "G00-02",
+      "functionality": "Importaciones explícitas",
+      "required_behavior": "Exigir descriptor de importación aprobado para refs ajenas",
+      "acceptance": "Una importación sin alcance produce REQUIRES_APPROVAL",
+      "falsification": "Contratos externos se incorporan por similitud textual",
+      "modules": [
+        "src/guardian/domain/project.py"
+      ],
+      "test_contract_id": "G00-02-T05",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-02-F06",
+      "parent_obligation": "G00-02",
+      "functionality": "Granularidad de import",
+      "required_behavior": "Restringir importación a cortes, rutas o contratos concedidos",
+      "acceptance": "Permiso para un SourceCut no concede todo otro repositorio",
+      "falsification": "Importar un archivo autoriza todos los archivos del repo",
+      "modules": [
+        "src/guardian/domain/project.py"
+      ],
+      "test_contract_id": "G00-02-T06",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-02-F07",
+      "parent_obligation": "G00-02",
+      "functionality": "Versión de política",
+      "required_behavior": "Fijar constitution/policy revision en definición de proyecto",
+      "acceptance": "Las reglas se evalúan sobre revisión indicada, nunca latest accidental",
+      "falsification": "Actualizar policy global cambia evaluación histórica sin revisión",
+      "modules": [
+        "src/guardian/domain/project.py"
+      ],
+      "test_contract_id": "G00-02-T07",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-02-F08",
+      "parent_obligation": "G00-02",
+      "functionality": "Federación",
+      "required_behavior": "Representar múltiples repositorios con identidades/cortes independientes",
+      "acceptance": "Una vista federada conserva commit y autoridad de cada fuente",
+      "falsification": "Se aplica un único SHA como revisión de todos los repos",
+      "modules": [
+        "src/guardian/domain/project.py"
+      ],
+      "test_contract_id": "G00-02-T08",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-02-F09",
+      "parent_obligation": "G00-02",
+      "functionality": "Alias no global",
+      "required_behavior": "Permitir mismos nombres humanos en proyectos diferentes",
+      "acceptance": "El resolver distingue ProjectId y no mezcla alias",
+      "falsification": "Los dos proyectos comparten una tabla autoritativa de nombres",
+      "modules": [
+        "src/guardian/domain/project.py"
+      ],
+      "test_contract_id": "G00-02-T09",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-02-F10",
+      "parent_obligation": "G00-02",
+      "functionality": "Proyecto inmutable",
+      "required_behavior": "Construir vista de proyecto read-only con entradas explícitas",
+      "acceptance": "Validar no modifica fuentes, contratos ni config",
+      "falsification": "Validación cambia el registro del proyecto en memoria",
+      "modules": [
+        "src/guardian/domain/project.py"
+      ],
+      "test_contract_id": "G00-02-T10",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-03-F01",
+      "parent_obligation": "G00-03",
+      "functionality": "Git inmutable",
+      "required_behavior": "Modelar SourceCut Git con commit completo, repo, kind y path opcional",
+      "acceptance": "Branch sin resolución a corte fijo no vale para cierre de cobertura",
+      "falsification": "main se almacena como commit inmutable",
+      "modules": [
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-03-T01",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-03-F02",
+      "parent_obligation": "G00-03",
+      "functionality": "Documento versionado",
+      "required_behavior": "Distinguir SourceRef documental con revisión/identidad de captura",
+      "acceptance": "Una cita se liga a documento y revisión, no solo título",
+      "falsification": "Un nombre de documento sin corte se trata como versión completa",
+      "modules": [
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-03-T02",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-03-F03",
+      "parent_obligation": "G00-03",
+      "functionality": "Inclusiones",
+      "required_behavior": "Definir reglas explícitas de qué fuentes pertenecen al universo",
+      "acceptance": "Cambiar include set genera revisión de universo, no reinterpreta corte viejo",
+      "falsification": "Todo archivo del mundo se presume incluido",
+      "modules": [
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-03-T03",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-03-F04",
+      "parent_obligation": "G00-03",
+      "functionality": "Exclusiones justificadas",
+      "required_behavior": "Exigir razón/autoridad al excluir fuentes de un universo comprometido",
+      "acceptance": "Una exclusión no documentada produce diagnóstico",
+      "falsification": "Se excluye archivo problemático para declarar cobertura",
+      "modules": [
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-03-T04",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-03-F05",
+      "parent_obligation": "G00-03",
+      "functionality": "Fuentes ausentes",
+      "required_behavior": "Registrar known_missing y unavailable sin inventar contenido",
+      "acceptance": "La evaluación conserva SOURCE_MISSING y no afirma exhaustividad",
+      "falsification": "Fuente no descargada se marca reconciled",
+      "modules": [
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-03-T05",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-03-F06",
+      "parent_obligation": "G00-03",
+      "functionality": "Cortes solapados",
+      "required_behavior": "Clasificar historia BASE/DELTA/SUPERSEDED/REFERENCE según scope",
+      "acceptance": "Dos cuts del mismo repo no se suman como poblaciones semánticas disjuntas",
+      "falsification": "El número de archivos se duplica como capacidades",
+      "modules": [
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-03-T06",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-03-F07",
+      "parent_obligation": "G00-03",
+      "functionality": "Niveles de adquisición",
+      "required_behavior": "Separar IDENTIFIED, IDENTITY_VERIFIED, CONTENT_OBSERVED, SEMANTIC_RECONCILED",
+      "acceptance": "Un árbol remoto leído no se declara censo AST completo",
+      "falsification": "Pointer de blob se trata como implementacion certificada",
+      "modules": [
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-03-T07",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-03-F08",
+      "parent_obligation": "G00-03",
+      "functionality": "Fuente versus autoridad",
+      "required_behavior": "Registrar observaciones sin convertirlas en decisiones ratificadas",
+      "acceptance": "Un README o comentario no altera constitution aprobada",
+      "falsification": "Una instrucción en fichero fuente autoriza cambiar reglas",
+      "modules": [
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-03-T08",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-03-F09",
+      "parent_obligation": "G00-03",
+      "functionality": "Cobertura delimitada",
+      "required_behavior": "SourceUniverse incluye alcance y límites antes de reclamo de completeness",
+      "acceptance": "Universo con known_missing no permite claim de cobertura completa",
+      "falsification": "Se declara 100% porque todas las filas ya registradas tienen ref",
+      "modules": [
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-03-T09",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-03-F10",
+      "parent_obligation": "G00-03",
+      "functionality": "Metadatos de alcance",
+      "required_behavior": "Representar feature/corpus/platform/time scope del inventario",
+      "acceptance": "Informe puede explicar qué universo quedó fuera",
+      "falsification": "Una cifra de cobertura carece de denominador y exclusiones",
+      "modules": [
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-03-T10",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-04-F01",
+      "parent_obligation": "G00-04",
+      "functionality": "Estados de decisión",
+      "required_behavior": "Distinguir PROPOSED, APPROVED, REJECTED y SUPERSEDED en DecisionRevision",
+      "acceptance": "El parser conserva estado y no presupone aprobación",
+      "falsification": "Una propuesta se toma como norma ratificada",
+      "modules": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "test_contract_id": "G00-04-T01",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-04-F02",
+      "parent_obligation": "G00-04",
+      "functionality": "Approval distinto",
+      "required_behavior": "Modelar ApprovalRef separado de texto de decisión",
+      "acceptance": "Un registro autodenominado aprobado sin contexto confiable no concede autoridad",
+      "falsification": "Un campo approver textual basta para ratificar",
+      "modules": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "test_contract_id": "G00-04-T02",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-04-F03",
+      "parent_obligation": "G00-04",
+      "functionality": "Regla versionada",
+      "required_behavior": "RuleRevision especifica ID, kind, scope, predicate, autoridad y versión",
+      "acceptance": "Regla inválida no entra al evaluador como obligación cumplida",
+      "falsification": "Una norma sin scope se aplica universalmente",
+      "modules": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "test_contract_id": "G00-04-T03",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-04-F04",
+      "parent_obligation": "G00-04",
+      "functionality": "Hecho frente a norma",
+      "required_behavior": "Separar source observation de contractual decision",
+      "acceptance": "El código observado no redefine requisito aprobado",
+      "falsification": "El último commit corrige automáticamente la especificación",
+      "modules": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "test_contract_id": "G00-04-T04",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-04-F05",
+      "parent_obligation": "G00-04",
+      "functionality": "Contexto confiable",
+      "required_behavior": "AuthorityContext debe recibirse explícitamente de frontera externa",
+      "acceptance": "Ausencia de contexto emite UNKNOWN_AUTHORITY o REQUIRES_APPROVAL",
+      "falsification": "JSON presentado por agente autentica al principal",
+      "modules": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "test_contract_id": "G00-04-T05",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-04-F06",
+      "parent_obligation": "G00-04",
+      "functionality": "Precedencia autorizada",
+      "required_behavior": "Aplicar supersession ratificada solo dentro de ámbito y revisión",
+      "acceptance": "La regla antigua persiste como histórica pero no se sobreescribe",
+      "falsification": "Una decisión posterior sin aprobación reemplaza la anterior",
+      "modules": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "test_contract_id": "G00-04-T06",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-04-F07",
+      "parent_obligation": "G00-04",
+      "functionality": "Sin prioridad temporal",
+      "required_behavior": "No elegir una de dos fuentes conflictivas solo por fecha",
+      "acceptance": "Detectar conflicto sin preferencia heurística",
+      "falsification": "El documento más reciente gana por defecto",
+      "modules": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "test_contract_id": "G00-04-T07",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-04-F08",
+      "parent_obligation": "G00-04",
+      "functionality": "Dependientes de conflicto",
+      "required_behavior": "Emitir ConflictRecord e identificar reglas/claims afectados",
+      "acceptance": "El conflicto bloquea solo el ámbito pertinente y se conserva",
+      "falsification": "La UI oculta un conflicto para cerrar el proyecto",
+      "modules": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "test_contract_id": "G00-04-T08",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-04-F09",
+      "parent_obligation": "G00-04",
+      "functionality": "Scope de decisiones",
+      "required_behavior": "Validar que decision/policy pertenecen al proyecto y ámbito",
+      "acceptance": "Decisión de proyecto ajeno requiere importación y autoridad",
+      "falsification": "Una regla externa gobierna proyecto sin permiso",
+      "modules": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "test_contract_id": "G00-04-T09",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-04-F10",
+      "parent_obligation": "G00-04",
+      "functionality": "Enmienda como propuesta",
+      "required_behavior": "Construir AmendmentRequest sin mutar policy protegida",
+      "acceptance": "La enmienda permanece pendiente de aceptación externa",
+      "falsification": "Evaluador constitucional ratifica su propia modificación",
+      "modules": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "test_contract_id": "G00-04-T10",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-05-F01",
+      "parent_obligation": "G00-05",
+      "functionality": "Objetivo autónomo",
+      "required_behavior": "ObjectiveRevision contiene propósito, fuentes y exclusiones sin ser task",
+      "acceptance": "Una capacidad puede derivar de un objetivo sin heredar estado completo",
+      "falsification": "Objetivo equivale a campaign ticket",
+      "modules": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "test_contract_id": "G00-05-T01",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-05-F02",
+      "parent_obligation": "G00-05",
+      "functionality": "Capacidad funcional",
+      "required_behavior": "CapabilityRevision describe comportamiento, contexto y owner",
+      "acceptance": "Una capacidad existe como contrato aunque no haya código",
+      "falsification": "Crear archivo vacio marca capacidad IMPLEMENTED",
+      "modules": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "test_contract_id": "G00-05-T02",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-05-F03",
+      "parent_obligation": "G00-05",
+      "functionality": "Propiedad independiente",
+      "required_behavior": "PropertyRevision declara garantía, hipótesis y ámbito",
+      "acceptance": "Una propiedad comparte capacidades sin duplicar su identidad",
+      "falsification": "Una prueba registrada se transforma en Property",
+      "modules": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "test_contract_id": "G00-05-T03",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-05-F04",
+      "parent_obligation": "G00-05",
+      "functionality": "Obligación exigible",
+      "required_behavior": "ObligationRevision tiene statement, applicability, due, source, authority",
+      "acceptance": "El validador separa obligación aprobada de borrador",
+      "falsification": "Un TODO sin fuente se acepta como obligación ratificada",
+      "modules": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "test_contract_id": "G00-05-T04",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-05-F05",
+      "parent_obligation": "G00-05",
+      "functionality": "Aceptación y falsación",
+      "required_behavior": "Obligation registra acceptance, falsification y verification requirements",
+      "acceptance": "Una obligación normativa sin aceptación exigida es diagnosticada",
+      "falsification": "La aceptación se reduce a existe test",
+      "modules": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "test_contract_id": "G00-05-T05",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-05-F06",
+      "parent_obligation": "G00-05",
+      "functionality": "Verification separada",
+      "required_behavior": "VerificationSpecRef es contrato; ValidationRun no se crea al definir obligación",
+      "acceptance": "Spec sin ejecución mantiene NOT_RUN",
+      "falsification": "Una función test_ en un archivo acredita PASS",
+      "modules": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "test_contract_id": "G00-05-T06",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-05-F07",
+      "parent_obligation": "G00-05",
+      "functionality": "Arquitectura normativa",
+      "required_behavior": "ArchitectureRevision separa component owner y dependencias del código observado",
+      "acceptance": "Import real no se considera norma ratificada",
+      "falsification": "El diseño se reescribe para coincidir con import actual",
+      "modules": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "test_contract_id": "G00-05-T07",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-05-F08",
+      "parent_obligation": "G00-05",
+      "functionality": "Campaign membership",
+      "required_behavior": "CampaignRevision referencia IDs de obligaciones por scope/hito",
+      "acceptance": "Una misma obligación en dos campañas conserva ID y revisión",
+      "falsification": "Copiar texto a nueva campaña crea nueva autoridad paralela",
+      "modules": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "test_contract_id": "G00-05-T08",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-05-F09",
+      "parent_obligation": "G00-05",
+      "functionality": "Muchos-a-muchos",
+      "required_behavior": "Permitir objetivos/capacidades/propiedades/obligaciones con referencias múltiples",
+      "acceptance": "Doble owner/productor no fuerza jerarquía uno-a-uno inventada",
+      "falsification": "Se rechaza legítimo uso compartido de propiedad",
+      "modules": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "test_contract_id": "G00-05-T09",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-05-F10",
+      "parent_obligation": "G00-05",
+      "functionality": "Investigación separada",
+      "required_behavior": "Research/Future/Optional no son Current sin decisión",
+      "acceptance": "Un objetivo de investigación se visualiza sin exigirse como desarrollo actual",
+      "falsification": "Un constructor mueve CURRENT a RESEARCH para ocultar falta",
+      "modules": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "test_contract_id": "G00-05-T10",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-06-F01",
+      "parent_obligation": "G00-06",
+      "functionality": "Perfil multidimensional",
+      "required_behavior": "SupportProfile con project, revision, milestone, features, domain y resources tipados",
+      "acceptance": "Dimensiones no especificadas se registran desconocidas",
+      "falsification": "Campo ausente equivale a falso",
+      "modules": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-06-T01",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-06-F02",
+      "parent_obligation": "G00-06",
+      "functionality": "AST acotado",
+      "required_behavior": "ScopeExpression usa Atom, ALL, ANY, NOT, True/False explícitos",
+      "acceptance": "No se acepta eval de código ni operadores no registrados",
+      "falsification": "Se ejecuta Python arbitrario de un contrato",
+      "modules": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-06-T02",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-06-F03",
+      "parent_obligation": "G00-06",
+      "functionality": "Cuatro valores",
+      "required_behavior": "ApplicabilityResult distingue YES NO UNKNOWN CONFLICT como par de evidencias",
+      "acceptance": "Los cuatro casos tienen roundtrip y testigos distintos",
+      "falsification": "Conflicto se convierte en unknown",
+      "modules": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-06-T03",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-06-F04",
+      "parent_obligation": "G00-06",
+      "functionality": "Conjunción precisa",
+      "required_behavior": "AND usa truth-support intersection y false-support union",
+      "acceptance": "AND(YES,UNKNOWN)=UNKNOWN y AND(YES,NO)=NO",
+      "falsification": "AND desconocido produce YES por identidad vacía",
+      "modules": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-06-T04",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-06-F05",
+      "parent_obligation": "G00-06",
+      "functionality": "Disyunción y negación",
+      "required_behavior": "OR y NOT siguen álgebra de soporte y preservan conflictos internos",
+      "acceptance": "OR(NO,UNKNOWN)=UNKNOWN y NOT(CONFLICT)=CONFLICT",
+      "falsification": "NOT UNKNOWN se convierte en YES",
+      "modules": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-06-T05",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-06-F06",
+      "parent_obligation": "G00-06",
+      "functionality": "Dimension completa",
+      "required_behavior": "NO por ausencia solo cuando dimensión declara conjunto exhaustivo",
+      "acceptance": "Feature ausente en lista incompleta da UNKNOWN",
+      "falsification": "Feature X no listado se considera NO",
+      "modules": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-06-T06",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-06-F07",
+      "parent_obligation": "G00-06",
+      "functionality": "Due separado",
+      "required_behavior": "Applicability distinto de compromiso temporal y ratificación",
+      "acceptance": "Obligación FUTURE aplicable no es CURRENT sin cambio autorizado",
+      "falsification": "Constructor altera milestone para cerrar",
+      "modules": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-06-T07",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-06-F08",
+      "parent_obligation": "G00-06",
+      "functionality": "Predicado externo",
+      "required_behavior": "VerifierPredicate sin verificador/observación confiable devuelve UNKNOWN",
+      "acceptance": "Desconocido no ejecuta plugin ni confiere PASS",
+      "falsification": "Script ajeno devuelve PASS sin admisión",
+      "modules": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-06-T08",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-06-F09",
+      "parent_obligation": "G00-06",
+      "functionality": "Presupuesto explícito",
+      "required_behavior": "StepBudget limita profundidad/nodos/pasos y reporta recurso insuficiente",
+      "acceptance": "Agotamiento produce ResourceLimited con diagnóstico",
+      "falsification": "Análisis parcial declara completo",
+      "modules": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-06-T09",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-06-F10",
+      "parent_obligation": "G00-06",
+      "functionality": "Testigos scoped",
+      "required_behavior": "YES y NO referencian fuentes y revisiones del mismo perfil",
+      "acceptance": "Una evidencia de proyecto B no se usa automáticamente en A",
+      "falsification": "Una afirmación sin scope se acepta universalmente",
+      "modules": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-06-T10",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-07-F01",
+      "parent_obligation": "G00-07",
+      "functionality": "Ejes nominales",
+      "required_behavior": "StatusAxis Source/Decision/Commitment/Implementation/Audit/Material/Support/Qualification/Migration",
+      "acceptance": "Los nueve ejes son distinguibles en parse y serialización",
+      "falsification": "Un PASS de Audit se trata como Material.PASS",
+      "modules": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "test_contract_id": "G00-07-T01",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-07-F02",
+      "parent_obligation": "G00-07",
+      "functionality": "Fuente separada",
+      "required_behavior": "Source IDENTIFIED no implica SEMANTIC_RECONCILED",
+      "acceptance": "Status Source no altera code status",
+      "falsification": "Git tree leído se declara implementación",
+      "modules": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "test_contract_id": "G00-07-T02",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-07-F03",
+      "parent_obligation": "G00-07",
+      "functionality": "Decisión y compromiso",
+      "required_behavior": "PROPOSED/APPROVED y CURRENT/FUTURE se modelan por separado",
+      "acceptance": "No convertir future en current mediante observación textual",
+      "falsification": "Decision PROPOSED activa CURRENT sin aprobación",
+      "modules": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "test_contract_id": "G00-07-T03",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-07-F04",
+      "parent_obligation": "G00-07",
+      "functionality": "Implementación y ejecución",
+      "required_behavior": "DEVELOPED y NOT_RUN son compatibles sin falsedad",
+      "acceptance": "Un test escrito no cambia Material a PASS",
+      "falsification": "Estado de compilación no ejecutada se considera PASS",
+      "modules": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "test_contract_id": "G00-07-T04",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-07-F05",
+      "parent_obligation": "G00-07",
+      "functionality": "Auditoría propia",
+      "required_behavior": "Audit PASS requiere AuditRecord posterior y política de independencia",
+      "acceptance": "Definir estado Audit no concede dictamen auditado",
+      "falsification": "Constructor se autocalifica auditor independiente",
+      "modules": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "test_contract_id": "G00-07-T05",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-07-F06",
+      "parent_obligation": "G00-07",
+      "functionality": "Soporte/qualification",
+      "required_behavior": "Support CURRENT y QualifiedInScope dependen de evidencia futura no del estado escrito",
+      "acceptance": "G00 no dispone de método issue_certificate",
+      "falsification": "StatusObservation produce certificado",
+      "modules": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "test_contract_id": "G00-07-T06",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-07-F07",
+      "parent_obligation": "G00-07",
+      "functionality": "Migración independiente",
+      "required_behavior": "Migration CLOSED no se deduce de un resultado unitario",
+      "acceptance": "MIGRATION_PARITY_PENDING permanece separado",
+      "falsification": "Un smoke test cierra migración histórica",
+      "modules": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "test_contract_id": "G00-07-T07",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-07-F08",
+      "parent_obligation": "G00-07",
+      "functionality": "Observación no autoridad",
+      "required_behavior": "StatusObservation guarda fuente, revisión, actor y ámbito",
+      "acceptance": "Una observación no se convierte en StatusProjection confiable",
+      "falsification": "Se escribe completed true para saltar gates",
+      "modules": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "test_contract_id": "G00-07-T08",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-07-F09",
+      "parent_obligation": "G00-07",
+      "functionality": "No confundir NOT_RUN",
+      "required_behavior": "Material.NOT_RUN distinto de FAIL y de SUCCESS",
+      "acceptance": "Reporte indica ausencia de ejecución material",
+      "falsification": "NOT_RUN se borra del informe por conveniencia",
+      "modules": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "test_contract_id": "G00-07-T09",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-07-F10",
+      "parent_obligation": "G00-07",
+      "functionality": "Renderer honesto",
+      "required_behavior": "Estado vectorial presenta todas dimensiones requeridas con límites",
+      "acceptance": "Un resumen deja visible evidencia pendiente",
+      "falsification": "Solo se muestra verde DONE aunque QUALIFIED=UNQUALIFIED",
+      "modules": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "test_contract_id": "G00-07-T10",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-08-F01",
+      "parent_obligation": "G00-08",
+      "functionality": "Ref completa",
+      "required_behavior": "EntityRef contiene project, kind, logical_id, revision",
+      "acceptance": "Faltante revision en contrato normativo se rechaza",
+      "falsification": "Se acepta referencia latest flotante",
+      "modules": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-08-T01",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-08-F02",
+      "parent_obligation": "G00-08",
+      "functionality": "Comprobación de clase",
+      "required_behavior": "Resolver verifica expected_kind antes de devolver entidad",
+      "acceptance": "ObligationId no resuelve como Capability",
+      "falsification": "El mismo texto sustituye a tipos distintos",
+      "modules": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-08-T02",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-08-F03",
+      "parent_obligation": "G00-08",
+      "functionality": "Snapshot exacto",
+      "required_behavior": "Resolver solo encuentra revisiones admitidas y referidas",
+      "acceptance": "Revision histórica existe solo como historical y no current",
+      "falsification": "Resolver elige último documento",
+      "modules": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-08-T03",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-08-F04",
+      "parent_obligation": "G00-08",
+      "functionality": "Alias ambiguo",
+      "required_behavior": "Alias con dos candidatos produce AmbiguousAlias",
+      "acceptance": "No se elige por orden de inserción",
+      "falsification": "Duplicación de alias colapsa entidades",
+      "modules": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-08-T04",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-08-F05",
+      "parent_obligation": "G00-08",
+      "functionality": "No ciclos genéricos",
+      "required_behavior": "No aplicar aciclicidad universal a ontología",
+      "acceptance": "Ciclo legítimo de relaciones no se rechaza como dependencia ejecutiva",
+      "falsification": "Todo ciclo matemático es considerado fallo",
+      "modules": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-08-T05",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-08-F06",
+      "parent_obligation": "G00-08",
+      "functionality": "Grant scoped",
+      "required_behavior": "Referencia de otro proyecto exige permiso/import explícito por corte",
+      "acceptance": "Import grant limitado no autoriza repo completo",
+      "falsification": "Cualquier link externo es autorizado",
+      "modules": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-08-T06",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-08-F07",
+      "parent_obligation": "G00-08",
+      "functionality": "Path seguro",
+      "required_behavior": "Validar GitSourcePath relativo y sin traversal/absolutos",
+      "acceptance": "../ y rutas absolutas se rechazan",
+      "falsification": "Ruta escapa root del repo",
+      "modules": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-08-T07",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-08-F08",
+      "parent_obligation": "G00-08",
+      "functionality": "Huérfanos",
+      "required_behavior": "Detectar referencias no existentes con diagnóstico de causa",
+      "acceptance": "OrphanRef no produce fallback a entidad genérica",
+      "falsification": "Falta ref y se crea objeto placeholder ratificado",
+      "modules": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-08-T08",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-08-F09",
+      "parent_obligation": "G00-08",
+      "functionality": "SourceRef separado",
+      "required_behavior": "EntityRef y SourceRef tienen resolvers/contextos diferentes",
+      "acceptance": "URL arbitraria no es Git immutable source",
+      "falsification": "Se trata SourcePath como EntityId",
+      "modules": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-08-T09",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-08-F10",
+      "parent_obligation": "G00-08",
+      "functionality": "Lectura sin mutación",
+      "required_behavior": "Reference resolver no altera snapshot ni índices nominales",
+      "acceptance": "Mismo View+Ref da mismo outcome sin side effects",
+      "falsification": "Resolver crea automáticamente una nueva revision",
+      "modules": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "test_contract_id": "G00-08-T10",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-09-F01",
+      "parent_obligation": "G00-09",
+      "functionality": "Envelope de esquema",
+      "required_behavior": "Cada registro contiene schema version y discriminante de tipo",
+      "acceptance": "Roundtrip mantiene schema+record_type",
+      "falsification": "Un objeto sin version se admite con default normativo",
+      "modules": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "test_contract_id": "G00-09-T01",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-09-F02",
+      "parent_obligation": "G00-09",
+      "functionality": "Normative features",
+      "required_behavior": "Registrar required_normative_features y bloquear desconocidas",
+      "acceptance": "Desconocida da UNSUPPORTED_NORMATIVE_FEATURE",
+      "falsification": "Un lector viejo ignora nueva obligación",
+      "modules": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "test_contract_id": "G00-09-T02",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-09-F03",
+      "parent_obligation": "G00-09",
+      "functionality": "Enum cerrado",
+      "required_behavior": "Variantes de estado/kind desconocidas se rechazan",
+      "acceptance": "Unknown enum no se transforma en status UNKNOWN de otro eje",
+      "falsification": "Variante desconocida se mapea a primer enum",
+      "modules": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "test_contract_id": "G00-09-T03",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-09-F04",
+      "parent_obligation": "G00-09",
+      "functionality": "Missing null empty",
+      "required_behavior": "Distinguir ausencia, null y lista vacía cuando semánticamente diferentes",
+      "acceptance": "Acceptance omitida no se convierte en lista validada",
+      "falsification": "Un None equivale a array de pruebas vacío",
+      "modules": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "test_contract_id": "G00-09-T04",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-09-F05",
+      "parent_obligation": "G00-09",
+      "functionality": "Roundtrip tipado",
+      "required_behavior": "Encode/decode preserva IDs tipos revision y source refs",
+      "acceptance": "Import+export produce mismo contrato tipado",
+      "falsification": "Se pierden project IDs",
+      "modules": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "test_contract_id": "G00-09-T05",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-09-F06",
+      "parent_obligation": "G00-09",
+      "functionality": "Exactitud numérica",
+      "required_behavior": "Números enteros grandes usan formato exacto establecido",
+      "acceptance": "Roundtrip preserva big integers",
+      "falsification": "Se redondea un ID numérico o resource bound",
+      "modules": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "test_contract_id": "G00-09-T06",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-09-F07",
+      "parent_obligation": "G00-09",
+      "functionality": "JSON estricto",
+      "required_behavior": "Rechazar NaN/infinito donde el contrato exige serialización canónica",
+      "acceptance": "Invalid numeric syntax produce DecodeError",
+      "falsification": "NaN se usa para invalidar comparaciones",
+      "modules": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "test_contract_id": "G00-09-T07",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-09-F08",
+      "parent_obligation": "G00-09",
+      "functionality": "Campos informativos",
+      "required_behavior": "Extensiones no normativas solo dentro de espacio permitido",
+      "acceptance": "Desconocido informativo no cambia evaluación",
+      "falsification": "Campo extra cambia decisión de cierre",
+      "modules": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "test_contract_id": "G00-09-T08",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-09-F09",
+      "parent_obligation": "G00-09",
+      "functionality": "Compatibilidad",
+      "required_behavior": "Comparar versiones y features; cambios semánticos requieren migración",
+      "acceptance": "Lector antiguo bloquea cambio de meaning",
+      "falsification": "Schema viejo acepta campos de nueva regla ignorándolos",
+      "modules": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "test_contract_id": "G00-09-T09",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-09-F10",
+      "parent_obligation": "G00-09",
+      "functionality": "Versión fijada",
+      "required_behavior": "Schema registry se pasa como argumento/revisión sin buscar latest",
+      "acceptance": "Mismo descriptor resulta misma validación",
+      "falsification": "Codec cambia comportamiento por update remoto",
+      "modules": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "test_contract_id": "G00-09-T10",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-10-F01",
+      "parent_obligation": "G00-10",
+      "functionality": "Entrada explícita",
+      "required_behavior": "Evaluador recibe constitution, view, fact set, profile, authority y budget",
+      "acceptance": "Sin datos de contexto se devuelve error explícito",
+      "falsification": "Evaluador lee variables de entorno",
+      "modules": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-10-T01",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-10-F02",
+      "parent_obligation": "G00-10",
+      "functionality": "Prevalidación",
+      "required_behavior": "Verificar tipos, versiones, regla y proyecto antes de ejecutar predicados",
+      "acceptance": "Entrada estructural inválida no se trata como FAIL científico",
+      "falsification": "Malformed schema da PASS",
+      "modules": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-10-T02",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-10-F03",
+      "parent_obligation": "G00-10",
+      "functionality": "Cobertura de reglas",
+      "required_behavior": "Enumerar todas reglas obligatorias conocidas y listarlas en report",
+      "acceptance": "Regla no soportada queda UNKNOWN_UNEVALUATED",
+      "falsification": "Se omite regla desconocida del denominador",
+      "modules": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-10-T03",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-10-F04",
+      "parent_obligation": "G00-10",
+      "functionality": "Aplicabilidad previa",
+      "required_behavior": "Evaluar ScopeExpression con testigos antes de rule predicate",
+      "acceptance": "NOT_APPLICABLE requiere NO probado",
+      "falsification": "UNKNOWN se ignora y el total es PASS",
+      "modules": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-10-T04",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-10-F05",
+      "parent_obligation": "G00-10",
+      "functionality": "Precedencia",
+      "required_behavior": "Resolver decisiones solo con AuthorityContext externo y scoped",
+      "acceptance": "Propuesta contradictoria no adquiere autoridad",
+      "falsification": "Último documento gana",
+      "modules": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-10-T05",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-10-F06",
+      "parent_obligation": "G00-10",
+      "functionality": "Predicados puros",
+      "required_behavior": "Despachar RuleKind a función trusted registrada y determinista",
+      "acceptance": "Mismo input genera mismo diagnóstico",
+      "falsification": "Un callback externo cambia resultados",
+      "modules": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-10-T06",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-10-F07",
+      "parent_obligation": "G00-10",
+      "functionality": "Sin scripts",
+      "required_behavior": "Rechazar predicado arbitrario en JSON de proyecto",
+      "acceptance": "El runtime no ejecuta eval/exec en policy",
+      "falsification": "Script del proyecto es cargado como norma",
+      "modules": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-10-T07",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-10-F08",
+      "parent_obligation": "G00-10",
+      "functionality": "Límites de evaluación",
+      "required_behavior": "Contar reglas, profundidad y pasos; identificar no examinadas",
+      "acceptance": "ResourceLimited nunca es PASS",
+      "falsification": "Timeout se trata como cumplimiento",
+      "modules": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-10-T08",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-10-F09",
+      "parent_obligation": "G00-10",
+      "functionality": "Diagnóstico por regla",
+      "required_behavior": "Reportar RuleEvaluation con ID, verdict, scope, motivos y testigos",
+      "acceptance": "Una violación no oculta otras reglas",
+      "falsification": "Solo devuelve true",
+      "modules": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-10-T09",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-10-F10",
+      "parent_obligation": "G00-10",
+      "functionality": "Determinismo completo",
+      "required_behavior": "Evaluación ordena resultados e inputs y no muta hechos",
+      "acceptance": "Permutar entrada produce misma salida estable",
+      "falsification": "Se altera FactSet o dicta resultado según reloj",
+      "modules": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "test_contract_id": "G00-10-T10",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-11-F01",
+      "parent_obligation": "G00-11",
+      "functionality": "Tipos de afirmación",
+      "required_behavior": "Distinguir observed fact, normative rule, decision, proposed inference",
+      "acceptance": "Hecho no sobreescribe obligación sin enmienda",
+      "falsification": "Código observado define política nueva",
+      "modules": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "test_contract_id": "G00-11-T01",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-11-F02",
+      "parent_obligation": "G00-11",
+      "functionality": "Intersección de scopes",
+      "required_behavior": "Comprobar si afirmaciones incompatibles aplican al mismo perfil",
+      "acceptance": "Scopes disjuntos no se bloquean entre sí",
+      "falsification": "Todo desacuerdo textual es CONFLICT global",
+      "modules": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "test_contract_id": "G00-11-T02",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-11-F03",
+      "parent_obligation": "G00-11",
+      "functionality": "Coexistencia legítima",
+      "required_behavior": "Permitir dos decisiones históricas en cortes distintos sin conflicto vigente",
+      "acceptance": "La precedencia temporal se explica por revisiones autorizadas",
+      "falsification": "Se borra historia para resolver",
+      "modules": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "test_contract_id": "G00-11-T03",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-11-F04",
+      "parent_obligation": "G00-11",
+      "functionality": "Conflicto con testigos",
+      "required_behavior": "ConflictRecord incluye ambas afirmaciones, fuentes y perfiles",
+      "acceptance": "El informe no pierde uno de los witness refs",
+      "falsification": "Conflicto con evidencia positiva y negativa se llama UNKNOWN",
+      "modules": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "test_contract_id": "G00-11-T04",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-11-F05",
+      "parent_obligation": "G00-11",
+      "functionality": "No latest-wins",
+      "required_behavior": "Nunca preferir automáticamente fecha, SHA, orden de registro",
+      "acceptance": "Resolver sin política explícita devuelve Conflict/Unknown",
+      "falsification": "El último archivo se impone",
+      "modules": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "test_contract_id": "G00-11-T05",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-11-F06",
+      "parent_obligation": "G00-11",
+      "functionality": "Supersesión con autoridad",
+      "required_behavior": "Decisión ratificada de sustitución resuelve dentro del scope",
+      "acceptance": "Sin aprobación no se retira regla anterior",
+      "falsification": "Texto SUPERSEDED sin autoridad basta",
+      "modules": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "test_contract_id": "G00-11-T06",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-11-F07",
+      "parent_obligation": "G00-11",
+      "functionality": "Bloqueo localizado",
+      "required_behavior": "Identificar obligaciones/claims dependientes de conflicto",
+      "acceptance": "Componentes independientes no se marcan fail global",
+      "falsification": "Un conflicto pequeño impide orientación de todo el proyecto",
+      "modules": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "test_contract_id": "G00-11-T07",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-11-F08",
+      "parent_obligation": "G00-11",
+      "functionality": "No ocultar conflictos",
+      "required_behavior": "Un PASS parcial conserva lista de conflictos pendientes",
+      "acceptance": "Report completo lista reglas en disputa",
+      "falsification": "Se descarta contradicción al agregar resultados",
+      "modules": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "test_contract_id": "G00-11-T08",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-11-F09",
+      "parent_obligation": "G00-11",
+      "functionality": "Orden reproducible",
+      "required_behavior": "Ordenar conflictos por ids y paths para diagnósticos estables",
+      "acceptance": "Permutación de fuentes no altera ConflictRecord",
+      "falsification": "Hash/set iteration cambia qué claim se bloquea",
+      "modules": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "test_contract_id": "G00-11-T09",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-11-F10",
+      "parent_obligation": "G00-11",
+      "functionality": "Aislamiento de autoridad",
+      "required_behavior": "Conflictos entre proyectos aislados no se fusionan sin import autorizado",
+      "acceptance": "Norma proyecto A no compite con B automáticamente",
+      "falsification": "Similaridades entre repos crean mismo conflicto normativo",
+      "modules": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "test_contract_id": "G00-11-T10",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-12-F01",
+      "parent_obligation": "G00-12",
+      "functionality": "Pruebas de identidad",
+      "required_behavior": "Escribir tests tipados de IDs aliases revisiones y roundtrips",
+      "acceptance": "Mutación que confunde EntityId/RevisionId falla test",
+      "falsification": "Solo comprobar que tipo existe",
+      "modules": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "test_contract_id": "G00-12-T01",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-12-F02",
+      "parent_obligation": "G00-12",
+      "functionality": "Pruebas de fuentes",
+      "required_behavior": "Cubrir cortes no fijos, known_missing, importaciones y ScopeUniverse",
+      "acceptance": "Fuente faltante impide afirmar complete",
+      "falsification": "Todos los SourceRef se aceptan",
+      "modules": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "test_contract_id": "G00-12-T02",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-12-F03",
+      "parent_obligation": "G00-12",
+      "functionality": "Pruebas de autoridad",
+      "required_behavior": "Proponer/ratificar/precedencia con y sin trusted context",
+      "acceptance": "Auto-aprobación de texto se detecta",
+      "falsification": "Solo probar decisión feliz",
+      "modules": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "test_contract_id": "G00-12-T03",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-12-F04",
+      "parent_obligation": "G00-12",
+      "functionality": "Pruebas de ontología",
+      "required_behavior": "Construir proyecto multiobjective/multicapability y relaciones compartidas",
+      "acceptance": "Propiedad compartida no se duplica ni se autocertifica",
+      "falsification": "Modelo solo permite relación uno-a-uno",
+      "modules": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "test_contract_id": "G00-12-T04",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-12-F05",
+      "parent_obligation": "G00-12",
+      "functionality": "Tablas de aplicabilidad",
+      "required_behavior": "Cubrir 4 valores y AND OR NOT con testigos",
+      "acceptance": "Truth table ejecutada coincide con contrato",
+      "falsification": "UNKNOWN y NO pasan indistintos",
+      "modules": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "test_contract_id": "G00-12-T05",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-12-F06",
+      "parent_obligation": "G00-12",
+      "functionality": "Estados ortogonales",
+      "required_behavior": "Testear combinaciones DEVELOPED/NOT_RUN/UNQUALIFIED",
+      "acceptance": "No existe promoción automática de ejes",
+      "falsification": "Un flag completed controla todos estados",
+      "modules": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "test_contract_id": "G00-12-T06",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-12-F07",
+      "parent_obligation": "G00-12",
+      "functionality": "Pruebas de schemas",
+      "required_behavior": "Cubrir versions, normative features, invalid types, roundtrip y payload hostil",
+      "acceptance": "Lectores viejos rechazan nueva norma no comprendida",
+      "falsification": "Se aceptan enums desconocidos",
+      "modules": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "test_contract_id": "G00-12-T07",
+      "test_method": "BOUNDARY_AND_ADVERSARIAL",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-12-F08",
+      "parent_obligation": "G00-12",
+      "functionality": "Evaluador puro",
+      "required_behavior": "Ejecutar misma entrada permutada y con budget variable",
+      "acceptance": "Determinismo, no IO, reporte de reglas no examinadas",
+      "falsification": "Falla una norma y reporte oculta otras",
+      "modules": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "test_contract_id": "G00-12-T08",
+      "test_method": "CROSS_MODULE_REFERENCE",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-12-F09",
+      "parent_obligation": "G00-12",
+      "functionality": "Escenario de dos proyectos",
+      "required_behavior": "Integrar en memoria dos proyectos, imports explícitos y constituciones separadas",
+      "acceptance": "Ninguna autoridad se mezcla por nombre",
+      "falsification": "Project B hereda decision de A",
+      "modules": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "test_contract_id": "G00-12-T09",
+      "test_method": "PROPERTY_AND_NEGATIVE",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    },
+    {
+      "id": "G00-12-F10",
+      "parent_obligation": "G00-12",
+      "functionality": "Mutaciones y gates",
+      "required_behavior": "Banco adversario muta source/status/rule/reference/predicate y compara resultado esperado",
+      "acceptance": "Al menos una mutación por familia dispara diagnóstico correcto",
+      "falsification": "Una mutación de regla ratificada queda PASS",
+      "modules": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "test_contract_id": "G00-12-T10",
+      "test_method": "CONTRACT_AND_MUTATION",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "lineage": "DETAIL_OF_EXISTING_OBLIGATION_NO_NEW_CANONICAL_OBLIGATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_implementation_status": "NOT_AUTHORED",
+      "material_validation_status": "NOT_RUN",
+      "authority": "PROPOSED_DETAIL_PENDING_RATIFICATION"
+    }
+  ]
+}
