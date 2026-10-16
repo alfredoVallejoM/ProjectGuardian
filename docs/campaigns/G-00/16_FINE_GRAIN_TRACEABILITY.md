@@ -1,0 +1,135 @@
+# G-00 — Correspondencia fina de requisitos, ADR, funciones y pruebas
+
+**120 cláusulas referidas a sus 12 padres originales.** Todas enlazan al menos con un requisito global propuesto, una ADR, un módulo y un contrato lógico de prueba. Las cláusulas G00-12-F01…F10 son autoría de tests, por lo que no pretenden una función productiva propia.
+
+| Cláusula | Requisitos | ADR | APIs propietarias | Test previsto |
+|---|---|---|---|---|
+| `G00-01-F01` | PG-REQ-06 | PG-ADR-004 | `G00-API-001`, `G00-API-002`, `G00-API-003`, `G00-API-004` | `G00-01-T01` |
+| `G00-01-F02` | PG-REQ-06 | PG-ADR-004 | `G00-API-002` | `G00-01-T02` |
+| `G00-01-F03` | PG-REQ-06 | PG-ADR-004 | `G00-API-001`, `G00-API-002` | `G00-01-T03` |
+| `G00-01-F04` | PG-REQ-06 | PG-ADR-004 | `G00-API-007` | `G00-01-T04` |
+| `G00-01-F05` | PG-REQ-06 | PG-ADR-004 | `G00-API-007`, `G00-API-005` | `G00-01-T05` |
+| `G00-01-F06` | PG-REQ-06 | PG-ADR-004 | `G00-API-003`, `G00-API-008` | `G00-01-T06` |
+| `G00-01-F07` | PG-REQ-06 | PG-ADR-004 | `G00-API-004` | `G00-01-T07` |
+| `G00-01-F08` | PG-REQ-06 | PG-ADR-004 | `G00-API-001` | `G00-01-T08` |
+| `G00-01-F09` | PG-REQ-06 | PG-ADR-004 | `G00-API-005`, `G00-API-006` | `G00-01-T09` |
+| `G00-01-F10` | PG-REQ-06 | PG-ADR-004 | `G00-API-007` | `G00-01-T10` |
+| `G00-02-F01` | PG-REQ-01, PG-REQ-02, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-009` | `G00-02-T01` |
+| `G00-02-F02` | PG-REQ-01, PG-REQ-02, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-009`, `G00-API-016` | `G00-02-T02` |
+| `G00-02-F03` | PG-REQ-01, PG-REQ-02, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-010` | `G00-02-T03` |
+| `G00-02-F04` | PG-REQ-01, PG-REQ-02, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-012` | `G00-02-T04` |
+| `G00-02-F05` | PG-REQ-01, PG-REQ-02, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-011` | `G00-02-T05` |
+| `G00-02-F06` | PG-REQ-01, PG-REQ-02, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-016` | `G00-02-T06` |
+| `G00-02-F07` | PG-REQ-01, PG-REQ-02, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-009` | `G00-02-T07` |
+| `G00-02-F08` | PG-REQ-01, PG-REQ-02, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-010` | `G00-02-T08` |
+| `G00-02-F09` | PG-REQ-01, PG-REQ-02, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-011` | `G00-02-T09` |
+| `G00-02-F10` | PG-REQ-01, PG-REQ-02, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-012` | `G00-02-T10` |
+| `G00-03-F01` | PG-REQ-02, PG-REQ-03, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-013` | `G00-03-T01` |
+| `G00-03-F02` | PG-REQ-02, PG-REQ-03, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-014` | `G00-03-T02` |
+| `G00-03-F03` | PG-REQ-02, PG-REQ-03, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-015` | `G00-03-T03` |
+| `G00-03-F04` | PG-REQ-02, PG-REQ-03, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-017` | `G00-03-T04` |
+| `G00-03-F05` | PG-REQ-02, PG-REQ-03, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-015` | `G00-03-T05` |
+| `G00-03-F06` | PG-REQ-02, PG-REQ-03, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-018` | `G00-03-T06` |
+| `G00-03-F07` | PG-REQ-02, PG-REQ-03, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-018` | `G00-03-T07` |
+| `G00-03-F08` | PG-REQ-02, PG-REQ-03, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-015` | `G00-03-T08` |
+| `G00-03-F09` | PG-REQ-02, PG-REQ-03, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-018` | `G00-03-T09` |
+| `G00-03-F10` | PG-REQ-02, PG-REQ-03, PG-REQ-31 | PG-ADR-001, PG-ADR-002 | `G00-API-015` | `G00-03-T10` |
+| `G00-04-F01` | PG-REQ-10 | PG-ADR-003 | `G00-API-019` | `G00-04-T01` |
+| `G00-04-F02` | PG-REQ-10 | PG-ADR-003 | `G00-API-021` | `G00-04-T02` |
+| `G00-04-F03` | PG-REQ-10 | PG-ADR-003 | `G00-API-022` | `G00-04-T03` |
+| `G00-04-F04` | PG-REQ-10 | PG-ADR-003 | `G00-API-055` | `G00-04-T04` |
+| `G00-04-F05` | PG-REQ-10 | PG-ADR-003 | `G00-API-021` | `G00-04-T05` |
+| `G00-04-F06` | PG-REQ-10 | PG-ADR-003 | `G00-API-055` | `G00-04-T06` |
+| `G00-04-F07` | PG-REQ-10 | PG-ADR-003 | `G00-API-055` | `G00-04-T07` |
+| `G00-04-F08` | PG-REQ-10 | PG-ADR-003 | `G00-API-054` | `G00-04-T08` |
+| `G00-04-F09` | PG-REQ-10 | PG-ADR-003 | `G00-API-019` | `G00-04-T09` |
+| `G00-04-F10` | PG-REQ-10 | PG-ADR-003 | `G00-API-024` | `G00-04-T10` |
+| `G00-05-F01` | PG-REQ-03, PG-REQ-10, PG-REQ-22 | PG-ADR-002, PG-ADR-003 | `G00-API-025` | `G00-05-T01` |
+| `G00-05-F02` | PG-REQ-03, PG-REQ-10, PG-REQ-22 | PG-ADR-002, PG-ADR-003 | `G00-API-026` | `G00-05-T02` |
+| `G00-05-F03` | PG-REQ-03, PG-REQ-10, PG-REQ-22 | PG-ADR-002, PG-ADR-003 | `G00-API-027` | `G00-05-T03` |
+| `G00-05-F04` | PG-REQ-03, PG-REQ-10, PG-REQ-22 | PG-ADR-002, PG-ADR-003 | `G00-API-028` | `G00-05-T04` |
+| `G00-05-F05` | PG-REQ-03, PG-REQ-10, PG-REQ-22 | PG-ADR-002, PG-ADR-003 | `G00-API-028` | `G00-05-T05` |
+| `G00-05-F06` | PG-REQ-03, PG-REQ-10, PG-REQ-22 | PG-ADR-002, PG-ADR-003 | `G00-API-028` | `G00-05-T06` |
+| `G00-05-F07` | PG-REQ-03, PG-REQ-10, PG-REQ-22 | PG-ADR-002, PG-ADR-003 | `G00-API-030` | `G00-05-T07` |
+| `G00-05-F08` | PG-REQ-03, PG-REQ-10, PG-REQ-22 | PG-ADR-002, PG-ADR-003 | `G00-API-029` | `G00-05-T08` |
+| `G00-05-F09` | PG-REQ-03, PG-REQ-10, PG-REQ-22 | PG-ADR-002, PG-ADR-003 | `G00-API-026`, `G00-API-027` | `G00-05-T09` |
+| `G00-05-F10` | PG-REQ-03, PG-REQ-10, PG-REQ-22 | PG-ADR-002, PG-ADR-003 | `G00-API-028`, `G00-API-038` | `G00-05-T10` |
+| `G00-06-F01` | PG-REQ-09 | PG-ADR-010 | `G00-API-031` | `G00-06-T01` |
+| `G00-06-F02` | PG-REQ-09 | PG-ADR-010 | `G00-API-032` | `G00-06-T02` |
+| `G00-06-F03` | PG-REQ-09 | PG-ADR-010 | `G00-API-033` | `G00-06-T03` |
+| `G00-06-F04` | PG-REQ-09 | PG-ADR-010 | `G00-API-035` | `G00-06-T04` |
+| `G00-06-F05` | PG-REQ-09 | PG-ADR-010 | `G00-API-036`, `G00-API-037` | `G00-06-T05` |
+| `G00-06-F06` | PG-REQ-09 | PG-ADR-010 | `G00-API-033` | `G00-06-T06` |
+| `G00-06-F07` | PG-REQ-09 | PG-ADR-010 | `G00-API-038` | `G00-06-T07` |
+| `G00-06-F08` | PG-REQ-09 | PG-ADR-010 | `G00-API-034` | `G00-06-T08` |
+| `G00-06-F09` | PG-REQ-09 | PG-ADR-010 | `G00-API-034` | `G00-06-T09` |
+| `G00-06-F10` | PG-REQ-09 | PG-ADR-010 | `G00-API-033` | `G00-06-T10` |
+| `G00-07-F01` | PG-REQ-08, PG-REQ-22 | PG-ADR-011 | `G00-API-039` | `G00-07-T01` |
+| `G00-07-F02` | PG-REQ-08, PG-REQ-22 | PG-ADR-011 | `G00-API-039` | `G00-07-T02` |
+| `G00-07-F03` | PG-REQ-08, PG-REQ-22 | PG-ADR-011 | `G00-API-040` | `G00-07-T03` |
+| `G00-07-F04` | PG-REQ-08, PG-REQ-22 | PG-ADR-011 | `G00-API-042` | `G00-07-T04` |
+| `G00-07-F05` | PG-REQ-08, PG-REQ-22 | PG-ADR-011 | `G00-API-040` | `G00-07-T05` |
+| `G00-07-F06` | PG-REQ-08, PG-REQ-22 | PG-ADR-011 | `G00-API-042` | `G00-07-T06` |
+| `G00-07-F07` | PG-REQ-08, PG-REQ-22 | PG-ADR-011 | `G00-API-039` | `G00-07-T07` |
+| `G00-07-F08` | PG-REQ-08, PG-REQ-22 | PG-ADR-011 | `G00-API-040` | `G00-07-T08` |
+| `G00-07-F09` | PG-REQ-08, PG-REQ-22 | PG-ADR-011 | `G00-API-041` | `G00-07-T09` |
+| `G00-07-F10` | PG-REQ-08, PG-REQ-22 | PG-ADR-011 | `G00-API-041` | `G00-07-T10` |
+| `G00-08-F01` | PG-REQ-06, PG-REQ-31 | PG-ADR-004 | `G00-API-008` | `G00-08-T01` |
+| `G00-08-F02` | PG-REQ-06, PG-REQ-31 | PG-ADR-004 | `G00-API-008` | `G00-08-T02` |
+| `G00-08-F03` | PG-REQ-06, PG-REQ-31 | PG-ADR-004 | `G00-API-008` | `G00-08-T03` |
+| `G00-08-F04` | PG-REQ-06, PG-REQ-31 | PG-ADR-004 | `G00-API-007` | `G00-08-T04` |
+| `G00-08-F05` | PG-REQ-06, PG-REQ-31 | PG-ADR-004 | `G00-API-043` | `G00-08-T05` |
+| `G00-08-F06` | PG-REQ-06, PG-REQ-31 | PG-ADR-004 | `G00-API-008` | `G00-08-T06` |
+| `G00-08-F07` | PG-REQ-06, PG-REQ-31 | PG-ADR-004 | `G00-API-044` | `G00-08-T07` |
+| `G00-08-F08` | PG-REQ-06, PG-REQ-31 | PG-ADR-004 | `G00-API-043` | `G00-08-T08` |
+| `G00-08-F09` | PG-REQ-06, PG-REQ-31 | PG-ADR-004 | `G00-API-044` | `G00-08-T09` |
+| `G00-08-F10` | PG-REQ-06, PG-REQ-31 | PG-ADR-004 | `G00-API-008` | `G00-08-T10` |
+| `G00-09-F01` | PG-REQ-06 | PG-ADR-004 | `G00-API-046` | `G00-09-T01` |
+| `G00-09-F02` | PG-REQ-06 | PG-ADR-004 | `G00-API-046` | `G00-09-T02` |
+| `G00-09-F03` | PG-REQ-06 | PG-ADR-004 | `G00-API-047` | `G00-09-T03` |
+| `G00-09-F04` | PG-REQ-06 | PG-ADR-004 | `G00-API-046` | `G00-09-T04` |
+| `G00-09-F05` | PG-REQ-06 | PG-ADR-004 | `G00-API-048`, `G00-API-047` | `G00-09-T05` |
+| `G00-09-F06` | PG-REQ-06 | PG-ADR-004 | `G00-API-048` | `G00-09-T06` |
+| `G00-09-F07` | PG-REQ-06 | PG-ADR-004 | `G00-API-047` | `G00-09-T07` |
+| `G00-09-F08` | PG-REQ-06 | PG-ADR-004 | `G00-API-046` | `G00-09-T08` |
+| `G00-09-F09` | PG-REQ-06 | PG-ADR-004 | `G00-API-049` | `G00-09-T09` |
+| `G00-09-F10` | PG-REQ-06 | PG-ADR-004 | `G00-API-045` | `G00-09-T10` |
+| `G00-10-F01` | PG-REQ-10 | PG-ADR-018 | `G00-API-050` | `G00-10-T01` |
+| `G00-10-F02` | PG-REQ-10 | PG-ADR-018 | `G00-API-023` | `G00-10-T02` |
+| `G00-10-F03` | PG-REQ-10 | PG-ADR-018 | `G00-API-053` | `G00-10-T03` |
+| `G00-10-F04` | PG-REQ-10 | PG-ADR-018 | `G00-API-050` | `G00-10-T04` |
+| `G00-10-F05` | PG-REQ-10 | PG-ADR-018 | `G00-API-050` | `G00-10-T05` |
+| `G00-10-F06` | PG-REQ-10 | PG-ADR-018 | `G00-API-051` | `G00-10-T06` |
+| `G00-10-F07` | PG-REQ-10 | PG-ADR-018 | `G00-API-052` | `G00-10-T07` |
+| `G00-10-F08` | PG-REQ-10 | PG-ADR-018 | `G00-API-050` | `G00-10-T08` |
+| `G00-10-F09` | PG-REQ-10 | PG-ADR-018 | `G00-API-053` | `G00-10-T09` |
+| `G00-10-F10` | PG-REQ-10 | PG-ADR-018 | `G00-API-050` | `G00-10-T10` |
+| `G00-11-F01` | PG-REQ-10, PG-REQ-31 | PG-ADR-003 | `G00-API-054` | `G00-11-T01` |
+| `G00-11-F02` | PG-REQ-10, PG-REQ-31 | PG-ADR-003 | `G00-API-054` | `G00-11-T02` |
+| `G00-11-F03` | PG-REQ-10, PG-REQ-31 | PG-ADR-003 | `G00-API-055` | `G00-11-T03` |
+| `G00-11-F04` | PG-REQ-10, PG-REQ-31 | PG-ADR-003 | `G00-API-054` | `G00-11-T04` |
+| `G00-11-F05` | PG-REQ-10, PG-REQ-31 | PG-ADR-003 | `G00-API-055` | `G00-11-T05` |
+| `G00-11-F06` | PG-REQ-10, PG-REQ-31 | PG-ADR-003 | `G00-API-055` | `G00-11-T06` |
+| `G00-11-F07` | PG-REQ-10, PG-REQ-31 | PG-ADR-003 | `G00-API-056` | `G00-11-T07` |
+| `G00-11-F08` | PG-REQ-10, PG-REQ-31 | PG-ADR-003 | `G00-API-053` | `G00-11-T08` |
+| `G00-11-F09` | PG-REQ-10, PG-REQ-31 | PG-ADR-003 | `G00-API-054` | `G00-11-T09` |
+| `G00-11-F10` | PG-REQ-10, PG-REQ-31 | PG-ADR-003 | `G00-API-054` | `G00-11-T10` |
+| `G00-12-F01` | PG-REQ-02, PG-REQ-08, PG-REQ-09 | PG-ADR-016, PG-ADR-018 | *Suite de pruebas* | `G00-12-T01` |
+| `G00-12-F02` | PG-REQ-02, PG-REQ-08, PG-REQ-09 | PG-ADR-016, PG-ADR-018 | *Suite de pruebas* | `G00-12-T02` |
+| `G00-12-F03` | PG-REQ-02, PG-REQ-08, PG-REQ-09 | PG-ADR-016, PG-ADR-018 | *Suite de pruebas* | `G00-12-T03` |
+| `G00-12-F04` | PG-REQ-02, PG-REQ-08, PG-REQ-09 | PG-ADR-016, PG-ADR-018 | *Suite de pruebas* | `G00-12-T04` |
+| `G00-12-F05` | PG-REQ-02, PG-REQ-08, PG-REQ-09 | PG-ADR-016, PG-ADR-018 | *Suite de pruebas* | `G00-12-T05` |
+| `G00-12-F06` | PG-REQ-02, PG-REQ-08, PG-REQ-09 | PG-ADR-016, PG-ADR-018 | *Suite de pruebas* | `G00-12-T06` |
+| `G00-12-F07` | PG-REQ-02, PG-REQ-08, PG-REQ-09 | PG-ADR-016, PG-ADR-018 | *Suite de pruebas* | `G00-12-T07` |
+| `G00-12-F08` | PG-REQ-02, PG-REQ-08, PG-REQ-09 | PG-ADR-016, PG-ADR-018 | *Suite de pruebas* | `G00-12-T08` |
+| `G00-12-F09` | PG-REQ-02, PG-REQ-08, PG-REQ-09 | PG-ADR-016, PG-ADR-018 | *Suite de pruebas* | `G00-12-T09` |
+| `G00-12-F10` | PG-REQ-02, PG-REQ-08, PG-REQ-09 | PG-ADR-016, PG-ADR-018 | *Suite de pruebas* | `G00-12-T10` |
+
+## Qué significa esta correspondencia
+- Un vínculo designa **responsabilidad de desarrollo propuesta**, no código o prueba ya existente.
+- La correspondencia facilita detectar que al crear una función desapareció una condición del contrato fuente.
+- El constructor no puede cambiar el contrato de aceptación al mejorar la implementación; lo modificaría mediante una decisión aprobada.
+- La verificación material futura deberá conectar cada test lógico con un artefacto de prueba real, ejecución, scope y receipt.
+- La ratificación de esta matriz no puede sustituir auditoría semántica ni verificación de corpus de fuentes.
+
+**Fuente máquina:** `architecture/g00_precise_traceability.json`.

@@ -1,0 +1,2656 @@
+{
+  "schema": "guardian/g00-precise-traceability/v1",
+  "campaign": "G-00",
+  "status": "PROPOSED_NOT_RATIFIED",
+  "source_records": [
+    "architecture/requirements.json",
+    "architecture/decisions.json",
+    "architecture/campaigns.json",
+    "architecture/g00_functional_refinement.json",
+    "architecture/g00_api_contracts.json",
+    "architecture/g00_validation_plan.json"
+  ],
+  "total_clauses": 120,
+  "clause_to_api_links": 122,
+  "pure_test_clauses_without_product_api": [
+    "G00-12-F01",
+    "G00-12-F02",
+    "G00-12-F03",
+    "G00-12-F04",
+    "G00-12-F05",
+    "G00-12-F06",
+    "G00-12-F07",
+    "G00-12-F08",
+    "G00-12-F09",
+    "G00-12-F10"
+  ],
+  "notes": [
+    "All parents G00-01..12; G00-12 clauses are test-authoring contract, not production API operations",
+    "Requirement/ADR mapping is proposed, not semantic qualification",
+    "No source code, test, runtime evidence or certification exists"
+  ],
+  "records": [
+    {
+      "clause_id": "G00-01-F01",
+      "parent_obligation": "G00-01",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-001",
+        "G00-API-002",
+        "G00-API-003",
+        "G00-API-004"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py"
+      ],
+      "logical_test_ref": "G00-01-T01",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-01-F02",
+      "parent_obligation": "G00-01",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-002"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py"
+      ],
+      "logical_test_ref": "G00-01-T02",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-01-F03",
+      "parent_obligation": "G00-01",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-001",
+        "G00-API-002"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py"
+      ],
+      "logical_test_ref": "G00-01-T03",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-01-F04",
+      "parent_obligation": "G00-01",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-007"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py"
+      ],
+      "logical_test_ref": "G00-01-T04",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-01-F05",
+      "parent_obligation": "G00-01",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-007",
+        "G00-API-005"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py"
+      ],
+      "logical_test_ref": "G00-01-T05",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-01-F06",
+      "parent_obligation": "G00-01",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-003",
+        "G00-API-008"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py"
+      ],
+      "logical_test_ref": "G00-01-T06",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-01-F07",
+      "parent_obligation": "G00-01",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-004"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py"
+      ],
+      "logical_test_ref": "G00-01-T07",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-01-F08",
+      "parent_obligation": "G00-01",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-001"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py"
+      ],
+      "logical_test_ref": "G00-01-T08",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-01-F09",
+      "parent_obligation": "G00-01",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-005",
+        "G00-API-006"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py"
+      ],
+      "logical_test_ref": "G00-01-T09",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-01-F10",
+      "parent_obligation": "G00-01",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-007"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py"
+      ],
+      "logical_test_ref": "G00-01-T10",
+      "design_document": "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-02-F01",
+      "parent_obligation": "G00-02",
+      "requirement_refs": [
+        "PG-REQ-01",
+        "PG-REQ-02",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-009"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/project.py"
+      ],
+      "logical_test_ref": "G00-02-T01",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-02-F02",
+      "parent_obligation": "G00-02",
+      "requirement_refs": [
+        "PG-REQ-01",
+        "PG-REQ-02",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-009",
+        "G00-API-016"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/project.py"
+      ],
+      "logical_test_ref": "G00-02-T02",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-02-F03",
+      "parent_obligation": "G00-02",
+      "requirement_refs": [
+        "PG-REQ-01",
+        "PG-REQ-02",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-010"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/project.py"
+      ],
+      "logical_test_ref": "G00-02-T03",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-02-F04",
+      "parent_obligation": "G00-02",
+      "requirement_refs": [
+        "PG-REQ-01",
+        "PG-REQ-02",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-012"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/project.py"
+      ],
+      "logical_test_ref": "G00-02-T04",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-02-F05",
+      "parent_obligation": "G00-02",
+      "requirement_refs": [
+        "PG-REQ-01",
+        "PG-REQ-02",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-011"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/project.py"
+      ],
+      "logical_test_ref": "G00-02-T05",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-02-F06",
+      "parent_obligation": "G00-02",
+      "requirement_refs": [
+        "PG-REQ-01",
+        "PG-REQ-02",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-016"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/project.py"
+      ],
+      "logical_test_ref": "G00-02-T06",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-02-F07",
+      "parent_obligation": "G00-02",
+      "requirement_refs": [
+        "PG-REQ-01",
+        "PG-REQ-02",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-009"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/project.py"
+      ],
+      "logical_test_ref": "G00-02-T07",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-02-F08",
+      "parent_obligation": "G00-02",
+      "requirement_refs": [
+        "PG-REQ-01",
+        "PG-REQ-02",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-010"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/project.py"
+      ],
+      "logical_test_ref": "G00-02-T08",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-02-F09",
+      "parent_obligation": "G00-02",
+      "requirement_refs": [
+        "PG-REQ-01",
+        "PG-REQ-02",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-011"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/project.py"
+      ],
+      "logical_test_ref": "G00-02-T09",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-02-F10",
+      "parent_obligation": "G00-02",
+      "requirement_refs": [
+        "PG-REQ-01",
+        "PG-REQ-02",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-012"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/project.py"
+      ],
+      "logical_test_ref": "G00-02-T10",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-03-F01",
+      "parent_obligation": "G00-03",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-03",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-013"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-03-T01",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-03-F02",
+      "parent_obligation": "G00-03",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-03",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-014"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-03-T02",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-03-F03",
+      "parent_obligation": "G00-03",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-03",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-015"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-03-T03",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-03-F04",
+      "parent_obligation": "G00-03",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-03",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-017"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-03-T04",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-03-F05",
+      "parent_obligation": "G00-03",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-03",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-015"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-03-T05",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-03-F06",
+      "parent_obligation": "G00-03",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-03",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-018"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-03-T06",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-03-F07",
+      "parent_obligation": "G00-03",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-03",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-018"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-03-T07",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-03-F08",
+      "parent_obligation": "G00-03",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-03",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-015"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-03-T08",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-03-F09",
+      "parent_obligation": "G00-03",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-03",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-018"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-03-T09",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-03-F10",
+      "parent_obligation": "G00-03",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-03",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-001",
+        "PG-ADR-002"
+      ],
+      "api_contract_refs": [
+        "G00-API-015"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-03-T10",
+      "design_document": "docs/campaigns/G-00/02_PROJECT_TENANCY_AND_SOURCES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-04-F01",
+      "parent_obligation": "G00-04",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-019"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "logical_test_ref": "G00-04-T01",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-04-F02",
+      "parent_obligation": "G00-04",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-021"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "logical_test_ref": "G00-04-T02",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-04-F03",
+      "parent_obligation": "G00-04",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-022"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "logical_test_ref": "G00-04-T03",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-04-F04",
+      "parent_obligation": "G00-04",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-055"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "logical_test_ref": "G00-04-T04",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-04-F05",
+      "parent_obligation": "G00-04",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-021"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "logical_test_ref": "G00-04-T05",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-04-F06",
+      "parent_obligation": "G00-04",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-055"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "logical_test_ref": "G00-04-T06",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-04-F07",
+      "parent_obligation": "G00-04",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-055"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "logical_test_ref": "G00-04-T07",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-04-F08",
+      "parent_obligation": "G00-04",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-054"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "logical_test_ref": "G00-04-T08",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-04-F09",
+      "parent_obligation": "G00-04",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-019"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "logical_test_ref": "G00-04-T09",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-04-F10",
+      "parent_obligation": "G00-04",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-024"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/authority.py",
+        "src/guardian/domain/constitution.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "logical_test_ref": "G00-04-T10",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-05-F01",
+      "parent_obligation": "G00-05",
+      "requirement_refs": [
+        "PG-REQ-03",
+        "PG-REQ-10",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-002",
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-025"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "logical_test_ref": "G00-05-T01",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-05-F02",
+      "parent_obligation": "G00-05",
+      "requirement_refs": [
+        "PG-REQ-03",
+        "PG-REQ-10",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-002",
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-026"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "logical_test_ref": "G00-05-T02",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-05-F03",
+      "parent_obligation": "G00-05",
+      "requirement_refs": [
+        "PG-REQ-03",
+        "PG-REQ-10",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-002",
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-027"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "logical_test_ref": "G00-05-T03",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-05-F04",
+      "parent_obligation": "G00-05",
+      "requirement_refs": [
+        "PG-REQ-03",
+        "PG-REQ-10",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-002",
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-028"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "logical_test_ref": "G00-05-T04",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-05-F05",
+      "parent_obligation": "G00-05",
+      "requirement_refs": [
+        "PG-REQ-03",
+        "PG-REQ-10",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-002",
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-028"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "logical_test_ref": "G00-05-T05",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-05-F06",
+      "parent_obligation": "G00-05",
+      "requirement_refs": [
+        "PG-REQ-03",
+        "PG-REQ-10",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-002",
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-028"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "logical_test_ref": "G00-05-T06",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-05-F07",
+      "parent_obligation": "G00-05",
+      "requirement_refs": [
+        "PG-REQ-03",
+        "PG-REQ-10",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-002",
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-030"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "logical_test_ref": "G00-05-T07",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-05-F08",
+      "parent_obligation": "G00-05",
+      "requirement_refs": [
+        "PG-REQ-03",
+        "PG-REQ-10",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-002",
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-029"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "logical_test_ref": "G00-05-T08",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-05-F09",
+      "parent_obligation": "G00-05",
+      "requirement_refs": [
+        "PG-REQ-03",
+        "PG-REQ-10",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-002",
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-026",
+        "G00-API-027"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "logical_test_ref": "G00-05-T09",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-05-F10",
+      "parent_obligation": "G00-05",
+      "requirement_refs": [
+        "PG-REQ-03",
+        "PG-REQ-10",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-002",
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-028",
+        "G00-API-038"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py",
+        "src/guardian/domain/campaign.py"
+      ],
+      "logical_test_ref": "G00-05-T10",
+      "design_document": "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-06-F01",
+      "parent_obligation": "G00-06",
+      "requirement_refs": [
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-010"
+      ],
+      "api_contract_refs": [
+        "G00-API-031"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-06-T01",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-06-F02",
+      "parent_obligation": "G00-06",
+      "requirement_refs": [
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-010"
+      ],
+      "api_contract_refs": [
+        "G00-API-032"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-06-T02",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-06-F03",
+      "parent_obligation": "G00-06",
+      "requirement_refs": [
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-010"
+      ],
+      "api_contract_refs": [
+        "G00-API-033"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-06-T03",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-06-F04",
+      "parent_obligation": "G00-06",
+      "requirement_refs": [
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-010"
+      ],
+      "api_contract_refs": [
+        "G00-API-035"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-06-T04",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-06-F05",
+      "parent_obligation": "G00-06",
+      "requirement_refs": [
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-010"
+      ],
+      "api_contract_refs": [
+        "G00-API-036",
+        "G00-API-037"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-06-T05",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-06-F06",
+      "parent_obligation": "G00-06",
+      "requirement_refs": [
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-010"
+      ],
+      "api_contract_refs": [
+        "G00-API-033"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-06-T06",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-06-F07",
+      "parent_obligation": "G00-06",
+      "requirement_refs": [
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-010"
+      ],
+      "api_contract_refs": [
+        "G00-API-038"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-06-T07",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-06-F08",
+      "parent_obligation": "G00-06",
+      "requirement_refs": [
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-010"
+      ],
+      "api_contract_refs": [
+        "G00-API-034"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-06-T08",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-06-F09",
+      "parent_obligation": "G00-06",
+      "requirement_refs": [
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-010"
+      ],
+      "api_contract_refs": [
+        "G00-API-034"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-06-T09",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-06-F10",
+      "parent_obligation": "G00-06",
+      "requirement_refs": [
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-010"
+      ],
+      "api_contract_refs": [
+        "G00-API-033"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-06-T10",
+      "design_document": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-07-F01",
+      "parent_obligation": "G00-07",
+      "requirement_refs": [
+        "PG-REQ-08",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-011"
+      ],
+      "api_contract_refs": [
+        "G00-API-039"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "logical_test_ref": "G00-07-T01",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-07-F02",
+      "parent_obligation": "G00-07",
+      "requirement_refs": [
+        "PG-REQ-08",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-011"
+      ],
+      "api_contract_refs": [
+        "G00-API-039"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "logical_test_ref": "G00-07-T02",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-07-F03",
+      "parent_obligation": "G00-07",
+      "requirement_refs": [
+        "PG-REQ-08",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-011"
+      ],
+      "api_contract_refs": [
+        "G00-API-040"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "logical_test_ref": "G00-07-T03",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-07-F04",
+      "parent_obligation": "G00-07",
+      "requirement_refs": [
+        "PG-REQ-08",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-011"
+      ],
+      "api_contract_refs": [
+        "G00-API-042"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "logical_test_ref": "G00-07-T04",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-07-F05",
+      "parent_obligation": "G00-07",
+      "requirement_refs": [
+        "PG-REQ-08",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-011"
+      ],
+      "api_contract_refs": [
+        "G00-API-040"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "logical_test_ref": "G00-07-T05",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-07-F06",
+      "parent_obligation": "G00-07",
+      "requirement_refs": [
+        "PG-REQ-08",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-011"
+      ],
+      "api_contract_refs": [
+        "G00-API-042"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "logical_test_ref": "G00-07-T06",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-07-F07",
+      "parent_obligation": "G00-07",
+      "requirement_refs": [
+        "PG-REQ-08",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-011"
+      ],
+      "api_contract_refs": [
+        "G00-API-039"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "logical_test_ref": "G00-07-T07",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-07-F08",
+      "parent_obligation": "G00-07",
+      "requirement_refs": [
+        "PG-REQ-08",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-011"
+      ],
+      "api_contract_refs": [
+        "G00-API-040"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "logical_test_ref": "G00-07-T08",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-07-F09",
+      "parent_obligation": "G00-07",
+      "requirement_refs": [
+        "PG-REQ-08",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-011"
+      ],
+      "api_contract_refs": [
+        "G00-API-041"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "logical_test_ref": "G00-07-T09",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-07-F10",
+      "parent_obligation": "G00-07",
+      "requirement_refs": [
+        "PG-REQ-08",
+        "PG-REQ-22"
+      ],
+      "adr_refs": [
+        "PG-ADR-011"
+      ],
+      "api_contract_refs": [
+        "G00-API-041"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/outcomes.py"
+      ],
+      "logical_test_ref": "G00-07-T10",
+      "design_document": "docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-08-F01",
+      "parent_obligation": "G00-08",
+      "requirement_refs": [
+        "PG-REQ-06",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-008"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-08-T01",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-08-F02",
+      "parent_obligation": "G00-08",
+      "requirement_refs": [
+        "PG-REQ-06",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-008"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-08-T02",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-08-F03",
+      "parent_obligation": "G00-08",
+      "requirement_refs": [
+        "PG-REQ-06",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-008"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-08-T03",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-08-F04",
+      "parent_obligation": "G00-08",
+      "requirement_refs": [
+        "PG-REQ-06",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-007"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-08-T04",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-08-F05",
+      "parent_obligation": "G00-08",
+      "requirement_refs": [
+        "PG-REQ-06",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-043"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-08-T05",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-08-F06",
+      "parent_obligation": "G00-08",
+      "requirement_refs": [
+        "PG-REQ-06",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-008"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-08-T06",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-08-F07",
+      "parent_obligation": "G00-08",
+      "requirement_refs": [
+        "PG-REQ-06",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-044"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-08-T07",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-08-F08",
+      "parent_obligation": "G00-08",
+      "requirement_refs": [
+        "PG-REQ-06",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-043"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-08-T08",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-08-F09",
+      "parent_obligation": "G00-08",
+      "requirement_refs": [
+        "PG-REQ-06",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-044"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-08-T09",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-08-F10",
+      "parent_obligation": "G00-08",
+      "requirement_refs": [
+        "PG-REQ-06",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-008"
+      ],
+      "owner_module_refs": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "logical_test_ref": "G00-08-T10",
+      "design_document": "docs/campaigns/G-00/07_REFERENTIAL_INTEGRITY.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-09-F01",
+      "parent_obligation": "G00-09",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-046"
+      ],
+      "owner_module_refs": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "logical_test_ref": "G00-09-T01",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-09-F02",
+      "parent_obligation": "G00-09",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-046"
+      ],
+      "owner_module_refs": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "logical_test_ref": "G00-09-T02",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-09-F03",
+      "parent_obligation": "G00-09",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-047"
+      ],
+      "owner_module_refs": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "logical_test_ref": "G00-09-T03",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-09-F04",
+      "parent_obligation": "G00-09",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-046"
+      ],
+      "owner_module_refs": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "logical_test_ref": "G00-09-T04",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-09-F05",
+      "parent_obligation": "G00-09",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-048",
+        "G00-API-047"
+      ],
+      "owner_module_refs": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "logical_test_ref": "G00-09-T05",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-09-F06",
+      "parent_obligation": "G00-09",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-048"
+      ],
+      "owner_module_refs": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "logical_test_ref": "G00-09-T06",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-09-F07",
+      "parent_obligation": "G00-09",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-047"
+      ],
+      "owner_module_refs": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "logical_test_ref": "G00-09-T07",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-09-F08",
+      "parent_obligation": "G00-09",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-046"
+      ],
+      "owner_module_refs": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "logical_test_ref": "G00-09-T08",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-09-F09",
+      "parent_obligation": "G00-09",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-049"
+      ],
+      "owner_module_refs": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "logical_test_ref": "G00-09-T09",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-09-F10",
+      "parent_obligation": "G00-09",
+      "requirement_refs": [
+        "PG-REQ-06"
+      ],
+      "adr_refs": [
+        "PG-ADR-004"
+      ],
+      "api_contract_refs": [
+        "G00-API-045"
+      ],
+      "owner_module_refs": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "logical_test_ref": "G00-09-T10",
+      "design_document": "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-10-F01",
+      "parent_obligation": "G00-10",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [
+        "G00-API-050"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-10-T01",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-10-F02",
+      "parent_obligation": "G00-10",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [
+        "G00-API-023"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-10-T02",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-10-F03",
+      "parent_obligation": "G00-10",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [
+        "G00-API-053"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-10-T03",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-10-F04",
+      "parent_obligation": "G00-10",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [
+        "G00-API-050"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-10-T04",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-10-F05",
+      "parent_obligation": "G00-10",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [
+        "G00-API-050"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-10-T05",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-10-F06",
+      "parent_obligation": "G00-10",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [
+        "G00-API-051"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-10-T06",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-10-F07",
+      "parent_obligation": "G00-10",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [
+        "G00-API-052"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-10-T07",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-10-F08",
+      "parent_obligation": "G00-10",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [
+        "G00-API-050"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-10-T08",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-10-F09",
+      "parent_obligation": "G00-10",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [
+        "G00-API-053"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-10-T09",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-10-F10",
+      "parent_obligation": "G00-10",
+      "requirement_refs": [
+        "PG-REQ-10"
+      ],
+      "adr_refs": [
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [
+        "G00-API-050"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "logical_test_ref": "G00-10-T10",
+      "design_document": "docs/campaigns/G-00/09_PURE_EVALUATOR.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-11-F01",
+      "parent_obligation": "G00-11",
+      "requirement_refs": [
+        "PG-REQ-10",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-054"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "logical_test_ref": "G00-11-T01",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-11-F02",
+      "parent_obligation": "G00-11",
+      "requirement_refs": [
+        "PG-REQ-10",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-054"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "logical_test_ref": "G00-11-T02",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-11-F03",
+      "parent_obligation": "G00-11",
+      "requirement_refs": [
+        "PG-REQ-10",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-055"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "logical_test_ref": "G00-11-T03",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-11-F04",
+      "parent_obligation": "G00-11",
+      "requirement_refs": [
+        "PG-REQ-10",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-054"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "logical_test_ref": "G00-11-T04",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-11-F05",
+      "parent_obligation": "G00-11",
+      "requirement_refs": [
+        "PG-REQ-10",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-055"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "logical_test_ref": "G00-11-T05",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-11-F06",
+      "parent_obligation": "G00-11",
+      "requirement_refs": [
+        "PG-REQ-10",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-055"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "logical_test_ref": "G00-11-T06",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-11-F07",
+      "parent_obligation": "G00-11",
+      "requirement_refs": [
+        "PG-REQ-10",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-056"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "logical_test_ref": "G00-11-T07",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-11-F08",
+      "parent_obligation": "G00-11",
+      "requirement_refs": [
+        "PG-REQ-10",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-053"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "logical_test_ref": "G00-11-T08",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-11-F09",
+      "parent_obligation": "G00-11",
+      "requirement_refs": [
+        "PG-REQ-10",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-054"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "logical_test_ref": "G00-11-T09",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-11-F10",
+      "parent_obligation": "G00-11",
+      "requirement_refs": [
+        "PG-REQ-10",
+        "PG-REQ-31"
+      ],
+      "adr_refs": [
+        "PG-ADR-003"
+      ],
+      "api_contract_refs": [
+        "G00-API-054"
+      ],
+      "owner_module_refs": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "logical_test_ref": "G00-11-T10",
+      "design_document": "docs/campaigns/G-00/03_CONSTITUTION_AUTHORITY_CONFLICTS.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-12-F01",
+      "parent_obligation": "G00-12",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-08",
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-016",
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [],
+      "owner_module_refs": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "logical_test_ref": "G00-12-T01",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-12-F02",
+      "parent_obligation": "G00-12",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-08",
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-016",
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [],
+      "owner_module_refs": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "logical_test_ref": "G00-12-T02",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-12-F03",
+      "parent_obligation": "G00-12",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-08",
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-016",
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [],
+      "owner_module_refs": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "logical_test_ref": "G00-12-T03",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-12-F04",
+      "parent_obligation": "G00-12",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-08",
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-016",
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [],
+      "owner_module_refs": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "logical_test_ref": "G00-12-T04",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-12-F05",
+      "parent_obligation": "G00-12",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-08",
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-016",
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [],
+      "owner_module_refs": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "logical_test_ref": "G00-12-T05",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-12-F06",
+      "parent_obligation": "G00-12",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-08",
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-016",
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [],
+      "owner_module_refs": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "logical_test_ref": "G00-12-T06",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-12-F07",
+      "parent_obligation": "G00-12",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-08",
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-016",
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [],
+      "owner_module_refs": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "logical_test_ref": "G00-12-T07",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-12-F08",
+      "parent_obligation": "G00-12",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-08",
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-016",
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [],
+      "owner_module_refs": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "logical_test_ref": "G00-12-T08",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-12-F09",
+      "parent_obligation": "G00-12",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-08",
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-016",
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [],
+      "owner_module_refs": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "logical_test_ref": "G00-12-T09",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    },
+    {
+      "clause_id": "G00-12-F10",
+      "parent_obligation": "G00-12",
+      "requirement_refs": [
+        "PG-REQ-02",
+        "PG-REQ-08",
+        "PG-REQ-09"
+      ],
+      "adr_refs": [
+        "PG-ADR-016",
+        "PG-ADR-018"
+      ],
+      "api_contract_refs": [],
+      "owner_module_refs": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "logical_test_ref": "G00-12-T10",
+      "design_document": "docs/campaigns/G-00/11_TESTS_AND_ADVERSARIAL_MATRIX.md",
+      "status": "DESIGN_MAPPING_PROPOSED_NOT_IMPLEMENTED",
+      "provenance": "G00 original parent and documented clause; mapping generated for detailed architectural review"
+    }
+  ]
+}
