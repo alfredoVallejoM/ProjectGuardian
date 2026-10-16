@@ -22,6 +22,8 @@
 | 13 | [120 cláusulas](13_FUNCTIONAL_REFINEMENT_MATRIX.md) | Cada G00-XX-FYY con aceptación/falsación/test |
 | 14 | [58 operaciones](14_API_CONTRACT_CATALOG.md) | Pre/postcondiciones por API y errores |
 | 15 | [24 decisiones](15_FOUNDATION_DESIGN_DECISIONS.md) | Selecciones a ratificar antes de implementar |
+| 16 | [Trazabilidad fina](16_FINE_GRAIN_TRACEABILITY.md) | REQ/ADR → cláusula → API → test/owner |
+| 17 | [Auditoría estática documental](17_DOCUMENTARY_AUDIT.md) | Resultados verificados y límites de cierre |
 
 ## Registros legibles por máquina
 

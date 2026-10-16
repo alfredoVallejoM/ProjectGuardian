@@ -49,3 +49,4 @@ Una precisión posterior no sustituye el alcance anterior, salvo operación expl
 
 ### Profundización de la campaña fundacional
 - [G-00 completa](campaigns/G-00/INDEX.md): modelos, interfaces, 120 cláusulas de comportamiento, 58 operaciones, 36 adversarios, 7 verticales y diez cortes de desarrollo. **Diseño sin implementación.**
+- [Revisión documental estática de G-00](campaigns/G-00/17_DOCUMENTARY_AUDIT.md): integridad referencial comprobada, sin implementación material.

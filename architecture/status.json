@@ -55,6 +55,10 @@
       "src/guardian/persistence/schema_registry.py",
       "src/guardian/constitution/amendments.py"
     ],
-    "note": "Both start in G-00 only for read/validation/proposal contracts; full schema evolution G-01/G-12 and protected approvals G-09"
+    "note": "Both start in G-00 only for read/validation/proposal contracts; full schema evolution G-01/G-12 and protected approvals G-09",
+    "documentary_audit": "PASS_STATIC_REMOTE_READBACK_DESIGN_ONLY",
+    "audit_report": "docs/campaigns/G-00/17_DOCUMENTARY_AUDIT.md",
+    "implementation_claim": false,
+    "certification_claim": false
   }
 }
