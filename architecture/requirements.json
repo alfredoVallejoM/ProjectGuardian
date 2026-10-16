@@ -1,0 +1,423 @@
+{
+  "schema": "guardian/project-requirements/v1",
+  "authority": "PROPOSAL_NOT_RATIFIED",
+  "source_scope": "Consolidated user conversation 2026-10-16",
+  "requirements": [
+    {
+      "id": "PG-REQ-01",
+      "name": "Independencia",
+      "normative_statement": "Guardian es aplicacion independiente sin dependencia productiva desde proyectos gestionados",
+      "campaign_refs": [
+        "G-00",
+        "G-07"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-02",
+      "name": "Generalidad",
+      "normative_statement": "Proyectos software/cientificos/investigacion distintos funcionan con un nucleo comun",
+      "campaign_refs": [
+        "G-00",
+        "G-07",
+        "G-13"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-03",
+      "name": "Contrato integral",
+      "normative_statement": "Se representan objetivos capacidades propiedades arquitectura obligaciones consumidores evidencia",
+      "campaign_refs": [
+        "G-00",
+        "G-02",
+        "G-10"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-04",
+      "name": "No debilitamiento",
+      "normative_statement": "No borrar ni reducir exigencias ratificadas sin ChangeSet autorizado",
+      "campaign_refs": [
+        "G-01",
+        "G-09",
+        "G-10"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-05",
+      "name": "Evolucion abierta",
+      "normative_statement": "Nuevas obligaciones campañas y capacidades sin modificar motor central",
+      "campaign_refs": [
+        "G-01",
+        "G-13"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-06",
+      "name": "Identidad historica",
+      "normative_statement": "Logica revisiones digests y linaje separados",
+      "campaign_refs": [
+        "G-00",
+        "G-01"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-07",
+      "name": "Fuentes trazables",
+      "normative_statement": "Origen de hechos y contratos con commit documento autoridad y alcance",
+      "campaign_refs": [
+        "G-07",
+        "G-10"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-08",
+      "name": "Estados ortogonales",
+      "normative_statement": "Planificado implementado escrito ejecutado auditado certificado son distintos",
+      "campaign_refs": [
+        "G-00",
+        "G-06"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-09",
+      "name": "Aplicabilidad contextual",
+      "normative_statement": "Cada exigencia se evalua por perfil e hito con UNKNOWN/CONFLICT explicitos",
+      "campaign_refs": [
+        "G-00",
+        "G-02",
+        "G-10"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-10",
+      "name": "Arquitectura vinculante",
+      "normative_statement": "Codigo se contrasta con arquitectura aprobada y no la redefine",
+      "campaign_refs": [
+        "G-00",
+        "G-05",
+        "G-09"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-11",
+      "name": "Grafo multidimensional",
+      "normative_statement": "Relaciones muchos-a-muchos tipadas n-arias soporte e impacto",
+      "campaign_refs": [
+        "G-02"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-12",
+      "name": "Cobertura verificable",
+      "normative_statement": "Requisitos contra universo de fuentes y obligaciones sin omisiones conocidas",
+      "campaign_refs": [
+        "G-10"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-13",
+      "name": "Orientacion",
+      "normative_statement": "ProjectOrientation global componente y capacidad accesible a cualquier agente/humano",
+      "campaign_refs": [
+        "G-03",
+        "G-11"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-14",
+      "name": "Trabajo compilado",
+      "normative_statement": "WorkPackages completos con cierre obligatorio y norma inmutable",
+      "campaign_refs": [
+        "G-04"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-15",
+      "name": "Implementacion real",
+      "normative_statement": "Files/tests escritos no equivalen funcionalidad sin evidencia pertinente",
+      "campaign_refs": [
+        "G-05",
+        "G-06"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-16",
+      "name": "Integracion",
+      "normative_statement": "Flujos de productor consumidor entre modulos deben probarse",
+      "campaign_refs": [
+        "G-05",
+        "G-06",
+        "G-13"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-17",
+      "name": "Auditoria adversaria",
+      "normative_statement": "Hallazgos y revisiones por obligacion; independiente cuando politica lo exige",
+      "campaign_refs": [
+        "G-06",
+        "G-13"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-18",
+      "name": "Evidencia autentica",
+      "normative_statement": "Receipts verificables de runner y no texto autonomamente declarativo",
+      "campaign_refs": [
+        "G-06",
+        "G-09"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-19",
+      "name": "Continuidad certificados",
+      "normative_statement": "Certificados historicos reusables solo por scope y cone protegido",
+      "campaign_refs": [
+        "G-06",
+        "G-10"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-20",
+      "name": "Impacto incremental",
+      "normative_statement": "Cambios revalidan support cones afectados sin SHA global ciego",
+      "campaign_refs": [
+        "G-02",
+        "G-06",
+        "G-10"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-21",
+      "name": "Migracion conservadora",
+      "normative_statement": "Paridad de dominio leyes errores efectos recursos consumidores",
+      "campaign_refs": [
+        "G-10"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-22",
+      "name": "Investigacion abierta",
+      "normative_statement": "Separacion de FUTURE RESEARCH PROPOSED CURRENT",
+      "campaign_refs": [
+        "G-00",
+        "G-01",
+        "G-10"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-23",
+      "name": "Monoagente",
+      "normative_statement": "Uso pleno con un solo agente sin inventar independencia de auditoria",
+      "campaign_refs": [
+        "G-08",
+        "G-13"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-24",
+      "name": "Multiagente",
+      "normative_statement": "Varios agentes y roles opcionales sobre la misma autoridad",
+      "campaign_refs": [
+        "G-08",
+        "G-13"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-25",
+      "name": "Independencia proveedor",
+      "normative_statement": "No SDK lenguaje o modelo obligatorio en dominio",
+      "campaign_refs": [
+        "G-07",
+        "G-08"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-26",
+      "name": "Proteccion gobierno",
+      "normative_statement": "Agente no modifica ni acepta su propia policy",
+      "campaign_refs": [
+        "G-09"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-27",
+      "name": "Interoperabilidad",
+      "normative_statement": "CLI API MCP UI y SDK comparten casos de uso",
+      "campaign_refs": [
+        "G-11"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-28",
+      "name": "Explicabilidad",
+      "normative_statement": "Cada verdict incluye scope reglas motivos support paths evidencias gaps",
+      "campaign_refs": [
+        "G-02",
+        "G-03",
+        "G-05",
+        "G-11"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-29",
+      "name": "Persistencia continuidad",
+      "normative_statement": "Cambiar chat/agente mantiene estado fuentes revisiones recibos",
+      "campaign_refs": [
+        "G-01",
+        "G-03",
+        "G-12"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-30",
+      "name": "Extensibilidad fisica",
+      "normative_statement": "Sin recuentos rigidos de campanas crates archivos o LOC",
+      "campaign_refs": [
+        "G-01",
+        "G-07",
+        "G-12"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-31",
+      "name": "Aislamiento",
+      "normative_statement": "No importar fuente de proyecto ajeno sin autorizacion",
+      "campaign_refs": [
+        "G-00",
+        "G-07",
+        "G-13"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-32",
+      "name": "Certificacion honesta",
+      "normative_statement": "Separa SOURCE SPEC IMPLEMENTATION INTEGRATION SCIENTIFIC MIGRATION",
+      "campaign_refs": [
+        "G-06",
+        "G-10"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-33",
+      "name": "Publicacion segura",
+      "normative_statement": "Gatekeeper CAS Git credenciales externas revision exacta",
+      "campaign_refs": [
+        "G-09",
+        "G-12"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-REQ-34",
+      "name": "Autogobierno",
+      "normative_statement": "La infraestructura se somete a sus mismas obligaciones/tests/enmiendas",
+      "campaign_refs": [
+        "G-09",
+        "G-13"
+      ],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "verification_state": "NOT_EXECUTED"
+    }
+  ],
+  "count": 34
+}

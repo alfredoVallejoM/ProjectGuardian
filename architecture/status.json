@@ -1,0 +1,20 @@
+{
+  "schema": "guardian/design-status/v1",
+  "repository": "alfredoVallejoM/ProjectGuardian",
+  "branch": "main",
+  "authority": "PROPOSED",
+  "scope_requirements": 34,
+  "decisions": 30,
+  "campaigns": 14,
+  "implementation_obligations_planned": 163,
+  "implementation_started": false,
+  "code_implemented": false,
+  "tests_executed": false,
+  "certifications_issued": false,
+  "source_conversations_archived_in_repo": false,
+  "notes": [
+    "Source transcript conceptualized and normalized into structured proposed records; not a verbatim transcription",
+    "Markdown and JSON are proposals until explicit ratification; no runtime or enforcement exists",
+    "Campaigns and module blueprint will be published separately"
+  ]
+}

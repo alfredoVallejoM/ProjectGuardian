@@ -1,0 +1,441 @@
+{
+  "schema": "guardian/architecture-decisions/v1",
+  "authority": "PROPOSAL_NOT_RATIFIED",
+  "decisions": [
+    {
+      "id": "PG-ADR-001",
+      "title": "Aplicacion independiente",
+      "decision": "Ningun proyecto produce dependencia productiva de Guardian",
+      "rejected_alternative": "Integrar Guardian como biblioteca en FC2",
+      "consequences": "Autonomia y adaptadores; custodiar autoridad por proyecto",
+      "campaign_refs": [
+        "G-00",
+        "G-07"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-002",
+      "title": "ProjectContract central",
+      "decision": "Contrato evolutivo de proyecto es objeto principal, no agente ni task",
+      "rejected_alternative": "Modelo task-centric",
+      "consequences": "Separar ProjectContract de Campaign/Work/Agent",
+      "campaign_refs": [
+        "G-00"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-003",
+      "title": "Ontologia separada",
+      "decision": "Objetivo Capability Property Obligation Implementation Verification Evidence Claim son identidades diferentes",
+      "rejected_alternative": "Tabla unica task/status",
+      "consequences": "Permite soporte muchos-a-muchos y cobertura real",
+      "campaign_refs": [
+        "G-00",
+        "G-02"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-004",
+      "title": "Identidades y revisiones",
+      "decision": "LogicalId distinto de RevisionId ContentDigest Alias",
+      "rejected_alternative": "Ruta/archivo como ID",
+      "consequences": "Version y renombrado no borran linaje",
+      "campaign_refs": [
+        "G-00",
+        "G-01"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-005",
+      "title": "Obligaciones inmutables",
+      "decision": "No setter de completed ni edicion de ObligacionRevision aprobada",
+      "rejected_alternative": "CRUD directo editable",
+      "consequences": "Todos los cambios requieren revisions y eventos",
+      "campaign_refs": [
+        "G-01"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-006",
+      "title": "Universo abierto",
+      "decision": "Nuevas campanas obligaciones owners sin codigo central nuevo",
+      "rejected_alternative": "DAG hardcoded y recuento fijo",
+      "consequences": "Registro por proyecto/revision extensible",
+      "campaign_refs": [
+        "G-01"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-007",
+      "title": "ChangeSet semantico",
+      "decision": "Cambios por operaciones Add Refine Generalize Supersede Revoke",
+      "rejected_alternative": "PATCH JSON libre",
+      "consequences": "Transiciones comprobables",
+      "campaign_refs": [
+        "G-01"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-008",
+      "title": "Grafo tipado n-ario",
+      "decision": "RelationRevision con participantes rol/cardinalidad/provenance",
+      "rejected_alternative": "Graph key-value simple",
+      "consequences": "Soporta matematicas e integracion sin binarizacion",
+      "campaign_refs": [
+        "G-02"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-009",
+      "title": "Grafo proyectado",
+      "decision": "Semantica arquitectura ejecucion soporte son vistas",
+      "rejected_alternative": "Cuatro bases autoritativas",
+      "consequences": "No duplicar autoridad",
+      "campaign_refs": [
+        "G-02"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-010",
+      "title": "Applicability contextual",
+      "decision": "Perfil e hito YES NO UNKNOWN CONFLICT",
+      "rejected_alternative": "Boolean por defecto",
+      "consequences": "Ausencia de info no omite obligacion",
+      "campaign_refs": [
+        "G-00",
+        "G-02"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-011",
+      "title": "Estados ortogonales",
+      "decision": "Source Implementation Material Audit Qualification Migration separadas",
+      "rejected_alternative": "status unico PASS",
+      "consequences": "Evita falsos cierres",
+      "campaign_refs": [
+        "G-00",
+        "G-06"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-012",
+      "title": "Cobertura delimitada",
+      "decision": "Claims de completeness siempre con SourceUniverse revision y profile",
+      "rejected_alternative": "100% total sin universo",
+      "consequences": "No garantiza requisitos desconocidos",
+      "campaign_refs": [
+        "G-10"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-013",
+      "title": "Claim Evidence separados",
+      "decision": "VerificationSpec Test Run Evidence Claim Qualification no colapsan",
+      "rejected_alternative": "Receipt = verdad",
+      "consequences": "Distinguir demostracion y verificacion ejecutada",
+      "campaign_refs": [
+        "G-06"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-014",
+      "title": "Certificados acotados",
+      "decision": "Certificate per claim/version/scope/verifier and source universe",
+      "rejected_alternative": "PASS global heredable",
+      "consequences": "Invalidacion selectiva honesta",
+      "campaign_refs": [
+        "G-06",
+        "G-10"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-015",
+      "title": "Migracion contratada",
+      "decision": "Preservacion dominio comportamiento leyes consumidores recursos",
+      "rejected_alternative": "Copiar codigo y test smoke",
+      "consequences": "Paridad fuente/destino/oraculo",
+      "campaign_refs": [
+        "G-10"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-016",
+      "title": "Python tipado",
+      "decision": "Python 3.12+ typed como nucleo de inicio",
+      "rejected_alternative": "Dos nucleos Python/Rust desde dia uno",
+      "consequences": "Facilitar evolucion de contratos sin duplicacion",
+      "campaign_refs": [
+        "G-00"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-017",
+      "title": "Monolito modular",
+      "decision": "Un paquete con contextos delimitados sin microservicios previos",
+      "rejected_alternative": "Microservicios tempranos",
+      "consequences": "Simplicidad operacional",
+      "campaign_refs": [
+        "G-12"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-018",
+      "title": "Functional Core",
+      "decision": "Reglas puras y shell imperativa",
+      "rejected_alternative": "I/O dentro de policy",
+      "consequences": "Validadores reproducibles",
+      "campaign_refs": [
+        "G-00",
+        "G-09"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-019",
+      "title": "Puertos y adaptadores",
+      "decision": "Domain no importa DB SDK tools; protocolos externos",
+      "rejected_alternative": "Integrar Git y LLM en modelos",
+      "consequences": "Independencia y testabilidad",
+      "campaign_refs": [
+        "G-07"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-020",
+      "title": "Git autoritativo",
+      "decision": "Normativa versionada en Git o fuentes historicas designadas",
+      "rejected_alternative": "SQLite con edición paralela",
+      "consequences": "Compatibilidad revision/replay",
+      "campaign_refs": [
+        "G-01",
+        "G-12"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-021",
+      "title": "SQLite derivado",
+      "decision": "Indices/FTS/grafo reconstruibles",
+      "rejected_alternative": "Doble fuente editable",
+      "consequences": "Recuperacion y consultas eficientes",
+      "campaign_refs": [
+        "G-02",
+        "G-12"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-022",
+      "title": "Publicacion serial",
+      "decision": "Un admitted writer por proyecto, CAS en ref",
+      "rejected_alternative": "Push directos concurrentes",
+      "consequences": "Consistencia de cambios admitidos",
+      "campaign_refs": [
+        "G-09",
+        "G-12"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-023",
+      "title": "Gatekeeper confiable",
+      "decision": "Policy ejecutada fuera de worktree editable con version previa",
+      "rejected_alternative": "Prompt guard o script modificable",
+      "consequences": "Evita self-admission",
+      "campaign_refs": [
+        "G-09"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-024",
+      "title": "Verificadores especializados",
+      "decision": "Descriptor con scope/version/authority de cada runner",
+      "rejected_alternative": "Plugins universales PASS",
+      "consequences": "Claims justificados por dominio",
+      "campaign_refs": [
+        "G-06",
+        "G-07"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-025",
+      "title": "Orientacion distinta de paquete",
+      "decision": "Orientation es vista; WorkPackage manifest es normativo",
+      "rejected_alternative": "Resumen libre como contrato",
+      "consequences": "Contexto adaptable sin perdida de requisitos",
+      "campaign_refs": [
+        "G-03",
+        "G-04"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-026",
+      "title": "Closure no reducible",
+      "decision": "El prompt puede acortarse pero ObligationsClosure queda completo",
+      "rejected_alternative": "Cortar por limite tokens",
+      "consequences": "Completitud evaluable al entregar",
+      "campaign_refs": [
+        "G-04"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-027",
+      "title": "Cero uno varios agentes",
+      "decision": "Agentes opcionales A0-A4 solo perfil",
+      "rejected_alternative": "Cinco agentes obligatorios",
+      "consequences": "Humanos y monoagente protegidos",
+      "campaign_refs": [
+        "G-08"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-028",
+      "title": "Roles sin autoridad",
+      "decision": "API/SDKs no modifican contratos ni crean receipts",
+      "rejected_alternative": "Modelo IA dueño del programa",
+      "consequences": "Permisos externos al contenido",
+      "campaign_refs": [
+        "G-08",
+        "G-09"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-029",
+      "title": "Sin recuentos rigidos",
+      "decision": "No numero fijo de crates campañas tests ni LOC por arquitectura",
+      "rejected_alternative": "Gates hardcodeados",
+      "consequences": "Crecimiento sin romper gobernanza",
+      "campaign_refs": [
+        "G-01",
+        "G-07"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    },
+    {
+      "id": "PG-ADR-030",
+      "title": "Guardian autogobernado",
+      "decision": "Su proyecto usa sus propias reglas tests y auditoria",
+      "rejected_alternative": "Excepcion para el propio producto",
+      "consequences": "Garantias de desarrollo internas",
+      "campaign_refs": [
+        "G-13"
+      ],
+      "status": "PROPOSED_FOR_RATIFICATION",
+      "approval_refs": [],
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "verification_state": "NOT_EXECUTED"
+    }
+  ],
+  "count": 30
+}
