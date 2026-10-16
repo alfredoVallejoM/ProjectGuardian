@@ -27,3 +27,8 @@ Este documento organiza la discusión siguiente. `architecture/module_blueprint.
 ## Políticas de archivos
 No crear scaffolds vacíos. Cada módulo se abre en su primera campaña propietaria; no hay límite de LOC. `lib.rs` no aplica porque núcleo Python. Un test apunta a un comportamiento, no a una función por simetría. Nuevos archivos requieren owner, propósito, consumidores, pruebas, policy de dependencias y registro en atlas físico al implementarse.
 
+
+
+## Persistencia pura frente a adaptadores
+`persistence/events.py`, `snapshots.py`, `canonicalization.py`, `schema_registry.py` y `recovery.py` poseen reglas de serialización, eventos, snapshots y propuestas de recuperación sin E/S; el Git real vive en `adapters/git/` y el SQL real en `adapters/sqlite/`. No deben duplicarse implementaciones de persistencia.
+

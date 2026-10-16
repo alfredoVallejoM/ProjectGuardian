@@ -3231,9 +3231,10 @@
       "excluded_scope": "No ejecutar microservicios u ORM solo por complejidad aparente.",
       "owner": "Operations",
       "proposed_modules": [
-        "src/guardian/persistence/git_repository.py",
-        "src/guardian/persistence/sqlite_projection.py",
+        "src/guardian/persistence/events.py",
         "src/guardian/persistence/recovery.py",
+        "src/guardian/adapters/git/writer.py",
+        "src/guardian/adapters/sqlite/projector.py",
         "src/guardian/bootstrap/runtime.py"
       ],
       "verification_profile": "REPLAY_CONCURRENCY_RESOURCES",
@@ -3252,9 +3253,10 @@
             "SOURCE_AND_REVISION_TRACE"
           ],
           "proposed_module_refs": [
-            "src/guardian/persistence/git_repository.py",
-            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/events.py",
             "src/guardian/persistence/recovery.py",
+            "src/guardian/adapters/git/writer.py",
+            "src/guardian/adapters/sqlite/projector.py",
             "src/guardian/bootstrap/runtime.py"
           ],
           "status": "SPECIFIED_NOT_IMPLEMENTED",
@@ -3273,9 +3275,10 @@
             "SOURCE_AND_REVISION_TRACE"
           ],
           "proposed_module_refs": [
-            "src/guardian/persistence/git_repository.py",
-            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/events.py",
             "src/guardian/persistence/recovery.py",
+            "src/guardian/adapters/git/writer.py",
+            "src/guardian/adapters/sqlite/projector.py",
             "src/guardian/bootstrap/runtime.py"
           ],
           "status": "SPECIFIED_NOT_IMPLEMENTED",
@@ -3294,9 +3297,10 @@
             "SOURCE_AND_REVISION_TRACE"
           ],
           "proposed_module_refs": [
-            "src/guardian/persistence/git_repository.py",
-            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/events.py",
             "src/guardian/persistence/recovery.py",
+            "src/guardian/adapters/git/writer.py",
+            "src/guardian/adapters/sqlite/projector.py",
             "src/guardian/bootstrap/runtime.py"
           ],
           "status": "SPECIFIED_NOT_IMPLEMENTED",
@@ -3315,9 +3319,10 @@
             "SOURCE_AND_REVISION_TRACE"
           ],
           "proposed_module_refs": [
-            "src/guardian/persistence/git_repository.py",
-            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/events.py",
             "src/guardian/persistence/recovery.py",
+            "src/guardian/adapters/git/writer.py",
+            "src/guardian/adapters/sqlite/projector.py",
             "src/guardian/bootstrap/runtime.py"
           ],
           "status": "SPECIFIED_NOT_IMPLEMENTED",
@@ -3336,9 +3341,10 @@
             "SOURCE_AND_REVISION_TRACE"
           ],
           "proposed_module_refs": [
-            "src/guardian/persistence/git_repository.py",
-            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/events.py",
             "src/guardian/persistence/recovery.py",
+            "src/guardian/adapters/git/writer.py",
+            "src/guardian/adapters/sqlite/projector.py",
             "src/guardian/bootstrap/runtime.py"
           ],
           "status": "SPECIFIED_NOT_IMPLEMENTED",
@@ -3357,9 +3363,10 @@
             "SOURCE_AND_REVISION_TRACE"
           ],
           "proposed_module_refs": [
-            "src/guardian/persistence/git_repository.py",
-            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/events.py",
             "src/guardian/persistence/recovery.py",
+            "src/guardian/adapters/git/writer.py",
+            "src/guardian/adapters/sqlite/projector.py",
             "src/guardian/bootstrap/runtime.py"
           ],
           "status": "SPECIFIED_NOT_IMPLEMENTED",
@@ -3378,9 +3385,10 @@
             "SOURCE_AND_REVISION_TRACE"
           ],
           "proposed_module_refs": [
-            "src/guardian/persistence/git_repository.py",
-            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/events.py",
             "src/guardian/persistence/recovery.py",
+            "src/guardian/adapters/git/writer.py",
+            "src/guardian/adapters/sqlite/projector.py",
             "src/guardian/bootstrap/runtime.py"
           ],
           "status": "SPECIFIED_NOT_IMPLEMENTED",
@@ -3399,9 +3407,10 @@
             "SOURCE_AND_REVISION_TRACE"
           ],
           "proposed_module_refs": [
-            "src/guardian/persistence/git_repository.py",
-            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/events.py",
             "src/guardian/persistence/recovery.py",
+            "src/guardian/adapters/git/writer.py",
+            "src/guardian/adapters/sqlite/projector.py",
             "src/guardian/bootstrap/runtime.py"
           ],
           "status": "SPECIFIED_NOT_IMPLEMENTED",
@@ -3420,9 +3429,10 @@
             "SOURCE_AND_REVISION_TRACE"
           ],
           "proposed_module_refs": [
-            "src/guardian/persistence/git_repository.py",
-            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/events.py",
             "src/guardian/persistence/recovery.py",
+            "src/guardian/adapters/git/writer.py",
+            "src/guardian/adapters/sqlite/projector.py",
             "src/guardian/bootstrap/runtime.py"
           ],
           "status": "SPECIFIED_NOT_IMPLEMENTED",
@@ -3441,9 +3451,10 @@
             "SOURCE_AND_REVISION_TRACE"
           ],
           "proposed_module_refs": [
-            "src/guardian/persistence/git_repository.py",
-            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/events.py",
             "src/guardian/persistence/recovery.py",
+            "src/guardian/adapters/git/writer.py",
+            "src/guardian/adapters/sqlite/projector.py",
             "src/guardian/bootstrap/runtime.py"
           ],
           "status": "SPECIFIED_NOT_IMPLEMENTED",

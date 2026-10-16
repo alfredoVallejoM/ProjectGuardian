@@ -2,7 +2,7 @@
   "schema": "guardian/module-blueprint/v1",
   "authority": "PROPOSED_NOT_RATIFIED",
   "target_package": "src/guardian",
-  "planned_module_count": 121,
+  "planned_module_count": 126,
   "already_implemented": 0,
   "groups": [
     {
@@ -160,6 +160,12 @@
       "first_campaign": "G-12",
       "invariant": "wiring only",
       "count": 3
+    },
+    {
+      "path": "persistence",
+      "first_campaign": "G-01",
+      "invariant": "Pure record formats and replay; external I/O in adapters",
+      "count": 5
     }
   ],
   "modules": [
@@ -1856,8 +1862,78 @@
       "test_target": "tests/bootstrap/test_bootstrap_runtime.py",
       "status": "DESIGN_ONLY_NOT_IMPLEMENTED",
       "creation_gate": "Create only with a real consumer, cohesive invariant, direct tests and package-level obligation trace; do not scaffold empty files."
+    },
+    {
+      "path": "src/guardian/persistence/events.py",
+      "owner": "persistence",
+      "owner_scope": "persistence",
+      "first_campaign": "G-01",
+      "purpose": "Typed event encoding, validation and deterministic replay interpretation",
+      "group_invariant": "Pure record/replay/canonicalization semantics; Git and SQLite I/O belong only to adapters",
+      "forbidden": "No direct filesystem/network/SQLite/Git access; no normative edits",
+      "inputs": "Versioned immutable records and typed observations",
+      "outputs": "Deterministic validated record or recovery proposal",
+      "test_target": "tests/persistence/test_events.py",
+      "status": "DESIGN_ONLY_NOT_IMPLEMENTED",
+      "creation_gate": "Only create with tested consumer and non-overlapping responsibility; no empty scaffold."
+    },
+    {
+      "path": "src/guardian/persistence/snapshots.py",
+      "owner": "persistence",
+      "owner_scope": "persistence",
+      "first_campaign": "G-01",
+      "purpose": "Pure ProgramSnapshot construction/diff and version stability",
+      "group_invariant": "Pure record/replay/canonicalization semantics; Git and SQLite I/O belong only to adapters",
+      "forbidden": "No direct filesystem/network/SQLite/Git access; no normative edits",
+      "inputs": "Versioned immutable records and typed observations",
+      "outputs": "Deterministic validated record or recovery proposal",
+      "test_target": "tests/persistence/test_snapshots.py",
+      "status": "DESIGN_ONLY_NOT_IMPLEMENTED",
+      "creation_gate": "Only create with tested consumer and non-overlapping responsibility; no empty scaffold."
+    },
+    {
+      "path": "src/guardian/persistence/canonicalization.py",
+      "owner": "persistence",
+      "owner_scope": "persistence",
+      "first_campaign": "G-06",
+      "purpose": "Canonical JSON payload encoding and digest scope separation",
+      "group_invariant": "Pure record/replay/canonicalization semantics; Git and SQLite I/O belong only to adapters",
+      "forbidden": "No direct filesystem/network/SQLite/Git access; no normative edits",
+      "inputs": "Versioned immutable records and typed observations",
+      "outputs": "Deterministic validated record or recovery proposal",
+      "test_target": "tests/persistence/test_canonicalization.py",
+      "status": "DESIGN_ONLY_NOT_IMPLEMENTED",
+      "creation_gate": "Only create with tested consumer and non-overlapping responsibility; no empty scaffold."
+    },
+    {
+      "path": "src/guardian/persistence/recovery.py",
+      "owner": "persistence",
+      "owner_scope": "persistence",
+      "first_campaign": "G-12",
+      "purpose": "Pure recovery plan from Git/ref and projection consistency observations",
+      "group_invariant": "Pure record/replay/canonicalization semantics; Git and SQLite I/O belong only to adapters",
+      "forbidden": "No direct filesystem/network/SQLite/Git access; no normative edits",
+      "inputs": "Versioned immutable records and typed observations",
+      "outputs": "Deterministic validated record or recovery proposal",
+      "test_target": "tests/persistence/test_recovery.py",
+      "status": "DESIGN_ONLY_NOT_IMPLEMENTED",
+      "creation_gate": "Only create with tested consumer and non-overlapping responsibility; no empty scaffold."
+    },
+    {
+      "path": "src/guardian/persistence/schema_registry.py",
+      "owner": "persistence",
+      "owner_scope": "persistence",
+      "first_campaign": "G-01",
+      "purpose": "Versioned schema lookup, required normative feature compatibility",
+      "group_invariant": "Pure record/replay/canonicalization semantics; Git and SQLite I/O belong only to adapters",
+      "forbidden": "No direct filesystem/network/SQLite/Git access; no normative edits",
+      "inputs": "Versioned immutable records and typed observations",
+      "outputs": "Deterministic validated record or recovery proposal",
+      "test_target": "tests/persistence/test_schema_registry.py",
+      "status": "DESIGN_ONLY_NOT_IMPLEMENTED",
+      "creation_gate": "Only create with tested consumer and non-overlapping responsibility; no empty scaffold."
     }
   ],
   "overrides_for_precise_campaign_ownership": 38,
-  "total_proposed_modules": 121
+  "total_proposed_modules": 126
 }

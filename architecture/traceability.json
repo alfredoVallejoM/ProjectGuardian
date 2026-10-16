@@ -6,7 +6,7 @@
     "decisions": 30,
     "campaigns": 14,
     "obligations": 163,
-    "planned_modules": 121
+    "planned_modules": 126
   },
   "requirement_to_campaign_and_obligation": [
     {
@@ -2252,6 +2252,26 @@
     {
       "path": "src/guardian/bootstrap/runtime.py",
       "first_campaign": "G-12"
+    },
+    {
+      "path": "src/guardian/persistence/events.py",
+      "first_campaign": "G-01"
+    },
+    {
+      "path": "src/guardian/persistence/snapshots.py",
+      "first_campaign": "G-01"
+    },
+    {
+      "path": "src/guardian/persistence/canonicalization.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/persistence/recovery.py",
+      "first_campaign": "G-12"
+    },
+    {
+      "path": "src/guardian/persistence/schema_registry.py",
+      "first_campaign": "G-01"
     }
   ],
   "coverage_limitations": [

@@ -13,7 +13,7 @@ La documentación se ha normalizado desde la conversación de diseño; no consti
 - [Requisitos globales](architecture/requirements.json): 34 exigencias acumuladas, en propuesta.
 - [Decisiones de arquitectura](architecture/decisions.json) y [dosieres ADR](docs/decisions/INDEX.md): 30 propuestas sin ratificar.
 - [Programa de campañas](architecture/campaigns.json) y [dosieres G-00…13](docs/campaigns/INDEX.md): 14 campañas y 163 obligaciones, con aceptación, falsación y perfil de verificación.
-- [Mapa prospectivo de módulos](architecture/module_blueprint.json): 121 rutas previstas, propietarios, responsabilidades y tests esperados; sin archivos de código creados.
+- [Mapa prospectivo de módulos](architecture/module_blueprint.json): 126 rutas previstas, propietarios, responsabilidades y tests esperados; sin archivos de código creados.
 - [Arquitectura y distribución](docs/architecture/INDEX.md): límites, dependencias y decisiones de asignación de archivos por debatir.
 - [Trazabilidad](architecture/traceability.json): enlaces requisitos/campañas/obligaciones; los enlaces finos a implementaciones y evidencias siguen pendientes.
 - [Banco adversario](docs/assurance/NEGATIVE_TEST_BANK.md): 24 ataques transversales definidos para convertirse en tests, aún sin ejecución.
@@ -27,4 +27,5 @@ Leer [decisiones de ubicación y patrones](docs/architecture/04_CONCRETE_DESIGN_
 
 ## Contorno técnico
 Python 3.12+ tipado, monolito modular, domain inmutable + functional core/imperative shell, puertos y adaptadores; Git como autoridad, SQLite como índice derivado, verificadores externos por ámbito, CLI/API/UI/MCP y agent SDK optativos. Sin microservicios por defecto ni hard cap de LOC.
+
 

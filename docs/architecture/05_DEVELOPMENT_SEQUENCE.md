@@ -26,7 +26,7 @@ Un corte puede comenzar con requisitos normativos ya definidos, pero una impleme
 - **G-09** (12 obligaciones): Gatekeeper, permisos y seguridad. Prerequisitos de cierre: G-01, G-06. Módulos: `src/guardian/governance/permissions.py`, `src/guardian/governance/admission.py`, `src/guardian/governance/protected_policy.py`, `src/guardian/governance/publication.py`.
 - **G-10** (12 obligaciones): Cobertura integral, preservación y migraciones. Prerequisitos de cierre: G-02, G-05, G-06, G-07. Módulos: `src/guardian/knowledge/source_universe.py`, `src/guardian/knowledge/coverage.py`, `src/guardian/assurance/migration_assurance.py`.
 - **G-11** (12 obligaciones): CLI, API, MCP e interfaz gráfica. Prerequisitos de cierre: G-03, G-04, G-09. Módulos: `src/guardian/interfaces/cli`, `src/guardian/interfaces/api`, `src/guardian/interfaces/mcp`, `src/guardian/interfaces/reporting`.
-- **G-12** (10 obligaciones): Fiabilidad, escala y operación. Prerequisitos de cierre: G-01, G-02, G-09. Módulos: `src/guardian/persistence/git_repository.py`, `src/guardian/persistence/sqlite_projection.py`, `src/guardian/persistence/recovery.py`, `src/guardian/bootstrap/runtime.py`.
+- **G-12** (10 obligaciones): Fiabilidad, escala y operación. Prerequisitos de cierre: G-01, G-02, G-09. Módulos: `src/guardian/persistence/events.py`, `src/guardian/persistence/recovery.py`, `src/guardian/adapters/git/writer.py`, `src/guardian/adapters/sqlite/projector.py`, `src/guardian/bootstrap/runtime.py`.
 - **G-13** (12 obligaciones): Pilotos científicos y cualificación integral. Prerequisitos de cierre: G-08, G-10, G-11, G-12. Módulos: `tests/end_to_end`, `tests/adversarial`, `fixtures/synthetic_projects`, `fixtures/historical_migrations`.
 
 ## Cambios estructurales
@@ -37,3 +37,4 @@ Una campaign closure no se mide por cuántos archivos tienen tests o cuántos re
 
 ## Cómo reusar documentación de proyectos anteriores
 El adaptador importa fuentes y registros como observed historical assertions con provenance; no crea copias canónicas sin procedimiento de migración de autoridad. Charloom y FC2 aislados salvo importación explícitamente autorizada.
+
