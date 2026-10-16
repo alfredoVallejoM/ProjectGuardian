@@ -6,7 +6,7 @@
     "decisions": 30,
     "campaigns": 14,
     "obligations": 163,
-    "planned_modules": 126
+    "planned_modules": 142
   },
   "requirement_to_campaign_and_obligation": [
     {
@@ -2272,6 +2272,70 @@
     {
       "path": "src/guardian/persistence/schema_registry.py",
       "first_campaign": "G-01"
+    },
+    {
+      "path": "clients/web/src/app/bootstrap.ts",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "clients/web/src/api/contracts.ts",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "clients/web/src/api/guardian_client.ts",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "clients/web/src/state/project_scope.ts",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "clients/web/src/shared/graph_view.tsx",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "clients/web/src/views/project_overview.tsx",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "clients/web/src/views/contract_explorer.tsx",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "clients/web/src/views/architecture_explorer.tsx",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "clients/web/src/views/campaign_explorer.tsx",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "clients/web/src/views/coverage_matrix.tsx",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "clients/web/src/views/support_explorer.tsx",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "clients/web/src/views/audit_workspace.tsx",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "clients/web/src/views/change_history.tsx",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "clients/web/src/views/work_package_inspector.tsx",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "clients/web/src/views/qualification_explorer.tsx",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "clients/web/src/views/approval_queue.tsx",
+      "first_campaign": "G-11"
     }
   ],
   "coverage_limitations": [

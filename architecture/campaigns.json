@@ -2956,7 +2956,8 @@
         "src/guardian/interfaces/cli",
         "src/guardian/interfaces/api",
         "src/guardian/interfaces/mcp",
-        "src/guardian/interfaces/reporting"
+        "src/guardian/interfaces/reporting",
+        "clients/web/src"
       ],
       "verification_profile": "INTERFACE_PARITY",
       "status": "SPECIFIED_NOT_IMPLEMENTED",
@@ -3040,7 +3041,8 @@
             "src/guardian/interfaces/cli",
             "src/guardian/interfaces/api",
             "src/guardian/interfaces/mcp",
-            "src/guardian/interfaces/reporting"
+            "src/guardian/interfaces/reporting",
+            "clients/web/src"
           ],
           "status": "SPECIFIED_NOT_IMPLEMENTED",
           "evidence_refs": []
@@ -3061,7 +3063,8 @@
             "src/guardian/interfaces/cli",
             "src/guardian/interfaces/api",
             "src/guardian/interfaces/mcp",
-            "src/guardian/interfaces/reporting"
+            "src/guardian/interfaces/reporting",
+            "clients/web/src"
           ],
           "status": "SPECIFIED_NOT_IMPLEMENTED",
           "evidence_refs": []
@@ -3082,7 +3085,8 @@
             "src/guardian/interfaces/cli",
             "src/guardian/interfaces/api",
             "src/guardian/interfaces/mcp",
-            "src/guardian/interfaces/reporting"
+            "src/guardian/interfaces/reporting",
+            "clients/web/src"
           ],
           "status": "SPECIFIED_NOT_IMPLEMENTED",
           "evidence_refs": []
@@ -3103,7 +3107,8 @@
             "src/guardian/interfaces/cli",
             "src/guardian/interfaces/api",
             "src/guardian/interfaces/mcp",
-            "src/guardian/interfaces/reporting"
+            "src/guardian/interfaces/reporting",
+            "clients/web/src"
           ],
           "status": "SPECIFIED_NOT_IMPLEMENTED",
           "evidence_refs": []
@@ -3124,7 +3129,8 @@
             "src/guardian/interfaces/cli",
             "src/guardian/interfaces/api",
             "src/guardian/interfaces/mcp",
-            "src/guardian/interfaces/reporting"
+            "src/guardian/interfaces/reporting",
+            "clients/web/src"
           ],
           "status": "SPECIFIED_NOT_IMPLEMENTED",
           "evidence_refs": []
@@ -3145,7 +3151,8 @@
             "src/guardian/interfaces/cli",
             "src/guardian/interfaces/api",
             "src/guardian/interfaces/mcp",
-            "src/guardian/interfaces/reporting"
+            "src/guardian/interfaces/reporting",
+            "clients/web/src"
           ],
           "status": "SPECIFIED_NOT_IMPLEMENTED",
           "evidence_refs": []
@@ -3166,7 +3173,8 @@
             "src/guardian/interfaces/cli",
             "src/guardian/interfaces/api",
             "src/guardian/interfaces/mcp",
-            "src/guardian/interfaces/reporting"
+            "src/guardian/interfaces/reporting",
+            "clients/web/src"
           ],
           "status": "SPECIFIED_NOT_IMPLEMENTED",
           "evidence_refs": []

@@ -7,7 +7,7 @@
   "decisions": 30,
   "campaigns": 14,
   "implementation_obligations_planned": 163,
-  "module_routes_proposed": 126,
+  "module_routes_proposed": 142,
   "architecture_discussion_questions": 13,
   "adversarial_scenarios_proposed": 24,
   "implementation_started": false,
@@ -25,5 +25,7 @@
   ],
   "entity_types_specified": 24,
   "service_interfaces_proposed": 14,
-  "historical_program_aliases": 11
+  "historical_program_aliases": 11,
+  "web_ui_design_modules_proposed": 16,
+  "web_ui_technology_status": "TYPESCRIPT_COMPONENT_CLIENT_PROPOSED_NOT_RATIFIED"
 }
