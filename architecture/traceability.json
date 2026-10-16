@@ -6,7 +6,8 @@
     "decisions": 30,
     "campaigns": 14,
     "obligations": 163,
-    "planned_modules": 142
+    "planned_modules": 142,
+    "obligation_module_design_links": 163
   },
   "requirement_to_campaign_and_obligation": [
     {
@@ -2342,7 +2343,9 @@
     "Links are campaign-level coverage and complete campaign obligation enumerations; fine-grained requirement-to-specific-obligation compliance crosswalk is not yet qualified",
     "No source code or tests implemented, run or certified",
     "Module paths are prospective and may be merged/split by cohesion with approved change",
-    "Project conversation source statements have been normalized, not archived verbatim"
+    "Project conversation source statements have been normalized, not archived verbatim",
+    "All 163 obligations now have candidate modules/tests, but semantic equivalence and closure evidence are not ratified or materially verified"
   ],
-  "qualification": false
+  "qualification": false,
+  "obligation_to_module_workmap": "architecture/obligation_implementation_workmap.json"
 }

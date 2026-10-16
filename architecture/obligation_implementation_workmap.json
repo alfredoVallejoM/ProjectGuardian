@@ -1,0 +1,3625 @@
+{
+  "schema": "guardian/obligation-implementation-workmap/v1",
+  "status": "DESIGN_PROPOSAL_NOT_IMPLEMENTED",
+  "source_authority": "architecture/campaigns.json",
+  "module_authority": "architecture/module_blueprint.json",
+  "notes": [
+    "Specific obligation-to-module assignments are proposed review targets, not implemented code",
+    "Do not create one test per obligation unless it supports a real distinct behavior; test_target is a trace marker, not a required physical file count",
+    "Before ratification verify all 163 assignments, consumers and test obligations against original contracts",
+    "A module can support obligations from multiple campaigns without acquiring duplicate semantic authority"
+  ],
+  "counts": {
+    "campaigns": 14,
+    "obligations": 163,
+    "modules": 142
+  },
+  "records": [
+    {
+      "obligation_id": "G00-01",
+      "campaign_id": "G-00",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/domain/identity.py"
+      ],
+      "lead_owner": "domain",
+      "planned_obligation_test": "tests/campaign_contracts/G-00/test_G00_01.py",
+      "direct_module_tests": [
+        "tests/domain/test_domain_identity.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que ids de proyecto, entidad, revisión y digest nominalmente distintos, serializables y con validación; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+      "falsification_text": "Dos entidades colapsan por compartir nombre o contenido",
+      "verification_profile": "DOMAIN_CONSTITUTION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G00-02",
+      "campaign_id": "G-00",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/domain/project.py"
+      ],
+      "lead_owner": "domain",
+      "planned_obligation_test": "tests/campaign_contracts/G-00/test_G00_02.py",
+      "direct_module_tests": [
+        "tests/domain/test_domain_project.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que project y fuente de autoridad por proyecto; políticas de importación independientes; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+      "falsification_text": "Se admite fuente de otro proyecto sin autorización",
+      "verification_profile": "DOMAIN_CONSTITUTION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G00-03",
+      "campaign_id": "G-00",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/domain/source.py"
+      ],
+      "lead_owner": "domain",
+      "planned_obligation_test": "tests/campaign_contracts/G-00/test_G00_03.py",
+      "direct_module_tests": [
+        "tests/domain/test_domain_source.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que universo de fuentes con commits, documentación, inclusiones, exclusiones y límites explícitos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+      "falsification_text": "Se certifica cobertura sin delimitar fuentes",
+      "verification_profile": "DOMAIN_CONSTITUTION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G00-04",
+      "campaign_id": "G-00",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/domain/constitution.py",
+        "src/guardian/domain/authority.py",
+        "src/guardian/constitution/authority_resolution.py"
+      ],
+      "lead_owner": "domain",
+      "planned_obligation_test": "tests/campaign_contracts/G-00/test_G00_04.py",
+      "direct_module_tests": [
+        "tests/domain/test_domain_constitution.py",
+        "tests/domain/test_domain_authority.py",
+        "tests/constitution/test_constitution_authority_resolution.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que jerarquía de normas y decisiones con ratified distinto de proposed, autorización y precedencia; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+      "falsification_text": "Propuesta se ratifica sin identidad de aprobador",
+      "verification_profile": "DOMAIN_CONSTITUTION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G00-05",
+      "campaign_id": "G-00",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/domain/objective.py",
+        "src/guardian/domain/capability.py",
+        "src/guardian/domain/property.py",
+        "src/guardian/domain/obligation.py"
+      ],
+      "lead_owner": "domain",
+      "planned_obligation_test": "tests/campaign_contracts/G-00/test_G00_05.py",
+      "direct_module_tests": [
+        "tests/domain/test_domain_objective.py",
+        "tests/domain/test_domain_capability.py",
+        "tests/domain/test_domain_property.py",
+        "tests/domain/test_domain_obligation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que modelos independientes de objective, capability, property y obligation; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+      "falsification_text": "Capacidad se confunde con ImplementationUnit",
+      "verification_profile": "DOMAIN_CONSTITUTION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G00-06",
+      "campaign_id": "G-00",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "lead_owner": "domain",
+      "planned_obligation_test": "tests/campaign_contracts/G-00/test_G00_06.py",
+      "direct_module_tests": [
+        "tests/domain/test_domain_scope.py",
+        "tests/constitution/test_constitution_evaluator.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que supportprofile tipado y predicados yes/no/unknown/conflict conservadores; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+      "falsification_text": "UNKNOWN se interpreta como NOT_APPLICABLE",
+      "verification_profile": "DOMAIN_CONSTITUTION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G00-07",
+      "campaign_id": "G-00",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/domain/outcomes.py",
+        "src/guardian/domain/qualification.py"
+      ],
+      "lead_owner": "domain",
+      "planned_obligation_test": "tests/campaign_contracts/G-00/test_G00_07.py",
+      "direct_module_tests": [
+        "tests/domain/test_domain_outcomes.py",
+        "tests/domain/test_domain_qualification.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que dimensiones source, implementation, audit, material, assurance, migration sin flag completed mutable; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+      "falsification_text": "PASS de test modifica autoridad científica",
+      "verification_profile": "DOMAIN_CONSTITUTION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G00-08",
+      "campaign_id": "G-00",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/source.py"
+      ],
+      "lead_owner": "domain",
+      "planned_obligation_test": "tests/campaign_contracts/G-00/test_G00_08.py",
+      "direct_module_tests": [
+        "tests/domain/test_domain_identity.py",
+        "tests/domain/test_domain_source.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que referencias internas, revisión esperada y rutas interproyecto validadas; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+      "falsification_text": "Se admite referencia inexistente o cruzada",
+      "verification_profile": "DOMAIN_CONSTITUTION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G00-09",
+      "campaign_id": "G-00",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "lead_owner": "persistence",
+      "planned_obligation_test": "tests/campaign_contracts/G-00/test_G00_09.py",
+      "direct_module_tests": [
+        "tests/persistence/test_schema_registry.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que json schema con normative features, validación de payload y versiones incompatibles; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+      "falsification_text": "Se ignoran características normativas que el lector desconoce",
+      "verification_profile": "DOMAIN_CONSTITUTION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G00-10",
+      "campaign_id": "G-00",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "lead_owner": "constitution",
+      "planned_obligation_test": "tests/campaign_contracts/G-00/test_G00_10.py",
+      "direct_module_tests": [
+        "tests/constitution/test_constitution_evaluator.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que función de evaluación de normas sin e/s ni dependencia del clock; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+      "falsification_text": "Un mismo input genera resultados diferentes por estado externo",
+      "verification_profile": "DOMAIN_CONSTITUTION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G00-11",
+      "campaign_id": "G-00",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/constitution/precedence.py"
+      ],
+      "lead_owner": "constitution",
+      "planned_obligation_test": "tests/campaign_contracts/G-00/test_G00_11.py",
+      "direct_module_tests": [
+        "tests/constitution/test_constitution_precedence.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que conflictrecord con fuentes incompatibles y bloqueo de afirmaciones derivadas; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+      "falsification_text": "El sistema elige descripción más reciente silenciosamente",
+      "verification_profile": "DOMAIN_CONSTITUTION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G00-12",
+      "campaign_id": "G-00",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/constitution/invariants.py"
+      ],
+      "lead_owner": "constitution",
+      "planned_obligation_test": "tests/campaign_contracts/G-00/test_G00_12.py",
+      "direct_module_tests": [
+        "tests/constitution/test_constitution_invariants.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que pruebas positivas, negativas, invariantes de identidad, source scope y authority; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+      "falsification_text": "Mutación constitucional no detectada produce PASS",
+      "verification_profile": "DOMAIN_CONSTITUTION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G01-01",
+      "campaign_id": "G-01",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/program/commands.py",
+        "src/guardian/domain/change.py"
+      ],
+      "lead_owner": "program",
+      "planned_obligation_test": "tests/campaign_contracts/G-01/test_G01_01.py",
+      "direct_module_tests": [
+        "tests/program/test_program_commands.py",
+        "tests/domain/test_domain_change.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que changeset con base_revision, actor, operaciones discriminadas e idempotencia; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+      "falsification_text": "Se modifica autoridad sin evento",
+      "verification_profile": "EVOLUTION_INVARIANTS",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G01-02",
+      "campaign_id": "G-01",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/program/commands.py",
+        "src/guardian/program/transitions.py"
+      ],
+      "lead_owner": "program",
+      "planned_obligation_test": "tests/campaign_contracts/G-01/test_G01_02.py",
+      "direct_module_tests": [
+        "tests/program/test_program_commands.py",
+        "tests/program/test_program_transitions.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que addobligation y addcampaign sin editar codigo del motor por tipo/número; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+      "falsification_text": "Incorporar campaña exige añadir if hardcoded",
+      "verification_profile": "EVOLUTION_INVARIANTS",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G01-03",
+      "campaign_id": "G-01",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/program/campaign_membership.py",
+        "src/guardian/program/transitions.py"
+      ],
+      "lead_owner": "program",
+      "planned_obligation_test": "tests/campaign_contracts/G-01/test_G01_03.py",
+      "direct_module_tests": [
+        "tests/program/test_program_campaign_membership.py",
+        "tests/program/test_program_transitions.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que extendcampaign preserva membership, ámbito y obligaciones anteriores; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+      "falsification_text": "Ampliación elimina obligación ratificada",
+      "verification_profile": "EVOLUTION_INVARIANTS",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G01-04",
+      "campaign_id": "G-01",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/program/refinement.py"
+      ],
+      "lead_owner": "program",
+      "planned_obligation_test": "tests/campaign_contracts/G-01/test_G01_04.py",
+      "direct_module_tests": [
+        "tests/program/test_program_refinement.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que refineobligation con linaje, criterio de implicación y autoridad; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+      "falsification_text": "Obligación más débil se declara refinamiento",
+      "verification_profile": "EVOLUTION_INVARIANTS",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G01-05",
+      "campaign_id": "G-01",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/program/generalization.py"
+      ],
+      "lead_owner": "program",
+      "planned_obligation_test": "tests/campaign_contracts/G-01/test_G01_05.py",
+      "direct_module_tests": [
+        "tests/program/test_program_generalization.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que generalizecontract conserva reglas en dominio antiguo y exige garantías nuevas; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+      "falsification_text": "Nueva capacidad pierde caso histórico",
+      "verification_profile": "EVOLUTION_INVARIANTS",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G01-06",
+      "campaign_id": "G-01",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/program/commands.py",
+        "src/guardian/program/revision.py"
+      ],
+      "lead_owner": "program",
+      "planned_obligation_test": "tests/campaign_contracts/G-01/test_G01_06.py",
+      "direct_module_tests": [
+        "tests/program/test_program_commands.py",
+        "tests/program/test_program_revision.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que supersede, retire y deprecate con disposition, fuente, impacto, decisión y compatibilidad; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+      "falsification_text": "Se elimina una obligación sin linaje ni aprobación",
+      "verification_profile": "EVOLUTION_INVARIANTS",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G01-07",
+      "campaign_id": "G-01",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/persistence/events.py",
+        "src/guardian/persistence/snapshots.py"
+      ],
+      "lead_owner": "persistence",
+      "planned_obligation_test": "tests/campaign_contracts/G-01/test_G01_07.py",
+      "direct_module_tests": [
+        "tests/persistence/test_events.py",
+        "tests/persistence/test_snapshots.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que registro append-only y replay determinista por versión de intérprete; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+      "falsification_text": "Replay produce programa distinto",
+      "verification_profile": "EVOLUTION_INVARIANTS",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G01-08",
+      "campaign_id": "G-01",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/program/evolution_validation.py"
+      ],
+      "lead_owner": "program",
+      "planned_obligation_test": "tests/campaign_contracts/G-01/test_G01_08.py",
+      "direct_module_tests": [
+        "tests/program/test_program_evolution_validation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que changeset lleva expected revision y conflicto de escrituras/dependencias; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+      "falsification_text": "Se acepta entrega basada en estado obsoleto",
+      "verification_profile": "EVOLUTION_INVARIANTS",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G01-09",
+      "campaign_id": "G-01",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/program/transitions.py"
+      ],
+      "lead_owner": "program",
+      "planned_obligation_test": "tests/campaign_contracts/G-01/test_G01_09.py",
+      "direct_module_tests": [
+        "tests/program/test_program_transitions.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que estado de campaña y obligación derivado de eventos admitidos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+      "falsification_text": "Editar status textual provoca cierre",
+      "verification_profile": "EVOLUTION_INVARIANTS",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G01-10",
+      "campaign_id": "G-01",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/program/transitions.py"
+      ],
+      "lead_owner": "program",
+      "planned_obligation_test": "tests/campaign_contracts/G-01/test_G01_10.py",
+      "direct_module_tests": [
+        "tests/program/test_program_transitions.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que comando inválido no publica ningún cambio; rollback conceptual total; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+      "falsification_text": "Parte de batch inválido persiste",
+      "verification_profile": "EVOLUTION_INVARIANTS",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G01-11",
+      "campaign_id": "G-01",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/program/revision.py"
+      ],
+      "lead_owner": "program",
+      "planned_obligation_test": "tests/campaign_contracts/G-01/test_G01_11.py",
+      "direct_module_tests": [
+        "tests/program/test_program_revision.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que comparación de revisiones incluye obligaciones, consumos y normatividad; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+      "falsification_text": "Solo diff texto omite obligación borrada",
+      "verification_profile": "EVOLUTION_INVARIANTS",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G01-12",
+      "campaign_id": "G-01",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/program/compatibility.py",
+        "src/guardian/program/campaign_membership.py"
+      ],
+      "lead_owner": "program",
+      "planned_obligation_test": "tests/campaign_contracts/G-01/test_G01_12.py",
+      "direct_module_tests": [
+        "tests/program/test_program_compatibility.py",
+        "tests/program/test_program_campaign_membership.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que nueva revisión conserva certificado anterior pero no lo extiende sin evidencia; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+      "falsification_text": "O13 hereda PASS automático de O1-O12",
+      "verification_profile": "EVOLUTION_INVARIANTS",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G02-01",
+      "campaign_id": "G-02",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/graph/relation_types.py",
+        "src/guardian/graph/relation_validation.py"
+      ],
+      "lead_owner": "graph",
+      "planned_obligation_test": "tests/campaign_contracts/G-02/test_G02_01.py",
+      "direct_module_tests": [
+        "tests/graph/test_graph_relation_types.py",
+        "tests/graph/test_graph_relation_validation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que graphnode y relationrevision por proyecto, revisión y fuente; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+      "falsification_text": "Relación une clases incompatibles",
+      "verification_profile": "TYPED_GRAPH_SUPPORT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G02-02",
+      "campaign_id": "G-02",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/graph/relation_validation.py"
+      ],
+      "lead_owner": "graph",
+      "planned_obligation_test": "tests/campaign_contracts/G-02/test_G02_02.py",
+      "direct_module_tests": [
+        "tests/graph/test_graph_relation_validation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que participant con role y occurrence en relaciones multiargumento; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+      "falsification_text": "Se pierden participantes al proyectar",
+      "verification_profile": "TYPED_GRAPH_SUPPORT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G02-03",
+      "campaign_id": "G-02",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/graph/relation_types.py"
+      ],
+      "lead_owner": "graph",
+      "planned_obligation_test": "tests/campaign_contracts/G-02/test_G02_03.py",
+      "direct_module_tests": [
+        "tests/graph/test_graph_relation_types.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que reglas de tipo, cardinalidad, provenance y autoridad por relation type; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+      "falsification_text": "Arista arbitraria adquiere autoridad",
+      "verification_profile": "TYPED_GRAPH_SUPPORT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G02-04",
+      "campaign_id": "G-02",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/graph/consistency.py"
+      ],
+      "lead_owner": "graph",
+      "planned_obligation_test": "tests/campaign_contracts/G-02/test_G02_04.py",
+      "direct_module_tests": [
+        "tests/graph/test_graph_consistency.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que proyección matemática y detector de owners canónicos incompatibles; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+      "falsification_text": "Dos owners de mismo contrato pasan desapercibidos",
+      "verification_profile": "TYPED_GRAPH_SUPPORT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G02-05",
+      "campaign_id": "G-02",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/graph/projection.py"
+      ],
+      "lead_owner": "graph",
+      "planned_obligation_test": "tests/campaign_contracts/G-02/test_G02_05.py",
+      "direct_module_tests": [
+        "tests/graph/test_graph_projection.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que proyección de deps permitidas, necesarias, prohibidas y consumidores; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+      "falsification_text": "Import prohibido recibe conformidad",
+      "verification_profile": "TYPED_GRAPH_SUPPORT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G02-06",
+      "campaign_id": "G-02",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/graph/dependency.py"
+      ],
+      "lead_owner": "graph",
+      "planned_obligation_test": "tests/campaign_contracts/G-02/test_G02_06.py",
+      "direct_module_tests": [
+        "tests/graph/test_graph_dependency.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que dag de prerequisitos, orden topológico y scc ante ciclos estrictos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+      "falsification_text": "Ciclo estricto se despacha como ejecutable",
+      "verification_profile": "TYPED_GRAPH_SUPPORT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G02-07",
+      "campaign_id": "G-02",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/graph/dependency.py",
+        "src/guardian/graph/support.py"
+      ],
+      "lead_owner": "graph",
+      "planned_obligation_test": "tests/campaign_contracts/G-02/test_G02_07.py",
+      "direct_module_tests": [
+        "tests/graph/test_graph_dependency.py",
+        "tests/graph/test_graph_support.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que ast tipado de soporte and/or y applicability contextual; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+      "falsification_text": "OR se trata como AND o viceversa",
+      "verification_profile": "TYPED_GRAPH_SUPPORT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G02-08",
+      "campaign_id": "G-02",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/graph/support.py"
+      ],
+      "lead_owner": "graph",
+      "planned_obligation_test": "tests/campaign_contracts/G-02/test_G02_08.py",
+      "direct_module_tests": [
+        "tests/graph/test_graph_support.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que cierre de soporte por claim perfil revisión y relaciones admisibles; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+      "falsification_text": "Referencia documental se usa como prueba",
+      "verification_profile": "TYPED_GRAPH_SUPPORT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G02-09",
+      "campaign_id": "G-02",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/graph/impact.py"
+      ],
+      "lead_owner": "graph",
+      "planned_obligation_test": "tests/campaign_contracts/G-02/test_G02_09.py",
+      "direct_module_tests": [
+        "tests/graph/test_graph_impact.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que proyección inversa y invalidación incremental hasta punto fijo; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+      "falsification_text": "Certificado de consumidor afectado sigue CURRENT",
+      "verification_profile": "TYPED_GRAPH_SUPPORT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G02-10",
+      "campaign_id": "G-02",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/graph/gaps.py"
+      ],
+      "lead_owner": "graph",
+      "planned_obligation_test": "tests/campaign_contracts/G-02/test_G02_10.py",
+      "direct_module_tests": [
+        "tests/graph/test_graph_gaps.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que diagnósticos estructurados de faltas de implementación, test, evidencia, fuente, scope; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+      "falsification_text": "Obligación sin soporte desaparece de informe",
+      "verification_profile": "TYPED_GRAPH_SUPPORT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G02-11",
+      "campaign_id": "G-02",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/sqlite/projector.py",
+        "src/guardian/graph/projection.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-02/test_G02_11.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_sqlite_projector.py",
+        "tests/graph/test_graph_projection.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que sqlite graph views reproducen nodos/relaciones exactos de fuente normativa; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+      "falsification_text": "Projection diverge from canonical Git",
+      "verification_profile": "TYPED_GRAPH_SUPPORT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G02-12",
+      "campaign_id": "G-02",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/graph/consistency.py",
+        "src/guardian/graph/traversal.py"
+      ],
+      "lead_owner": "graph",
+      "planned_obligation_test": "tests/campaign_contracts/G-02/test_G02_12.py",
+      "direct_module_tests": [
+        "tests/graph/test_graph_consistency.py",
+        "tests/graph/test_graph_traversal.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que adversarios de tipos, scope, ciclos, resource limits, grandes grafos y explanation; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+      "falsification_text": "Se declara cobertura total cuando búsqueda agota presupuesto",
+      "verification_profile": "TYPED_GRAPH_SUPPORT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G03-01",
+      "campaign_id": "G-03",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/orientation.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-03/test_G03_01.py",
+      "direct_module_tests": [
+        "tests/work/test_work_orientation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que vista de propósito, arquitectura, estado, campañas y reglas por revisión; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+      "falsification_text": "Se introduce norma ajena al proyecto",
+      "verification_profile": "ORIENTATION_SOURCE_TRACED",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G03-02",
+      "campaign_id": "G-03",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/orientation.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-03/test_G03_02.py",
+      "direct_module_tests": [
+        "tests/work/test_work_orientation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que recuperación de owner, api, límites, consumidores y restricciones; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+      "falsification_text": "Se omite prohibición aplicable",
+      "verification_profile": "ORIENTATION_SOURCE_TRACED",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G03-03",
+      "campaign_id": "G-03",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/orientation.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-03/test_G03_03.py",
+      "direct_module_tests": [
+        "tests/work/test_work_orientation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que exponer contrato, garantías, evidencias, gaps y estado observado; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+      "falsification_text": "Capacidad parcial se muestra completa",
+      "verification_profile": "ORIENTATION_SOURCE_TRACED",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G03-04",
+      "campaign_id": "G-03",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/knowledge/provenance.py"
+      ],
+      "lead_owner": "knowledge",
+      "planned_obligation_test": "tests/campaign_contracts/G-03/test_G03_04.py",
+      "direct_module_tests": [
+        "tests/knowledge/test_knowledge_provenance.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que toda afirmación histórica tiene sourceref o se marca unknown; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+      "falsification_text": "Resumen presenta hecho sin procedencia",
+      "verification_profile": "ORIENTATION_SOURCE_TRACED",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G03-05",
+      "campaign_id": "G-03",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/orientation.py",
+        "src/guardian/interfaces/reporting/markdown.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-03/test_G03_05.py",
+      "direct_module_tests": [
+        "tests/work/test_work_orientation.py",
+        "tests/interfaces/test_interfaces_reporting_markdown.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que projectorientation es explicación no editable como autoridad; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+      "falsification_text": "Editar resumen cambia obligación",
+      "verification_profile": "ORIENTATION_SOURCE_TRACED",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G03-06",
+      "campaign_id": "G-03",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/context_selection.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-03/test_G03_06.py",
+      "direct_module_tests": [
+        "tests/work/test_work_context_selection.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que selección paginada de fragmentos sin perder índice normativo; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+      "falsification_text": "Token cap elimina obligación del cierre",
+      "verification_profile": "ORIENTATION_SOURCE_TRACED",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G03-07",
+      "campaign_id": "G-03",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/application/orientation_service.py"
+      ],
+      "lead_owner": "application",
+      "planned_obligation_test": "tests/campaign_contracts/G-03/test_G03_07.py",
+      "direct_module_tests": [
+        "tests/application/test_application_orientation_service.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que separar código existente, tests escritos, runs y qualification; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+      "falsification_text": "Test authored aparece como run PASS",
+      "verification_profile": "ORIENTATION_SOURCE_TRACED",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G03-08",
+      "campaign_id": "G-03",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/knowledge/reconciliation.py",
+        "src/guardian/work/orientation.py"
+      ],
+      "lead_owner": "knowledge",
+      "planned_obligation_test": "tests/campaign_contracts/G-03/test_G03_08.py",
+      "direct_module_tests": [
+        "tests/knowledge/test_knowledge_reconciliation.py",
+        "tests/work/test_work_orientation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que presentar límites, fuentes ausentes y contradicciones sin inferir; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+      "falsification_text": "Falta dato y el informe inventa decisión",
+      "verification_profile": "ORIENTATION_SOURCE_TRACED",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G03-09",
+      "campaign_id": "G-03",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/orientation.py",
+        "src/guardian/knowledge/source_mapping.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-03/test_G03_09.py",
+      "direct_module_tests": [
+        "tests/work/test_work_orientation.py",
+        "tests/knowledge/test_knowledge_source_mapping.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que índices relacionan objectives, capability, property, evidence sin semantic promotion; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+      "falsification_text": "Cercanía de texto se declara equivalencia",
+      "verification_profile": "ORIENTATION_SOURCE_TRACED",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G03-10",
+      "campaign_id": "G-03",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/orientation.py",
+        "src/guardian/work/context_selection.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-03/test_G03_10.py",
+      "direct_module_tests": [
+        "tests/work/test_work_orientation.py",
+        "tests/work/test_work_context_selection.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que prueba con agente sin contexto previo consulta reglas esenciales y decisiones; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+      "falsification_text": "El usuario debe repetir manualmente todo el contrato",
+      "verification_profile": "ORIENTATION_SOURCE_TRACED",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G04-01",
+      "campaign_id": "G-04",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/package_compiler.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-04/test_G04_01.py",
+      "direct_module_tests": [
+        "tests/work/test_work_package_compiler.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que identificar capacidad, target scope, milestone y revisions originales; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+      "falsification_text": "El encargo carece de identidad de contrato",
+      "verification_profile": "WORK_CLOSURE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G04-02",
+      "campaign_id": "G-04",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/package_compiler.py",
+        "src/guardian/graph/traversal.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-04/test_G04_02.py",
+      "direct_module_tests": [
+        "tests/work/test_work_package_compiler.py",
+        "tests/graph/test_graph_traversal.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que calcular conjunto aplicable completo desde fuente normativa y relaciones; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+      "falsification_text": "Obligación indirecta omitida",
+      "verification_profile": "WORK_CLOSURE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G04-03",
+      "campaign_id": "G-04",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/package_compiler.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-04/test_G04_03.py",
+      "direct_module_tests": [
+        "tests/work/test_work_package_compiler.py",
+        "tests/constitution/test_constitution_evaluator.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que incluir invariantes, forbidden changes y policy snapshot; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+      "falsification_text": "Agente no recibe prohibición vigente",
+      "verification_profile": "WORK_CLOSURE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G04-04",
+      "campaign_id": "G-04",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/scheduling.py",
+        "src/guardian/graph/dependency.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-04/test_G04_04.py",
+      "direct_module_tests": [
+        "tests/work/test_work_scheduling.py",
+        "tests/graph/test_graph_dependency.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que reconstruir dependencias all/any, estados y bloqueos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+      "falsification_text": "Tarea bloqueada figura ready",
+      "verification_profile": "WORK_CLOSURE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G04-05",
+      "campaign_id": "G-04",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/package_compiler.py",
+        "src/guardian/knowledge/source_mapping.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-04/test_G04_05.py",
+      "direct_module_tests": [
+        "tests/work/test_work_package_compiler.py",
+        "tests/knowledge/test_knowledge_source_mapping.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que incluir integrationcontracts, apis y compatibilidades obligatorias; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+      "falsification_text": "Consumidor relevante no aparece",
+      "verification_profile": "WORK_CLOSURE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G04-06",
+      "campaign_id": "G-04",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/package_compiler.py",
+        "src/guardian/knowledge/source_universe.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-04/test_G04_06.py",
+      "direct_module_tests": [
+        "tests/work/test_work_package_compiler.py",
+        "tests/knowledge/test_knowledge_source_universe.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que adjuntar sourceuniverse original y contratos históricos requeridos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+      "falsification_text": "Migración ignora source owner",
+      "verification_profile": "WORK_CLOSURE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G04-07",
+      "campaign_id": "G-04",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/package_compiler.py",
+        "src/guardian/assurance/verification_specs.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-04/test_G04_07.py",
+      "direct_module_tests": [
+        "tests/work/test_work_package_compiler.py",
+        "tests/assurance/test_assurance_verification_specs.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que vincular verificationspecs positivos, negativos, adversarios y recursos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+      "falsification_text": "Paquete omite caso hostil obligatorio",
+      "verification_profile": "WORK_CLOSURE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G04-08",
+      "campaign_id": "G-04",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/package_compiler.py",
+        "src/guardian/work/context_selection.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-04/test_G04_08.py",
+      "direct_module_tests": [
+        "tests/work/test_work_package_compiler.py",
+        "tests/work/test_work_context_selection.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que separar manifest inmutable de texto orientativo reescribible; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+      "falsification_text": "Resumen recorta obligación del manifest",
+      "verification_profile": "WORK_CLOSURE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G04-09",
+      "campaign_id": "G-04",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/task_decomposition.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-04/test_G04_09.py",
+      "direct_module_tests": [
+        "tests/work/test_work_task_decomposition.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que descomponer sin perder obligations y conservar closure parent; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+      "falsification_text": "Parent terminado con child pendiente",
+      "verification_profile": "WORK_CLOSURE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G04-10",
+      "campaign_id": "G-04",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/completion.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-04/test_G04_10.py",
+      "direct_module_tests": [
+        "tests/work/test_work_completion.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que detectar cambios de constitución, contrato, fuente o consumer desde baseline; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+      "falsification_text": "WorkPackage stale aceptado sin reevaluar",
+      "verification_profile": "WORK_CLOSURE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G04-11",
+      "campaign_id": "G-04",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/scheduling.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-04/test_G04_11.py",
+      "direct_module_tests": [
+        "tests/work/test_work_scheduling.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que planificador identifica escritura incompatible y dependencias de tareas; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+      "falsification_text": "Dos tareas alteran misma autoridad sin control",
+      "verification_profile": "WORK_CLOSURE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G04-12",
+      "campaign_id": "G-04",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/completion.py",
+        "src/guardian/work/package_compiler.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-04/test_G04_12.py",
+      "direct_module_tests": [
+        "tests/work/test_work_completion.py",
+        "tests/work/test_work_package_compiler.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que recalcular closure para comparar paquetes recibidos o producidos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+      "falsification_text": "Paquete escrito a mano omite contrato y pasa",
+      "verification_profile": "WORK_CLOSURE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G05-01",
+      "campaign_id": "G-05",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/knowledge/observed_architecture.py",
+        "src/guardian/knowledge/reconciliation.py"
+      ],
+      "lead_owner": "knowledge",
+      "planned_obligation_test": "tests/campaign_contracts/G-05/test_G05_01.py",
+      "direct_module_tests": [
+        "tests/knowledge/test_knowledge_observed_architecture.py",
+        "tests/knowledge/test_knowledge_reconciliation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que modelos specifiedarchitecture y observedarchitecture comparados sin convertir observed en norma; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+      "falsification_text": "Codigo unario reduce contrato n-ario",
+      "verification_profile": "CODE_VS_CONTRACT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G05-02",
+      "campaign_id": "G-05",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/knowledge/reconciliation.py"
+      ],
+      "lead_owner": "knowledge",
+      "planned_obligation_test": "tests/campaign_contracts/G-05/test_G05_02.py",
+      "direct_module_tests": [
+        "tests/knowledge/test_knowledge_reconciliation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que comparar bounded contexts, owners, módulos, funciones e invariantes; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+      "falsification_text": "Módulo asume responsabilidad ajena",
+      "verification_profile": "CODE_VS_CONTRACT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G05-03",
+      "campaign_id": "G-05",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/knowledge/observed_architecture.py"
+      ],
+      "lead_owner": "knowledge",
+      "planned_obligation_test": "tests/campaign_contracts/G-05/test_G05_03.py",
+      "direct_module_tests": [
+        "tests/knowledge/test_knowledge_observed_architecture.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que import graph observado contra allowed/required/forbidden edges; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+      "falsification_text": "Import ilegal es aprobado",
+      "verification_profile": "CODE_VS_CONTRACT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G05-04",
+      "campaign_id": "G-05",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/graph/consistency.py",
+        "src/guardian/knowledge/reconciliation.py"
+      ],
+      "lead_owner": "graph",
+      "planned_obligation_test": "tests/campaign_contracts/G-05/test_G05_04.py",
+      "direct_module_tests": [
+        "tests/graph/test_graph_consistency.py",
+        "tests/knowledge/test_knowledge_reconciliation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que verificar unicidad semántica según scope y conflictos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+      "falsification_text": "Dos propietarios incompatibles",
+      "verification_profile": "CODE_VS_CONTRACT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G05-05",
+      "campaign_id": "G-05",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/knowledge/source_mapping.py",
+        "src/guardian/knowledge/observed_architecture.py"
+      ],
+      "lead_owner": "knowledge",
+      "planned_obligation_test": "tests/campaign_contracts/G-05/test_G05_05.py",
+      "direct_module_tests": [
+        "tests/knowledge/test_knowledge_source_mapping.py",
+        "tests/knowledge/test_knowledge_observed_architecture.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que surface de api y versioning, consumidores y cambios abi; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+      "falsification_text": "Consumidor anterior roto sin finding",
+      "verification_profile": "CODE_VS_CONTRACT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G05-06",
+      "campaign_id": "G-05",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/knowledge/source_mapping.py"
+      ],
+      "lead_owner": "knowledge",
+      "planned_obligation_test": "tests/campaign_contracts/G-05/test_G05_06.py",
+      "direct_module_tests": [
+        "tests/knowledge/test_knowledge_source_mapping.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que realizationlink muchos-a-muchos para implementación y comportamiento; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+      "falsification_text": "Se identifica archivo con capacidad funcional completa",
+      "verification_profile": "CODE_VS_CONTRACT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G05-07",
+      "campaign_id": "G-05",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/verification_specs.py",
+        "src/guardian/knowledge/reconciliation.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-05/test_G05_07.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_verification_specs.py",
+        "tests/knowledge/test_knowledge_reconciliation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que verificationlink y contratos de prueba por property; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+      "falsification_text": "Test genérico acredita ley no examinada",
+      "verification_profile": "CODE_VS_CONTRACT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G05-08",
+      "campaign_id": "G-05",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/knowledge/reconciliation.py"
+      ],
+      "lead_owner": "knowledge",
+      "planned_obligation_test": "tests/campaign_contracts/G-05/test_G05_08.py",
+      "direct_module_tests": [
+        "tests/knowledge/test_knowledge_reconciliation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que distinguir subset, profile parcial, missing domain y fallback; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+      "falsification_text": "Demo restringida sustituye implementacion completa",
+      "verification_profile": "CODE_VS_CONTRACT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G05-09",
+      "campaign_id": "G-05",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/invalidation.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-05/test_G05_09.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_invalidation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que contrastar claims y soporte entre revisiones de source/profile; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+      "falsification_text": "Propiedad degradada conserva PASS",
+      "verification_profile": "CODE_VS_CONTRACT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G05-10",
+      "campaign_id": "G-05",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/knowledge/reconciliation.py",
+        "src/guardian/graph/consistency.py"
+      ],
+      "lead_owner": "knowledge",
+      "planned_obligation_test": "tests/campaign_contracts/G-05/test_G05_10.py",
+      "direct_module_tests": [
+        "tests/knowledge/test_knowledge_reconciliation.py",
+        "tests/graph/test_graph_consistency.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que validar contratos para nuevo owner sin duplicación ni switches no permitidos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+      "falsification_text": "Implementación rompe punto de extension aprobado",
+      "verification_profile": "CODE_VS_CONTRACT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G05-11",
+      "campaign_id": "G-05",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/integration_assurance.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-05/test_G05_11.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_integration_assurance.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que contracts productor-consumidor y e2e por perfil; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+      "falsification_text": "Unit tests aislados cierran integración",
+      "verification_profile": "CODE_VS_CONTRACT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G05-12",
+      "campaign_id": "G-05",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/knowledge/reconciliation.py",
+        "src/guardian/graph/gaps.py"
+      ],
+      "lead_owner": "knowledge",
+      "planned_obligation_test": "tests/campaign_contracts/G-05/test_G05_12.py",
+      "direct_module_tests": [
+        "tests/knowledge/test_knowledge_reconciliation.py",
+        "tests/graph/test_graph_gaps.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que conformityreport exhaustivo de gaps, unknown y denominadores reales; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+      "falsification_text": "Se oculta incompletitud del informe",
+      "verification_profile": "CODE_VS_CONTRACT",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G06-01",
+      "campaign_id": "G-06",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/verification_specs.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-06/test_G06_01.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_verification_specs.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que definir método, perfil, propiedad, falsaciones y expected verdict independiente del código test; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+      "falsification_text": "Test authored se considera ejecución",
+      "verification_profile": "ASSURANCE_PROOF_SCOPE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G06-02",
+      "campaign_id": "G-06",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/domain/verification.py",
+        "src/guardian/adapters/runners/process_runner.py"
+      ],
+      "lead_owner": "domain",
+      "planned_obligation_test": "tests/campaign_contracts/G-06/test_G06_02.py",
+      "direct_module_tests": [
+        "tests/domain/test_domain_verification.py",
+        "tests/adapters/test_adapters_runners_process_runner.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que registrar candidato exacto, entorno, runner, fixtures, output y status material; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+      "falsification_text": "Run de otro commit se reutiliza ciegamente",
+      "verification_profile": "ASSURANCE_PROOF_SCOPE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G06-03",
+      "campaign_id": "G-06",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/domain/claim.py",
+        "src/guardian/domain/evidence.py"
+      ],
+      "lead_owner": "domain",
+      "planned_obligation_test": "tests/campaign_contracts/G-06/test_G06_03.py",
+      "direct_module_tests": [
+        "tests/domain/test_domain_claim.py",
+        "tests/domain/test_domain_evidence.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que entidades separadas con relación typed evidence y scope; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+      "falsification_text": "Receipt existe y se llama teorema",
+      "verification_profile": "ASSURANCE_PROOF_SCOPE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G06-04",
+      "campaign_id": "G-06",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/evidence_policy.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-06/test_G06_04.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_evidence_policy.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que policy de all/any, oráculos independientes y requisitos científicos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+      "falsification_text": "Prueba trivial satisface theorem claim",
+      "verification_profile": "ASSURANCE_PROOF_SCOPE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G06-05",
+      "campaign_id": "G-06",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/qualification.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-06/test_G06_05.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_qualification.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que certificate por revision sourceuniverse profile evidence verifier policy; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+      "falsification_text": "Certificado acotado se amplía a otro dominio",
+      "verification_profile": "ASSURANCE_PROOF_SCOPE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G06-06",
+      "campaign_id": "G-06",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/invalidation.py",
+        "src/guardian/graph/support.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-06/test_G06_06.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_invalidation.py",
+        "tests/graph/test_graph_support.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que supportcone por revision y verificación de equivalencia inputs; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+      "falsification_text": "Cambio relevante no invalida soporte",
+      "verification_profile": "ASSURANCE_PROOF_SCOPE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G06-07",
+      "campaign_id": "G-06",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/invalidation.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-06/test_G06_07.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_invalidation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que revocar/disputar/stale cuando protegido cambia y mantener historia; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+      "falsification_text": "Receipt invalidado continúa CURRENT",
+      "verification_profile": "ASSURANCE_PROOF_SCOPE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G06-08",
+      "campaign_id": "G-06",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/receipt_validation.py",
+        "src/guardian/adapters/attestations/in_toto.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-06/test_G06_08.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_receipt_validation.py",
+        "tests/adapters/test_adapters_attestations_in_toto.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que receipts de ejecución auténtica verificados contra emitter/trust model; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+      "falsification_text": "Archivo JSON escrito por agente pasa",
+      "verification_profile": "ASSURANCE_PROOF_SCOPE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G06-09",
+      "campaign_id": "G-06",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/adversarial_review.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-06/test_G06_09.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_adversarial_review.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que auditrecord por obligación, documento, finding y counterexample; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+      "falsification_text": "Una frase general cierra decenas de requisitos",
+      "verification_profile": "ASSURANCE_PROOF_SCOPE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G06-10",
+      "campaign_id": "G-06",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/adversarial_review.py",
+        "src/guardian/governance/permissions.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-06/test_G06_10.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_adversarial_review.py",
+        "tests/governance/test_governance_permissions.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que políticas reales entre author/reviewer/runner y monoagente; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+      "falsification_text": "El mismo agente se acredita independiente",
+      "verification_profile": "ASSURANCE_PROOF_SCOPE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G06-11",
+      "campaign_id": "G-06",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/domain/outcomes.py",
+        "src/guardian/assurance/qualification.py"
+      ],
+      "lead_owner": "domain",
+      "planned_obligation_test": "tests/campaign_contracts/G-06/test_G06_11.py",
+      "direct_module_tests": [
+        "tests/domain/test_domain_outcomes.py",
+        "tests/assurance/test_assurance_qualification.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que desarrollo auditoría material integración qualification por separado; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+      "falsification_text": "DEVELOPED promueve QUALIFIED",
+      "verification_profile": "ASSURANCE_PROOF_SCOPE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G06-12",
+      "campaign_id": "G-06",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/receipt_validation.py",
+        "src/guardian/assurance/qualification.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-06/test_G06_12.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_receipt_validation.py",
+        "tests/assurance/test_assurance_qualification.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que rechazar receipts falsos, scopes erróneos, tests circulares y missing refs; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+      "falsification_text": "Certificado manipulado recibe PASS",
+      "verification_profile": "ASSURANCE_PROOF_SCOPE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G07-01",
+      "campaign_id": "G-07",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/git/reader.py",
+        "src/guardian/adapters/git/source_importer.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-07/test_G07_01.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_git_reader.py",
+        "tests/adapters/test_adapters_git_source_importer.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que leer árboles, blobs, commits y diffs por commit exacto con source policy; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+      "falsification_text": "Branch mutable tratado como source cut fijo",
+      "verification_profile": "ADAPTER_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G07-02",
+      "campaign_id": "G-07",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/git/source_importer.py",
+        "src/guardian/knowledge/source_mapping.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-07/test_G07_02.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_git_source_importer.py",
+        "tests/knowledge/test_knowledge_source_mapping.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que importar programas/registros históricos sin duplicar id ni autoridad; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+      "falsification_text": "Import crea segunda fuente editable",
+      "verification_profile": "ADAPTER_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G07-03",
+      "campaign_id": "G-07",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/source_code/rust/analyzer.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-07/test_G07_03.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_source_code_rust_analyzer.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que analizador rust manifest ast features y generated con coverage report; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+      "falsification_text": "Feature o macro omitido sin HOLD",
+      "verification_profile": "ADAPTER_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G07-04",
+      "campaign_id": "G-07",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/source_code/cpp/analyzer.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-07/test_G07_04.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_source_code_cpp_analyzer.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que analizador c++ compile commands, clang ast macros includes abi; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+      "falsification_text": "Macro/ABI ausente declarado completo",
+      "verification_profile": "ADAPTER_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G07-05",
+      "campaign_id": "G-07",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/source_code/python/analyzer.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-07/test_G07_05.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_source_code_python_analyzer.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que analizar python imports exports entrypoints y dinámico con límites; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+      "falsification_text": "Import dinámico desconocido se asume comprendido",
+      "verification_profile": "ADAPTER_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G07-06",
+      "campaign_id": "G-07",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/source_code/lean/analyzer.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-07/test_G07_06.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_source_code_lean_analyzer.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que analizador declarations/imports/axioms/proof reports reales con estados distintos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+      "falsification_text": "Nombre de teorema prueba compilación",
+      "verification_profile": "ADAPTER_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G07-07",
+      "campaign_id": "G-07",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/runners/process_runner.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-07/test_G07_07.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_runners_process_runner.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que ejecutores de test/proof/resource con receipt fiable, errores tipados; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+      "falsification_text": "Timeout aparece como PASS",
+      "verification_profile": "ADAPTER_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G07-08",
+      "campaign_id": "G-07",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/knowledge/source_universe.py",
+        "src/guardian/knowledge/provenance.py"
+      ],
+      "lead_owner": "knowledge",
+      "planned_obligation_test": "tests/campaign_contracts/G-07/test_G07_08.py",
+      "direct_module_tests": [
+        "tests/knowledge/test_knowledge_source_universe.py",
+        "tests/knowledge/test_knowledge_provenance.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que importaciones normativas con approvedsourceimport y provenance; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+      "falsification_text": "Referencias de proyectos diferentes se fusionan por nombre",
+      "verification_profile": "ADAPTER_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G07-09",
+      "campaign_id": "G-07",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/git/source_importer.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-07/test_G07_09.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_git_source_importer.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que projectsourceuniverse puede contener cuts de varios repos con identidad separada; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+      "falsification_text": "Se mezclan HEADs y fuentes",
+      "verification_profile": "ADAPTER_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G07-10",
+      "campaign_id": "G-07",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/knowledge/inventory.py",
+        "src/guardian/adapters/git/source_importer.py"
+      ],
+      "lead_owner": "knowledge",
+      "planned_obligation_test": "tests/campaign_contracts/G-07/test_G07_10.py",
+      "direct_module_tests": [
+        "tests/knowledge/test_knowledge_inventory.py",
+        "tests/adapters/test_adapters_git_source_importer.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que derivar deltas y conservar status/ids históricos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+      "falsification_text": "Nuevo import renombra silenciosamente unidades",
+      "verification_profile": "ADAPTER_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G07-11",
+      "campaign_id": "G-07",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/knowledge/inventory.py"
+      ],
+      "lead_owner": "knowledge",
+      "planned_obligation_test": "tests/campaign_contracts/G-07/test_G07_11.py",
+      "direct_module_tests": [
+        "tests/knowledge/test_knowledge_inventory.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que informar macros, reflection, generated sin cobertura y declarar límites; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+      "falsification_text": "Inventario parcial afirma complete",
+      "verification_profile": "ADAPTER_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G07-12",
+      "campaign_id": "G-07",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/git/reader.py",
+        "src/guardian/knowledge/source_mapping.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-07/test_G07_12.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_git_reader.py",
+        "tests/knowledge/test_knowledge_source_mapping.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que suite común source adapter para version, id, ambiguity, missing data y isolation; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+      "falsification_text": "Un adaptador cambia significado de PASS",
+      "verification_profile": "ADAPTER_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G08-01",
+      "campaign_id": "G-08",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/interfaces/mcp/tools.py",
+        "src/guardian/adapters/agents/tool_adapter.py"
+      ],
+      "lead_owner": "interfaces",
+      "planned_obligation_test": "tests/campaign_contracts/G-08/test_G08_01.py",
+      "direct_module_tests": [
+        "tests/interfaces/test_interfaces_mcp_tools.py",
+        "tests/adapters/test_adapters_agents_tool_adapter.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que protocolo de herramientas con schemas independientes de modelo sdk; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+      "falsification_text": "Motor requiere API exclusiva de modelo",
+      "verification_profile": "AGENT_AND_HUMAN_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G08-02",
+      "campaign_id": "G-08",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/interfaces/mcp/tools.py",
+        "src/guardian/work/orientation.py"
+      ],
+      "lead_owner": "interfaces",
+      "planned_obligation_test": "tests/campaign_contracts/G-08/test_G08_02.py",
+      "direct_module_tests": [
+        "tests/interfaces/test_interfaces_mcp_tools.py",
+        "tests/work/test_work_orientation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que api orient entrega revisión y reglas antes del desarrollo; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+      "falsification_text": "Agente arranca sin normativa accesible",
+      "verification_profile": "AGENT_AND_HUMAN_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G08-03",
+      "campaign_id": "G-08",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/context_selection.py",
+        "src/guardian/adapters/agents/tool_adapter.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-08/test_G08_03.py",
+      "direct_module_tests": [
+        "tests/work/test_work_context_selection.py",
+        "tests/adapters/test_adapters_agents_tool_adapter.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que recuperación fraccionada conserva index y exact closure; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+      "falsification_text": "Prompt corto borra requisito",
+      "verification_profile": "AGENT_AND_HUMAN_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G08-04",
+      "campaign_id": "G-08",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/package_compiler.py",
+        "src/guardian/adapters/agents/tool_adapter.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-08/test_G08_04.py",
+      "direct_module_tests": [
+        "tests/work/test_work_package_compiler.py",
+        "tests/adapters/test_adapters_agents_tool_adapter.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que encargos identificados y leídos sin posibilidad de alterar contrato; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+      "falsification_text": "Modelo escribe obligaciones diferentes",
+      "verification_profile": "AGENT_AND_HUMAN_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G08-05",
+      "campaign_id": "G-08",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/interfaces/mcp/tools.py",
+        "src/guardian/graph/traversal.py"
+      ],
+      "lead_owner": "interfaces",
+      "planned_obligation_test": "tests/campaign_contracts/G-08/test_G08_05.py",
+      "direct_module_tests": [
+        "tests/interfaces/test_interfaces_mcp_tools.py",
+        "tests/graph/test_graph_traversal.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que exponer graph impact sources consumers architecture mediante tool calls; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+      "falsification_text": "Agente inventa owner no corroborado",
+      "verification_profile": "AGENT_AND_HUMAN_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G08-06",
+      "campaign_id": "G-08",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/completion.py",
+        "src/guardian/adapters/agents/tool_adapter.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-08/test_G08_06.py",
+      "direct_module_tests": [
+        "tests/work/test_work_completion.py",
+        "tests/adapters/test_adapters_agents_tool_adapter.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que entrega estructurada con alcance, artifacts, test authored y claims no auto-validantes; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+      "falsification_text": "Texto \"PASS\" certifica entrega",
+      "verification_profile": "AGENT_AND_HUMAN_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G08-07",
+      "campaign_id": "G-08",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/agents/tool_adapter.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-08/test_G08_07.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_agents_tool_adapter.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que flujo completo con una sesión humana/agent + posibles auditorías externas; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+      "falsification_text": "Se necesitan 5 agentes para validar",
+      "verification_profile": "AGENT_AND_HUMAN_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G08-08",
+      "campaign_id": "G-08",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/agents/multi_agent_profile.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-08/test_G08_08.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_agents_multi_agent_profile.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que perfil a0 organizador a1 research a2 build a3 adversarial a4 integrator; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+      "falsification_text": "Cada subagente mantiene norma propia",
+      "verification_profile": "AGENT_AND_HUMAN_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G08-09",
+      "campaign_id": "G-08",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/handoff.py",
+        "src/guardian/adapters/agents/multi_agent_profile.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-08/test_G08_09.py",
+      "direct_module_tests": [
+        "tests/work/test_work_handoff.py",
+        "tests/adapters/test_adapters_agents_multi_agent_profile.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que transporte de hashes de paquete, snapshot, findings y artifacts; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+      "falsification_text": "Se pierde obligación entre delegaciones",
+      "verification_profile": "AGENT_AND_HUMAN_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G08-10",
+      "campaign_id": "G-08",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/adversarial_review.py",
+        "src/guardian/adapters/agents/multi_agent_profile.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-08/test_G08_10.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_adversarial_review.py",
+        "tests/adapters/test_adapters_agents_multi_agent_profile.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que autor/auditor/runner identificados y policy de review; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+      "falsification_text": "A2 se autocertifica como A3 independiente",
+      "verification_profile": "AGENT_AND_HUMAN_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G08-11",
+      "campaign_id": "G-08",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/agents/tool_adapter.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-08/test_G08_11.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_agents_tool_adapter.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que cambiar proveedor/sdk conserva work package y estado normativo; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+      "falsification_text": "Cambio de LLM cambia significado de contrato",
+      "verification_profile": "AGENT_AND_HUMAN_CONFORMANCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G09-01",
+      "campaign_id": "G-09",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/governance/permissions.py"
+      ],
+      "lead_owner": "governance",
+      "planned_obligation_test": "tests/campaign_contracts/G-09/test_G09_01.py",
+      "direct_module_tests": [
+        "tests/governance/test_governance_permissions.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que autorización por principal autenticado, proyecto, ámbito, expiración y acción; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+      "falsification_text": "Agente reclama permisos en JSON",
+      "verification_profile": "TRUSTED_ADMISSION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G09-02",
+      "campaign_id": "G-09",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/governance/protected_policy.py"
+      ],
+      "lead_owner": "governance",
+      "planned_obligation_test": "tests/campaign_contracts/G-09/test_G09_02.py",
+      "direct_module_tests": [
+        "tests/governance/test_governance_protected_policy.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que evaluador/reglas viven fuera de candidato editable con trust boundary real; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+      "falsification_text": "A2 cambia policy y obtiene PASS",
+      "verification_profile": "TRUSTED_ADMISSION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G09-03",
+      "campaign_id": "G-09",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/constitution/amendments.py",
+        "src/guardian/governance/protected_policy.py"
+      ],
+      "lead_owner": "constitution",
+      "planned_obligation_test": "tests/campaign_contracts/G-09/test_G09_03.py",
+      "direct_module_tests": [
+        "tests/constitution/test_constitution_amendments.py",
+        "tests/governance/test_governance_protected_policy.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que modificación normativa usa constitución previa y aprobaciones explícitas; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+      "falsification_text": "Regla nueva se aprueba a sí misma",
+      "verification_profile": "TRUSTED_ADMISSION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G09-04",
+      "campaign_id": "G-09",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/governance/candidate.py",
+        "src/guardian/governance/admission.py"
+      ],
+      "lead_owner": "governance",
+      "planned_obligation_test": "tests/campaign_contracts/G-09/test_G09_04.py",
+      "direct_module_tests": [
+        "tests/governance/test_governance_candidate.py",
+        "tests/governance/test_governance_admission.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que validar rutas modificadas, áreas prohibidas, cambios de authority; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+      "falsification_text": "Commit incluye archivo no autorizado",
+      "verification_profile": "TRUSTED_ADMISSION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G09-05",
+      "campaign_id": "G-09",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/governance/candidate.py",
+        "src/guardian/governance/admission.py"
+      ],
+      "lead_owner": "governance",
+      "planned_obligation_test": "tests/campaign_contracts/G-09/test_G09_05.py",
+      "direct_module_tests": [
+        "tests/governance/test_governance_candidate.py",
+        "tests/governance/test_governance_admission.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que vincular package, audit, tests y commit que se publica; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+      "falsification_text": "Se publica código diferente del auditado",
+      "verification_profile": "TRUSTED_ADMISSION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G09-06",
+      "campaign_id": "G-09",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/receipt_validation.py",
+        "src/guardian/governance/admission.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-09/test_G09_06.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_receipt_validation.py",
+        "tests/governance/test_governance_admission.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que verificación de firma/identidad y materiales de ejecución según policy; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+      "falsification_text": "Fake receipt JSON obtiene PASS",
+      "verification_profile": "TRUSTED_ADMISSION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G09-07",
+      "campaign_id": "G-09",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/runners/verifier_registry.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-09/test_G09_07.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_runners_verifier_registry.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que version/scopes de plugin con admission policy y isolation; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+      "falsification_text": "Plugin always PASS obtiene poder universal",
+      "verification_profile": "TRUSTED_ADMISSION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G09-08",
+      "campaign_id": "G-09",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/runners/process_runner.py",
+        "src/guardian/governance/admission.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-09/test_G09_08.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_runners_process_runner.py",
+        "tests/governance/test_governance_admission.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que run processes no confiables con red/fs/mem/time definidos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+      "falsification_text": "Malicioso altera policy host",
+      "verification_profile": "TRUSTED_ADMISSION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G09-09",
+      "campaign_id": "G-09",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/governance/publication.py"
+      ],
+      "lead_owner": "governance",
+      "planned_obligation_test": "tests/campaign_contracts/G-09/test_G09_09.py",
+      "direct_module_tests": [
+        "tests/governance/test_governance_publication.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que publicación atómica a ref esperada sin force bypass; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+      "falsification_text": "Candidatos paralelos sobrescriben",
+      "verification_profile": "TRUSTED_ADMISSION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G09-10",
+      "campaign_id": "G-09",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/constitution/amendments.py",
+        "src/guardian/governance/approval.py"
+      ],
+      "lead_owner": "constitution",
+      "planned_obligation_test": "tests/campaign_contracts/G-09/test_G09_10.py",
+      "direct_module_tests": [
+        "tests/constitution/test_constitution_amendments.py",
+        "tests/governance/test_governance_approval.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que enmiendas requieren autoridad, impacy y tests de la policy vieja; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+      "falsification_text": "Obligación ratificada se debilita",
+      "verification_profile": "TRUSTED_ADMISSION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G09-11",
+      "campaign_id": "G-09",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/persistence/recovery.py",
+        "src/guardian/governance/publication.py"
+      ],
+      "lead_owner": "persistence",
+      "planned_obligation_test": "tests/campaign_contracts/G-09/test_G09_11.py",
+      "direct_module_tests": [
+        "tests/persistence/test_recovery.py",
+        "tests/governance/test_governance_publication.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que interrupciones entre candidate/ref/sqlite no producen dual authority; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+      "falsification_text": "Crash deja estado parcialmente admitido",
+      "verification_profile": "TRUSTED_ADMISSION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G09-12",
+      "campaign_id": "G-09",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/governance/admission.py",
+        "src/guardian/governance/audit_trail.py"
+      ],
+      "lead_owner": "governance",
+      "planned_obligation_test": "tests/campaign_contracts/G-09/test_G09_12.py",
+      "direct_module_tests": [
+        "tests/governance/test_governance_admission.py",
+        "tests/governance/test_governance_audit_trail.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que tests de permisos, self-certification, receipt forgery, tampering y branch race; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+      "falsification_text": "Mutación del Gatekeeper no detectada pasa",
+      "verification_profile": "TRUSTED_ADMISSION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G10-01",
+      "campaign_id": "G-10",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/knowledge/source_universe.py",
+        "src/guardian/knowledge/coverage.py"
+      ],
+      "lead_owner": "knowledge",
+      "planned_obligation_test": "tests/campaign_contracts/G-10/test_G10_01.py",
+      "direct_module_tests": [
+        "tests/knowledge/test_knowledge_source_universe.py",
+        "tests/knowledge/test_knowledge_coverage.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que certificar universo autenticado con inclusiones/exclusiones y cobertura de inventario; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+      "falsification_text": "Se afirma exhaustividad con fuentes sin analizar",
+      "verification_profile": "SPECIFICATION_AND_MIGRATION_COVERAGE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G10-02",
+      "campaign_id": "G-10",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/knowledge/source_mapping.py"
+      ],
+      "lead_owner": "knowledge",
+      "planned_obligation_test": "tests/campaign_contracts/G-10/test_G10_02.py",
+      "direct_module_tests": [
+        "tests/knowledge/test_knowledge_source_mapping.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que mapear cada requisito fuente a obligación/decision/hito sin perder original; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+      "falsification_text": "Requisito no aparece y nadie lo advierte",
+      "verification_profile": "SPECIFICATION_AND_MIGRATION_COVERAGE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G10-03",
+      "campaign_id": "G-10",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/knowledge/coverage.py",
+        "src/guardian/knowledge/reconciliation.py"
+      ],
+      "lead_owner": "knowledge",
+      "planned_obligation_test": "tests/campaign_contracts/G-10/test_G10_03.py",
+      "direct_module_tests": [
+        "tests/knowledge/test_knowledge_coverage.py",
+        "tests/knowledge/test_knowledge_reconciliation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que correspondencia obligación-implementación en perfil y versión; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+      "falsification_text": "Obligación sin code recibe complete",
+      "verification_profile": "SPECIFICATION_AND_MIGRATION_COVERAGE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G10-04",
+      "campaign_id": "G-10",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/coverage_assurance.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-10/test_G10_04.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_coverage_assurance.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que mapa property/verificationspec/actual test/run/evidence; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+      "falsification_text": "Test genérico se cuenta para todo",
+      "verification_profile": "SPECIFICATION_AND_MIGRATION_COVERAGE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G10-05",
+      "campaign_id": "G-10",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/program/campaign_membership.py",
+        "src/guardian/knowledge/coverage.py"
+      ],
+      "lead_owner": "program",
+      "planned_obligation_test": "tests/campaign_contracts/G-10/test_G10_05.py",
+      "direct_module_tests": [
+        "tests/program/test_program_campaign_membership.py",
+        "tests/knowledge/test_knowledge_coverage.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que coverage separado por source revision scope milestone y unknowns; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+      "falsification_text": "CURRENT se traslada a FUTURE para obtener 100%",
+      "verification_profile": "SPECIFICATION_AND_MIGRATION_COVERAGE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G10-06",
+      "campaign_id": "G-10",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/migration_assurance.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-10/test_G10_06.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_migration_assurance.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que source/target, domain, relation, effects, consumers, resources; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+      "falsification_text": "Subset sustituye dominio histórico",
+      "verification_profile": "SPECIFICATION_AND_MIGRATION_COVERAGE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G10-07",
+      "campaign_id": "G-10",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/migration_assurance.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-10/test_G10_07.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_migration_assurance.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que ejecutar original destino y oráculo con fixtures equiparables; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+      "falsification_text": "Dos mocks nuevos sustituyen original",
+      "verification_profile": "SPECIFICATION_AND_MIGRATION_COVERAGE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G10-08",
+      "campaign_id": "G-10",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/invalidation.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-10/test_G10_08.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_invalidation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que protected dependency cone con decision reuse/recompute/hold; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+      "falsification_text": "SHA global irrelevante fuerza todo o cambio importante se ignora",
+      "verification_profile": "SPECIFICATION_AND_MIGRATION_COVERAGE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G10-09",
+      "campaign_id": "G-10",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/program/generalization.py",
+        "src/guardian/assurance/migration_assurance.py"
+      ],
+      "lead_owner": "program",
+      "planned_obligation_test": "tests/campaign_contracts/G-10/test_G10_09.py",
+      "direct_module_tests": [
+        "tests/program/test_program_generalization.py",
+        "tests/assurance/test_assurance_migration_assurance.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que prueba conservar garantía en d_old y nuevas obligaciones d_new; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+      "falsification_text": "Generalización pierde caso original",
+      "verification_profile": "SPECIFICATION_AND_MIGRATION_COVERAGE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G10-10",
+      "campaign_id": "G-10",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/knowledge/source_mapping.py",
+        "src/guardian/assurance/integration_assurance.py"
+      ],
+      "lead_owner": "knowledge",
+      "planned_obligation_test": "tests/campaign_contracts/G-10/test_G10_10.py",
+      "direct_module_tests": [
+        "tests/knowledge/test_knowledge_source_mapping.py",
+        "tests/assurance/test_assurance_integration_assurance.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que api/abi/consumer parity antes de retirar legacy provider; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+      "falsification_text": "Se retira dueño original con consumidores vivos",
+      "verification_profile": "SPECIFICATION_AND_MIGRATION_COVERAGE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G10-11",
+      "campaign_id": "G-10",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/graph/gaps.py",
+        "src/guardian/assurance/coverage_assurance.py"
+      ],
+      "lead_owner": "graph",
+      "planned_obligation_test": "tests/campaign_contracts/G-10/test_G10_11.py",
+      "direct_module_tests": [
+        "tests/graph/test_graph_gaps.py",
+        "tests/assurance/test_assurance_coverage_assurance.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que detectar deficits de implicaciones, material y audit antes de cerrar; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+      "falsification_text": "Un gap se oculta reduciendo definición",
+      "verification_profile": "SPECIFICATION_AND_MIGRATION_COVERAGE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G10-12",
+      "campaign_id": "G-10",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/coverage_assurance.py",
+        "src/guardian/assurance/qualification.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-10/test_G10_12.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_coverage_assurance.py",
+        "tests/assurance/test_assurance_qualification.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que source, spec, implemented, integration, scientific, migration no se implican; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+      "falsification_text": "SOURCE_COVERAGE produce SCIENTIFIC_PASS",
+      "verification_profile": "SPECIFICATION_AND_MIGRATION_COVERAGE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G11-01",
+      "campaign_id": "G-11",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/interfaces/cli/commands.py",
+        "src/guardian/interfaces/cli/main.py"
+      ],
+      "lead_owner": "interfaces",
+      "planned_obligation_test": "tests/campaign_contracts/G-11/test_G11_01.py",
+      "direct_module_tests": [
+        "tests/interfaces/test_interfaces_cli_commands.py",
+        "tests/interfaces/test_interfaces_cli_main.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que comandos para project, contract, obligation, campaign, graph, package, evidence, audit, change; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+      "falsification_text": "Operación crítica solo accesible por script privado",
+      "verification_profile": "INTERFACE_PARITY",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G11-02",
+      "campaign_id": "G-11",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/interfaces/api/contracts.py",
+        "src/guardian/interfaces/api/server.py"
+      ],
+      "lead_owner": "interfaces",
+      "planned_obligation_test": "tests/campaign_contracts/G-11/test_G11_02.py",
+      "direct_module_tests": [
+        "tests/interfaces/test_interfaces_api_contracts.py",
+        "tests/interfaces/test_interfaces_api_server.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que servicios tipados con validation de scopes y permissions; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+      "falsification_text": "Cliente escribe directamente SQLite normativo",
+      "verification_profile": "INTERFACE_PARITY",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G11-03",
+      "campaign_id": "G-11",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/interfaces/mcp/tools.py",
+        "src/guardian/interfaces/mcp/server.py"
+      ],
+      "lead_owner": "interfaces",
+      "planned_obligation_test": "tests/campaign_contracts/G-11/test_G11_03.py",
+      "direct_module_tests": [
+        "tests/interfaces/test_interfaces_mcp_tools.py",
+        "tests/interfaces/test_interfaces_mcp_server.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que mcp/api para orientación consultas entregas sin copiar source total a prompts; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+      "falsification_text": "Skill con hardcoded contratos de cada proyecto",
+      "verification_profile": "INTERFACE_PARITY",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G11-04",
+      "campaign_id": "G-11",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "clients/web/src/views/contract_explorer.tsx"
+      ],
+      "lead_owner": "web_ui",
+      "planned_obligation_test": "tests/campaign_contracts/G-11/test_G11_04.py",
+      "direct_module_tests": [
+        "clients/web/tests/views_contract_explorer.test.ts"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que ui de objetivos/capacidades/propiedades/obligaciones many-to-many; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+      "falsification_text": "Vista pierde conexiones múltiples",
+      "verification_profile": "INTERFACE_PARITY",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G11-05",
+      "campaign_id": "G-11",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "clients/web/src/views/architecture_explorer.tsx"
+      ],
+      "lead_owner": "web_ui",
+      "planned_obligation_test": "tests/campaign_contracts/G-11/test_G11_05.py",
+      "direct_module_tests": [
+        "clients/web/tests/views_architecture_explorer.test.ts"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que vista specified/observed y límites/conflictos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+      "falsification_text": "Arquitectura observada se muestra como aprobada",
+      "verification_profile": "INTERFACE_PARITY",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G11-06",
+      "campaign_id": "G-11",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "clients/web/src/views/support_explorer.tsx",
+        "clients/web/src/shared/graph_view.tsx"
+      ],
+      "lead_owner": "web_ui",
+      "planned_obligation_test": "tests/campaign_contracts/G-11/test_G11_06.py",
+      "direct_module_tests": [
+        "clients/web/tests/views_support_explorer.test.ts",
+        "clients/web/tests/shared_graph_view.test.ts"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que conos de soporte/impacto, razones y limitaciones; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+      "falsification_text": "Link informativo se dibuja como proof edge",
+      "verification_profile": "INTERFACE_PARITY",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G11-07",
+      "campaign_id": "G-11",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "clients/web/src/views/coverage_matrix.tsx"
+      ],
+      "lead_owner": "web_ui",
+      "planned_obligation_test": "tests/campaign_contracts/G-11/test_G11_07.py",
+      "direct_module_tests": [
+        "clients/web/tests/views_coverage_matrix.test.ts"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que denominadores per source/profile/milestone con unknowns visibles; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+      "falsification_text": "Unknown requirements se omiten",
+      "verification_profile": "INTERFACE_PARITY",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G11-08",
+      "campaign_id": "G-11",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "clients/web/src/views/change_history.tsx"
+      ],
+      "lead_owner": "web_ui",
+      "planned_obligation_test": "tests/campaign_contracts/G-11/test_G11_08.py",
+      "direct_module_tests": [
+        "clients/web/tests/views_change_history.test.ts"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que versiones, changeset, revocations e invalidaciones navegables; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+      "falsification_text": "Revocación borra certificado histórico",
+      "verification_profile": "INTERFACE_PARITY",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G11-09",
+      "campaign_id": "G-11",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "clients/web/src/views/work_package_inspector.tsx"
+      ],
+      "lead_owner": "web_ui",
+      "planned_obligation_test": "tests/campaign_contracts/G-11/test_G11_09.py",
+      "direct_module_tests": [
+        "clients/web/tests/views_work_package_inspector.test.ts"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que manifest inmutable y vista explicativa diferenciados; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+      "falsification_text": "Text prose sustituye normative manifest",
+      "verification_profile": "INTERFACE_PARITY",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G11-10",
+      "campaign_id": "G-11",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "clients/web/src/views/approval_queue.tsx"
+      ],
+      "lead_owner": "web_ui",
+      "planned_obligation_test": "tests/campaign_contracts/G-11/test_G11_10.py",
+      "direct_module_tests": [
+        "clients/web/tests/views_approval_queue.test.ts"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que interfaz solicita autorizaciones sin autoadjudicación de permisos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+      "falsification_text": "Un click de UI ratifica sin identidad",
+      "verification_profile": "INTERFACE_PARITY",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G11-11",
+      "campaign_id": "G-11",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/interfaces/reporting/json.py",
+        "src/guardian/interfaces/reporting/markdown.py"
+      ],
+      "lead_owner": "interfaces",
+      "planned_obligation_test": "tests/campaign_contracts/G-11/test_G11_11.py",
+      "direct_module_tests": [
+        "tests/interfaces/test_interfaces_reporting_json.py",
+        "tests/interfaces/test_interfaces_reporting_markdown.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que informes json/markdown con revisión, fuente y scope; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+      "falsification_text": "Export pierde versión y evidencia",
+      "verification_profile": "INTERFACE_PARITY",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G11-12",
+      "campaign_id": "G-11",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "clients/web/src/api/guardian_client.ts",
+        "src/guardian/interfaces/api/contracts.py"
+      ],
+      "lead_owner": "web_ui",
+      "planned_obligation_test": "tests/campaign_contracts/G-11/test_G11_12.py",
+      "direct_module_tests": [
+        "clients/web/tests/api_guardian_client.test.ts",
+        "tests/interfaces/test_interfaces_api_contracts.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que las mismas llamadas de cli/api/ui/mcp producen igual state/verdict; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+      "falsification_text": "Un cliente calcula PASS alternativo",
+      "verification_profile": "INTERFACE_PARITY",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G12-01",
+      "campaign_id": "G-12",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/sqlite/projector.py",
+        "src/guardian/persistence/snapshots.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-12/test_G12_01.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_sqlite_projector.py",
+        "tests/persistence/test_snapshots.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que proyección sqlite reconstructible desde authority vigente; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+      "falsification_text": "Perdida SQLite destruye norma",
+      "verification_profile": "REPLAY_CONCURRENCY_RESOURCES",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G12-02",
+      "campaign_id": "G-12",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/persistence/recovery.py",
+        "src/guardian/governance/publication.py"
+      ],
+      "lead_owner": "persistence",
+      "planned_obligation_test": "tests/campaign_contracts/G-12/test_G12_02.py",
+      "direct_module_tests": [
+        "tests/persistence/test_recovery.py",
+        "tests/governance/test_governance_publication.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que detener cada fase publication y reconstruir sin partial authority; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+      "falsification_text": "Crash produce revisión parcial",
+      "verification_profile": "REPLAY_CONCURRENCY_RESOURCES",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G12-03",
+      "campaign_id": "G-12",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/persistence/events.py"
+      ],
+      "lead_owner": "persistence",
+      "planned_obligation_test": "tests/campaign_contracts/G-12/test_G12_03.py",
+      "direct_module_tests": [
+        "tests/persistence/test_events.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que replays/retries no duplican eventos ni obligations; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+      "falsification_text": "Reintento AddCampaign duplica",
+      "verification_profile": "REPLAY_CONCURRENCY_RESOURCES",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G12-04",
+      "campaign_id": "G-12",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/sqlite/queries.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-12/test_G12_04.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_sqlite_queries.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que consultas/impact graph escalan por subgrafo y revision; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+      "falsification_text": "Cada consulta reparsea corpus completo",
+      "verification_profile": "REPLAY_CONCURRENCY_RESOURCES",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G12-05",
+      "campaign_id": "G-12",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/runners/process_runner.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-12/test_G12_05.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_runners_process_runner.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que time/memory/input cardinality/config de analyzer y runner, resultados resource_limited; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+      "falsification_text": "Analysis timeout afirma coverage completa",
+      "verification_profile": "REPLAY_CONCURRENCY_RESOURCES",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G12-06",
+      "campaign_id": "G-12",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/persistence/schema_registry.py"
+      ],
+      "lead_owner": "persistence",
+      "planned_obligation_test": "tests/campaign_contracts/G-12/test_G12_06.py",
+      "direct_module_tests": [
+        "tests/persistence/test_schema_registry.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que migration readers fail closed por normative features desconocidos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+      "falsification_text": "Old reader ignora nueva regla obligatoria",
+      "verification_profile": "REPLAY_CONCURRENCY_RESOURCES",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G12-07",
+      "campaign_id": "G-12",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/governance/audit_trail.py"
+      ],
+      "lead_owner": "governance",
+      "planned_obligation_test": "tests/campaign_contracts/G-12/test_G12_07.py",
+      "direct_module_tests": [
+        "tests/governance/test_governance_audit_trail.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que trazas de decisiones de admisión/verificador/candidate sin secretos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+      "falsification_text": "No puede explicarse por qué se admitió",
+      "verification_profile": "REPLAY_CONCURRENCY_RESOURCES",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G12-08",
+      "campaign_id": "G-12",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/governance/publication.py"
+      ],
+      "lead_owner": "governance",
+      "planned_obligation_test": "tests/campaign_contracts/G-12/test_G12_08.py",
+      "direct_module_tests": [
+        "tests/governance/test_governance_publication.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que conflictos por revisión expected y read/write protected sets; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+      "falsification_text": "Se pierde actualización simultánea",
+      "verification_profile": "REPLAY_CONCURRENCY_RESOURCES",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G12-09",
+      "campaign_id": "G-12",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/bootstrap/runtime.py",
+        "src/guardian/governance/protected_policy.py"
+      ],
+      "lead_owner": "bootstrap",
+      "planned_obligation_test": "tests/campaign_contracts/G-12/test_G12_09.py",
+      "direct_module_tests": [
+        "tests/bootstrap/test_bootstrap_runtime.py",
+        "tests/governance/test_governance_protected_policy.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que install separada de candidate editable, configuración documentada; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+      "falsification_text": "Agente cambia Gatekeeper instalado",
+      "verification_profile": "REPLAY_CONCURRENCY_RESOURCES",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G12-10",
+      "campaign_id": "G-12",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/sqlite/queries.py",
+        "src/guardian/adapters/runners/process_runner.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-12/test_G12_10.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_sqlite_queries.py",
+        "tests/adapters/test_adapters_runners_process_runner.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que benchmarks repetibles con ambiente, corpus y recursos reales; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+      "falsification_text": "Se declara throughput sin medición",
+      "verification_profile": "REPLAY_CONCURRENCY_RESOURCES",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G13-01",
+      "campaign_id": "G-13",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/application/project_service.py"
+      ],
+      "lead_owner": "application",
+      "planned_obligation_test": "tests/campaign_contracts/G-13/test_G13_01.py",
+      "direct_module_tests": [
+        "tests/application/test_application_project_service.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que crear sourceuniverse arquitectura campañas requisitos y contratos completos en fixture; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+      "falsification_text": "Una obligación omitida no se detecta",
+      "verification_profile": "GUARDIAN_PLATFORM_QUALIFICATION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G13-02",
+      "campaign_id": "G-13",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/program/commands.py",
+        "src/guardian/application/campaign_service.py"
+      ],
+      "lead_owner": "program",
+      "planned_obligation_test": "tests/campaign_contracts/G-13/test_G13_02.py",
+      "direct_module_tests": [
+        "tests/program/test_program_commands.py",
+        "tests/application/test_application_campaign_service.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que extender 3→4 campañas 12→17 obligaciones sin editar núcleo; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+      "falsification_text": "Extension exige parche en motor",
+      "verification_profile": "GUARDIAN_PLATFORM_QUALIFICATION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G13-03",
+      "campaign_id": "G-13",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/source_code/rust/analyzer.py",
+        "src/guardian/application/compliance_service.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-13/test_G13_03.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_source_code_rust_analyzer.py",
+        "tests/application/test_application_compliance_service.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que importar librería rust y verificar arquitectura/api/consumidores contractuales; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+      "falsification_text": "Cambio de firma roto recibe PASS",
+      "verification_profile": "GUARDIAN_PLATFORM_QUALIFICATION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G13-04",
+      "campaign_id": "G-13",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/source_code/cpp/analyzer.py",
+        "src/guardian/application/compliance_service.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-13/test_G13_04.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_source_code_cpp_analyzer.py",
+        "tests/application/test_application_compliance_service.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que importar c++ compile profiles macros abi y resource checks; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+      "falsification_text": "Macro o profile no inspeccionado declarado complete",
+      "verification_profile": "GUARDIAN_PLATFORM_QUALIFICATION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G13-05",
+      "campaign_id": "G-13",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/source_code/lean/analyzer.py",
+        "src/guardian/application/assurance_service.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-13/test_G13_05.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_source_code_lean_analyzer.py",
+        "tests/application/test_application_assurance_service.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que comprobar theorem statement, compiled proof, axiom audit independientemente; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+      "falsification_text": "Nombre de teorema se cualifica sin proof",
+      "verification_profile": "GUARDIAN_PLATFORM_QUALIFICATION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G13-06",
+      "campaign_id": "G-13",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/adapters/git/source_importer.py",
+        "src/guardian/knowledge/provenance.py"
+      ],
+      "lead_owner": "adapters",
+      "planned_obligation_test": "tests/campaign_contracts/G-13/test_G13_06.py",
+      "direct_module_tests": [
+        "tests/adapters/test_adapters_git_source_importer.py",
+        "tests/knowledge/test_knowledge_provenance.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que dos o más source cuts con revision/owner independientes; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+      "falsification_text": "Se mezclan autoridades históricas",
+      "verification_profile": "GUARDIAN_PLATFORM_QUALIFICATION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G13-07",
+      "campaign_id": "G-13",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/migration_assurance.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-13/test_G13_07.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_migration_assurance.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que source/target/oracle/resource/consumer parity con protected cone; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+      "falsification_text": "Se pierden casos históricos",
+      "verification_profile": "GUARDIAN_PLATFORM_QUALIFICATION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G13-08",
+      "campaign_id": "G-13",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/completion.py",
+        "src/guardian/adapters/agents/tool_adapter.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-13/test_G13_08.py",
+      "direct_module_tests": [
+        "tests/work/test_work_completion.py",
+        "tests/adapters/test_adapters_agents_tool_adapter.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que workpackage produce entrega parcial rechazada, independiente si requerido; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+      "falsification_text": "Agent self-report completa tarea",
+      "verification_profile": "GUARDIAN_PLATFORM_QUALIFICATION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G13-09",
+      "campaign_id": "G-13",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/work/handoff.py",
+        "src/guardian/adapters/agents/multi_agent_profile.py"
+      ],
+      "lead_owner": "work",
+      "planned_obligation_test": "tests/campaign_contracts/G-13/test_G13_09.py",
+      "direct_module_tests": [
+        "tests/work/test_work_handoff.py",
+        "tests/adapters/test_adapters_agents_multi_agent_profile.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que perfil a0–a4 con handoffs, audit after builder complete y receipts; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+      "falsification_text": "Un handoff borra obligación",
+      "verification_profile": "GUARDIAN_PLATFORM_QUALIFICATION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G13-10",
+      "campaign_id": "G-13",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/governance/admission.py",
+        "src/guardian/governance/protected_policy.py"
+      ],
+      "lead_owner": "governance",
+      "planned_obligation_test": "tests/campaign_contracts/G-13/test_G13_10.py",
+      "direct_module_tests": [
+        "tests/governance/test_governance_admission.py",
+        "tests/governance/test_governance_protected_policy.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que intentos de modificar policy/receipts/permissions/test y self certify; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+      "falsification_text": "Gatekeeper cede a candidata maliciosa",
+      "verification_profile": "GUARDIAN_PLATFORM_QUALIFICATION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G13-11",
+      "campaign_id": "G-13",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/graph/impact.py",
+        "src/guardian/assurance/invalidation.py"
+      ],
+      "lead_owner": "graph",
+      "planned_obligation_test": "tests/campaign_contracts/G-13/test_G13_11.py",
+      "direct_module_tests": [
+        "tests/graph/test_graph_impact.py",
+        "tests/assurance/test_assurance_invalidation.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que docs irrelevantes se reusan; protected changes invalidan claims afectados; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+      "falsification_text": "Revalidación global o reuse inseguro",
+      "verification_profile": "GUARDIAN_PLATFORM_QUALIFICATION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    },
+    {
+      "obligation_id": "G13-12",
+      "campaign_id": "G-13",
+      "campaign_revision": "DESIGN_PROPOSAL_V1",
+      "responsible_modules": [
+        "src/guardian/assurance/qualification.py",
+        "src/guardian/governance/audit_trail.py"
+      ],
+      "lead_owner": "assurance",
+      "planned_obligation_test": "tests/campaign_contracts/G-13/test_G13_12.py",
+      "direct_module_tests": [
+        "tests/assurance/test_assurance_qualification.py",
+        "tests/governance/test_governance_audit_trail.py"
+      ],
+      "acceptance_text": "Demostrar en el candidato exacto que auditor externo revisa todo el programa de obligaciones y evidencias e2e; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+      "falsification_text": "Local PASS oculta fallo end-to-end",
+      "verification_profile": "GUARDIAN_PLATFORM_QUALIFICATION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_AUTHORED",
+      "material_status": "NOT_RUN",
+      "qualification_status": "UNQUALIFIED",
+      "is_normative_owner_ratified": false
+    }
+  ],
+  "verified_complete": false
+}
