@@ -18,6 +18,7 @@ La documentación se ha normalizado desde la conversación de diseño; no consti
 - [Trazabilidad](architecture/traceability.json): enlaces requisitos/campañas/obligaciones, con [163 asignaciones de implementación propuestas](docs/traceability/OBLIGATION_IMPLEMENTATION_MATRIX.md); los enlaces a código efectivo y evidencias siguen pendientes.
 - [Banco adversario](docs/assurance/NEGATIVE_TEST_BANK.md): 24 ataques transversales definidos para convertirse en tests, aún sin ejecución.
 - [Estado explícito](architecture/status.json).
+- [Auditoría documental de la publicación](docs/assurance/DESIGN_PUBLICATION_AUDIT.md): lectura remota, integridad de enlaces y ausencia explícita de implementación.
 
 ## Principios vinculantes del diseño propuesto
 No borrar ni rebajar obligaciones; ninguna prueba escrita implica ejecución; no certificados científicos por evidencia documental; ningún agente autocertifica sus entregas; cada proyecto mantiene su autoridad; nuevos requisitos/campañas se añaden sin modificar el núcleo; los paquetes de trabajo no reducen el cierre normativo por límites de contexto; los cambios impactan solo conos protegidos cuando es demostrable.

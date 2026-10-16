@@ -43,3 +43,6 @@ Una precisión posterior no sustituye el alcance anterior, salvo operación expl
 - [Entidades y servicios](architecture/06_DOMAIN_INTERFACES.md).
 - [Interfaz gráfica independiente](architecture/08_WEB_CLIENT.md), cliente TypeScript propuesto, no ratificado.
 - [Secuencia de discusión de arquitectura](architecture/07_ARCHITECTURE_REVIEW_SEQUENCE.md).
+
+## Publicación y coherencia
+- [Auditoría estática de la publicación](../docs/assurance/DESIGN_PUBLICATION_AUDIT.md): cotejo documental y límites de la evidencia.

@@ -8,7 +8,7 @@
   "campaigns": 14,
   "implementation_obligations_planned": 163,
   "module_routes_proposed": 142,
-  "architecture_discussion_questions": 13,
+  "architecture_discussion_questions": 14,
   "adversarial_scenarios_proposed": 24,
   "implementation_started": false,
   "code_implemented": false,
@@ -16,7 +16,7 @@
   "certifications_issued": false,
   "requirements_fine_grained_semantic_crosswalk_qualified": false,
   "source_conversations_archived_in_repo": false,
-  "planning_ledger_structural_check": "STATIC_CHECKED_PENDING_PUBLICATION_AUDIT",
+  "planning_ledger_structural_check": "PASS_REMOTE_STRUCTURAL_READBACK_DESIGN_ONLY",
   "notes": [
     "Planning-only records uploaded, no production modules materialized",
     "Source design conversation normalized not copied verbatim",
@@ -29,5 +29,14 @@
   "web_ui_design_modules_proposed": 16,
   "web_ui_technology_status": "TYPESCRIPT_COMPONENT_CLIENT_PROPOSED_NOT_RATIFIED",
   "obligations_with_candidate_file_and_test_links": 163,
-  "file_level_design_crosswalk_status": "PROPOSED_NOT_IMPLEMENTED_NOT_RATIFIED"
+  "file_level_design_crosswalk_status": "PROPOSED_NOT_IMPLEMENTED_NOT_RATIFIED",
+  "architecture_review_sessions": 9,
+  "last_structural_review": {
+    "result": "PASS_DESIGN_STATIC_REFERENTIAL_ONLY",
+    "head_checked": "20d1b3083f9da68b36cd89c99e342b72cde247be",
+    "no_code_implemented": true,
+    "no_tests_executed": true,
+    "navigation_links_checked": 89,
+    "summary": "34 requirements, 30 ADR, 14 campaigns, 163 obligations, 142 proposed module entries, 163 obligation->module assignments, navigation links present"
+  }
 }
