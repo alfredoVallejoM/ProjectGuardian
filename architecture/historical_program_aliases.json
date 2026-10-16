@@ -1,0 +1,108 @@
+{
+  "schema": "guardian/program-history-crosswalk/v1",
+  "status": "DOCUMENTARY_NON_AUTHORITATIVE_ALIAS",
+  "aliases": [
+    {
+      "historical_id": "ENG-00",
+      "mapped_campaigns": [
+        "G-00"
+      ],
+      "original_scope": "Fundamentos",
+      "reason": "Reorganization preserving requirements, not a second normative campaign",
+      "status": "DOCUMENTED_CROSSWALK"
+    },
+    {
+      "historical_id": "ENG-01",
+      "mapped_campaigns": [
+        "G-01"
+      ],
+      "original_scope": "Obligaciones y eventos",
+      "reason": "Reorganization preserving requirements, not a second normative campaign",
+      "status": "DOCUMENTED_CROSSWALK"
+    },
+    {
+      "historical_id": "ENG-02",
+      "mapped_campaigns": [
+        "G-02"
+      ],
+      "original_scope": "Grafo",
+      "reason": "Reorganization preserving requirements, not a second normative campaign",
+      "status": "DOCUMENTED_CROSSWALK"
+    },
+    {
+      "historical_id": "ENG-03",
+      "mapped_campaigns": [
+        "G-10"
+      ],
+      "original_scope": "Cobertura",
+      "reason": "Reorganization preserving requirements, not a second normative campaign",
+      "status": "DOCUMENTED_CROSSWALK"
+    },
+    {
+      "historical_id": "ENG-04",
+      "mapped_campaigns": [
+        "G-01",
+        "G-10"
+      ],
+      "original_scope": "Evolucion/refinamiento",
+      "reason": "Reorganization preserving requirements, not a second normative campaign",
+      "status": "DOCUMENTED_CROSSWALK"
+    },
+    {
+      "historical_id": "ENG-05",
+      "mapped_campaigns": [
+        "G-06"
+      ],
+      "original_scope": "Auditoría y evidencia",
+      "reason": "Reorganization preserving requirements, not a second normative campaign",
+      "status": "DOCUMENTED_CROSSWALK"
+    },
+    {
+      "historical_id": "ENG-06",
+      "mapped_campaigns": [
+        "G-09"
+      ],
+      "original_scope": "Gatekeeper",
+      "reason": "Reorganization preserving requirements, not a second normative campaign",
+      "status": "DOCUMENTED_CROSSWALK"
+    },
+    {
+      "historical_id": "ENG-07",
+      "mapped_campaigns": [
+        "G-07"
+      ],
+      "original_scope": "Adaptadores",
+      "reason": "Reorganization preserving requirements, not a second normative campaign",
+      "status": "DOCUMENTED_CROSSWALK"
+    },
+    {
+      "historical_id": "ENG-08",
+      "mapped_campaigns": [
+        "G-03",
+        "G-04"
+      ],
+      "original_scope": "Orientacion y encargos",
+      "reason": "Reorganization preserving requirements, not a second normative campaign",
+      "status": "DOCUMENTED_CROSSWALK"
+    },
+    {
+      "historical_id": "ENG-09",
+      "mapped_campaigns": [
+        "G-08"
+      ],
+      "original_scope": "Coordinación opcional de agentes",
+      "reason": "Reorganization preserving requirements, not a second normative campaign",
+      "status": "DOCUMENTED_CROSSWALK"
+    },
+    {
+      "historical_id": "ENG-10",
+      "mapped_campaigns": [
+        "G-13"
+      ],
+      "original_scope": "Pilotos y cualificación",
+      "reason": "Reorganization preserving requirements, not a second normative campaign",
+      "status": "DOCUMENTED_CROSSWALK"
+    }
+  ],
+  "note": "ENG campaign labels came from earlier discussion and are preserved, not reopened or silently erased."
+}

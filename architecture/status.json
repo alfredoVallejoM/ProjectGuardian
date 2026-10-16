@@ -22,5 +22,8 @@
     "Source design conversation normalized not copied verbatim",
     "Rule and obligation statuses remain proposed until explicit ratification",
     "Static linkage does not imply implementation, math validation or future change safety"
-  ]
+  ],
+  "entity_types_specified": 24,
+  "service_interfaces_proposed": 14,
+  "historical_program_aliases": 11
 }
