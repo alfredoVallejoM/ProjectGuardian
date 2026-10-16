@@ -1,0 +1,384 @@
+{
+  "schema": "guardian/g00-design-decisions/v1",
+  "status": "PROPOSED_NOT_RATIFIED",
+  "campaign": "G-00",
+  "count": 24,
+  "original_adr_authority": "architecture/decisions.json",
+  "scope": "Detailed selections refining existing architectural ADR, not independent ratified ADR",
+  "decisions": [
+    {
+      "id": "G00-DD-001",
+      "topic": "Identity runtime wrappers",
+      "proposed_decision": "Frozen nominal value objects for ProjectId EntityId RevisionId and Digest, not plain strings/NewType alone",
+      "related_adr": "PG-ADR-004",
+      "obligation_refs": [
+        "G00-01"
+      ],
+      "required_falsification": "A cast from ProjectId to RevisionId must fail at runtime",
+      "rejected_alternative": "Plain strings with caller discipline",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-002",
+      "topic": "Canonical ID grammar",
+      "proposed_decision": "ASCII constrained canonical tokens with scoped project/kind; human aliases can be Unicode",
+      "related_adr": "PG-ADR-004",
+      "obligation_refs": [
+        "G00-01"
+      ],
+      "required_falsification": "Malicious path-like or empty identifier rejected",
+      "rejected_alternative": "Derive identifiers from filenames",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-003",
+      "topic": "Revision pinning",
+      "proposed_decision": "EntityRef always pins RevisionId; browser navigation by HEAD resolved outside normative domain",
+      "related_adr": "PG-ADR-004",
+      "obligation_refs": [
+        "G00-01",
+        "G00-08"
+      ],
+      "required_falsification": "Reference without revision cannot be qualified",
+      "rejected_alternative": "Floating latest revision in normative refs",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-004",
+      "topic": "Digest separation",
+      "proposed_decision": "Store algorithm and exact byte digest; do not treat digest as logical entity identity",
+      "related_adr": "PG-ADR-004",
+      "obligation_refs": [
+        "G00-01"
+      ],
+      "required_falsification": "Equal bytes do not imply same owner or authority",
+      "rejected_alternative": "Content hash as unique semantic ID",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-005",
+      "topic": "Alias ambiguity",
+      "proposed_decision": "Alias resolution is scoped and can return ambiguous; never first result wins",
+      "related_adr": "PG-ADR-004",
+      "obligation_refs": [
+        "G00-01",
+        "G00-08"
+      ],
+      "required_falsification": "Two alias matches emit AMBIGUOUS_ALIAS",
+      "rejected_alternative": "Mutating global alias dictionary",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-006",
+      "topic": "Project authority modes",
+      "proposed_decision": "EMBEDDED/SIDECAR/FEDERATED storage modes with one normative owner per datum",
+      "related_adr": "PG-ADR-001",
+      "obligation_refs": [
+        "G00-02"
+      ],
+      "required_falsification": "Federated views retain independent Git revisions",
+      "rejected_alternative": "Single global writable registry",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-007",
+      "topic": "Foreign source import",
+      "proposed_decision": "ApprovedImport must scope source and contract; G00 accepts only external trust context",
+      "related_adr": "PG-ADR-001",
+      "obligation_refs": [
+        "G00-02",
+        "G00-03",
+        "G00-08"
+      ],
+      "required_falsification": "A file grant does not authorize whole repository",
+      "rejected_alternative": "Import any link by textual similarity",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-008",
+      "topic": "Source cut ontology",
+      "proposed_decision": "Separate immutable Git cuts, versioned documents and approved decisions; no branch-only authority",
+      "related_adr": "PG-ADR-002",
+      "obligation_refs": [
+        "G00-03"
+      ],
+      "required_falsification": "Pinned tree does not assert AST complete",
+      "rejected_alternative": "Treat observed blob as verified function",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-009",
+      "topic": "Source completeness",
+      "proposed_decision": "Known missing and exclusions visible in SourceUniverse; no global coverage by current records alone",
+      "related_adr": "PG-ADR-012",
+      "obligation_refs": [
+        "G00-03"
+      ],
+      "required_falsification": "Incomplete source inventory prevents complete claim",
+      "rejected_alternative": "Count only registered rows",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-010",
+      "topic": "ProjectContract aggregate",
+      "proposed_decision": "Composed immutable references to versioned entities; no giant mutable Project object",
+      "related_adr": "PG-ADR-002",
+      "obligation_refs": [
+        "G00-05"
+      ],
+      "required_falsification": "Shared Property retains single ID across capabilities/campaigns",
+      "rejected_alternative": "Monolithic nested editable JSON",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-011",
+      "topic": "Obligation non-completion flag",
+      "proposed_decision": "ObligationRevision owns requirement not execution status",
+      "related_adr": "PG-ADR-003",
+      "obligation_refs": [
+        "G00-05",
+        "G00-07"
+      ],
+      "required_falsification": "Changing a status field cannot certify obligation",
+      "rejected_alternative": "completed boolean stored on obligation",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-012",
+      "topic": "Scope AST",
+      "proposed_decision": "Typed Atom/All/Any/Not plus trusted verifiers; no embedded project scripts",
+      "related_adr": "PG-ADR-010",
+      "obligation_refs": [
+        "G00-06"
+      ],
+      "required_falsification": "Project-supplied eval code rejected",
+      "rejected_alternative": "Dynamic expression evaluation",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-013",
+      "topic": "Four-valued applicability",
+      "proposed_decision": "Belnap-style evidence pair YES/NO/UNKNOWN/CONFLICT with witnesses",
+      "related_adr": "PG-ADR-010",
+      "obligation_refs": [
+        "G00-06"
+      ],
+      "required_falsification": "UNKNOWN and CONFLICT not converted to NO",
+      "rejected_alternative": "Boolean default false",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-014",
+      "topic": "Vacuous applicability",
+      "proposed_decision": "Empty ALL/ANY rejected unless explicit approved TRUE/FALSE constant",
+      "related_adr": "PG-ADR-010",
+      "obligation_refs": [
+        "G00-06"
+      ],
+      "required_falsification": "An empty required predicate cannot auto-PASS",
+      "rejected_alternative": "Unconditional logical empty defaults",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-015",
+      "topic": "Milestone independence",
+      "proposed_decision": "Applicability separate from ratification and temporal exigibility",
+      "related_adr": "PG-ADR-011",
+      "obligation_refs": [
+        "G00-05",
+        "G00-06",
+        "G00-07"
+      ],
+      "required_falsification": "Future obligation remains visible but not automatically due",
+      "rejected_alternative": "Use one status for all dimensions",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-016",
+      "topic": "Authority input",
+      "proposed_decision": "G00 evaluator receives AuthorityContext from external trusted boundary; no self-signing",
+      "related_adr": "PG-ADR-023",
+      "obligation_refs": [
+        "G00-04",
+        "G00-10"
+      ],
+      "required_falsification": "Textual role RATIFIED cannot grant authority",
+      "rejected_alternative": "Trust JSON fields authored by agent",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-017",
+      "topic": "Partial precedence",
+      "proposed_decision": "Observed source fact and ratified norm are incomparable types; approved scoped supersession only",
+      "related_adr": "PG-ADR-003",
+      "obligation_refs": [
+        "G00-04",
+        "G00-11"
+      ],
+      "required_falsification": "Latest source text does not override constitutional rule",
+      "rejected_alternative": "Newest file always wins",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-018",
+      "topic": "Conflict localization",
+      "proposed_decision": "ConflictRecord stores both witnesses, scope intersection, affected claims",
+      "related_adr": "PG-ADR-010",
+      "obligation_refs": [
+        "G00-11"
+      ],
+      "required_falsification": "Disjoint conflicts do not block unrelated components",
+      "rejected_alternative": "Global red/green flag",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-019",
+      "topic": "Pure rule registry",
+      "proposed_decision": "Trusted versioned RuleEvaluatorRegistry contains only pure registered functions",
+      "related_adr": "PG-ADR-018",
+      "obligation_refs": [
+        "G00-10"
+      ],
+      "required_falsification": "Project plugin cannot execute arbitrary code as policy",
+      "rejected_alternative": "eval/exec and callbacks from JSON",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-020",
+      "topic": "Status axes",
+      "proposed_decision": "Source/Decision/Commitment/Implementation/Audit/Material/Support/Qualification/Migration distinct",
+      "related_adr": "PG-ADR-011",
+      "obligation_refs": [
+        "G00-07"
+      ],
+      "required_falsification": "Implementation.DEVELOPED does not yield Material.PASS",
+      "rejected_alternative": "One global status PASS",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-021",
+      "topic": "Schema versions and features",
+      "proposed_decision": "Reader blocks unknown normative feature; informational extensions only in declared namespace",
+      "related_adr": "PG-ADR-004",
+      "obligation_refs": [
+        "G00-09"
+      ],
+      "required_falsification": "Old schema reader cannot ignore new normative rule",
+      "rejected_alternative": "Silent default coercion",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-022",
+      "topic": "Deterministic budgets",
+      "proposed_decision": "Bounded pure evaluation returns RESOURCE_LIMITED with unexamined rules",
+      "related_adr": "PG-ADR-018",
+      "obligation_refs": [
+        "G00-06",
+        "G00-10"
+      ],
+      "required_falsification": "Budget exhaustion does not produce PASS",
+      "rejected_alternative": "Best-effort result marked complete",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-023",
+      "topic": "Typed diagnostics",
+      "proposed_decision": "Stable error codes with path, rule, revision, witness and remediation",
+      "related_adr": "PG-ADR-003",
+      "obligation_refs": [
+        "G00-08",
+        "G00-09",
+        "G00-10"
+      ],
+      "required_falsification": "Invalid input distinguished from failed property",
+      "rejected_alternative": "Boolean success/fail",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "G00-DD-024",
+      "topic": "G00 trust bootstrap",
+      "proposed_decision": "Until G-09 is real use externally controlled reviewer/policy, never fake attested Gatekeeper",
+      "related_adr": "PG-ADR-023",
+      "obligation_refs": [
+        "G00-04",
+        "G00-10",
+        "G00-12"
+      ],
+      "required_falsification": "G00 development may finish yet cannot self-certify trusted publication",
+      "rejected_alternative": "Assume planned Gatekeeper already installed",
+      "status": "OPEN_FOR_RATIFICATION",
+      "rationale": "Preserve original G-00 obligation and guarantee no inference from mere presence of data",
+      "approval_refs": [],
+      "implementation_status": "NOT_IMPLEMENTED"
+    }
+  ]
+}
