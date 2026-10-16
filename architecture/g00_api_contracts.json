@@ -1,0 +1,1233 @@
+{
+  "schema": "guardian/g00-api-contracts/v1",
+  "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+  "campaign": "G-00",
+  "canonical_obligations": "architecture/campaigns.json#G-00",
+  "purpose": "Interface contract catalogue, not implementation",
+  "functions": [
+    {
+      "id": "G00-API-001",
+      "function_name": "parse_project_id",
+      "owner_path": "src/guardian/domain/identity.py",
+      "input_contract": "raw:string",
+      "output_contract": "Result[ProjectId,InvalidIdentity]",
+      "preconditions": "Input is a raw candidate identifier",
+      "postconditions": "Checks grammar and constructs nominal ProjectId",
+      "errors": [
+        "EMPTY_ID",
+        "INVALID_ID_SYNTAX"
+      ],
+      "parent_obligations": [
+        "G00-01"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-01-T01"
+      ]
+    },
+    {
+      "id": "G00-API-002",
+      "function_name": "parse_entity_id",
+      "owner_path": "src/guardian/domain/identity.py",
+      "input_contract": "project:ProjectId,kind:EntityKind,raw:string",
+      "output_contract": "Result[EntityId,InvalidIdentity]",
+      "preconditions": "Explicit project and kind",
+      "postconditions": "EntityId namespace fixed to project and kind",
+      "errors": [
+        "PROJECT_REQUIRED",
+        "INVALID_ID_SYNTAX"
+      ],
+      "parent_obligations": [
+        "G00-01"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-01-T01"
+      ]
+    },
+    {
+      "id": "G00-API-003",
+      "function_name": "parse_revision_id",
+      "owner_path": "src/guardian/domain/identity.py",
+      "input_contract": "raw:string",
+      "output_contract": "Result[RevisionId,InvalidRevision]",
+      "preconditions": "Revision is an immutable token",
+      "postconditions": "Never resolves mutable branch as RevisionId",
+      "errors": [
+        "REVISION_REQUIRED",
+        "INVALID_REVISION"
+      ],
+      "parent_obligations": [
+        "G00-01"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-01-T01"
+      ]
+    },
+    {
+      "id": "G00-API-004",
+      "function_name": "parse_content_digest",
+      "owner_path": "src/guardian/domain/identity.py",
+      "input_contract": "algorithm:DigestAlgorithm,hex:string",
+      "output_contract": "Result[ContentDigest,DigestIssue]",
+      "preconditions": "Known algorithm and complete hex length",
+      "postconditions": "Retains byte identity and algorithm",
+      "errors": [
+        "UNSUPPORTED_DIGEST",
+        "DIGEST_MALFORMED"
+      ],
+      "parent_obligations": [
+        "G00-01"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-01-T01"
+      ]
+    },
+    {
+      "id": "G00-API-005",
+      "function_name": "encode_identity",
+      "owner_path": "src/guardian/domain/identity.py",
+      "input_contract": "nominal_id:NominalId",
+      "output_contract": "SerializedIdentity",
+      "preconditions": "Valid typed nominal identifier",
+      "postconditions": "Preserve discriminant namespace and value",
+      "errors": [
+        "WRONG_ID_KIND"
+      ],
+      "parent_obligations": [
+        "G00-01"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-01-T01"
+      ]
+    },
+    {
+      "id": "G00-API-006",
+      "function_name": "decode_identity",
+      "owner_path": "src/guardian/domain/identity.py",
+      "input_contract": "envelope:SerializedIdentity",
+      "output_contract": "Result[NominalId,DecodeIssue]",
+      "preconditions": "Reader understands schema kind",
+      "postconditions": "Roundtrip with exact type and namespace",
+      "errors": [
+        "UNKNOWN_ID_KIND",
+        "INVALID_SCHEMA"
+      ],
+      "parent_obligations": [
+        "G00-01"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-01-T01"
+      ]
+    },
+    {
+      "id": "G00-API-007",
+      "function_name": "bind_alias",
+      "owner_path": "src/guardian/domain/identity.py",
+      "input_contract": "target:EntityRef,alias:Alias,source:SourceRef",
+      "output_contract": "AliasBindingResult",
+      "preconditions": "Entity and source reference valid",
+      "postconditions": "Detect ambiguous alias instead of overwrite",
+      "errors": [
+        "AMBIGUOUS_ALIAS",
+        "DUPLICATE_BINDING"
+      ],
+      "parent_obligations": [
+        "G00-01"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-01-T01"
+      ]
+    },
+    {
+      "id": "G00-API-008",
+      "function_name": "resolve_entity",
+      "owner_path": "src/guardian/domain/identity.py",
+      "input_contract": "ref:EntityRef,view:ReadOnlyProjectView,kind:EntityKind,grants:TrustedImportGrants",
+      "output_contract": "EntityResolution",
+      "preconditions": "Snapshot and external trust context explicit",
+      "postconditions": "Return exact typed version or issue",
+      "errors": [
+        "UNKNOWN_REVISION",
+        "WRONG_ID_KIND",
+        "UNAPPROVED_IMPORT"
+      ],
+      "parent_obligations": [
+        "G00-01",
+        "G00-08"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-01-T01",
+        "G00-08-T01"
+      ]
+    },
+    {
+      "id": "G00-API-009",
+      "function_name": "validate_project",
+      "owner_path": "src/guardian/domain/project.py",
+      "input_contract": "definition:ProjectDefinition",
+      "output_contract": "Validation[ProjectDefinition]",
+      "preconditions": "Project identifier and source authority declared",
+      "postconditions": "Independent ProjectDefinition or diagnostics",
+      "errors": [
+        "PROJECT_ID_MISSING",
+        "SOURCE_POLICY_MISSING"
+      ],
+      "parent_obligations": [
+        "G00-02"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-02-T01"
+      ]
+    },
+    {
+      "id": "G00-API-010",
+      "function_name": "validate_storage_mode",
+      "owner_path": "src/guardian/domain/project.py",
+      "input_contract": "descriptor:StorageDescriptor",
+      "output_contract": "Validation[StorageDescriptor]",
+      "preconditions": "Mode declared as EMBEDDED SIDECAR or FEDERATED",
+      "postconditions": "Validate required mode fields without I/O",
+      "errors": [
+        "UNSUPPORTED_STORAGE_MODE",
+        "AMBIGUOUS_AUTHORITY"
+      ],
+      "parent_obligations": [
+        "G00-02"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-02-T01"
+      ]
+    },
+    {
+      "id": "G00-API-011",
+      "function_name": "check_project_membership",
+      "owner_path": "src/guardian/domain/project.py",
+      "input_contract": "project:ProjectDefinition,ref:EntityRef",
+      "output_contract": "MembershipVerdict",
+      "preconditions": "Project and ref identities known",
+      "postconditions": "Reject implicit foreign project membership",
+      "errors": [
+        "FOREIGN_PROJECT_REF",
+        "IMPORT_REQUIRED"
+      ],
+      "parent_obligations": [
+        "G00-02",
+        "G00-08"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-02-T01",
+        "G00-08-T01"
+      ]
+    },
+    {
+      "id": "G00-API-012",
+      "function_name": "build_readonly_project_view",
+      "owner_path": "src/guardian/application/project_service.py",
+      "input_contract": "definition:ProjectDefinition,entities:EntityCatalog,source:SourceUniverseRevision",
+      "output_contract": "ReadOnlyProjectView",
+      "preconditions": "Input domain records previously validated",
+      "postconditions": "No global project state or mutations",
+      "errors": [
+        "DUPLICATE_LOGICAL_ID",
+        "UNKNOWN_REVISION"
+      ],
+      "parent_obligations": [
+        "G00-02",
+        "G00-08"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-02-T01",
+        "G00-08-T01"
+      ]
+    },
+    {
+      "id": "G00-API-013",
+      "function_name": "validate_git_source_cut",
+      "owner_path": "src/guardian/domain/source.py",
+      "input_contract": "cut:GitSourceCut",
+      "output_contract": "SourceValidation",
+      "preconditions": "Repository and immutable commit declared",
+      "postconditions": "Branch-only ref blocked as immutable source",
+      "errors": [
+        "SOURCE_CUT_NOT_PINNED",
+        "INVALID_SOURCE_PATH"
+      ],
+      "parent_obligations": [
+        "G00-03"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-03-T01"
+      ]
+    },
+    {
+      "id": "G00-API-014",
+      "function_name": "validate_document_source",
+      "owner_path": "src/guardian/domain/source.py",
+      "input_contract": "ref:DocumentSourceRef",
+      "output_contract": "SourceValidation",
+      "preconditions": "Versioned document locator supplied",
+      "postconditions": "Reject title-only authority claims",
+      "errors": [
+        "SOURCE_REVISION_REQUIRED",
+        "SOURCE_UNAVAILABLE"
+      ],
+      "parent_obligations": [
+        "G00-03"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-03-T01"
+      ]
+    },
+    {
+      "id": "G00-API-015",
+      "function_name": "validate_source_universe",
+      "owner_path": "src/guardian/domain/source.py",
+      "input_contract": "universe:SourceUniverseRevision,project:ProjectDefinition,catalog:SourceCatalogView",
+      "output_contract": "SourceUniverseValidation",
+      "preconditions": "Exact source scope supplied",
+      "postconditions": "Preserve includes excludes known_missing",
+      "errors": [
+        "SOURCE_COVERAGE_UNKNOWN",
+        "EXCLUSION_UNAUTHORIZED"
+      ],
+      "parent_obligations": [
+        "G00-03"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-03-T01"
+      ]
+    },
+    {
+      "id": "G00-API-016",
+      "function_name": "check_source_membership",
+      "owner_path": "src/guardian/domain/source.py",
+      "input_contract": "project:ProjectDefinition,source:SourceRef,grants:TrustedImportGrants",
+      "output_contract": "SourceMembershipVerdict",
+      "preconditions": "Policy and source ref explicit",
+      "postconditions": "Allowed denied unknown or needs approval",
+      "errors": [
+        "UNAPPROVED_IMPORT",
+        "UNKNOWN_SOURCE"
+      ],
+      "parent_obligations": [
+        "G00-02",
+        "G00-03"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-02-T01",
+        "G00-03-T01"
+      ]
+    },
+    {
+      "id": "G00-API-017",
+      "function_name": "validate_inclusion_exclusion",
+      "owner_path": "src/guardian/domain/source.py",
+      "input_contract": "universe:SourceUniverseRevision",
+      "output_contract": "tuple[Diagnostic,...]",
+      "preconditions": "Rules and approvals included",
+      "postconditions": "Detect overlapping incompatible scopes",
+      "errors": [
+        "SOURCE_SCOPE_CONFLICT",
+        "EXCLUSION_UNJUSTIFIED"
+      ],
+      "parent_obligations": [
+        "G00-03"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-03-T01"
+      ]
+    },
+    {
+      "id": "G00-API-018",
+      "function_name": "describe_source_coverage",
+      "owner_path": "src/guardian/domain/source.py",
+      "input_contract": "universe:SourceUniverseRevision",
+      "output_contract": "SourceCoverageDescriptor",
+      "preconditions": "Known acquisition flags",
+      "postconditions": "Describe limitations without issuing coverage PASS",
+      "errors": [
+        "SOURCE_MISSING",
+        "INCOMPLETE_SOURCE_UNIVERSE"
+      ],
+      "parent_obligations": [
+        "G00-03"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-03-T01"
+      ]
+    },
+    {
+      "id": "G00-API-019",
+      "function_name": "validate_decision",
+      "owner_path": "src/guardian/domain/authority.py",
+      "input_contract": "decision:DecisionRevision,context:AuthorityContext",
+      "output_contract": "DecisionValidation",
+      "preconditions": "Trusted context supplied externally",
+      "postconditions": "Textual approval never self-authorizes",
+      "errors": [
+        "UNTRUSTED_RATIFICATION",
+        "MISSING_APPROVAL"
+      ],
+      "parent_obligations": [
+        "G00-04"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-04-T01"
+      ]
+    },
+    {
+      "id": "G00-API-020",
+      "function_name": "required_approvals",
+      "owner_path": "src/guardian/constitution/authority_resolution.py",
+      "input_contract": "action:NormativeAction,scope:SupportProfile,constitution:ConstitutionRevision",
+      "output_contract": "ApprovalRequirements",
+      "preconditions": "Rule set revision known",
+      "postconditions": "Describe approval capabilities needed",
+      "errors": [
+        "UNKNOWN_AUTHORITY_RULE",
+        "CONFLICTING_APPROVAL_RULE"
+      ],
+      "parent_obligations": [
+        "G00-04"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-04-T01"
+      ]
+    },
+    {
+      "id": "G00-API-021",
+      "function_name": "evaluate_authority",
+      "owner_path": "src/guardian/constitution/authority_resolution.py",
+      "input_contract": "actor:PrincipalRef,action:NormativeAction,context:AuthorityContext",
+      "output_contract": "AuthorityVerdict",
+      "preconditions": "Externally verified AuthorityContext",
+      "postconditions": "Conditional verdict with reasons not cryptographic verification",
+      "errors": [
+        "REQUIRES_APPROVAL",
+        "UNTRUSTED_PRINCIPAL"
+      ],
+      "parent_obligations": [
+        "G00-04"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-04-T01"
+      ]
+    },
+    {
+      "id": "G00-API-022",
+      "function_name": "validate_rule",
+      "owner_path": "src/guardian/domain/constitution.py",
+      "input_contract": "rule:RuleRevision",
+      "output_contract": "RuleValidation",
+      "preconditions": "Known RuleKind and ScopeExpression",
+      "postconditions": "Reject incomplete rule contract without executing it",
+      "errors": [
+        "UNKNOWN_RULE_KIND",
+        "INVALID_SCOPE"
+      ],
+      "parent_obligations": [
+        "G00-04",
+        "G00-10"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-04-T01",
+        "G00-10-T01"
+      ]
+    },
+    {
+      "id": "G00-API-023",
+      "function_name": "validate_constitution",
+      "owner_path": "src/guardian/domain/constitution.py",
+      "input_contract": "revision:ConstitutionRevision,view:ReadOnlyProjectView",
+      "output_contract": "ConstitutionValidation",
+      "preconditions": "Rule and Decision refs available",
+      "postconditions": "Detect duplicates missing refs and features",
+      "errors": [
+        "UNKNOWN_RULE_REF",
+        "DUPLICATE_RULE_ID"
+      ],
+      "parent_obligations": [
+        "G00-04"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-04-T01"
+      ]
+    },
+    {
+      "id": "G00-API-024",
+      "function_name": "make_amendment_request",
+      "owner_path": "src/guardian/constitution/amendments.py",
+      "input_contract": "prior:RuleRevision,proposal:RuleRevision,rationale:AmendmentRationale",
+      "output_contract": "AmendmentRequest",
+      "preconditions": "Both versions provided",
+      "postconditions": "Proposal only no ratification",
+      "errors": [
+        "UNAUTHORIZED_AMENDMENT",
+        "INVALID_LINEAGE"
+      ],
+      "parent_obligations": [
+        "G00-04"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-04-T01"
+      ]
+    },
+    {
+      "id": "G00-API-025",
+      "function_name": "validate_objective",
+      "owner_path": "src/guardian/domain/objective.py",
+      "input_contract": "objective:ObjectiveRevision",
+      "output_contract": "Validation[ObjectiveRevision]",
+      "preconditions": "Purpose scope and source are explicit",
+      "postconditions": "Objective remains distinct from task",
+      "errors": [
+        "EMPTY_OBJECTIVE",
+        "UNTRACED_OBJECTIVE"
+      ],
+      "parent_obligations": [
+        "G00-05"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-05-T01"
+      ]
+    },
+    {
+      "id": "G00-API-026",
+      "function_name": "validate_capability",
+      "owner_path": "src/guardian/domain/capability.py",
+      "input_contract": "capability:CapabilityRevision,view:ReadOnlyProjectView",
+      "output_contract": "CapabilityValidation",
+      "preconditions": "Owner behavior and context declared",
+      "postconditions": "Validate references without inventing implementation",
+      "errors": [
+        "MISSING_SEMANTIC_OWNER",
+        "INVALID_CAPABILITY_CONTRACT"
+      ],
+      "parent_obligations": [
+        "G00-05"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-05-T01"
+      ]
+    },
+    {
+      "id": "G00-API-027",
+      "function_name": "validate_property",
+      "owner_path": "src/guardian/domain/property.py",
+      "input_contract": "property:PropertyRevision",
+      "output_contract": "PropertyValidation",
+      "preconditions": "Scope hypotheses and guarantee defined",
+      "postconditions": "Property distinct from Test/Claim",
+      "errors": [
+        "EMPTY_GUARANTEE",
+        "INVALID_HYPOTHESIS"
+      ],
+      "parent_obligations": [
+        "G00-05"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-05-T01"
+      ]
+    },
+    {
+      "id": "G00-API-028",
+      "function_name": "validate_obligation",
+      "owner_path": "src/guardian/domain/obligation.py",
+      "input_contract": "obligation:ObligationRevision,view:ReadOnlyProjectView",
+      "output_contract": "ObligationValidation",
+      "preconditions": "Applicability acceptance falsification source refs present",
+      "postconditions": "No writable completed authority",
+      "errors": [
+        "REQUIRED_ACCEPTANCE_MISSING",
+        "UNKNOWN_SOURCE"
+      ],
+      "parent_obligations": [
+        "G00-05"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-05-T01"
+      ]
+    },
+    {
+      "id": "G00-API-029",
+      "function_name": "validate_campaign",
+      "owner_path": "src/guardian/domain/campaign.py",
+      "input_contract": "campaign:CampaignRevision,view:ReadOnlyProjectView",
+      "output_contract": "CampaignValidation",
+      "preconditions": "Membership refers fixed obligations",
+      "postconditions": "Shared obligation ID not duplicated",
+      "errors": [
+        "AMBIGUOUS_MEMBERSHIP",
+        "UNKNOWN_OBLIGATION_REF"
+      ],
+      "parent_obligations": [
+        "G00-05"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-05-T01"
+      ]
+    },
+    {
+      "id": "G00-API-030",
+      "function_name": "validate_architecture_contract",
+      "owner_path": "src/guardian/domain/architecture.py",
+      "input_contract": "architecture:ArchitectureRevision",
+      "output_contract": "ArchitectureValidation",
+      "preconditions": "Components and dependency policies declared",
+      "postconditions": "Specified architecture not replaced by observed code",
+      "errors": [
+        "DUPLICATE_OWNER",
+        "INVALID_DEPENDENCY_RULE"
+      ],
+      "parent_obligations": [
+        "G00-05"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-05-T01"
+      ]
+    },
+    {
+      "id": "G00-API-031",
+      "function_name": "validate_support_profile",
+      "owner_path": "src/guardian/domain/scope.py",
+      "input_contract": "profile:SupportProfile",
+      "output_contract": "SupportProfileValidation",
+      "preconditions": "Project revision milestone and dimension types supplied",
+      "postconditions": "Unknown dimensions are explicit",
+      "errors": [
+        "INVALID_PROFILE",
+        "UNKNOWN_NORMATIVE_DIMENSION"
+      ],
+      "parent_obligations": [
+        "G00-06"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-06-T01"
+      ]
+    },
+    {
+      "id": "G00-API-032",
+      "function_name": "validate_scope_expression",
+      "owner_path": "src/guardian/domain/scope.py",
+      "input_contract": "expr:ScopeExpression,registry:DimensionRegistry",
+      "output_contract": "ScopeExpressionValidation",
+      "preconditions": "Registered typed operators only",
+      "postconditions": "Reject executable callbacks and vacuous implicit TRUE",
+      "errors": [
+        "UNSAFE_SCOPE_PREDICATE",
+        "INVALID_SCOPE_ARITY"
+      ],
+      "parent_obligations": [
+        "G00-06"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-06-T01"
+      ]
+    },
+    {
+      "id": "G00-API-033",
+      "function_name": "evaluate_atom",
+      "owner_path": "src/guardian/domain/scope.py",
+      "input_contract": "atom:Atom,profile:SupportProfile,facts:FactSet",
+      "output_contract": "ApplicabilityResult",
+      "preconditions": "Facts declare source and completeness",
+      "postconditions": "YES NO UNKNOWN CONFLICT with witnesses",
+      "errors": [
+        "INVALID_PREDICATE_TYPE",
+        "UNKNOWN_DIMENSION"
+      ],
+      "parent_obligations": [
+        "G00-06"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-06-T01"
+      ]
+    },
+    {
+      "id": "G00-API-034",
+      "function_name": "evaluate_scope",
+      "owner_path": "src/guardian/domain/scope.py",
+      "input_contract": "expr:ScopeExpression,profile:SupportProfile,facts:FactSet,budget:StepBudget",
+      "output_contract": "ScopeEvaluation",
+      "preconditions": "Validated bounded AST",
+      "postconditions": "Four-value result with diagnostics not partial PASS",
+      "errors": [
+        "EVALUATION_RESOURCE_LIMITED",
+        "INVALID_SCOPE_EXPRESSION"
+      ],
+      "parent_obligations": [
+        "G00-06"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-06-T01"
+      ]
+    },
+    {
+      "id": "G00-API-035",
+      "function_name": "and_evidence",
+      "owner_path": "src/guardian/domain/scope.py",
+      "input_contract": "left:FourValued,right:FourValued",
+      "output_contract": "FourValued",
+      "preconditions": "Two support-bit inputs validated",
+      "postconditions": "Positive intersection and negative union with witnesses",
+      "errors": [
+        "INVALID_FOUR_VALUE"
+      ],
+      "parent_obligations": [
+        "G00-06"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-06-T01"
+      ]
+    },
+    {
+      "id": "G00-API-036",
+      "function_name": "or_evidence",
+      "owner_path": "src/guardian/domain/scope.py",
+      "input_contract": "left:FourValued,right:FourValued",
+      "output_contract": "FourValued",
+      "preconditions": "Two support-bit inputs validated",
+      "postconditions": "Positive union and negative intersection with witnesses",
+      "errors": [
+        "INVALID_FOUR_VALUE"
+      ],
+      "parent_obligations": [
+        "G00-06"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-06-T01"
+      ]
+    },
+    {
+      "id": "G00-API-037",
+      "function_name": "negate_evidence",
+      "owner_path": "src/guardian/domain/scope.py",
+      "input_contract": "value:FourValued",
+      "output_contract": "FourValued",
+      "preconditions": "Known four-value operand",
+      "postconditions": "Swap positive and negative support witnesses",
+      "errors": [
+        "INVALID_FOUR_VALUE"
+      ],
+      "parent_obligations": [
+        "G00-06"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-06-T01"
+      ]
+    },
+    {
+      "id": "G00-API-038",
+      "function_name": "inspect_due",
+      "owner_path": "src/guardian/domain/campaign.py",
+      "input_contract": "obligation:ObligationRevision,milestone:MilestoneRef,profile:SupportProfile",
+      "output_contract": "DueDescription",
+      "preconditions": "Scope and milestone fixed",
+      "postconditions": "Due distinct from applicable and approved",
+      "errors": [
+        "UNKNOWN_COMMITMENT",
+        "UNAPPROVED_MILESTONE_CHANGE"
+      ],
+      "parent_obligations": [
+        "G00-05",
+        "G00-06"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-05-T01",
+        "G00-06-T01"
+      ]
+    },
+    {
+      "id": "G00-API-039",
+      "function_name": "parse_status",
+      "owner_path": "src/guardian/domain/outcomes.py",
+      "input_contract": "axis:StatusAxis,value:string",
+      "output_contract": "Result[TypedStatus,StatusIssue]",
+      "preconditions": "Typed axis explicitly provided",
+      "postconditions": "No conversion between different axes",
+      "errors": [
+        "UNSUPPORTED_VARIANT",
+        "WRONG_STATUS_AXIS"
+      ],
+      "parent_obligations": [
+        "G00-07"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-07-T01"
+      ]
+    },
+    {
+      "id": "G00-API-040",
+      "function_name": "validate_status_observation",
+      "owner_path": "src/guardian/domain/outcomes.py",
+      "input_contract": "observation:StatusObservation,view:ReadOnlyProjectView",
+      "output_contract": "StatusObservationValidation",
+      "preconditions": "Source scope and entity refs present",
+      "postconditions": "Description not normative transition",
+      "errors": [
+        "UNKNOWN_STATUS_SOURCE",
+        "INVALID_SCOPE"
+      ],
+      "parent_obligations": [
+        "G00-07"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-07-T01"
+      ]
+    },
+    {
+      "id": "G00-API-041",
+      "function_name": "render_status_vector",
+      "owner_path": "src/guardian/domain/outcomes.py",
+      "input_contract": "vector:StatusVector",
+      "output_contract": "StatusDescription",
+      "preconditions": "Axes remain typed and unmerged",
+      "postconditions": "NOT_RUN and UNQUALIFIED visible",
+      "errors": [
+        "MISSING_REQUIRED_AXIS"
+      ],
+      "parent_obligations": [
+        "G00-07"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-07-T01"
+      ]
+    },
+    {
+      "id": "G00-API-042",
+      "function_name": "check_illegal_promotion",
+      "owner_path": "src/guardian/domain/outcomes.py",
+      "input_contract": "source:StatusObservation,target:StatusObservation",
+      "output_contract": "TransitionDiagnostic",
+      "preconditions": "Axis and source/target statuses typed",
+      "postconditions": "Reject unearned cross-axis promotion",
+      "errors": [
+        "ILLEGAL_STATUS_PROMOTION"
+      ],
+      "parent_obligations": [
+        "G00-07"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-07-T01"
+      ]
+    },
+    {
+      "id": "G00-API-043",
+      "function_name": "validate_references",
+      "owner_path": "src/guardian/domain/identity.py",
+      "input_contract": "entities:EntityCatalog,view:ReadOnlyProjectView",
+      "output_contract": "ReferenceValidation",
+      "preconditions": "Refs contain exact project/kind/revision",
+      "postconditions": "Orphan and mismatched refs diagnosed",
+      "errors": [
+        "ORPHAN_REFERENCE",
+        "REVISION_MISMATCH"
+      ],
+      "parent_obligations": [
+        "G00-08"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-08-T01"
+      ]
+    },
+    {
+      "id": "G00-API-044",
+      "function_name": "validate_source_path",
+      "owner_path": "src/guardian/domain/source.py",
+      "input_contract": "path:GitSourcePath",
+      "output_contract": "Result[CanonicalSourcePath,PathIssue]",
+      "preconditions": "Repository root and path given",
+      "postconditions": "Absolute and traversal paths rejected",
+      "errors": [
+        "INVALID_SOURCE_PATH",
+        "PATH_TRAVERSAL"
+      ],
+      "parent_obligations": [
+        "G00-08"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-08-T01"
+      ]
+    },
+    {
+      "id": "G00-API-045",
+      "function_name": "lookup_schema_descriptor",
+      "owner_path": "src/guardian/persistence/schema_registry.py",
+      "input_contract": "schema_id:string,version:string,registry:SchemaRegistryView",
+      "output_contract": "KnownSchemaOrUnknown",
+      "preconditions": "Explicit known version",
+      "postconditions": "Never implicitly prefer latest",
+      "errors": [
+        "UNKNOWN_SCHEMA_VERSION"
+      ],
+      "parent_obligations": [
+        "G00-09"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-09-T01"
+      ]
+    },
+    {
+      "id": "G00-API-046",
+      "function_name": "validate_envelope",
+      "owner_path": "src/guardian/persistence/schema_registry.py",
+      "input_contract": "envelope:NormativeEnvelope,reader_features:FeatureRegistry",
+      "output_contract": "EnvelopeValidation",
+      "preconditions": "Payload structurally parseable",
+      "postconditions": "Unsupported required normative feature blocks",
+      "errors": [
+        "UNSUPPORTED_NORMATIVE_FEATURE",
+        "INVALID_ENVELOPE"
+      ],
+      "parent_obligations": [
+        "G00-09"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-09-T01"
+      ]
+    },
+    {
+      "id": "G00-API-047",
+      "function_name": "decode_record",
+      "owner_path": "src/guardian/persistence/schema_registry.py",
+      "input_contract": "envelope:NormativeEnvelope,registry:SchemaRegistryView",
+      "output_contract": "Result[TypedDomainRecord,DecodeIssue]",
+      "preconditions": "Schema kind/version known",
+      "postconditions": "Typed reconstruction of IDs and refs",
+      "errors": [
+        "UNSUPPORTED_VARIANT",
+        "INVALID_SCHEMA"
+      ],
+      "parent_obligations": [
+        "G00-09"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-09-T01"
+      ]
+    },
+    {
+      "id": "G00-API-048",
+      "function_name": "encode_record",
+      "owner_path": "src/guardian/persistence/schema_registry.py",
+      "input_contract": "record:TypedDomainRecord",
+      "output_contract": "SerializedRecord",
+      "preconditions": "Value structurally valid",
+      "postconditions": "Preserve discriminant exact values and null semantics",
+      "errors": [
+        "ENCODING_UNSUPPORTED"
+      ],
+      "parent_obligations": [
+        "G00-09"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-09-T01"
+      ]
+    },
+    {
+      "id": "G00-API-049",
+      "function_name": "check_reader_compatibility",
+      "owner_path": "src/guardian/persistence/schema_registry.py",
+      "input_contract": "writer:SchemaDescriptor,reader:SchemaDescriptor,features:FeatureRegistry",
+      "output_contract": "SchemaCompatibility",
+      "preconditions": "Two descriptor versions known",
+      "postconditions": "Compatible or RequiresMigration or Unsupported",
+      "errors": [
+        "UNSUPPORTED_NORMATIVE_FEATURE"
+      ],
+      "parent_obligations": [
+        "G00-09"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-09-T01"
+      ]
+    },
+    {
+      "id": "G00-API-050",
+      "function_name": "evaluate_constitution",
+      "owner_path": "src/guardian/constitution/evaluator.py",
+      "input_contract": "request:EvaluationRequest,registry:TrustedRuleEvaluatorRegistry",
+      "output_contract": "ConstitutionEvaluationReport",
+      "preconditions": "All context passed explicitly",
+      "postconditions": "Report full rule coverage and scoped verdict",
+      "errors": [
+        "INVALID_REQUEST",
+        "EVALUATION_RESOURCE_LIMITED"
+      ],
+      "parent_obligations": [
+        "G00-10"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-10-T01"
+      ]
+    },
+    {
+      "id": "G00-API-051",
+      "function_name": "evaluate_registered_rule",
+      "owner_path": "src/guardian/constitution/evaluator.py",
+      "input_contract": "rule:RuleRevision,context:EvaluationContext,registry:TrustedRuleEvaluatorRegistry",
+      "output_contract": "RuleEvaluation",
+      "preconditions": "RuleKind registered and scope known",
+      "postconditions": "Verdict per rule with evidence and reasons",
+      "errors": [
+        "UNKNOWN_RULE_KIND",
+        "MISSING_FACT"
+      ],
+      "parent_obligations": [
+        "G00-10"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-10-T01"
+      ]
+    },
+    {
+      "id": "G00-API-052",
+      "function_name": "validate_rule_registry",
+      "owner_path": "src/guardian/constitution/invariants.py",
+      "input_contract": "catalog:RuleCatalog,registry:TrustedRuleEvaluatorRegistry",
+      "output_contract": "RegistryValidation",
+      "preconditions": "Known catalog version",
+      "postconditions": "No untrusted project callbacks executed",
+      "errors": [
+        "UNTRUSTED_RULE_EXECUTOR",
+        "UNSUPPORTED_RULE_KIND"
+      ],
+      "parent_obligations": [
+        "G00-10"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-10-T01"
+      ]
+    },
+    {
+      "id": "G00-API-053",
+      "function_name": "collect_constitution_report",
+      "owner_path": "src/guardian/constitution/evaluator.py",
+      "input_contract": "results:tuple[RuleEvaluation],budget:EvaluationBudget",
+      "output_contract": "ConstitutionEvaluationReport",
+      "preconditions": "Original required rule IDs known",
+      "postconditions": "No silent omission and sorted diagnostics",
+      "errors": [
+        "RULE_SET_INCOMPLETE",
+        "INTERNAL_EVALUATOR_ERROR"
+      ],
+      "parent_obligations": [
+        "G00-10"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-10-T01"
+      ]
+    },
+    {
+      "id": "G00-API-054",
+      "function_name": "detect_conflicts",
+      "owner_path": "src/guardian/constitution/precedence.py",
+      "input_contract": "assertions:AssertionSet,profile:SupportProfile",
+      "output_contract": "tuple[ConflictRecord]",
+      "preconditions": "Typed assertions and overlapping scope test",
+      "postconditions": "Retain both sources and incompatibility witness",
+      "errors": [
+        "UNRESOLVED_NORMATIVE_CONFLICT"
+      ],
+      "parent_obligations": [
+        "G00-11"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-11-T01"
+      ]
+    },
+    {
+      "id": "G00-API-055",
+      "function_name": "resolve_precedence",
+      "owner_path": "src/guardian/constitution/precedence.py",
+      "input_contract": "left:NormativeAssertion,right:NormativeAssertion,context:AuthorityContext",
+      "output_contract": "PrecedenceOutcome",
+      "preconditions": "Trusted scoped approvals supplied",
+      "postconditions": "Only approved supersession resolves precedence",
+      "errors": [
+        "MISSING_APPROVED_SUPERSESSION"
+      ],
+      "parent_obligations": [
+        "G00-11"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-11-T01"
+      ]
+    },
+    {
+      "id": "G00-API-056",
+      "function_name": "localize_conflicts",
+      "owner_path": "src/guardian/constitution/precedence.py",
+      "input_contract": "conflicts:tuple[ConflictRecord],deps:DependencyView",
+      "output_contract": "ConflictImpactReport",
+      "preconditions": "Dependencies supplied as typed facts",
+      "postconditions": "Affected scope blocked without global contamination",
+      "errors": [
+        "CONFLICT_SCOPE_LEAK"
+      ],
+      "parent_obligations": [
+        "G00-11"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-11-T01"
+      ]
+    },
+    {
+      "id": "G00-API-057",
+      "function_name": "inspect_project_definition",
+      "owner_path": "src/guardian/application/project_service.py",
+      "input_contract": "project:ProjectDefinition,view:ReadOnlyProjectView",
+      "output_contract": "ProjectInspection",
+      "preconditions": "Prevalidated in-memory records",
+      "postconditions": "Explain policy and missing sources without I/O",
+      "errors": [
+        "PROJECT_SNAPSHOT_INVALID"
+      ],
+      "parent_obligations": [
+        "G00-02",
+        "G00-12"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-02-T01",
+        "G00-12-T01"
+      ]
+    },
+    {
+      "id": "G00-API-058",
+      "function_name": "inspect_contract",
+      "owner_path": "src/guardian/application/contract_service.py",
+      "input_contract": "entity:EntityRef,view:ReadOnlyProjectView",
+      "output_contract": "ContractInspection",
+      "preconditions": "Exact entity revision known",
+      "postconditions": "Read-only contract with source and missing refs",
+      "errors": [
+        "ORPHAN_REFERENCE"
+      ],
+      "parent_obligations": [
+        "G00-05",
+        "G00-12"
+      ],
+      "api_status": "DESIGN_PROPOSED_NOT_IMPLEMENTED",
+      "auth_scope": "PURE_DOMAIN_OR_IN_MEMORY_APPLICATION",
+      "test_refs": [
+        "G00-05-T01",
+        "G00-12-T01"
+      ]
+    }
+  ],
+  "function_count": 58,
+  "code_implemented": false,
+  "remaining_ratification": "Names/types may be refined by ADR, behavior and obligations may not be weakened"
+}
