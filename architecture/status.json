@@ -2,19 +2,25 @@
   "schema": "guardian/design-status/v1",
   "repository": "alfredoVallejoM/ProjectGuardian",
   "branch": "main",
-  "authority": "PROPOSED",
+  "authority": "PROPOSED_NOT_RATIFIED",
   "scope_requirements": 34,
   "decisions": 30,
   "campaigns": 14,
   "implementation_obligations_planned": 163,
+  "module_routes_proposed": 121,
+  "architecture_discussion_questions": 13,
+  "adversarial_scenarios_proposed": 24,
   "implementation_started": false,
   "code_implemented": false,
   "tests_executed": false,
   "certifications_issued": false,
+  "requirements_fine_grained_semantic_crosswalk_qualified": false,
   "source_conversations_archived_in_repo": false,
+  "planning_ledger_structural_check": "STATIC_CHECKED_BEFORE_PUBLICATION",
   "notes": [
-    "Source transcript conceptualized and normalized into structured proposed records; not a verbatim transcription",
-    "Markdown and JSON are proposals until explicit ratification; no runtime or enforcement exists",
-    "Campaigns and module blueprint will be published separately"
+    "Planning-only records uploaded, no production modules materialized",
+    "Source design conversation normalized not copied verbatim",
+    "Rule and obligation statuses remain proposed until explicit ratification",
+    "Static linkage does not imply implementation, math validation or future change safety"
   ]
 }

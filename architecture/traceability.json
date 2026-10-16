@@ -1,0 +1,2264 @@
+{
+  "schema": "guardian/design-traceability/v1",
+  "status": "DESIGN_PROPOSAL_NOT_EXECUTED",
+  "counts": {
+    "requirements": 34,
+    "decisions": 30,
+    "campaigns": 14,
+    "obligations": 163,
+    "planned_modules": 121
+  },
+  "requirement_to_campaign_and_obligation": [
+    {
+      "requirement_id": "PG-REQ-01",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-00",
+          "obligation_ids": [
+            "G00-01",
+            "G00-02",
+            "G00-03",
+            "G00-04",
+            "G00-05",
+            "G00-06",
+            "G00-07",
+            "G00-08",
+            "G00-09",
+            "G00-10",
+            "G00-11",
+            "G00-12"
+          ]
+        },
+        {
+          "campaign_id": "G-07",
+          "obligation_ids": [
+            "G07-01",
+            "G07-02",
+            "G07-03",
+            "G07-04",
+            "G07-05",
+            "G07-06",
+            "G07-07",
+            "G07-08",
+            "G07-09",
+            "G07-10",
+            "G07-11",
+            "G07-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-02",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-00",
+          "obligation_ids": [
+            "G00-01",
+            "G00-02",
+            "G00-03",
+            "G00-04",
+            "G00-05",
+            "G00-06",
+            "G00-07",
+            "G00-08",
+            "G00-09",
+            "G00-10",
+            "G00-11",
+            "G00-12"
+          ]
+        },
+        {
+          "campaign_id": "G-07",
+          "obligation_ids": [
+            "G07-01",
+            "G07-02",
+            "G07-03",
+            "G07-04",
+            "G07-05",
+            "G07-06",
+            "G07-07",
+            "G07-08",
+            "G07-09",
+            "G07-10",
+            "G07-11",
+            "G07-12"
+          ]
+        },
+        {
+          "campaign_id": "G-13",
+          "obligation_ids": [
+            "G13-01",
+            "G13-02",
+            "G13-03",
+            "G13-04",
+            "G13-05",
+            "G13-06",
+            "G13-07",
+            "G13-08",
+            "G13-09",
+            "G13-10",
+            "G13-11",
+            "G13-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-03",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-00",
+          "obligation_ids": [
+            "G00-01",
+            "G00-02",
+            "G00-03",
+            "G00-04",
+            "G00-05",
+            "G00-06",
+            "G00-07",
+            "G00-08",
+            "G00-09",
+            "G00-10",
+            "G00-11",
+            "G00-12"
+          ]
+        },
+        {
+          "campaign_id": "G-02",
+          "obligation_ids": [
+            "G02-01",
+            "G02-02",
+            "G02-03",
+            "G02-04",
+            "G02-05",
+            "G02-06",
+            "G02-07",
+            "G02-08",
+            "G02-09",
+            "G02-10",
+            "G02-11",
+            "G02-12"
+          ]
+        },
+        {
+          "campaign_id": "G-10",
+          "obligation_ids": [
+            "G10-01",
+            "G10-02",
+            "G10-03",
+            "G10-04",
+            "G10-05",
+            "G10-06",
+            "G10-07",
+            "G10-08",
+            "G10-09",
+            "G10-10",
+            "G10-11",
+            "G10-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-04",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-01",
+          "obligation_ids": [
+            "G01-01",
+            "G01-02",
+            "G01-03",
+            "G01-04",
+            "G01-05",
+            "G01-06",
+            "G01-07",
+            "G01-08",
+            "G01-09",
+            "G01-10",
+            "G01-11",
+            "G01-12"
+          ]
+        },
+        {
+          "campaign_id": "G-09",
+          "obligation_ids": [
+            "G09-01",
+            "G09-02",
+            "G09-03",
+            "G09-04",
+            "G09-05",
+            "G09-06",
+            "G09-07",
+            "G09-08",
+            "G09-09",
+            "G09-10",
+            "G09-11",
+            "G09-12"
+          ]
+        },
+        {
+          "campaign_id": "G-10",
+          "obligation_ids": [
+            "G10-01",
+            "G10-02",
+            "G10-03",
+            "G10-04",
+            "G10-05",
+            "G10-06",
+            "G10-07",
+            "G10-08",
+            "G10-09",
+            "G10-10",
+            "G10-11",
+            "G10-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-05",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-01",
+          "obligation_ids": [
+            "G01-01",
+            "G01-02",
+            "G01-03",
+            "G01-04",
+            "G01-05",
+            "G01-06",
+            "G01-07",
+            "G01-08",
+            "G01-09",
+            "G01-10",
+            "G01-11",
+            "G01-12"
+          ]
+        },
+        {
+          "campaign_id": "G-13",
+          "obligation_ids": [
+            "G13-01",
+            "G13-02",
+            "G13-03",
+            "G13-04",
+            "G13-05",
+            "G13-06",
+            "G13-07",
+            "G13-08",
+            "G13-09",
+            "G13-10",
+            "G13-11",
+            "G13-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-06",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-00",
+          "obligation_ids": [
+            "G00-01",
+            "G00-02",
+            "G00-03",
+            "G00-04",
+            "G00-05",
+            "G00-06",
+            "G00-07",
+            "G00-08",
+            "G00-09",
+            "G00-10",
+            "G00-11",
+            "G00-12"
+          ]
+        },
+        {
+          "campaign_id": "G-01",
+          "obligation_ids": [
+            "G01-01",
+            "G01-02",
+            "G01-03",
+            "G01-04",
+            "G01-05",
+            "G01-06",
+            "G01-07",
+            "G01-08",
+            "G01-09",
+            "G01-10",
+            "G01-11",
+            "G01-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-07",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-07",
+          "obligation_ids": [
+            "G07-01",
+            "G07-02",
+            "G07-03",
+            "G07-04",
+            "G07-05",
+            "G07-06",
+            "G07-07",
+            "G07-08",
+            "G07-09",
+            "G07-10",
+            "G07-11",
+            "G07-12"
+          ]
+        },
+        {
+          "campaign_id": "G-10",
+          "obligation_ids": [
+            "G10-01",
+            "G10-02",
+            "G10-03",
+            "G10-04",
+            "G10-05",
+            "G10-06",
+            "G10-07",
+            "G10-08",
+            "G10-09",
+            "G10-10",
+            "G10-11",
+            "G10-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-08",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-00",
+          "obligation_ids": [
+            "G00-01",
+            "G00-02",
+            "G00-03",
+            "G00-04",
+            "G00-05",
+            "G00-06",
+            "G00-07",
+            "G00-08",
+            "G00-09",
+            "G00-10",
+            "G00-11",
+            "G00-12"
+          ]
+        },
+        {
+          "campaign_id": "G-06",
+          "obligation_ids": [
+            "G06-01",
+            "G06-02",
+            "G06-03",
+            "G06-04",
+            "G06-05",
+            "G06-06",
+            "G06-07",
+            "G06-08",
+            "G06-09",
+            "G06-10",
+            "G06-11",
+            "G06-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-09",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-00",
+          "obligation_ids": [
+            "G00-01",
+            "G00-02",
+            "G00-03",
+            "G00-04",
+            "G00-05",
+            "G00-06",
+            "G00-07",
+            "G00-08",
+            "G00-09",
+            "G00-10",
+            "G00-11",
+            "G00-12"
+          ]
+        },
+        {
+          "campaign_id": "G-02",
+          "obligation_ids": [
+            "G02-01",
+            "G02-02",
+            "G02-03",
+            "G02-04",
+            "G02-05",
+            "G02-06",
+            "G02-07",
+            "G02-08",
+            "G02-09",
+            "G02-10",
+            "G02-11",
+            "G02-12"
+          ]
+        },
+        {
+          "campaign_id": "G-10",
+          "obligation_ids": [
+            "G10-01",
+            "G10-02",
+            "G10-03",
+            "G10-04",
+            "G10-05",
+            "G10-06",
+            "G10-07",
+            "G10-08",
+            "G10-09",
+            "G10-10",
+            "G10-11",
+            "G10-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-10",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-00",
+          "obligation_ids": [
+            "G00-01",
+            "G00-02",
+            "G00-03",
+            "G00-04",
+            "G00-05",
+            "G00-06",
+            "G00-07",
+            "G00-08",
+            "G00-09",
+            "G00-10",
+            "G00-11",
+            "G00-12"
+          ]
+        },
+        {
+          "campaign_id": "G-05",
+          "obligation_ids": [
+            "G05-01",
+            "G05-02",
+            "G05-03",
+            "G05-04",
+            "G05-05",
+            "G05-06",
+            "G05-07",
+            "G05-08",
+            "G05-09",
+            "G05-10",
+            "G05-11",
+            "G05-12"
+          ]
+        },
+        {
+          "campaign_id": "G-09",
+          "obligation_ids": [
+            "G09-01",
+            "G09-02",
+            "G09-03",
+            "G09-04",
+            "G09-05",
+            "G09-06",
+            "G09-07",
+            "G09-08",
+            "G09-09",
+            "G09-10",
+            "G09-11",
+            "G09-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-11",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-02",
+          "obligation_ids": [
+            "G02-01",
+            "G02-02",
+            "G02-03",
+            "G02-04",
+            "G02-05",
+            "G02-06",
+            "G02-07",
+            "G02-08",
+            "G02-09",
+            "G02-10",
+            "G02-11",
+            "G02-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-12",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-10",
+          "obligation_ids": [
+            "G10-01",
+            "G10-02",
+            "G10-03",
+            "G10-04",
+            "G10-05",
+            "G10-06",
+            "G10-07",
+            "G10-08",
+            "G10-09",
+            "G10-10",
+            "G10-11",
+            "G10-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-13",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-03",
+          "obligation_ids": [
+            "G03-01",
+            "G03-02",
+            "G03-03",
+            "G03-04",
+            "G03-05",
+            "G03-06",
+            "G03-07",
+            "G03-08",
+            "G03-09",
+            "G03-10"
+          ]
+        },
+        {
+          "campaign_id": "G-11",
+          "obligation_ids": [
+            "G11-01",
+            "G11-02",
+            "G11-03",
+            "G11-04",
+            "G11-05",
+            "G11-06",
+            "G11-07",
+            "G11-08",
+            "G11-09",
+            "G11-10",
+            "G11-11",
+            "G11-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-14",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-04",
+          "obligation_ids": [
+            "G04-01",
+            "G04-02",
+            "G04-03",
+            "G04-04",
+            "G04-05",
+            "G04-06",
+            "G04-07",
+            "G04-08",
+            "G04-09",
+            "G04-10",
+            "G04-11",
+            "G04-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-15",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-05",
+          "obligation_ids": [
+            "G05-01",
+            "G05-02",
+            "G05-03",
+            "G05-04",
+            "G05-05",
+            "G05-06",
+            "G05-07",
+            "G05-08",
+            "G05-09",
+            "G05-10",
+            "G05-11",
+            "G05-12"
+          ]
+        },
+        {
+          "campaign_id": "G-06",
+          "obligation_ids": [
+            "G06-01",
+            "G06-02",
+            "G06-03",
+            "G06-04",
+            "G06-05",
+            "G06-06",
+            "G06-07",
+            "G06-08",
+            "G06-09",
+            "G06-10",
+            "G06-11",
+            "G06-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-16",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-05",
+          "obligation_ids": [
+            "G05-01",
+            "G05-02",
+            "G05-03",
+            "G05-04",
+            "G05-05",
+            "G05-06",
+            "G05-07",
+            "G05-08",
+            "G05-09",
+            "G05-10",
+            "G05-11",
+            "G05-12"
+          ]
+        },
+        {
+          "campaign_id": "G-06",
+          "obligation_ids": [
+            "G06-01",
+            "G06-02",
+            "G06-03",
+            "G06-04",
+            "G06-05",
+            "G06-06",
+            "G06-07",
+            "G06-08",
+            "G06-09",
+            "G06-10",
+            "G06-11",
+            "G06-12"
+          ]
+        },
+        {
+          "campaign_id": "G-13",
+          "obligation_ids": [
+            "G13-01",
+            "G13-02",
+            "G13-03",
+            "G13-04",
+            "G13-05",
+            "G13-06",
+            "G13-07",
+            "G13-08",
+            "G13-09",
+            "G13-10",
+            "G13-11",
+            "G13-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-17",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-06",
+          "obligation_ids": [
+            "G06-01",
+            "G06-02",
+            "G06-03",
+            "G06-04",
+            "G06-05",
+            "G06-06",
+            "G06-07",
+            "G06-08",
+            "G06-09",
+            "G06-10",
+            "G06-11",
+            "G06-12"
+          ]
+        },
+        {
+          "campaign_id": "G-13",
+          "obligation_ids": [
+            "G13-01",
+            "G13-02",
+            "G13-03",
+            "G13-04",
+            "G13-05",
+            "G13-06",
+            "G13-07",
+            "G13-08",
+            "G13-09",
+            "G13-10",
+            "G13-11",
+            "G13-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-18",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-06",
+          "obligation_ids": [
+            "G06-01",
+            "G06-02",
+            "G06-03",
+            "G06-04",
+            "G06-05",
+            "G06-06",
+            "G06-07",
+            "G06-08",
+            "G06-09",
+            "G06-10",
+            "G06-11",
+            "G06-12"
+          ]
+        },
+        {
+          "campaign_id": "G-09",
+          "obligation_ids": [
+            "G09-01",
+            "G09-02",
+            "G09-03",
+            "G09-04",
+            "G09-05",
+            "G09-06",
+            "G09-07",
+            "G09-08",
+            "G09-09",
+            "G09-10",
+            "G09-11",
+            "G09-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-19",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-06",
+          "obligation_ids": [
+            "G06-01",
+            "G06-02",
+            "G06-03",
+            "G06-04",
+            "G06-05",
+            "G06-06",
+            "G06-07",
+            "G06-08",
+            "G06-09",
+            "G06-10",
+            "G06-11",
+            "G06-12"
+          ]
+        },
+        {
+          "campaign_id": "G-10",
+          "obligation_ids": [
+            "G10-01",
+            "G10-02",
+            "G10-03",
+            "G10-04",
+            "G10-05",
+            "G10-06",
+            "G10-07",
+            "G10-08",
+            "G10-09",
+            "G10-10",
+            "G10-11",
+            "G10-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-20",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-02",
+          "obligation_ids": [
+            "G02-01",
+            "G02-02",
+            "G02-03",
+            "G02-04",
+            "G02-05",
+            "G02-06",
+            "G02-07",
+            "G02-08",
+            "G02-09",
+            "G02-10",
+            "G02-11",
+            "G02-12"
+          ]
+        },
+        {
+          "campaign_id": "G-06",
+          "obligation_ids": [
+            "G06-01",
+            "G06-02",
+            "G06-03",
+            "G06-04",
+            "G06-05",
+            "G06-06",
+            "G06-07",
+            "G06-08",
+            "G06-09",
+            "G06-10",
+            "G06-11",
+            "G06-12"
+          ]
+        },
+        {
+          "campaign_id": "G-10",
+          "obligation_ids": [
+            "G10-01",
+            "G10-02",
+            "G10-03",
+            "G10-04",
+            "G10-05",
+            "G10-06",
+            "G10-07",
+            "G10-08",
+            "G10-09",
+            "G10-10",
+            "G10-11",
+            "G10-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-21",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-10",
+          "obligation_ids": [
+            "G10-01",
+            "G10-02",
+            "G10-03",
+            "G10-04",
+            "G10-05",
+            "G10-06",
+            "G10-07",
+            "G10-08",
+            "G10-09",
+            "G10-10",
+            "G10-11",
+            "G10-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-22",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-00",
+          "obligation_ids": [
+            "G00-01",
+            "G00-02",
+            "G00-03",
+            "G00-04",
+            "G00-05",
+            "G00-06",
+            "G00-07",
+            "G00-08",
+            "G00-09",
+            "G00-10",
+            "G00-11",
+            "G00-12"
+          ]
+        },
+        {
+          "campaign_id": "G-01",
+          "obligation_ids": [
+            "G01-01",
+            "G01-02",
+            "G01-03",
+            "G01-04",
+            "G01-05",
+            "G01-06",
+            "G01-07",
+            "G01-08",
+            "G01-09",
+            "G01-10",
+            "G01-11",
+            "G01-12"
+          ]
+        },
+        {
+          "campaign_id": "G-10",
+          "obligation_ids": [
+            "G10-01",
+            "G10-02",
+            "G10-03",
+            "G10-04",
+            "G10-05",
+            "G10-06",
+            "G10-07",
+            "G10-08",
+            "G10-09",
+            "G10-10",
+            "G10-11",
+            "G10-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-23",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-08",
+          "obligation_ids": [
+            "G08-01",
+            "G08-02",
+            "G08-03",
+            "G08-04",
+            "G08-05",
+            "G08-06",
+            "G08-07",
+            "G08-08",
+            "G08-09",
+            "G08-10",
+            "G08-11"
+          ]
+        },
+        {
+          "campaign_id": "G-13",
+          "obligation_ids": [
+            "G13-01",
+            "G13-02",
+            "G13-03",
+            "G13-04",
+            "G13-05",
+            "G13-06",
+            "G13-07",
+            "G13-08",
+            "G13-09",
+            "G13-10",
+            "G13-11",
+            "G13-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-24",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-08",
+          "obligation_ids": [
+            "G08-01",
+            "G08-02",
+            "G08-03",
+            "G08-04",
+            "G08-05",
+            "G08-06",
+            "G08-07",
+            "G08-08",
+            "G08-09",
+            "G08-10",
+            "G08-11"
+          ]
+        },
+        {
+          "campaign_id": "G-13",
+          "obligation_ids": [
+            "G13-01",
+            "G13-02",
+            "G13-03",
+            "G13-04",
+            "G13-05",
+            "G13-06",
+            "G13-07",
+            "G13-08",
+            "G13-09",
+            "G13-10",
+            "G13-11",
+            "G13-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-25",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-07",
+          "obligation_ids": [
+            "G07-01",
+            "G07-02",
+            "G07-03",
+            "G07-04",
+            "G07-05",
+            "G07-06",
+            "G07-07",
+            "G07-08",
+            "G07-09",
+            "G07-10",
+            "G07-11",
+            "G07-12"
+          ]
+        },
+        {
+          "campaign_id": "G-08",
+          "obligation_ids": [
+            "G08-01",
+            "G08-02",
+            "G08-03",
+            "G08-04",
+            "G08-05",
+            "G08-06",
+            "G08-07",
+            "G08-08",
+            "G08-09",
+            "G08-10",
+            "G08-11"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-26",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-09",
+          "obligation_ids": [
+            "G09-01",
+            "G09-02",
+            "G09-03",
+            "G09-04",
+            "G09-05",
+            "G09-06",
+            "G09-07",
+            "G09-08",
+            "G09-09",
+            "G09-10",
+            "G09-11",
+            "G09-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-27",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-11",
+          "obligation_ids": [
+            "G11-01",
+            "G11-02",
+            "G11-03",
+            "G11-04",
+            "G11-05",
+            "G11-06",
+            "G11-07",
+            "G11-08",
+            "G11-09",
+            "G11-10",
+            "G11-11",
+            "G11-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-28",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-02",
+          "obligation_ids": [
+            "G02-01",
+            "G02-02",
+            "G02-03",
+            "G02-04",
+            "G02-05",
+            "G02-06",
+            "G02-07",
+            "G02-08",
+            "G02-09",
+            "G02-10",
+            "G02-11",
+            "G02-12"
+          ]
+        },
+        {
+          "campaign_id": "G-03",
+          "obligation_ids": [
+            "G03-01",
+            "G03-02",
+            "G03-03",
+            "G03-04",
+            "G03-05",
+            "G03-06",
+            "G03-07",
+            "G03-08",
+            "G03-09",
+            "G03-10"
+          ]
+        },
+        {
+          "campaign_id": "G-05",
+          "obligation_ids": [
+            "G05-01",
+            "G05-02",
+            "G05-03",
+            "G05-04",
+            "G05-05",
+            "G05-06",
+            "G05-07",
+            "G05-08",
+            "G05-09",
+            "G05-10",
+            "G05-11",
+            "G05-12"
+          ]
+        },
+        {
+          "campaign_id": "G-11",
+          "obligation_ids": [
+            "G11-01",
+            "G11-02",
+            "G11-03",
+            "G11-04",
+            "G11-05",
+            "G11-06",
+            "G11-07",
+            "G11-08",
+            "G11-09",
+            "G11-10",
+            "G11-11",
+            "G11-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-29",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-01",
+          "obligation_ids": [
+            "G01-01",
+            "G01-02",
+            "G01-03",
+            "G01-04",
+            "G01-05",
+            "G01-06",
+            "G01-07",
+            "G01-08",
+            "G01-09",
+            "G01-10",
+            "G01-11",
+            "G01-12"
+          ]
+        },
+        {
+          "campaign_id": "G-03",
+          "obligation_ids": [
+            "G03-01",
+            "G03-02",
+            "G03-03",
+            "G03-04",
+            "G03-05",
+            "G03-06",
+            "G03-07",
+            "G03-08",
+            "G03-09",
+            "G03-10"
+          ]
+        },
+        {
+          "campaign_id": "G-12",
+          "obligation_ids": [
+            "G12-01",
+            "G12-02",
+            "G12-03",
+            "G12-04",
+            "G12-05",
+            "G12-06",
+            "G12-07",
+            "G12-08",
+            "G12-09",
+            "G12-10"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-30",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-01",
+          "obligation_ids": [
+            "G01-01",
+            "G01-02",
+            "G01-03",
+            "G01-04",
+            "G01-05",
+            "G01-06",
+            "G01-07",
+            "G01-08",
+            "G01-09",
+            "G01-10",
+            "G01-11",
+            "G01-12"
+          ]
+        },
+        {
+          "campaign_id": "G-07",
+          "obligation_ids": [
+            "G07-01",
+            "G07-02",
+            "G07-03",
+            "G07-04",
+            "G07-05",
+            "G07-06",
+            "G07-07",
+            "G07-08",
+            "G07-09",
+            "G07-10",
+            "G07-11",
+            "G07-12"
+          ]
+        },
+        {
+          "campaign_id": "G-12",
+          "obligation_ids": [
+            "G12-01",
+            "G12-02",
+            "G12-03",
+            "G12-04",
+            "G12-05",
+            "G12-06",
+            "G12-07",
+            "G12-08",
+            "G12-09",
+            "G12-10"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-31",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-00",
+          "obligation_ids": [
+            "G00-01",
+            "G00-02",
+            "G00-03",
+            "G00-04",
+            "G00-05",
+            "G00-06",
+            "G00-07",
+            "G00-08",
+            "G00-09",
+            "G00-10",
+            "G00-11",
+            "G00-12"
+          ]
+        },
+        {
+          "campaign_id": "G-07",
+          "obligation_ids": [
+            "G07-01",
+            "G07-02",
+            "G07-03",
+            "G07-04",
+            "G07-05",
+            "G07-06",
+            "G07-07",
+            "G07-08",
+            "G07-09",
+            "G07-10",
+            "G07-11",
+            "G07-12"
+          ]
+        },
+        {
+          "campaign_id": "G-13",
+          "obligation_ids": [
+            "G13-01",
+            "G13-02",
+            "G13-03",
+            "G13-04",
+            "G13-05",
+            "G13-06",
+            "G13-07",
+            "G13-08",
+            "G13-09",
+            "G13-10",
+            "G13-11",
+            "G13-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-32",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-06",
+          "obligation_ids": [
+            "G06-01",
+            "G06-02",
+            "G06-03",
+            "G06-04",
+            "G06-05",
+            "G06-06",
+            "G06-07",
+            "G06-08",
+            "G06-09",
+            "G06-10",
+            "G06-11",
+            "G06-12"
+          ]
+        },
+        {
+          "campaign_id": "G-10",
+          "obligation_ids": [
+            "G10-01",
+            "G10-02",
+            "G10-03",
+            "G10-04",
+            "G10-05",
+            "G10-06",
+            "G10-07",
+            "G10-08",
+            "G10-09",
+            "G10-10",
+            "G10-11",
+            "G10-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-33",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-09",
+          "obligation_ids": [
+            "G09-01",
+            "G09-02",
+            "G09-03",
+            "G09-04",
+            "G09-05",
+            "G09-06",
+            "G09-07",
+            "G09-08",
+            "G09-09",
+            "G09-10",
+            "G09-11",
+            "G09-12"
+          ]
+        },
+        {
+          "campaign_id": "G-12",
+          "obligation_ids": [
+            "G12-01",
+            "G12-02",
+            "G12-03",
+            "G12-04",
+            "G12-05",
+            "G12-06",
+            "G12-07",
+            "G12-08",
+            "G12-09",
+            "G12-10"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    },
+    {
+      "requirement_id": "PG-REQ-34",
+      "source_ref": "PROJECT-DISCUSSION-2026-10-16",
+      "campaign_coverages": [
+        {
+          "campaign_id": "G-09",
+          "obligation_ids": [
+            "G09-01",
+            "G09-02",
+            "G09-03",
+            "G09-04",
+            "G09-05",
+            "G09-06",
+            "G09-07",
+            "G09-08",
+            "G09-09",
+            "G09-10",
+            "G09-11",
+            "G09-12"
+          ]
+        },
+        {
+          "campaign_id": "G-13",
+          "obligation_ids": [
+            "G13-01",
+            "G13-02",
+            "G13-03",
+            "G13-04",
+            "G13-05",
+            "G13-06",
+            "G13-07",
+            "G13-08",
+            "G13-09",
+            "G13-10",
+            "G13-11",
+            "G13-12"
+          ]
+        }
+      ],
+      "status": "DESIGN_COVERAGE_PROPOSED",
+      "fine_grained_semantic_links_verified": false
+    }
+  ],
+  "decision_to_campaign": [
+    {
+      "decision_id": "PG-ADR-001",
+      "campaign_refs": [
+        "G-00",
+        "G-07"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-002",
+      "campaign_refs": [
+        "G-00"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-003",
+      "campaign_refs": [
+        "G-00",
+        "G-02"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-004",
+      "campaign_refs": [
+        "G-00",
+        "G-01"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-005",
+      "campaign_refs": [
+        "G-01"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-006",
+      "campaign_refs": [
+        "G-01"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-007",
+      "campaign_refs": [
+        "G-01"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-008",
+      "campaign_refs": [
+        "G-02"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-009",
+      "campaign_refs": [
+        "G-02"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-010",
+      "campaign_refs": [
+        "G-00",
+        "G-02"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-011",
+      "campaign_refs": [
+        "G-00",
+        "G-06"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-012",
+      "campaign_refs": [
+        "G-10"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-013",
+      "campaign_refs": [
+        "G-06"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-014",
+      "campaign_refs": [
+        "G-06",
+        "G-10"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-015",
+      "campaign_refs": [
+        "G-10"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-016",
+      "campaign_refs": [
+        "G-00"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-017",
+      "campaign_refs": [
+        "G-12"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-018",
+      "campaign_refs": [
+        "G-00",
+        "G-09"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-019",
+      "campaign_refs": [
+        "G-07"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-020",
+      "campaign_refs": [
+        "G-01",
+        "G-12"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-021",
+      "campaign_refs": [
+        "G-02",
+        "G-12"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-022",
+      "campaign_refs": [
+        "G-09",
+        "G-12"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-023",
+      "campaign_refs": [
+        "G-09"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-024",
+      "campaign_refs": [
+        "G-06",
+        "G-07"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-025",
+      "campaign_refs": [
+        "G-03",
+        "G-04"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-026",
+      "campaign_refs": [
+        "G-04"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-027",
+      "campaign_refs": [
+        "G-08"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-028",
+      "campaign_refs": [
+        "G-08",
+        "G-09"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-029",
+      "campaign_refs": [
+        "G-01",
+        "G-07"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    },
+    {
+      "decision_id": "PG-ADR-030",
+      "campaign_refs": [
+        "G-13"
+      ],
+      "approval_status": "PROPOSED_FOR_RATIFICATION"
+    }
+  ],
+  "module_to_initial_campaign": [
+    {
+      "path": "src/guardian/domain/identity.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/domain/project.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/domain/source.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/domain/authority.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/domain/constitution.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/domain/architecture.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/domain/objective.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/domain/capability.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/domain/property.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/domain/obligation.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/domain/campaign.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/domain/scope.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/domain/implementation.py",
+      "first_campaign": "G-05"
+    },
+    {
+      "path": "src/guardian/domain/verification.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/domain/evidence.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/domain/claim.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/domain/qualification.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/domain/change.py",
+      "first_campaign": "G-01"
+    },
+    {
+      "path": "src/guardian/domain/outcomes.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/constitution/evaluator.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/constitution/precedence.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/constitution/invariants.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/constitution/amendments.py",
+      "first_campaign": "G-09"
+    },
+    {
+      "path": "src/guardian/constitution/authority_resolution.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/graph/relation_types.py",
+      "first_campaign": "G-02"
+    },
+    {
+      "path": "src/guardian/graph/relation_validation.py",
+      "first_campaign": "G-02"
+    },
+    {
+      "path": "src/guardian/graph/projection.py",
+      "first_campaign": "G-02"
+    },
+    {
+      "path": "src/guardian/graph/traversal.py",
+      "first_campaign": "G-02"
+    },
+    {
+      "path": "src/guardian/graph/dependency.py",
+      "first_campaign": "G-02"
+    },
+    {
+      "path": "src/guardian/graph/support.py",
+      "first_campaign": "G-02"
+    },
+    {
+      "path": "src/guardian/graph/impact.py",
+      "first_campaign": "G-02"
+    },
+    {
+      "path": "src/guardian/graph/gaps.py",
+      "first_campaign": "G-02"
+    },
+    {
+      "path": "src/guardian/graph/consistency.py",
+      "first_campaign": "G-02"
+    },
+    {
+      "path": "src/guardian/program/commands.py",
+      "first_campaign": "G-01"
+    },
+    {
+      "path": "src/guardian/program/transitions.py",
+      "first_campaign": "G-01"
+    },
+    {
+      "path": "src/guardian/program/revision.py",
+      "first_campaign": "G-01"
+    },
+    {
+      "path": "src/guardian/program/refinement.py",
+      "first_campaign": "G-01"
+    },
+    {
+      "path": "src/guardian/program/generalization.py",
+      "first_campaign": "G-01"
+    },
+    {
+      "path": "src/guardian/program/compatibility.py",
+      "first_campaign": "G-01"
+    },
+    {
+      "path": "src/guardian/program/campaign_membership.py",
+      "first_campaign": "G-01"
+    },
+    {
+      "path": "src/guardian/program/evolution_validation.py",
+      "first_campaign": "G-01"
+    },
+    {
+      "path": "src/guardian/knowledge/source_universe.py",
+      "first_campaign": "G-10"
+    },
+    {
+      "path": "src/guardian/knowledge/inventory.py",
+      "first_campaign": "G-07"
+    },
+    {
+      "path": "src/guardian/knowledge/source_mapping.py",
+      "first_campaign": "G-07"
+    },
+    {
+      "path": "src/guardian/knowledge/observed_architecture.py",
+      "first_campaign": "G-07"
+    },
+    {
+      "path": "src/guardian/knowledge/provenance.py",
+      "first_campaign": "G-03"
+    },
+    {
+      "path": "src/guardian/knowledge/reconciliation.py",
+      "first_campaign": "G-05"
+    },
+    {
+      "path": "src/guardian/knowledge/coverage.py",
+      "first_campaign": "G-10"
+    },
+    {
+      "path": "src/guardian/work/orientation.py",
+      "first_campaign": "G-03"
+    },
+    {
+      "path": "src/guardian/work/context_selection.py",
+      "first_campaign": "G-03"
+    },
+    {
+      "path": "src/guardian/work/package_compiler.py",
+      "first_campaign": "G-04"
+    },
+    {
+      "path": "src/guardian/work/task_decomposition.py",
+      "first_campaign": "G-04"
+    },
+    {
+      "path": "src/guardian/work/scheduling.py",
+      "first_campaign": "G-04"
+    },
+    {
+      "path": "src/guardian/work/handoff.py",
+      "first_campaign": "G-08"
+    },
+    {
+      "path": "src/guardian/work/completion.py",
+      "first_campaign": "G-04"
+    },
+    {
+      "path": "src/guardian/assurance/verification_specs.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/assurance/evidence_policy.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/assurance/receipt_validation.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/assurance/qualification.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/assurance/coverage_assurance.py",
+      "first_campaign": "G-10"
+    },
+    {
+      "path": "src/guardian/assurance/adversarial_review.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/assurance/integration_assurance.py",
+      "first_campaign": "G-05"
+    },
+    {
+      "path": "src/guardian/assurance/migration_assurance.py",
+      "first_campaign": "G-10"
+    },
+    {
+      "path": "src/guardian/assurance/resource_assurance.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/assurance/invalidation.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/governance/permissions.py",
+      "first_campaign": "G-09"
+    },
+    {
+      "path": "src/guardian/governance/approval.py",
+      "first_campaign": "G-09"
+    },
+    {
+      "path": "src/guardian/governance/candidate.py",
+      "first_campaign": "G-09"
+    },
+    {
+      "path": "src/guardian/governance/admission.py",
+      "first_campaign": "G-09"
+    },
+    {
+      "path": "src/guardian/governance/protected_policy.py",
+      "first_campaign": "G-09"
+    },
+    {
+      "path": "src/guardian/governance/publication.py",
+      "first_campaign": "G-09"
+    },
+    {
+      "path": "src/guardian/governance/audit_trail.py",
+      "first_campaign": "G-09"
+    },
+    {
+      "path": "src/guardian/application/project_service.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/application/contract_service.py",
+      "first_campaign": "G-00"
+    },
+    {
+      "path": "src/guardian/application/architecture_service.py",
+      "first_campaign": "G-05"
+    },
+    {
+      "path": "src/guardian/application/campaign_service.py",
+      "first_campaign": "G-01"
+    },
+    {
+      "path": "src/guardian/application/evolution_service.py",
+      "first_campaign": "G-01"
+    },
+    {
+      "path": "src/guardian/application/orientation_service.py",
+      "first_campaign": "G-03"
+    },
+    {
+      "path": "src/guardian/application/work_service.py",
+      "first_campaign": "G-04"
+    },
+    {
+      "path": "src/guardian/application/compliance_service.py",
+      "first_campaign": "G-05"
+    },
+    {
+      "path": "src/guardian/application/assurance_service.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/application/governance_service.py",
+      "first_campaign": "G-09"
+    },
+    {
+      "path": "src/guardian/ports/project_store.py",
+      "first_campaign": "G-01"
+    },
+    {
+      "path": "src/guardian/ports/source_reader.py",
+      "first_campaign": "G-07"
+    },
+    {
+      "path": "src/guardian/ports/graph_reader.py",
+      "first_campaign": "G-02"
+    },
+    {
+      "path": "src/guardian/ports/code_inspector.py",
+      "first_campaign": "G-07"
+    },
+    {
+      "path": "src/guardian/ports/verifier.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/ports/artifact_store.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/ports/attestation.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/ports/authorization.py",
+      "first_campaign": "G-09"
+    },
+    {
+      "path": "src/guardian/ports/agent_executor.py",
+      "first_campaign": "G-08"
+    },
+    {
+      "path": "src/guardian/adapters/git/reader.py",
+      "first_campaign": "G-07"
+    },
+    {
+      "path": "src/guardian/adapters/git/writer.py",
+      "first_campaign": "G-07"
+    },
+    {
+      "path": "src/guardian/adapters/git/source_importer.py",
+      "first_campaign": "G-07"
+    },
+    {
+      "path": "src/guardian/adapters/sqlite/schema.py",
+      "first_campaign": "G-02"
+    },
+    {
+      "path": "src/guardian/adapters/sqlite/projector.py",
+      "first_campaign": "G-02"
+    },
+    {
+      "path": "src/guardian/adapters/sqlite/queries.py",
+      "first_campaign": "G-02"
+    },
+    {
+      "path": "src/guardian/adapters/filesystem/workspace.py",
+      "first_campaign": "G-07"
+    },
+    {
+      "path": "src/guardian/adapters/filesystem/source_files.py",
+      "first_campaign": "G-07"
+    },
+    {
+      "path": "src/guardian/adapters/artifacts/content_store.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/adapters/artifacts/receipt_codec.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/adapters/source_code/rust/analyzer.py",
+      "first_campaign": "G-07"
+    },
+    {
+      "path": "src/guardian/adapters/source_code/cpp/analyzer.py",
+      "first_campaign": "G-07"
+    },
+    {
+      "path": "src/guardian/adapters/source_code/python/analyzer.py",
+      "first_campaign": "G-07"
+    },
+    {
+      "path": "src/guardian/adapters/source_code/lean/analyzer.py",
+      "first_campaign": "G-07"
+    },
+    {
+      "path": "src/guardian/adapters/runners/process_runner.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/adapters/runners/verifier_registry.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/adapters/attestations/in_toto.py",
+      "first_campaign": "G-06"
+    },
+    {
+      "path": "src/guardian/adapters/agents/tool_adapter.py",
+      "first_campaign": "G-08"
+    },
+    {
+      "path": "src/guardian/adapters/agents/multi_agent_profile.py",
+      "first_campaign": "G-08"
+    },
+    {
+      "path": "src/guardian/interfaces/cli/main.py",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "src/guardian/interfaces/cli/commands.py",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "src/guardian/interfaces/api/contracts.py",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "src/guardian/interfaces/api/server.py",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "src/guardian/interfaces/mcp/tools.py",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "src/guardian/interfaces/mcp/server.py",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "src/guardian/interfaces/reporting/json.py",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "src/guardian/interfaces/reporting/markdown.py",
+      "first_campaign": "G-11"
+    },
+    {
+      "path": "src/guardian/bootstrap/configuration.py",
+      "first_campaign": "G-12"
+    },
+    {
+      "path": "src/guardian/bootstrap/dependency_wiring.py",
+      "first_campaign": "G-12"
+    },
+    {
+      "path": "src/guardian/bootstrap/runtime.py",
+      "first_campaign": "G-12"
+    }
+  ],
+  "coverage_limitations": [
+    "Links are campaign-level coverage and complete campaign obligation enumerations; fine-grained requirement-to-specific-obligation compliance crosswalk is not yet qualified",
+    "No source code or tests implemented, run or certified",
+    "Module paths are prospective and may be merged/split by cohesion with approved change",
+    "Project conversation source statements have been normalized, not archived verbatim"
+  ],
+  "qualification": false
+}
