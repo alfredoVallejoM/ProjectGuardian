@@ -1,0 +1,3742 @@
+{
+  "schema": "guardian/campaign-program/v1",
+  "edition": "2026-10-16-design-proposal",
+  "authority": "PROPOSED_NOT_RATIFIED",
+  "completion_claim": "NO_IMPLEMENTATION_OR_MATERIAL_VALIDATION",
+  "campaign_count": 14,
+  "obligation_count": 163,
+  "design_only": true,
+  "source_scope": "Cumulative user requirements and specified project architecture",
+  "campaigns": [
+    {
+      "id": "G-00",
+      "title": "Fundamentos, ProjectContract y autoridad",
+      "goal": "Definir modelo de proyectos y compromisos, fuentes, identidades, constituciones, perfiles, aplicabilidad y estados.",
+      "depends_on": [],
+      "excluded_scope": "No certificar cumplimiento científico ni crear agentes antes del modelo.",
+      "owner": "Domain & Constitution",
+      "proposed_modules": [
+        "src/guardian/domain/identity.py",
+        "src/guardian/domain/project.py",
+        "src/guardian/domain/scope.py",
+        "src/guardian/constitution/evaluator.py"
+      ],
+      "verification_profile": "DOMAIN_CONSTITUTION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "obligations": [
+        {
+          "id": "G00-01",
+          "title": "Identidades tipadas",
+          "implementation": "IDs de proyecto, entidad, revisión y digest nominalmente distintos, serializables y con validación",
+          "acceptance": "Demostrar en el candidato exacto que ids de proyecto, entidad, revisión y digest nominalmente distintos, serializables y con validación; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+          "falsification": "Dos entidades colapsan por compartir nombre o contenido",
+          "verification_requirements": [
+            "DOMAIN_CONSTITUTION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/domain/identity.py",
+            "src/guardian/domain/project.py",
+            "src/guardian/domain/scope.py",
+            "src/guardian/constitution/evaluator.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G00-02",
+          "title": "Project y aislamiento",
+          "implementation": "Project y fuente de autoridad por proyecto; políticas de importación independientes",
+          "acceptance": "Demostrar en el candidato exacto que project y fuente de autoridad por proyecto; políticas de importación independientes; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+          "falsification": "Se admite fuente de otro proyecto sin autorización",
+          "verification_requirements": [
+            "DOMAIN_CONSTITUTION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/domain/identity.py",
+            "src/guardian/domain/project.py",
+            "src/guardian/domain/scope.py",
+            "src/guardian/constitution/evaluator.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G00-03",
+          "title": "SourceUniverse",
+          "implementation": "Universo de fuentes con commits, documentación, inclusiones, exclusiones y límites explícitos",
+          "acceptance": "Demostrar en el candidato exacto que universo de fuentes con commits, documentación, inclusiones, exclusiones y límites explícitos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+          "falsification": "Se certifica cobertura sin delimitar fuentes",
+          "verification_requirements": [
+            "DOMAIN_CONSTITUTION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/domain/identity.py",
+            "src/guardian/domain/project.py",
+            "src/guardian/domain/scope.py",
+            "src/guardian/constitution/evaluator.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G00-04",
+          "title": "Constitución y decisión",
+          "implementation": "Jerarquía de normas y decisiones con RATIFIED distinto de PROPOSED, autorización y precedencia",
+          "acceptance": "Demostrar en el candidato exacto que jerarquía de normas y decisiones con ratified distinto de proposed, autorización y precedencia; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+          "falsification": "Propuesta se ratifica sin identidad de aprobador",
+          "verification_requirements": [
+            "DOMAIN_CONSTITUTION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/domain/identity.py",
+            "src/guardian/domain/project.py",
+            "src/guardian/domain/scope.py",
+            "src/guardian/constitution/evaluator.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G00-05",
+          "title": "Ontología de compromisos",
+          "implementation": "Modelos independientes de Objective, Capability, Property y Obligation",
+          "acceptance": "Demostrar en el candidato exacto que modelos independientes de objective, capability, property y obligation; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+          "falsification": "Capacidad se confunde con ImplementationUnit",
+          "verification_requirements": [
+            "DOMAIN_CONSTITUTION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/domain/identity.py",
+            "src/guardian/domain/project.py",
+            "src/guardian/domain/scope.py",
+            "src/guardian/constitution/evaluator.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G00-06",
+          "title": "Scope y applicability",
+          "implementation": "SupportProfile tipado y predicados YES/NO/UNKNOWN/CONFLICT conservadores",
+          "acceptance": "Demostrar en el candidato exacto que supportprofile tipado y predicados yes/no/unknown/conflict conservadores; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+          "falsification": "UNKNOWN se interpreta como NOT_APPLICABLE",
+          "verification_requirements": [
+            "DOMAIN_CONSTITUTION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/domain/identity.py",
+            "src/guardian/domain/project.py",
+            "src/guardian/domain/scope.py",
+            "src/guardian/constitution/evaluator.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G00-07",
+          "title": "Estados separados",
+          "implementation": "Dimensiones source, implementation, audit, material, assurance, migration sin flag completed mutable",
+          "acceptance": "Demostrar en el candidato exacto que dimensiones source, implementation, audit, material, assurance, migration sin flag completed mutable; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+          "falsification": "PASS de test modifica autoridad científica",
+          "verification_requirements": [
+            "DOMAIN_CONSTITUTION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/domain/identity.py",
+            "src/guardian/domain/project.py",
+            "src/guardian/domain/scope.py",
+            "src/guardian/constitution/evaluator.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G00-08",
+          "title": "Integridad de referencias",
+          "implementation": "Referencias internas, revisión esperada y rutas interproyecto validadas",
+          "acceptance": "Demostrar en el candidato exacto que referencias internas, revisión esperada y rutas interproyecto validadas; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+          "falsification": "Se admite referencia inexistente o cruzada",
+          "verification_requirements": [
+            "DOMAIN_CONSTITUTION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/domain/identity.py",
+            "src/guardian/domain/project.py",
+            "src/guardian/domain/scope.py",
+            "src/guardian/constitution/evaluator.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G00-09",
+          "title": "Esquemas versionados",
+          "implementation": "JSON Schema con normative features, validación de payload y versiones incompatibles",
+          "acceptance": "Demostrar en el candidato exacto que json schema con normative features, validación de payload y versiones incompatibles; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+          "falsification": "Se ignoran características normativas que el lector desconoce",
+          "verification_requirements": [
+            "DOMAIN_CONSTITUTION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/domain/identity.py",
+            "src/guardian/domain/project.py",
+            "src/guardian/domain/scope.py",
+            "src/guardian/constitution/evaluator.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G00-10",
+          "title": "Evaluador constitucional puro",
+          "implementation": "Función de evaluación de normas sin E/S ni dependencia del clock",
+          "acceptance": "Demostrar en el candidato exacto que función de evaluación de normas sin e/s ni dependencia del clock; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+          "falsification": "Un mismo input genera resultados diferentes por estado externo",
+          "verification_requirements": [
+            "DOMAIN_CONSTITUTION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/domain/identity.py",
+            "src/guardian/domain/project.py",
+            "src/guardian/domain/scope.py",
+            "src/guardian/constitution/evaluator.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G00-11",
+          "title": "Conflictos de autoridad",
+          "implementation": "ConflictRecord con fuentes incompatibles y bloqueo de afirmaciones derivadas",
+          "acceptance": "Demostrar en el candidato exacto que conflictrecord con fuentes incompatibles y bloqueo de afirmaciones derivadas; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+          "falsification": "El sistema elige descripción más reciente silenciosamente",
+          "verification_requirements": [
+            "DOMAIN_CONSTITUTION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/domain/identity.py",
+            "src/guardian/domain/project.py",
+            "src/guardian/domain/scope.py",
+            "src/guardian/constitution/evaluator.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G00-12",
+          "title": "Tests fundamentales",
+          "implementation": "Pruebas positivas, negativas, invariantes de identidad, source scope y authority",
+          "acceptance": "Demostrar en el candidato exacto que pruebas positivas, negativas, invariantes de identidad, source scope y authority; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-00.",
+          "falsification": "Mutación constitucional no detectada produce PASS",
+          "verification_requirements": [
+            "DOMAIN_CONSTITUTION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/domain/identity.py",
+            "src/guardian/domain/project.py",
+            "src/guardian/domain/scope.py",
+            "src/guardian/constitution/evaluator.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        }
+      ],
+      "development_complete": "Todas las obligaciones aplicables originales implementadas en fuente, junto con tests/adversarios/verificadores escritos, sin implementaciones pendientes ni cambios normativos no autorizados; la ejecución material es estado separado.",
+      "campaign_closed": "Además del desarrollo completo: suites ejecutadas sobre candidato exacto, auditoría adversaria conforme a política, integración entre componentes, evidencia auténtica, recursos aplicables y recibo de cierre acotado.",
+      "independent_adversarial_review_required": true,
+      "qualification_claim": false
+    },
+    {
+      "id": "G-01",
+      "title": "Evolución continua de obligaciones y campañas",
+      "goal": "Añadir y reformular compromisos de forma versionada y conservadora mediante comandos semánticos.",
+      "depends_on": [
+        "G-00"
+      ],
+      "excluded_scope": "No CRUD libre, no borrar ni rebajar obligaciones ratificadas.",
+      "owner": "Program Evolution",
+      "proposed_modules": [
+        "src/guardian/program/commands.py",
+        "src/guardian/program/transitions.py",
+        "src/guardian/program/refinement.py",
+        "src/guardian/program/evolution_validation.py"
+      ],
+      "verification_profile": "EVOLUTION_INVARIANTS",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "obligations": [
+        {
+          "id": "G01-01",
+          "title": "ChangeSet tipado",
+          "implementation": "ChangeSet con base_revision, actor, operaciones discriminadas e idempotencia",
+          "acceptance": "Demostrar en el candidato exacto que changeset con base_revision, actor, operaciones discriminadas e idempotencia; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+          "falsification": "Se modifica autoridad sin evento",
+          "verification_requirements": [
+            "EVOLUTION_INVARIANTS",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/program/commands.py",
+            "src/guardian/program/transitions.py",
+            "src/guardian/program/refinement.py",
+            "src/guardian/program/evolution_validation.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G01-02",
+          "title": "Añadir obligaciones y campañas",
+          "implementation": "AddObligation y AddCampaign sin editar codigo del motor por tipo/número",
+          "acceptance": "Demostrar en el candidato exacto que addobligation y addcampaign sin editar codigo del motor por tipo/número; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+          "falsification": "Incorporar campaña exige añadir if hardcoded",
+          "verification_requirements": [
+            "EVOLUTION_INVARIANTS",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/program/commands.py",
+            "src/guardian/program/transitions.py",
+            "src/guardian/program/refinement.py",
+            "src/guardian/program/evolution_validation.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G01-03",
+          "title": "Extender campaña",
+          "implementation": "ExtendCampaign preserva membership, ámbito y obligaciones anteriores",
+          "acceptance": "Demostrar en el candidato exacto que extendcampaign preserva membership, ámbito y obligaciones anteriores; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+          "falsification": "Ampliación elimina obligación ratificada",
+          "verification_requirements": [
+            "EVOLUTION_INVARIANTS",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/program/commands.py",
+            "src/guardian/program/transitions.py",
+            "src/guardian/program/refinement.py",
+            "src/guardian/program/evolution_validation.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G01-04",
+          "title": "Refinar obligación",
+          "implementation": "RefineObligation con linaje, criterio de implicación y autoridad",
+          "acceptance": "Demostrar en el candidato exacto que refineobligation con linaje, criterio de implicación y autoridad; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+          "falsification": "Obligación más débil se declara refinamiento",
+          "verification_requirements": [
+            "EVOLUTION_INVARIANTS",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/program/commands.py",
+            "src/guardian/program/transitions.py",
+            "src/guardian/program/refinement.py",
+            "src/guardian/program/evolution_validation.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G01-05",
+          "title": "Generalizar contrato",
+          "implementation": "GeneralizeContract conserva reglas en dominio antiguo y exige garantías nuevas",
+          "acceptance": "Demostrar en el candidato exacto que generalizecontract conserva reglas en dominio antiguo y exige garantías nuevas; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+          "falsification": "Nueva capacidad pierde caso histórico",
+          "verification_requirements": [
+            "EVOLUTION_INVARIANTS",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/program/commands.py",
+            "src/guardian/program/transitions.py",
+            "src/guardian/program/refinement.py",
+            "src/guardian/program/evolution_validation.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G01-06",
+          "title": "Sustituir y retirar",
+          "implementation": "Supersede, retire y deprecate con disposition, fuente, impacto, decisión y compatibilidad",
+          "acceptance": "Demostrar en el candidato exacto que supersede, retire y deprecate con disposition, fuente, impacto, decisión y compatibilidad; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+          "falsification": "Se elimina una obligación sin linaje ni aprobación",
+          "verification_requirements": [
+            "EVOLUTION_INVARIANTS",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/program/commands.py",
+            "src/guardian/program/transitions.py",
+            "src/guardian/program/refinement.py",
+            "src/guardian/program/evolution_validation.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G01-07",
+          "title": "Revisiones y replay",
+          "implementation": "Registro append-only y replay determinista por versión de intérprete",
+          "acceptance": "Demostrar en el candidato exacto que registro append-only y replay determinista por versión de intérprete; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+          "falsification": "Replay produce programa distinto",
+          "verification_requirements": [
+            "EVOLUTION_INVARIANTS",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/program/commands.py",
+            "src/guardian/program/transitions.py",
+            "src/guardian/program/refinement.py",
+            "src/guardian/program/evolution_validation.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G01-08",
+          "title": "Concurrencia optimista",
+          "implementation": "ChangeSet lleva expected revision y conflicto de escrituras/dependencias",
+          "acceptance": "Demostrar en el candidato exacto que changeset lleva expected revision y conflicto de escrituras/dependencias; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+          "falsification": "Se acepta entrega basada en estado obsoleto",
+          "verification_requirements": [
+            "EVOLUTION_INVARIANTS",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/program/commands.py",
+            "src/guardian/program/transitions.py",
+            "src/guardian/program/refinement.py",
+            "src/guardian/program/evolution_validation.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G01-09",
+          "title": "Estados event-derived",
+          "implementation": "Estado de campaña y obligación derivado de eventos admitidos",
+          "acceptance": "Demostrar en el candidato exacto que estado de campaña y obligación derivado de eventos admitidos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+          "falsification": "Editar status textual provoca cierre",
+          "verification_requirements": [
+            "EVOLUTION_INVARIANTS",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/program/commands.py",
+            "src/guardian/program/transitions.py",
+            "src/guardian/program/refinement.py",
+            "src/guardian/program/evolution_validation.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G01-10",
+          "title": "Atomicidad de aplicación",
+          "implementation": "Comando inválido no publica ningún cambio; rollback conceptual total",
+          "acceptance": "Demostrar en el candidato exacto que comando inválido no publica ningún cambio; rollback conceptual total; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+          "falsification": "Parte de batch inválido persiste",
+          "verification_requirements": [
+            "EVOLUTION_INVARIANTS",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/program/commands.py",
+            "src/guardian/program/transitions.py",
+            "src/guardian/program/refinement.py",
+            "src/guardian/program/evolution_validation.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G01-11",
+          "title": "Diff semántico",
+          "implementation": "Comparación de revisiones incluye obligaciones, consumos y normatividad",
+          "acceptance": "Demostrar en el candidato exacto que comparación de revisiones incluye obligaciones, consumos y normatividad; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+          "falsification": "Solo diff texto omite obligación borrada",
+          "verification_requirements": [
+            "EVOLUTION_INVARIANTS",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/program/commands.py",
+            "src/guardian/program/transitions.py",
+            "src/guardian/program/refinement.py",
+            "src/guardian/program/evolution_validation.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G01-12",
+          "title": "Ampliación postcertificación",
+          "implementation": "Nueva revisión conserva certificado anterior pero no lo extiende sin evidencia",
+          "acceptance": "Demostrar en el candidato exacto que nueva revisión conserva certificado anterior pero no lo extiende sin evidencia; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-01.",
+          "falsification": "O13 hereda PASS automático de O1-O12",
+          "verification_requirements": [
+            "EVOLUTION_INVARIANTS",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/program/commands.py",
+            "src/guardian/program/transitions.py",
+            "src/guardian/program/refinement.py",
+            "src/guardian/program/evolution_validation.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        }
+      ],
+      "development_complete": "Todas las obligaciones aplicables originales implementadas en fuente, junto con tests/adversarios/verificadores escritos, sin implementaciones pendientes ni cambios normativos no autorizados; la ejecución material es estado separado.",
+      "campaign_closed": "Además del desarrollo completo: suites ejecutadas sobre candidato exacto, auditoría adversaria conforme a política, integración entre componentes, evidencia auténtica, recursos aplicables y recibo de cierre acotado.",
+      "independent_adversarial_review_required": true,
+      "qualification_claim": false
+    },
+    {
+      "id": "G-02",
+      "title": "Grafo de relaciones, soporte e impacto",
+      "goal": "Representar conocimiento y ejecutar consultas de dependencias, arquitectura, soporte y lagunas.",
+      "depends_on": [
+        "G-00",
+        "G-01"
+      ],
+      "excluded_scope": "No inferir pruebas matemáticas de enlaces informativos ni imponer aciclicidad global.",
+      "owner": "Graph Engine",
+      "proposed_modules": [
+        "src/guardian/graph/relation_types.py",
+        "src/guardian/graph/relation_validation.py",
+        "src/guardian/graph/support.py",
+        "src/guardian/graph/impact.py"
+      ],
+      "verification_profile": "TYPED_GRAPH_SUPPORT",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "obligations": [
+        {
+          "id": "G02-01",
+          "title": "Nodos y relaciones tipados",
+          "implementation": "GraphNode y RelationRevision por proyecto, revisión y fuente",
+          "acceptance": "Demostrar en el candidato exacto que graphnode y relationrevision por proyecto, revisión y fuente; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+          "falsification": "Relación une clases incompatibles",
+          "verification_requirements": [
+            "TYPED_GRAPH_SUPPORT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/graph/relation_types.py",
+            "src/guardian/graph/relation_validation.py",
+            "src/guardian/graph/support.py",
+            "src/guardian/graph/impact.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G02-02",
+          "title": "N-aridad y multiplicidad",
+          "implementation": "Participant con role y occurrence en relaciones multiargumento",
+          "acceptance": "Demostrar en el candidato exacto que participant con role y occurrence en relaciones multiargumento; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+          "falsification": "Se pierden participantes al proyectar",
+          "verification_requirements": [
+            "TYPED_GRAPH_SUPPORT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/graph/relation_types.py",
+            "src/guardian/graph/relation_validation.py",
+            "src/guardian/graph/support.py",
+            "src/guardian/graph/impact.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G02-03",
+          "title": "Registro de relaciones",
+          "implementation": "Reglas de tipo, cardinalidad, provenance y autoridad por relation type",
+          "acceptance": "Demostrar en el candidato exacto que reglas de tipo, cardinalidad, provenance y autoridad por relation type; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+          "falsification": "Arista arbitraria adquiere autoridad",
+          "verification_requirements": [
+            "TYPED_GRAPH_SUPPORT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/graph/relation_types.py",
+            "src/guardian/graph/relation_validation.py",
+            "src/guardian/graph/support.py",
+            "src/guardian/graph/impact.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G02-04",
+          "title": "Owner semántico",
+          "implementation": "Proyección matemática y detector de owners canónicos incompatibles",
+          "acceptance": "Demostrar en el candidato exacto que proyección matemática y detector de owners canónicos incompatibles; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+          "falsification": "Dos owners de mismo contrato pasan desapercibidos",
+          "verification_requirements": [
+            "TYPED_GRAPH_SUPPORT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/graph/relation_types.py",
+            "src/guardian/graph/relation_validation.py",
+            "src/guardian/graph/support.py",
+            "src/guardian/graph/impact.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G02-05",
+          "title": "Grafo arquitectónico",
+          "implementation": "Proyección de deps permitidas, necesarias, prohibidas y consumidores",
+          "acceptance": "Demostrar en el candidato exacto que proyección de deps permitidas, necesarias, prohibidas y consumidores; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+          "falsification": "Import prohibido recibe conformidad",
+          "verification_requirements": [
+            "TYPED_GRAPH_SUPPORT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/graph/relation_types.py",
+            "src/guardian/graph/relation_validation.py",
+            "src/guardian/graph/support.py",
+            "src/guardian/graph/impact.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G02-06",
+          "title": "Grafo de ejecución",
+          "implementation": "DAG de prerequisitos, orden topológico y SCC ante ciclos estrictos",
+          "acceptance": "Demostrar en el candidato exacto que dag de prerequisitos, orden topológico y scc ante ciclos estrictos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+          "falsification": "Ciclo estricto se despacha como ejecutable",
+          "verification_requirements": [
+            "TYPED_GRAPH_SUPPORT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/graph/relation_types.py",
+            "src/guardian/graph/relation_validation.py",
+            "src/guardian/graph/support.py",
+            "src/guardian/graph/impact.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G02-07",
+          "title": "ALL ANY condicional",
+          "implementation": "AST tipado de soporte AND/OR y applicability contextual",
+          "acceptance": "Demostrar en el candidato exacto que ast tipado de soporte and/or y applicability contextual; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+          "falsification": "OR se trata como AND o viceversa",
+          "verification_requirements": [
+            "TYPED_GRAPH_SUPPORT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/graph/relation_types.py",
+            "src/guardian/graph/relation_validation.py",
+            "src/guardian/graph/support.py",
+            "src/guardian/graph/impact.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G02-08",
+          "title": "SupportCone",
+          "implementation": "Cierre de soporte por claim perfil revisión y relaciones admisibles",
+          "acceptance": "Demostrar en el candidato exacto que cierre de soporte por claim perfil revisión y relaciones admisibles; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+          "falsification": "Referencia documental se usa como prueba",
+          "verification_requirements": [
+            "TYPED_GRAPH_SUPPORT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/graph/relation_types.py",
+            "src/guardian/graph/relation_validation.py",
+            "src/guardian/graph/support.py",
+            "src/guardian/graph/impact.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G02-09",
+          "title": "ImpactCone",
+          "implementation": "Proyección inversa y invalidación incremental hasta punto fijo",
+          "acceptance": "Demostrar en el candidato exacto que proyección inversa y invalidación incremental hasta punto fijo; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+          "falsification": "Certificado de consumidor afectado sigue CURRENT",
+          "verification_requirements": [
+            "TYPED_GRAPH_SUPPORT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/graph/relation_types.py",
+            "src/guardian/graph/relation_validation.py",
+            "src/guardian/graph/support.py",
+            "src/guardian/graph/impact.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G02-10",
+          "title": "SupportGap",
+          "implementation": "Diagnósticos estructurados de faltas de implementación, test, evidencia, fuente, scope",
+          "acceptance": "Demostrar en el candidato exacto que diagnósticos estructurados de faltas de implementación, test, evidencia, fuente, scope; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+          "falsification": "Obligación sin soporte desaparece de informe",
+          "verification_requirements": [
+            "TYPED_GRAPH_SUPPORT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/graph/relation_types.py",
+            "src/guardian/graph/relation_validation.py",
+            "src/guardian/graph/support.py",
+            "src/guardian/graph/impact.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G02-11",
+          "title": "Proyecciones reconstruibles",
+          "implementation": "SQLite graph views reproducen nodos/relaciones exactos de fuente normativa",
+          "acceptance": "Demostrar en el candidato exacto que sqlite graph views reproducen nodos/relaciones exactos de fuente normativa; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+          "falsification": "Projection diverge from canonical Git",
+          "verification_requirements": [
+            "TYPED_GRAPH_SUPPORT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/graph/relation_types.py",
+            "src/guardian/graph/relation_validation.py",
+            "src/guardian/graph/support.py",
+            "src/guardian/graph/impact.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G02-12",
+          "title": "Tests de grafo y escala",
+          "implementation": "Adversarios de tipos, scope, ciclos, resource limits, grandes grafos y explanation",
+          "acceptance": "Demostrar en el candidato exacto que adversarios de tipos, scope, ciclos, resource limits, grandes grafos y explanation; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-02.",
+          "falsification": "Se declara cobertura total cuando búsqueda agota presupuesto",
+          "verification_requirements": [
+            "TYPED_GRAPH_SUPPORT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/graph/relation_types.py",
+            "src/guardian/graph/relation_validation.py",
+            "src/guardian/graph/support.py",
+            "src/guardian/graph/impact.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        }
+      ],
+      "development_complete": "Todas las obligaciones aplicables originales implementadas en fuente, junto con tests/adversarios/verificadores escritos, sin implementaciones pendientes ni cambios normativos no autorizados; la ejecución material es estado separado.",
+      "campaign_closed": "Además del desarrollo completo: suites ejecutadas sobre candidato exacto, auditoría adversaria conforme a política, integración entre componentes, evidencia auténtica, recursos aplicables y recibo de cierre acotado.",
+      "independent_adversarial_review_required": true,
+      "qualification_claim": false
+    },
+    {
+      "id": "G-03",
+      "title": "Project Orientation y recuperación de conocimiento",
+      "goal": "Producir vistas globales y por componente con procedencia y sin modificar contratos.",
+      "depends_on": [
+        "G-02"
+      ],
+      "excluded_scope": "Orientación no es paquete de autorización ni resumen con autoridad.",
+      "owner": "Orientation",
+      "proposed_modules": [
+        "src/guardian/work/orientation.py",
+        "src/guardian/work/context_selection.py",
+        "src/guardian/knowledge/provenance.py"
+      ],
+      "verification_profile": "ORIENTATION_SOURCE_TRACED",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "obligations": [
+        {
+          "id": "G03-01",
+          "title": "Orientación global",
+          "implementation": "Vista de propósito, arquitectura, estado, campañas y reglas por revisión",
+          "acceptance": "Demostrar en el candidato exacto que vista de propósito, arquitectura, estado, campañas y reglas por revisión; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+          "falsification": "Se introduce norma ajena al proyecto",
+          "verification_requirements": [
+            "ORIENTATION_SOURCE_TRACED",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/orientation.py",
+            "src/guardian/work/context_selection.py",
+            "src/guardian/knowledge/provenance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G03-02",
+          "title": "Orientación de componente",
+          "implementation": "Recuperación de owner, API, límites, consumidores y restricciones",
+          "acceptance": "Demostrar en el candidato exacto que recuperación de owner, api, límites, consumidores y restricciones; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+          "falsification": "Se omite prohibición aplicable",
+          "verification_requirements": [
+            "ORIENTATION_SOURCE_TRACED",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/orientation.py",
+            "src/guardian/work/context_selection.py",
+            "src/guardian/knowledge/provenance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G03-03",
+          "title": "Orientación de capacidad",
+          "implementation": "Exponer contrato, garantías, evidencias, gaps y estado observado",
+          "acceptance": "Demostrar en el candidato exacto que exponer contrato, garantías, evidencias, gaps y estado observado; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+          "falsification": "Capacidad parcial se muestra completa",
+          "verification_requirements": [
+            "ORIENTATION_SOURCE_TRACED",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/orientation.py",
+            "src/guardian/work/context_selection.py",
+            "src/guardian/knowledge/provenance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G03-04",
+          "title": "Fuentes verificables",
+          "implementation": "Toda afirmación histórica tiene SourceRef o se marca UNKNOWN",
+          "acceptance": "Demostrar en el candidato exacto que toda afirmación histórica tiene sourceref o se marca unknown; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+          "falsification": "Resumen presenta hecho sin procedencia",
+          "verification_requirements": [
+            "ORIENTATION_SOURCE_TRACED",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/orientation.py",
+            "src/guardian/work/context_selection.py",
+            "src/guardian/knowledge/provenance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G03-05",
+          "title": "Vistas derivadas",
+          "implementation": "ProjectOrientation es explicación no editable como autoridad",
+          "acceptance": "Demostrar en el candidato exacto que projectorientation es explicación no editable como autoridad; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+          "falsification": "Editar resumen cambia obligación",
+          "verification_requirements": [
+            "ORIENTATION_SOURCE_TRACED",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/orientation.py",
+            "src/guardian/work/context_selection.py",
+            "src/guardian/knowledge/provenance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G03-06",
+          "title": "Contexto progresivo",
+          "implementation": "Selección paginada de fragmentos sin perder índice normativo",
+          "acceptance": "Demostrar en el candidato exacto que selección paginada de fragmentos sin perder índice normativo; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+          "falsification": "Token cap elimina obligación del cierre",
+          "verification_requirements": [
+            "ORIENTATION_SOURCE_TRACED",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/orientation.py",
+            "src/guardian/work/context_selection.py",
+            "src/guardian/knowledge/provenance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G03-07",
+          "title": "Explicar estado observado",
+          "implementation": "Separar código existente, tests escritos, runs y qualification",
+          "acceptance": "Demostrar en el candidato exacto que separar código existente, tests escritos, runs y qualification; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+          "falsification": "Test authored aparece como run PASS",
+          "verification_requirements": [
+            "ORIENTATION_SOURCE_TRACED",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/orientation.py",
+            "src/guardian/work/context_selection.py",
+            "src/guardian/knowledge/provenance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G03-08",
+          "title": "Conflictos y desconocidos",
+          "implementation": "Presentar límites, fuentes ausentes y contradicciones sin inferir",
+          "acceptance": "Demostrar en el candidato exacto que presentar límites, fuentes ausentes y contradicciones sin inferir; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+          "falsification": "Falta dato y el informe inventa decisión",
+          "verification_requirements": [
+            "ORIENTATION_SOURCE_TRACED",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/orientation.py",
+            "src/guardian/work/context_selection.py",
+            "src/guardian/knowledge/provenance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G03-09",
+          "title": "Navegación objetivos",
+          "implementation": "Índices relacionan objectives, capability, property, evidence sin semantic promotion",
+          "acceptance": "Demostrar en el candidato exacto que índices relacionan objectives, capability, property, evidence sin semantic promotion; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+          "falsification": "Cercanía de texto se declara equivalencia",
+          "verification_requirements": [
+            "ORIENTATION_SOURCE_TRACED",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/orientation.py",
+            "src/guardian/work/context_selection.py",
+            "src/guardian/knowledge/provenance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G03-10",
+          "title": "Admisión de un agente nuevo",
+          "implementation": "Prueba con agente sin contexto previo consulta reglas esenciales y decisiones",
+          "acceptance": "Demostrar en el candidato exacto que prueba con agente sin contexto previo consulta reglas esenciales y decisiones; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-03.",
+          "falsification": "El usuario debe repetir manualmente todo el contrato",
+          "verification_requirements": [
+            "ORIENTATION_SOURCE_TRACED",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/orientation.py",
+            "src/guardian/work/context_selection.py",
+            "src/guardian/knowledge/provenance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        }
+      ],
+      "development_complete": "Todas las obligaciones aplicables originales implementadas en fuente, junto con tests/adversarios/verificadores escritos, sin implementaciones pendientes ni cambios normativos no autorizados; la ejecución material es estado separado.",
+      "campaign_closed": "Además del desarrollo completo: suites ejecutadas sobre candidato exacto, auditoría adversaria conforme a política, integración entre componentes, evidencia auténtica, recursos aplicables y recibo de cierre acotado.",
+      "independent_adversarial_review_required": true,
+      "qualification_claim": false
+    },
+    {
+      "id": "G-04",
+      "title": "Compilador de tareas y planificación contractual",
+      "goal": "Generar WorkPackages completos por cierre de obligaciones, scope y milestone.",
+      "depends_on": [
+        "G-01",
+        "G-02"
+      ],
+      "excluded_scope": "No bajar el contrato para adecuarlo a contexto o token budget.",
+      "owner": "Work Package Compiler",
+      "proposed_modules": [
+        "src/guardian/work/package_compiler.py",
+        "src/guardian/work/task_decomposition.py",
+        "src/guardian/work/scheduling.py",
+        "src/guardian/work/completion.py"
+      ],
+      "verification_profile": "WORK_CLOSURE",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "obligations": [
+        {
+          "id": "G04-01",
+          "title": "Unidad de trabajo",
+          "implementation": "Identificar capacidad, target scope, milestone y revisions originales",
+          "acceptance": "Demostrar en el candidato exacto que identificar capacidad, target scope, milestone y revisions originales; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+          "falsification": "El encargo carece de identidad de contrato",
+          "verification_requirements": [
+            "WORK_CLOSURE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/package_compiler.py",
+            "src/guardian/work/task_decomposition.py",
+            "src/guardian/work/scheduling.py",
+            "src/guardian/work/completion.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G04-02",
+          "title": "Closure de obligaciones",
+          "implementation": "Calcular conjunto aplicable completo desde fuente normativa y relaciones",
+          "acceptance": "Demostrar en el candidato exacto que calcular conjunto aplicable completo desde fuente normativa y relaciones; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+          "falsification": "Obligación indirecta omitida",
+          "verification_requirements": [
+            "WORK_CLOSURE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/package_compiler.py",
+            "src/guardian/work/task_decomposition.py",
+            "src/guardian/work/scheduling.py",
+            "src/guardian/work/completion.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G04-03",
+          "title": "Constitución aplicable",
+          "implementation": "Incluir invariantes, forbidden changes y policy snapshot",
+          "acceptance": "Demostrar en el candidato exacto que incluir invariantes, forbidden changes y policy snapshot; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+          "falsification": "Agente no recibe prohibición vigente",
+          "verification_requirements": [
+            "WORK_CLOSURE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/package_compiler.py",
+            "src/guardian/work/task_decomposition.py",
+            "src/guardian/work/scheduling.py",
+            "src/guardian/work/completion.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G04-04",
+          "title": "Prerequisitos",
+          "implementation": "Reconstruir dependencias ALL/ANY, estados y bloqueos",
+          "acceptance": "Demostrar en el candidato exacto que reconstruir dependencias all/any, estados y bloqueos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+          "falsification": "Tarea bloqueada figura ready",
+          "verification_requirements": [
+            "WORK_CLOSURE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/package_compiler.py",
+            "src/guardian/work/task_decomposition.py",
+            "src/guardian/work/scheduling.py",
+            "src/guardian/work/completion.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G04-05",
+          "title": "Consumidores",
+          "implementation": "Incluir IntegrationContracts, APIs y compatibilidades obligatorias",
+          "acceptance": "Demostrar en el candidato exacto que incluir integrationcontracts, apis y compatibilidades obligatorias; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+          "falsification": "Consumidor relevante no aparece",
+          "verification_requirements": [
+            "WORK_CLOSURE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/package_compiler.py",
+            "src/guardian/work/task_decomposition.py",
+            "src/guardian/work/scheduling.py",
+            "src/guardian/work/completion.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G04-06",
+          "title": "Fuente y migración",
+          "implementation": "Adjuntar SourceUniverse original y contratos históricos requeridos",
+          "acceptance": "Demostrar en el candidato exacto que adjuntar sourceuniverse original y contratos históricos requeridos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+          "falsification": "Migración ignora source owner",
+          "verification_requirements": [
+            "WORK_CLOSURE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/package_compiler.py",
+            "src/guardian/work/task_decomposition.py",
+            "src/guardian/work/scheduling.py",
+            "src/guardian/work/completion.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G04-07",
+          "title": "Pruebas y falsaciones",
+          "implementation": "Vincular VerificationSpecs positivos, negativos, adversarios y recursos",
+          "acceptance": "Demostrar en el candidato exacto que vincular verificationspecs positivos, negativos, adversarios y recursos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+          "falsification": "Paquete omite caso hostil obligatorio",
+          "verification_requirements": [
+            "WORK_CLOSURE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/package_compiler.py",
+            "src/guardian/work/task_decomposition.py",
+            "src/guardian/work/scheduling.py",
+            "src/guardian/work/completion.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G04-08",
+          "title": "Manifest y explicación",
+          "implementation": "Separar manifest inmutable de texto orientativo reescribible",
+          "acceptance": "Demostrar en el candidato exacto que separar manifest inmutable de texto orientativo reescribible; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+          "falsification": "Resumen recorta obligación del manifest",
+          "verification_requirements": [
+            "WORK_CLOSURE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/package_compiler.py",
+            "src/guardian/work/task_decomposition.py",
+            "src/guardian/work/scheduling.py",
+            "src/guardian/work/completion.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G04-09",
+          "title": "Subtrabajos completos",
+          "implementation": "Descomponer sin perder obligations y conservar closure parent",
+          "acceptance": "Demostrar en el candidato exacto que descomponer sin perder obligations y conservar closure parent; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+          "falsification": "Parent terminado con child pendiente",
+          "verification_requirements": [
+            "WORK_CLOSURE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/package_compiler.py",
+            "src/guardian/work/task_decomposition.py",
+            "src/guardian/work/scheduling.py",
+            "src/guardian/work/completion.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G04-10",
+          "title": "Revisión durante trabajo",
+          "implementation": "Detectar cambios de constitución, contrato, fuente o consumer desde baseline",
+          "acceptance": "Demostrar en el candidato exacto que detectar cambios de constitución, contrato, fuente o consumer desde baseline; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+          "falsification": "WorkPackage stale aceptado sin reevaluar",
+          "verification_requirements": [
+            "WORK_CLOSURE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/package_compiler.py",
+            "src/guardian/work/task_decomposition.py",
+            "src/guardian/work/scheduling.py",
+            "src/guardian/work/completion.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G04-11",
+          "title": "Concurrencia",
+          "implementation": "Planificador identifica escritura incompatible y dependencias de tareas",
+          "acceptance": "Demostrar en el candidato exacto que planificador identifica escritura incompatible y dependencias de tareas; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+          "falsification": "Dos tareas alteran misma autoridad sin control",
+          "verification_requirements": [
+            "WORK_CLOSURE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/package_compiler.py",
+            "src/guardian/work/task_decomposition.py",
+            "src/guardian/work/scheduling.py",
+            "src/guardian/work/completion.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G04-12",
+          "title": "Validador independiente",
+          "implementation": "Recalcular closure para comparar paquetes recibidos o producidos",
+          "acceptance": "Demostrar en el candidato exacto que recalcular closure para comparar paquetes recibidos o producidos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-04.",
+          "falsification": "Paquete escrito a mano omite contrato y pasa",
+          "verification_requirements": [
+            "WORK_CLOSURE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/work/package_compiler.py",
+            "src/guardian/work/task_decomposition.py",
+            "src/guardian/work/scheduling.py",
+            "src/guardian/work/completion.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        }
+      ],
+      "development_complete": "Todas las obligaciones aplicables originales implementadas en fuente, junto con tests/adversarios/verificadores escritos, sin implementaciones pendientes ni cambios normativos no autorizados; la ejecución material es estado separado.",
+      "campaign_closed": "Además del desarrollo completo: suites ejecutadas sobre candidato exacto, auditoría adversaria conforme a política, integración entre componentes, evidencia auténtica, recursos aplicables y recibo de cierre acotado.",
+      "independent_adversarial_review_required": true,
+      "qualification_claim": false
+    },
+    {
+      "id": "G-05",
+      "title": "Conformidad arquitectónica y funcional",
+      "goal": "Contrastar contrato/arquitectura especificada con código observado y obligaciones.",
+      "depends_on": [
+        "G-02",
+        "G-07"
+      ],
+      "excluded_scope": "No convertir nombres de módulos y tests en prueba de funcionalidad.",
+      "owner": "Compliance",
+      "proposed_modules": [
+        "src/guardian/knowledge/observed_architecture.py",
+        "src/guardian/knowledge/reconciliation.py",
+        "src/guardian/assurance/integration_assurance.py"
+      ],
+      "verification_profile": "CODE_VS_CONTRACT",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "obligations": [
+        {
+          "id": "G05-01",
+          "title": "Arquitecturas separadas",
+          "implementation": "Modelos SpecifiedArchitecture y ObservedArchitecture comparados sin convertir observed en norma",
+          "acceptance": "Demostrar en el candidato exacto que modelos specifiedarchitecture y observedarchitecture comparados sin convertir observed en norma; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+          "falsification": "Codigo unario reduce contrato n-ario",
+          "verification_requirements": [
+            "CODE_VS_CONTRACT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/observed_architecture.py",
+            "src/guardian/knowledge/reconciliation.py",
+            "src/guardian/assurance/integration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G05-02",
+          "title": "Componentes y responsabilidades",
+          "implementation": "Comparar bounded contexts, owners, módulos, funciones e invariantes",
+          "acceptance": "Demostrar en el candidato exacto que comparar bounded contexts, owners, módulos, funciones e invariantes; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+          "falsification": "Módulo asume responsabilidad ajena",
+          "verification_requirements": [
+            "CODE_VS_CONTRACT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/observed_architecture.py",
+            "src/guardian/knowledge/reconciliation.py",
+            "src/guardian/assurance/integration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G05-03",
+          "title": "Dependencias",
+          "implementation": "Import graph observado contra allowed/required/forbidden edges",
+          "acceptance": "Demostrar en el candidato exacto que import graph observado contra allowed/required/forbidden edges; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+          "falsification": "Import ilegal es aprobado",
+          "verification_requirements": [
+            "CODE_VS_CONTRACT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/observed_architecture.py",
+            "src/guardian/knowledge/reconciliation.py",
+            "src/guardian/assurance/integration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G05-04",
+          "title": "Ownership",
+          "implementation": "Verificar unicidad semántica según scope y conflictos",
+          "acceptance": "Demostrar en el candidato exacto que verificar unicidad semántica según scope y conflictos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+          "falsification": "Dos propietarios incompatibles",
+          "verification_requirements": [
+            "CODE_VS_CONTRACT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/observed_architecture.py",
+            "src/guardian/knowledge/reconciliation.py",
+            "src/guardian/assurance/integration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G05-05",
+          "title": "API consumers",
+          "implementation": "Surface de API y versioning, consumidores y cambios ABI",
+          "acceptance": "Demostrar en el candidato exacto que surface de api y versioning, consumidores y cambios abi; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+          "falsification": "Consumidor anterior roto sin finding",
+          "verification_requirements": [
+            "CODE_VS_CONTRACT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/observed_architecture.py",
+            "src/guardian/knowledge/reconciliation.py",
+            "src/guardian/assurance/integration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G05-06",
+          "title": "Capability implementation",
+          "implementation": "RealizationLink muchos-a-muchos para implementación y comportamiento",
+          "acceptance": "Demostrar en el candidato exacto que realizationlink muchos-a-muchos para implementación y comportamiento; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+          "falsification": "Se identifica archivo con capacidad funcional completa",
+          "verification_requirements": [
+            "CODE_VS_CONTRACT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/observed_architecture.py",
+            "src/guardian/knowledge/reconciliation.py",
+            "src/guardian/assurance/integration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G05-07",
+          "title": "Properties verification",
+          "implementation": "VerificationLink y contratos de prueba por property",
+          "acceptance": "Demostrar en el candidato exacto que verificationlink y contratos de prueba por property; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+          "falsification": "Test genérico acredita ley no examinada",
+          "verification_requirements": [
+            "CODE_VS_CONTRACT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/observed_architecture.py",
+            "src/guardian/knowledge/reconciliation.py",
+            "src/guardian/assurance/integration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G05-08",
+          "title": "Partial contracts",
+          "implementation": "Distinguir subset, profile parcial, missing domain y fallback",
+          "acceptance": "Demostrar en el candidato exacto que distinguir subset, profile parcial, missing domain y fallback; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+          "falsification": "Demo restringida sustituye implementacion completa",
+          "verification_requirements": [
+            "CODE_VS_CONTRACT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/observed_architecture.py",
+            "src/guardian/knowledge/reconciliation.py",
+            "src/guardian/assurance/integration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G05-09",
+          "title": "Regresiones",
+          "implementation": "Contrastar claims y soporte entre revisiones de source/profile",
+          "acceptance": "Demostrar en el candidato exacto que contrastar claims y soporte entre revisiones de source/profile; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+          "falsification": "Propiedad degradada conserva PASS",
+          "verification_requirements": [
+            "CODE_VS_CONTRACT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/observed_architecture.py",
+            "src/guardian/knowledge/reconciliation.py",
+            "src/guardian/assurance/integration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G05-10",
+          "title": "Extensibilidad",
+          "implementation": "Validar contratos para nuevo owner sin duplicación ni switches no permitidos",
+          "acceptance": "Demostrar en el candidato exacto que validar contratos para nuevo owner sin duplicación ni switches no permitidos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+          "falsification": "Implementación rompe punto de extension aprobado",
+          "verification_requirements": [
+            "CODE_VS_CONTRACT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/observed_architecture.py",
+            "src/guardian/knowledge/reconciliation.py",
+            "src/guardian/assurance/integration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G05-11",
+          "title": "Integración real",
+          "implementation": "Contracts productor-consumidor y E2E por perfil",
+          "acceptance": "Demostrar en el candidato exacto que contracts productor-consumidor y e2e por perfil; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+          "falsification": "Unit tests aislados cierran integración",
+          "verification_requirements": [
+            "CODE_VS_CONTRACT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/observed_architecture.py",
+            "src/guardian/knowledge/reconciliation.py",
+            "src/guardian/assurance/integration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G05-12",
+          "title": "Informe gaps",
+          "implementation": "ConformityReport exhaustivo de gaps, UNKNOWN y denominadores reales",
+          "acceptance": "Demostrar en el candidato exacto que conformityreport exhaustivo de gaps, unknown y denominadores reales; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-05.",
+          "falsification": "Se oculta incompletitud del informe",
+          "verification_requirements": [
+            "CODE_VS_CONTRACT",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/observed_architecture.py",
+            "src/guardian/knowledge/reconciliation.py",
+            "src/guardian/assurance/integration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        }
+      ],
+      "development_complete": "Todas las obligaciones aplicables originales implementadas en fuente, junto con tests/adversarios/verificadores escritos, sin implementaciones pendientes ni cambios normativos no autorizados; la ejecución material es estado separado.",
+      "campaign_closed": "Además del desarrollo completo: suites ejecutadas sobre candidato exacto, auditoría adversaria conforme a política, integración entre componentes, evidencia auténtica, recursos aplicables y recibo de cierre acotado.",
+      "independent_adversarial_review_required": true,
+      "qualification_claim": false
+    },
+    {
+      "id": "G-06",
+      "title": "Auditoría, evidencia, estados y certificación",
+      "goal": "Separar pruebas escritas, ejecución real, claims y qualification contextual.",
+      "depends_on": [
+        "G-01",
+        "G-05"
+      ],
+      "excluded_scope": "No aceptar PASS por test escrito, filename receipt o decisión de LLM.",
+      "owner": "Assurance",
+      "proposed_modules": [
+        "src/guardian/assurance/verification_specs.py",
+        "src/guardian/assurance/receipt_validation.py",
+        "src/guardian/assurance/qualification.py",
+        "src/guardian/assurance/adversarial_review.py"
+      ],
+      "verification_profile": "ASSURANCE_PROOF_SCOPE",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "obligations": [
+        {
+          "id": "G06-01",
+          "title": "VerificationSpec",
+          "implementation": "Definir método, perfil, propiedad, falsaciones y expected verdict independiente del código test",
+          "acceptance": "Demostrar en el candidato exacto que definir método, perfil, propiedad, falsaciones y expected verdict independiente del código test; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+          "falsification": "Test authored se considera ejecución",
+          "verification_requirements": [
+            "ASSURANCE_PROOF_SCOPE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/assurance/verification_specs.py",
+            "src/guardian/assurance/receipt_validation.py",
+            "src/guardian/assurance/qualification.py",
+            "src/guardian/assurance/adversarial_review.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G06-02",
+          "title": "ValidationRun",
+          "implementation": "Registrar candidato exacto, entorno, runner, fixtures, output y status material",
+          "acceptance": "Demostrar en el candidato exacto que registrar candidato exacto, entorno, runner, fixtures, output y status material; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+          "falsification": "Run de otro commit se reutiliza ciegamente",
+          "verification_requirements": [
+            "ASSURANCE_PROOF_SCOPE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/assurance/verification_specs.py",
+            "src/guardian/assurance/receipt_validation.py",
+            "src/guardian/assurance/qualification.py",
+            "src/guardian/assurance/adversarial_review.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G06-03",
+          "title": "Claim Evidence",
+          "implementation": "Entidades separadas con relación typed evidence y scope",
+          "acceptance": "Demostrar en el candidato exacto que entidades separadas con relación typed evidence y scope; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+          "falsification": "Receipt existe y se llama teorema",
+          "verification_requirements": [
+            "ASSURANCE_PROOF_SCOPE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/assurance/verification_specs.py",
+            "src/guardian/assurance/receipt_validation.py",
+            "src/guardian/assurance/qualification.py",
+            "src/guardian/assurance/adversarial_review.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G06-04",
+          "title": "Suficiencia",
+          "implementation": "Policy de ALL/ANY, oráculos independientes y requisitos científicos",
+          "acceptance": "Demostrar en el candidato exacto que policy de all/any, oráculos independientes y requisitos científicos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+          "falsification": "Prueba trivial satisface theorem claim",
+          "verification_requirements": [
+            "ASSURANCE_PROOF_SCOPE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/assurance/verification_specs.py",
+            "src/guardian/assurance/receipt_validation.py",
+            "src/guardian/assurance/qualification.py",
+            "src/guardian/assurance/adversarial_review.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G06-05",
+          "title": "Certificados scoped",
+          "implementation": "Certificate por revision SourceUniverse profile evidence verifier policy",
+          "acceptance": "Demostrar en el candidato exacto que certificate por revision sourceuniverse profile evidence verifier policy; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+          "falsification": "Certificado acotado se amplía a otro dominio",
+          "verification_requirements": [
+            "ASSURANCE_PROOF_SCOPE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/assurance/verification_specs.py",
+            "src/guardian/assurance/receipt_validation.py",
+            "src/guardian/assurance/qualification.py",
+            "src/guardian/assurance/adversarial_review.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G06-06",
+          "title": "Support freshness",
+          "implementation": "SupportCone por revision y verificación de equivalencia inputs",
+          "acceptance": "Demostrar en el candidato exacto que supportcone por revision y verificación de equivalencia inputs; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+          "falsification": "Cambio relevante no invalida soporte",
+          "verification_requirements": [
+            "ASSURANCE_PROOF_SCOPE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/assurance/verification_specs.py",
+            "src/guardian/assurance/receipt_validation.py",
+            "src/guardian/assurance/qualification.py",
+            "src/guardian/assurance/adversarial_review.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G06-07",
+          "title": "Invalidación",
+          "implementation": "Revocar/disputar/STALE cuando protegido cambia y mantener historia",
+          "acceptance": "Demostrar en el candidato exacto que revocar/disputar/stale cuando protegido cambia y mantener historia; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+          "falsification": "Receipt invalidado continúa CURRENT",
+          "verification_requirements": [
+            "ASSURANCE_PROOF_SCOPE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/assurance/verification_specs.py",
+            "src/guardian/assurance/receipt_validation.py",
+            "src/guardian/assurance/qualification.py",
+            "src/guardian/assurance/adversarial_review.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G06-08",
+          "title": "Runner authenticity",
+          "implementation": "Receipts de ejecución auténtica verificados contra emitter/trust model",
+          "acceptance": "Demostrar en el candidato exacto que receipts de ejecución auténtica verificados contra emitter/trust model; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+          "falsification": "Archivo JSON escrito por agente pasa",
+          "verification_requirements": [
+            "ASSURANCE_PROOF_SCOPE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/assurance/verification_specs.py",
+            "src/guardian/assurance/receipt_validation.py",
+            "src/guardian/assurance/qualification.py",
+            "src/guardian/assurance/adversarial_review.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G06-09",
+          "title": "Auditoría granular",
+          "implementation": "AuditRecord por obligación, documento, finding y counterexample",
+          "acceptance": "Demostrar en el candidato exacto que auditrecord por obligación, documento, finding y counterexample; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+          "falsification": "Una frase general cierra decenas de requisitos",
+          "verification_requirements": [
+            "ASSURANCE_PROOF_SCOPE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/assurance/verification_specs.py",
+            "src/guardian/assurance/receipt_validation.py",
+            "src/guardian/assurance/qualification.py",
+            "src/guardian/assurance/adversarial_review.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G06-10",
+          "title": "Independencia",
+          "implementation": "Políticas reales entre author/reviewer/runner y monoagente",
+          "acceptance": "Demostrar en el candidato exacto que políticas reales entre author/reviewer/runner y monoagente; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+          "falsification": "El mismo agente se acredita independiente",
+          "verification_requirements": [
+            "ASSURANCE_PROOF_SCOPE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/assurance/verification_specs.py",
+            "src/guardian/assurance/receipt_validation.py",
+            "src/guardian/assurance/qualification.py",
+            "src/guardian/assurance/adversarial_review.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G06-11",
+          "title": "Estados ortogonales",
+          "implementation": "Desarrollo auditoría material integración qualification por separado",
+          "acceptance": "Demostrar en el candidato exacto que desarrollo auditoría material integración qualification por separado; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+          "falsification": "DEVELOPED promueve QUALIFIED",
+          "verification_requirements": [
+            "ASSURANCE_PROOF_SCOPE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/assurance/verification_specs.py",
+            "src/guardian/assurance/receipt_validation.py",
+            "src/guardian/assurance/qualification.py",
+            "src/guardian/assurance/adversarial_review.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G06-12",
+          "title": "Suite hostile certificates",
+          "implementation": "Rechazar receipts falsos, scopes erróneos, tests circulares y missing refs",
+          "acceptance": "Demostrar en el candidato exacto que rechazar receipts falsos, scopes erróneos, tests circulares y missing refs; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-06.",
+          "falsification": "Certificado manipulado recibe PASS",
+          "verification_requirements": [
+            "ASSURANCE_PROOF_SCOPE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/assurance/verification_specs.py",
+            "src/guardian/assurance/receipt_validation.py",
+            "src/guardian/assurance/qualification.py",
+            "src/guardian/assurance/adversarial_review.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        }
+      ],
+      "development_complete": "Todas las obligaciones aplicables originales implementadas en fuente, junto con tests/adversarios/verificadores escritos, sin implementaciones pendientes ni cambios normativos no autorizados; la ejecución material es estado separado.",
+      "campaign_closed": "Además del desarrollo completo: suites ejecutadas sobre candidato exacto, auditoría adversaria conforme a política, integración entre componentes, evidencia auténtica, recursos aplicables y recibo de cierre acotado.",
+      "independent_adversarial_review_required": true,
+      "qualification_claim": false
+    },
+    {
+      "id": "G-07",
+      "title": "Adaptadores de proyectos, código y herramientas",
+      "goal": "Admitir software heterogéneo sin acoplar el núcleo a los lenguajes ni importar autoridades ajenas.",
+      "depends_on": [
+        "G-02"
+      ],
+      "excluded_scope": "No certificar AST/feature exhaustivos con análisis parciales.",
+      "owner": "Interoperability",
+      "proposed_modules": [
+        "src/guardian/adapters/git",
+        "src/guardian/adapters/source_code",
+        "src/guardian/ports/source_reader.py",
+        "src/guardian/knowledge/inventory.py"
+      ],
+      "verification_profile": "ADAPTER_CONFORMANCE",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "obligations": [
+        {
+          "id": "G07-01",
+          "title": "Git immutable refs",
+          "implementation": "Leer árboles, blobs, commits y diffs por commit exacto con source policy",
+          "acceptance": "Demostrar en el candidato exacto que leer árboles, blobs, commits y diffs por commit exacto con source policy; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+          "falsification": "Branch mutable tratado como source cut fijo",
+          "verification_requirements": [
+            "ADAPTER_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/adapters/git",
+            "src/guardian/adapters/source_code",
+            "src/guardian/ports/source_reader.py",
+            "src/guardian/knowledge/inventory.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G07-02",
+          "title": "Importer existente",
+          "implementation": "Importar programas/registros históricos sin duplicar ID ni autoridad",
+          "acceptance": "Demostrar en el candidato exacto que importar programas/registros históricos sin duplicar id ni autoridad; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+          "falsification": "Import crea segunda fuente editable",
+          "verification_requirements": [
+            "ADAPTER_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/adapters/git",
+            "src/guardian/adapters/source_code",
+            "src/guardian/ports/source_reader.py",
+            "src/guardian/knowledge/inventory.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G07-03",
+          "title": "Rust Cargo",
+          "implementation": "Analizador Rust manifest AST features y generated con coverage report",
+          "acceptance": "Demostrar en el candidato exacto que analizador rust manifest ast features y generated con coverage report; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+          "falsification": "Feature o macro omitido sin HOLD",
+          "verification_requirements": [
+            "ADAPTER_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/adapters/git",
+            "src/guardian/adapters/source_code",
+            "src/guardian/ports/source_reader.py",
+            "src/guardian/knowledge/inventory.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G07-04",
+          "title": "C++ toolchain",
+          "implementation": "Analizador C++ compile commands, Clang AST macros includes ABI",
+          "acceptance": "Demostrar en el candidato exacto que analizador c++ compile commands, clang ast macros includes abi; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+          "falsification": "Macro/ABI ausente declarado completo",
+          "verification_requirements": [
+            "ADAPTER_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/adapters/git",
+            "src/guardian/adapters/source_code",
+            "src/guardian/ports/source_reader.py",
+            "src/guardian/knowledge/inventory.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G07-05",
+          "title": "Python AST",
+          "implementation": "Analizar Python imports exports entrypoints y dinámico con límites",
+          "acceptance": "Demostrar en el candidato exacto que analizar python imports exports entrypoints y dinámico con límites; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+          "falsification": "Import dinámico desconocido se asume comprendido",
+          "verification_requirements": [
+            "ADAPTER_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/adapters/git",
+            "src/guardian/adapters/source_code",
+            "src/guardian/ports/source_reader.py",
+            "src/guardian/knowledge/inventory.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G07-06",
+          "title": "Lean formal",
+          "implementation": "Analizador declarations/imports/axioms/proof reports reales con estados distintos",
+          "acceptance": "Demostrar en el candidato exacto que analizador declarations/imports/axioms/proof reports reales con estados distintos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+          "falsification": "Nombre de teorema prueba compilación",
+          "verification_requirements": [
+            "ADAPTER_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/adapters/git",
+            "src/guardian/adapters/source_code",
+            "src/guardian/ports/source_reader.py",
+            "src/guardian/knowledge/inventory.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G07-07",
+          "title": "Runner adapter",
+          "implementation": "Ejecutores de test/proof/resource con receipt fiable, errores tipados",
+          "acceptance": "Demostrar en el candidato exacto que ejecutores de test/proof/resource con receipt fiable, errores tipados; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+          "falsification": "Timeout aparece como PASS",
+          "verification_requirements": [
+            "ADAPTER_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/adapters/git",
+            "src/guardian/adapters/source_code",
+            "src/guardian/ports/source_reader.py",
+            "src/guardian/knowledge/inventory.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G07-08",
+          "title": "Cross repo policy",
+          "implementation": "Importaciones normativas con ApprovedSourceImport y provenance",
+          "acceptance": "Demostrar en el candidato exacto que importaciones normativas con approvedsourceimport y provenance; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+          "falsification": "Referencias de proyectos diferentes se fusionan por nombre",
+          "verification_requirements": [
+            "ADAPTER_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/adapters/git",
+            "src/guardian/adapters/source_code",
+            "src/guardian/ports/source_reader.py",
+            "src/guardian/knowledge/inventory.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G07-09",
+          "title": "Multi-repository",
+          "implementation": "ProjectSourceUniverse puede contener cuts de varios repos con identidad separada",
+          "acceptance": "Demostrar en el candidato exacto que projectsourceuniverse puede contener cuts de varios repos con identidad separada; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+          "falsification": "Se mezclan HEADs y fuentes",
+          "verification_requirements": [
+            "ADAPTER_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/adapters/git",
+            "src/guardian/adapters/source_code",
+            "src/guardian/ports/source_reader.py",
+            "src/guardian/knowledge/inventory.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G07-10",
+          "title": "Import incremental",
+          "implementation": "Derivar deltas y conservar status/IDs históricos",
+          "acceptance": "Demostrar en el candidato exacto que derivar deltas y conservar status/ids históricos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+          "falsification": "Nuevo import renombra silenciosamente unidades",
+          "verification_requirements": [
+            "ADAPTER_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/adapters/git",
+            "src/guardian/adapters/source_code",
+            "src/guardian/ports/source_reader.py",
+            "src/guardian/knowledge/inventory.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G07-11",
+          "title": "Unsupported constructs",
+          "implementation": "Informar macros, reflection, generated sin cobertura y declarar límites",
+          "acceptance": "Demostrar en el candidato exacto que informar macros, reflection, generated sin cobertura y declarar límites; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+          "falsification": "Inventario parcial afirma complete",
+          "verification_requirements": [
+            "ADAPTER_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/adapters/git",
+            "src/guardian/adapters/source_code",
+            "src/guardian/ports/source_reader.py",
+            "src/guardian/knowledge/inventory.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G07-12",
+          "title": "Conformance tests",
+          "implementation": "Suite común source adapter para version, id, ambiguity, missing data y isolation",
+          "acceptance": "Demostrar en el candidato exacto que suite común source adapter para version, id, ambiguity, missing data y isolation; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-07.",
+          "falsification": "Un adaptador cambia significado de PASS",
+          "verification_requirements": [
+            "ADAPTER_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/adapters/git",
+            "src/guardian/adapters/source_code",
+            "src/guardian/ports/source_reader.py",
+            "src/guardian/knowledge/inventory.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        }
+      ],
+      "development_complete": "Todas las obligaciones aplicables originales implementadas en fuente, junto con tests/adversarios/verificadores escritos, sin implementaciones pendientes ni cambios normativos no autorizados; la ejecución material es estado separado.",
+      "campaign_closed": "Además del desarrollo completo: suites ejecutadas sobre candidato exacto, auditoría adversaria conforme a política, integración entre componentes, evidencia auténtica, recursos aplicables y recibo de cierre acotado.",
+      "independent_adversarial_review_required": true,
+      "qualification_claim": false
+    },
+    {
+      "id": "G-08",
+      "title": "Interacción humana, monoagente y multiagente",
+      "goal": "Interfaces de agente independientes, con perfil A0–A4 opcional y gobierno externo.",
+      "depends_on": [
+        "G-04",
+        "G-07",
+        "G-09",
+        "G-11"
+      ],
+      "excluded_scope": "No condicionar uso a cinco agentes ni conceder autoridad al SDK.",
+      "owner": "Agent Integration",
+      "proposed_modules": [
+        "src/guardian/interfaces/mcp",
+        "src/guardian/adapters/agents",
+        "src/guardian/work/handoff.py"
+      ],
+      "verification_profile": "AGENT_AND_HUMAN_CONFORMANCE",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "obligations": [
+        {
+          "id": "G08-01",
+          "title": "Tool contracts",
+          "implementation": "Protocolo de herramientas con schemas independientes de modelo SDK",
+          "acceptance": "Demostrar en el candidato exacto que protocolo de herramientas con schemas independientes de modelo sdk; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+          "falsification": "Motor requiere API exclusiva de modelo",
+          "verification_requirements": [
+            "AGENT_AND_HUMAN_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/mcp",
+            "src/guardian/adapters/agents",
+            "src/guardian/work/handoff.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G08-02",
+          "title": "Orient inicial",
+          "implementation": "API orient entrega revisión y reglas antes del desarrollo",
+          "acceptance": "Demostrar en el candidato exacto que api orient entrega revisión y reglas antes del desarrollo; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+          "falsification": "Agente arranca sin normativa accesible",
+          "verification_requirements": [
+            "AGENT_AND_HUMAN_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/mcp",
+            "src/guardian/adapters/agents",
+            "src/guardian/work/handoff.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G08-03",
+          "title": "Retrieval progresiva",
+          "implementation": "Recuperación fraccionada conserva index y exact closure",
+          "acceptance": "Demostrar en el candidato exacto que recuperación fraccionada conserva index y exact closure; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+          "falsification": "Prompt corto borra requisito",
+          "verification_requirements": [
+            "AGENT_AND_HUMAN_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/mcp",
+            "src/guardian/adapters/agents",
+            "src/guardian/work/handoff.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G08-04",
+          "title": "Immutable package",
+          "implementation": "Encargos identificados y leídos sin posibilidad de alterar contrato",
+          "acceptance": "Demostrar en el candidato exacto que encargos identificados y leídos sin posibilidad de alterar contrato; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+          "falsification": "Modelo escribe obligaciones diferentes",
+          "verification_requirements": [
+            "AGENT_AND_HUMAN_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/mcp",
+            "src/guardian/adapters/agents",
+            "src/guardian/work/handoff.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G08-05",
+          "title": "Consulta durante trabajo",
+          "implementation": "Exponer graph impact sources consumers architecture mediante tool calls",
+          "acceptance": "Demostrar en el candidato exacto que exponer graph impact sources consumers architecture mediante tool calls; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+          "falsification": "Agente inventa owner no corroborado",
+          "verification_requirements": [
+            "AGENT_AND_HUMAN_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/mcp",
+            "src/guardian/adapters/agents",
+            "src/guardian/work/handoff.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G08-06",
+          "title": "Delivery manifest",
+          "implementation": "Entrega estructurada con alcance, artifacts, test authored y claims no auto-validantes",
+          "acceptance": "Demostrar en el candidato exacto que entrega estructurada con alcance, artifacts, test authored y claims no auto-validantes; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+          "falsification": "Texto \"PASS\" certifica entrega",
+          "verification_requirements": [
+            "AGENT_AND_HUMAN_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/mcp",
+            "src/guardian/adapters/agents",
+            "src/guardian/work/handoff.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G08-07",
+          "title": "Monoagente",
+          "implementation": "Flujo completo con una sesión humana/agent + posibles auditorías externas",
+          "acceptance": "Demostrar en el candidato exacto que flujo completo con una sesión humana/agent + posibles auditorías externas; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+          "falsification": "Se necesitan 5 agentes para validar",
+          "verification_requirements": [
+            "AGENT_AND_HUMAN_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/mcp",
+            "src/guardian/adapters/agents",
+            "src/guardian/work/handoff.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G08-08",
+          "title": "Multiagente opcional",
+          "implementation": "Perfil A0 organizador A1 research A2 build A3 adversarial A4 integrator",
+          "acceptance": "Demostrar en el candidato exacto que perfil a0 organizador a1 research a2 build a3 adversarial a4 integrator; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+          "falsification": "Cada subagente mantiene norma propia",
+          "verification_requirements": [
+            "AGENT_AND_HUMAN_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/mcp",
+            "src/guardian/adapters/agents",
+            "src/guardian/work/handoff.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G08-09",
+          "title": "Handoffs",
+          "implementation": "Transporte de hashes de paquete, snapshot, findings y artifacts",
+          "acceptance": "Demostrar en el candidato exacto que transporte de hashes de paquete, snapshot, findings y artifacts; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+          "falsification": "Se pierde obligación entre delegaciones",
+          "verification_requirements": [
+            "AGENT_AND_HUMAN_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/mcp",
+            "src/guardian/adapters/agents",
+            "src/guardian/work/handoff.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G08-10",
+          "title": "Independencia efectiva",
+          "implementation": "Autor/auditor/runner identificados y policy de review",
+          "acceptance": "Demostrar en el candidato exacto que autor/auditor/runner identificados y policy de review; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+          "falsification": "A2 se autocertifica como A3 independiente",
+          "verification_requirements": [
+            "AGENT_AND_HUMAN_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/mcp",
+            "src/guardian/adapters/agents",
+            "src/guardian/work/handoff.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G08-11",
+          "title": "Model switching",
+          "implementation": "Cambiar proveedor/SDK conserva work package y estado normativo",
+          "acceptance": "Demostrar en el candidato exacto que cambiar proveedor/sdk conserva work package y estado normativo; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-08.",
+          "falsification": "Cambio de LLM cambia significado de contrato",
+          "verification_requirements": [
+            "AGENT_AND_HUMAN_CONFORMANCE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/mcp",
+            "src/guardian/adapters/agents",
+            "src/guardian/work/handoff.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        }
+      ],
+      "development_complete": "Todas las obligaciones aplicables originales implementadas en fuente, junto con tests/adversarios/verificadores escritos, sin implementaciones pendientes ni cambios normativos no autorizados; la ejecución material es estado separado.",
+      "campaign_closed": "Además del desarrollo completo: suites ejecutadas sobre candidato exacto, auditoría adversaria conforme a política, integración entre componentes, evidencia auténtica, recursos aplicables y recibo de cierre acotado.",
+      "independent_adversarial_review_required": true,
+      "qualification_claim": false
+    },
+    {
+      "id": "G-09",
+      "title": "Gatekeeper, permisos y seguridad",
+      "goal": "Impedir alteración de normas/verificadores por el productor y garantizar publicación controlada.",
+      "depends_on": [
+        "G-01",
+        "G-06"
+      ],
+      "excluded_scope": "No confiar en prompt/hook local como frontera real de seguridad.",
+      "owner": "Trust and Governance",
+      "proposed_modules": [
+        "src/guardian/governance/permissions.py",
+        "src/guardian/governance/admission.py",
+        "src/guardian/governance/protected_policy.py",
+        "src/guardian/governance/publication.py"
+      ],
+      "verification_profile": "TRUSTED_ADMISSION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "obligations": [
+        {
+          "id": "G09-01",
+          "title": "Permission capabilities",
+          "implementation": "Autorización por principal autenticado, proyecto, ámbito, expiración y acción",
+          "acceptance": "Demostrar en el candidato exacto que autorización por principal autenticado, proyecto, ámbito, expiración y acción; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+          "falsification": "Agente reclama permisos en JSON",
+          "verification_requirements": [
+            "TRUSTED_ADMISSION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/governance/permissions.py",
+            "src/guardian/governance/admission.py",
+            "src/guardian/governance/protected_policy.py",
+            "src/guardian/governance/publication.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G09-02",
+          "title": "Protected policy",
+          "implementation": "Evaluador/reglas viven fuera de candidato editable con trust boundary real",
+          "acceptance": "Demostrar en el candidato exacto que evaluador/reglas viven fuera de candidato editable con trust boundary real; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+          "falsification": "A2 cambia policy y obtiene PASS",
+          "verification_requirements": [
+            "TRUSTED_ADMISSION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/governance/permissions.py",
+            "src/guardian/governance/admission.py",
+            "src/guardian/governance/protected_policy.py",
+            "src/guardian/governance/publication.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G09-03",
+          "title": "Old-rule amendments",
+          "implementation": "Modificación normativa usa constitución previa y aprobaciones explícitas",
+          "acceptance": "Demostrar en el candidato exacto que modificación normativa usa constitución previa y aprobaciones explícitas; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+          "falsification": "Regla nueva se aprueba a sí misma",
+          "verification_requirements": [
+            "TRUSTED_ADMISSION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/governance/permissions.py",
+            "src/guardian/governance/admission.py",
+            "src/guardian/governance/protected_policy.py",
+            "src/guardian/governance/publication.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G09-04",
+          "title": "Path and scope",
+          "implementation": "Validar rutas modificadas, áreas prohibidas, cambios de authority",
+          "acceptance": "Demostrar en el candidato exacto que validar rutas modificadas, áreas prohibidas, cambios de authority; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+          "falsification": "Commit incluye archivo no autorizado",
+          "verification_requirements": [
+            "TRUSTED_ADMISSION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/governance/permissions.py",
+            "src/guardian/governance/admission.py",
+            "src/guardian/governance/protected_policy.py",
+            "src/guardian/governance/publication.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G09-05",
+          "title": "Candidate exactness",
+          "implementation": "Vincular package, audit, tests y commit que se publica",
+          "acceptance": "Demostrar en el candidato exacto que vincular package, audit, tests y commit que se publica; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+          "falsification": "Se publica código diferente del auditado",
+          "verification_requirements": [
+            "TRUSTED_ADMISSION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/governance/permissions.py",
+            "src/guardian/governance/admission.py",
+            "src/guardian/governance/protected_policy.py",
+            "src/guardian/governance/publication.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G09-06",
+          "title": "Runner trust",
+          "implementation": "Verificación de firma/identidad y materiales de ejecución según policy",
+          "acceptance": "Demostrar en el candidato exacto que verificación de firma/identidad y materiales de ejecución según policy; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+          "falsification": "Fake receipt JSON obtiene PASS",
+          "verification_requirements": [
+            "TRUSTED_ADMISSION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/governance/permissions.py",
+            "src/guardian/governance/admission.py",
+            "src/guardian/governance/protected_policy.py",
+            "src/guardian/governance/publication.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G09-07",
+          "title": "Verifier registry",
+          "implementation": "Version/scopes de plugin con admission policy y isolation",
+          "acceptance": "Demostrar en el candidato exacto que version/scopes de plugin con admission policy y isolation; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+          "falsification": "Plugin always PASS obtiene poder universal",
+          "verification_requirements": [
+            "TRUSTED_ADMISSION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/governance/permissions.py",
+            "src/guardian/governance/admission.py",
+            "src/guardian/governance/protected_policy.py",
+            "src/guardian/governance/publication.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G09-08",
+          "title": "Isolation budgets",
+          "implementation": "Run processes no confiables con red/fs/mem/time definidos",
+          "acceptance": "Demostrar en el candidato exacto que run processes no confiables con red/fs/mem/time definidos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+          "falsification": "Malicioso altera policy host",
+          "verification_requirements": [
+            "TRUSTED_ADMISSION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/governance/permissions.py",
+            "src/guardian/governance/admission.py",
+            "src/guardian/governance/protected_policy.py",
+            "src/guardian/governance/publication.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G09-09",
+          "title": "Git CAS",
+          "implementation": "Publicación atómica a ref esperada sin force bypass",
+          "acceptance": "Demostrar en el candidato exacto que publicación atómica a ref esperada sin force bypass; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+          "falsification": "Candidatos paralelos sobrescriben",
+          "verification_requirements": [
+            "TRUSTED_ADMISSION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/governance/permissions.py",
+            "src/guardian/governance/admission.py",
+            "src/guardian/governance/protected_policy.py",
+            "src/guardian/governance/publication.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G09-10",
+          "title": "Constitution changes",
+          "implementation": "Enmiendas requieren autoridad, impacy y tests de la policy vieja",
+          "acceptance": "Demostrar en el candidato exacto que enmiendas requieren autoridad, impacy y tests de la policy vieja; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+          "falsification": "Obligación ratificada se debilita",
+          "verification_requirements": [
+            "TRUSTED_ADMISSION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/governance/permissions.py",
+            "src/guardian/governance/admission.py",
+            "src/guardian/governance/protected_policy.py",
+            "src/guardian/governance/publication.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G09-11",
+          "title": "Crash recovery",
+          "implementation": "Interrupciones entre candidate/ref/sqlite no producen dual authority",
+          "acceptance": "Demostrar en el candidato exacto que interrupciones entre candidate/ref/sqlite no producen dual authority; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+          "falsification": "Crash deja estado parcialmente admitido",
+          "verification_requirements": [
+            "TRUSTED_ADMISSION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/governance/permissions.py",
+            "src/guardian/governance/admission.py",
+            "src/guardian/governance/protected_policy.py",
+            "src/guardian/governance/publication.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G09-12",
+          "title": "Adversarial gatekeeper",
+          "implementation": "Tests de permisos, self-certification, receipt forgery, tampering y branch race",
+          "acceptance": "Demostrar en el candidato exacto que tests de permisos, self-certification, receipt forgery, tampering y branch race; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-09.",
+          "falsification": "Mutación del Gatekeeper no detectada pasa",
+          "verification_requirements": [
+            "TRUSTED_ADMISSION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/governance/permissions.py",
+            "src/guardian/governance/admission.py",
+            "src/guardian/governance/protected_policy.py",
+            "src/guardian/governance/publication.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        }
+      ],
+      "development_complete": "Todas las obligaciones aplicables originales implementadas en fuente, junto con tests/adversarios/verificadores escritos, sin implementaciones pendientes ni cambios normativos no autorizados; la ejecución material es estado separado.",
+      "campaign_closed": "Además del desarrollo completo: suites ejecutadas sobre candidato exacto, auditoría adversaria conforme a política, integración entre componentes, evidencia auténtica, recursos aplicables y recibo de cierre acotado.",
+      "independent_adversarial_review_required": true,
+      "qualification_claim": false
+    },
+    {
+      "id": "G-10",
+      "title": "Cobertura integral, preservación y migraciones",
+      "goal": "Acreditar especificación para SourceUniverse, soporte contextual y paridad histórica.",
+      "depends_on": [
+        "G-02",
+        "G-05",
+        "G-06",
+        "G-07"
+      ],
+      "excluded_scope": "Nunca llamar científica a cobertura estructural.",
+      "owner": "Coverage and Migration",
+      "proposed_modules": [
+        "src/guardian/knowledge/source_universe.py",
+        "src/guardian/knowledge/coverage.py",
+        "src/guardian/assurance/migration_assurance.py"
+      ],
+      "verification_profile": "SPECIFICATION_AND_MIGRATION_COVERAGE",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "obligations": [
+        {
+          "id": "G10-01",
+          "title": "Source coverage",
+          "implementation": "Certificar universo autenticado con inclusiones/exclusiones y cobertura de inventario",
+          "acceptance": "Demostrar en el candidato exacto que certificar universo autenticado con inclusiones/exclusiones y cobertura de inventario; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+          "falsification": "Se afirma exhaustividad con fuentes sin analizar",
+          "verification_requirements": [
+            "SPECIFICATION_AND_MIGRATION_COVERAGE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/source_universe.py",
+            "src/guardian/knowledge/coverage.py",
+            "src/guardian/assurance/migration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G10-02",
+          "title": "Requirements crosswalk",
+          "implementation": "Mapear cada requisito fuente a obligación/decision/hito sin perder original",
+          "acceptance": "Demostrar en el candidato exacto que mapear cada requisito fuente a obligación/decision/hito sin perder original; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+          "falsification": "Requisito no aparece y nadie lo advierte",
+          "verification_requirements": [
+            "SPECIFICATION_AND_MIGRATION_COVERAGE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/source_universe.py",
+            "src/guardian/knowledge/coverage.py",
+            "src/guardian/assurance/migration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G10-03",
+          "title": "Implementation coverage",
+          "implementation": "Correspondencia obligación-implementación en perfil y versión",
+          "acceptance": "Demostrar en el candidato exacto que correspondencia obligación-implementación en perfil y versión; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+          "falsification": "Obligación sin code recibe complete",
+          "verification_requirements": [
+            "SPECIFICATION_AND_MIGRATION_COVERAGE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/source_universe.py",
+            "src/guardian/knowledge/coverage.py",
+            "src/guardian/assurance/migration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G10-04",
+          "title": "Verification coverage",
+          "implementation": "Mapa property/VerificationSpec/actual test/run/evidence",
+          "acceptance": "Demostrar en el candidato exacto que mapa property/verificationspec/actual test/run/evidence; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+          "falsification": "Test genérico se cuenta para todo",
+          "verification_requirements": [
+            "SPECIFICATION_AND_MIGRATION_COVERAGE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/source_universe.py",
+            "src/guardian/knowledge/coverage.py",
+            "src/guardian/assurance/migration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G10-05",
+          "title": "Denominators",
+          "implementation": "Coverage separado por source revision scope milestone y unknowns",
+          "acceptance": "Demostrar en el candidato exacto que coverage separado por source revision scope milestone y unknowns; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+          "falsification": "CURRENT se traslada a FUTURE para obtener 100%",
+          "verification_requirements": [
+            "SPECIFICATION_AND_MIGRATION_COVERAGE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/source_universe.py",
+            "src/guardian/knowledge/coverage.py",
+            "src/guardian/assurance/migration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G10-06",
+          "title": "Migration contract",
+          "implementation": "Source/target, domain, relation, effects, consumers, resources",
+          "acceptance": "Demostrar en el candidato exacto que source/target, domain, relation, effects, consumers, resources; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+          "falsification": "Subset sustituye dominio histórico",
+          "verification_requirements": [
+            "SPECIFICATION_AND_MIGRATION_COVERAGE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/source_universe.py",
+            "src/guardian/knowledge/coverage.py",
+            "src/guardian/assurance/migration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G10-07",
+          "title": "Parity real",
+          "implementation": "Ejecutar original destino y oráculo con fixtures equiparables",
+          "acceptance": "Demostrar en el candidato exacto que ejecutar original destino y oráculo con fixtures equiparables; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+          "falsification": "Dos mocks nuevos sustituyen original",
+          "verification_requirements": [
+            "SPECIFICATION_AND_MIGRATION_COVERAGE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/source_universe.py",
+            "src/guardian/knowledge/coverage.py",
+            "src/guardian/assurance/migration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G10-08",
+          "title": "Evidence reuse",
+          "implementation": "Protected dependency cone con decision REUSE/RECOMPUTE/HOLD",
+          "acceptance": "Demostrar en el candidato exacto que protected dependency cone con decision reuse/recompute/hold; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+          "falsification": "SHA global irrelevante fuerza todo o cambio importante se ignora",
+          "verification_requirements": [
+            "SPECIFICATION_AND_MIGRATION_COVERAGE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/source_universe.py",
+            "src/guardian/knowledge/coverage.py",
+            "src/guardian/assurance/migration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G10-09",
+          "title": "Conservative generalization",
+          "implementation": "Prueba conservar garantía en D_old y nuevas obligaciones D_new",
+          "acceptance": "Demostrar en el candidato exacto que prueba conservar garantía en d_old y nuevas obligaciones d_new; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+          "falsification": "Generalización pierde caso original",
+          "verification_requirements": [
+            "SPECIFICATION_AND_MIGRATION_COVERAGE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/source_universe.py",
+            "src/guardian/knowledge/coverage.py",
+            "src/guardian/assurance/migration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G10-10",
+          "title": "Consumers",
+          "implementation": "API/ABI/consumer parity antes de retirar legacy provider",
+          "acceptance": "Demostrar en el candidato exacto que api/abi/consumer parity antes de retirar legacy provider; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+          "falsification": "Se retira dueño original con consumidores vivos",
+          "verification_requirements": [
+            "SPECIFICATION_AND_MIGRATION_COVERAGE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/source_universe.py",
+            "src/guardian/knowledge/coverage.py",
+            "src/guardian/assurance/migration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G10-11",
+          "title": "SupportGap closure",
+          "implementation": "Detectar deficits de implicaciones, material y audit antes de cerrar",
+          "acceptance": "Demostrar en el candidato exacto que detectar deficits de implicaciones, material y audit antes de cerrar; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+          "falsification": "Un gap se oculta reduciendo definición",
+          "verification_requirements": [
+            "SPECIFICATION_AND_MIGRATION_COVERAGE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/source_universe.py",
+            "src/guardian/knowledge/coverage.py",
+            "src/guardian/assurance/migration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G10-12",
+          "title": "Scoped certification",
+          "implementation": "SOURCE, SPEC, IMPLEMENTED, INTEGRATION, SCIENTIFIC, MIGRATION no se implican",
+          "acceptance": "Demostrar en el candidato exacto que source, spec, implemented, integration, scientific, migration no se implican; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-10.",
+          "falsification": "SOURCE_COVERAGE produce SCIENTIFIC_PASS",
+          "verification_requirements": [
+            "SPECIFICATION_AND_MIGRATION_COVERAGE",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/knowledge/source_universe.py",
+            "src/guardian/knowledge/coverage.py",
+            "src/guardian/assurance/migration_assurance.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        }
+      ],
+      "development_complete": "Todas las obligaciones aplicables originales implementadas en fuente, junto con tests/adversarios/verificadores escritos, sin implementaciones pendientes ni cambios normativos no autorizados; la ejecución material es estado separado.",
+      "campaign_closed": "Además del desarrollo completo: suites ejecutadas sobre candidato exacto, auditoría adversaria conforme a política, integración entre componentes, evidencia auténtica, recursos aplicables y recibo de cierre acotado.",
+      "independent_adversarial_review_required": true,
+      "qualification_claim": false
+    },
+    {
+      "id": "G-11",
+      "title": "CLI, API, MCP e interfaz gráfica",
+      "goal": "Exponer servicios del núcleo de manera uniforme y navegable.",
+      "depends_on": [
+        "G-03",
+        "G-04",
+        "G-09"
+      ],
+      "excluded_scope": "Ninguna interfaz contiene segunda lógica de autoridad.",
+      "owner": "Presentation and Public API",
+      "proposed_modules": [
+        "src/guardian/interfaces/cli",
+        "src/guardian/interfaces/api",
+        "src/guardian/interfaces/mcp",
+        "src/guardian/interfaces/reporting"
+      ],
+      "verification_profile": "INTERFACE_PARITY",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "obligations": [
+        {
+          "id": "G11-01",
+          "title": "CLI integral",
+          "implementation": "Comandos para project, contract, obligation, campaign, graph, package, evidence, audit, change",
+          "acceptance": "Demostrar en el candidato exacto que comandos para project, contract, obligation, campaign, graph, package, evidence, audit, change; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+          "falsification": "Operación crítica solo accesible por script privado",
+          "verification_requirements": [
+            "INTERFACE_PARITY",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/cli",
+            "src/guardian/interfaces/api",
+            "src/guardian/interfaces/mcp",
+            "src/guardian/interfaces/reporting"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G11-02",
+          "title": "API versionada",
+          "implementation": "Servicios tipados con validation de scopes y permissions",
+          "acceptance": "Demostrar en el candidato exacto que servicios tipados con validation de scopes y permissions; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+          "falsification": "Cliente escribe directamente SQLite normativo",
+          "verification_requirements": [
+            "INTERFACE_PARITY",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/cli",
+            "src/guardian/interfaces/api",
+            "src/guardian/interfaces/mcp",
+            "src/guardian/interfaces/reporting"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G11-03",
+          "title": "Agent tools",
+          "implementation": "MCP/API para orientación consultas entregas sin copiar source total a prompts",
+          "acceptance": "Demostrar en el candidato exacto que mcp/api para orientación consultas entregas sin copiar source total a prompts; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+          "falsification": "Skill con hardcoded contratos de cada proyecto",
+          "verification_requirements": [
+            "INTERFACE_PARITY",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/cli",
+            "src/guardian/interfaces/api",
+            "src/guardian/interfaces/mcp",
+            "src/guardian/interfaces/reporting"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G11-04",
+          "title": "Contract explorer",
+          "implementation": "UI de objetivos/capacidades/propiedades/obligaciones many-to-many",
+          "acceptance": "Demostrar en el candidato exacto que ui de objetivos/capacidades/propiedades/obligaciones many-to-many; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+          "falsification": "Vista pierde conexiones múltiples",
+          "verification_requirements": [
+            "INTERFACE_PARITY",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/cli",
+            "src/guardian/interfaces/api",
+            "src/guardian/interfaces/mcp",
+            "src/guardian/interfaces/reporting"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G11-05",
+          "title": "Architecture explorer",
+          "implementation": "Vista specified/observed y límites/conflictos",
+          "acceptance": "Demostrar en el candidato exacto que vista specified/observed y límites/conflictos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+          "falsification": "Arquitectura observada se muestra como aprobada",
+          "verification_requirements": [
+            "INTERFACE_PARITY",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/cli",
+            "src/guardian/interfaces/api",
+            "src/guardian/interfaces/mcp",
+            "src/guardian/interfaces/reporting"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G11-06",
+          "title": "Support impact explorer",
+          "implementation": "Conos de soporte/impacto, razones y limitaciones",
+          "acceptance": "Demostrar en el candidato exacto que conos de soporte/impacto, razones y limitaciones; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+          "falsification": "Link informativo se dibuja como proof edge",
+          "verification_requirements": [
+            "INTERFACE_PARITY",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/cli",
+            "src/guardian/interfaces/api",
+            "src/guardian/interfaces/mcp",
+            "src/guardian/interfaces/reporting"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G11-07",
+          "title": "Coverage matrix",
+          "implementation": "Denominadores per source/profile/milestone con unknowns visibles",
+          "acceptance": "Demostrar en el candidato exacto que denominadores per source/profile/milestone con unknowns visibles; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+          "falsification": "Unknown requirements se omiten",
+          "verification_requirements": [
+            "INTERFACE_PARITY",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/cli",
+            "src/guardian/interfaces/api",
+            "src/guardian/interfaces/mcp",
+            "src/guardian/interfaces/reporting"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G11-08",
+          "title": "History and diff",
+          "implementation": "Versiones, changeset, revocations e invalidaciones navegables",
+          "acceptance": "Demostrar en el candidato exacto que versiones, changeset, revocations e invalidaciones navegables; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+          "falsification": "Revocación borra certificado histórico",
+          "verification_requirements": [
+            "INTERFACE_PARITY",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/cli",
+            "src/guardian/interfaces/api",
+            "src/guardian/interfaces/mcp",
+            "src/guardian/interfaces/reporting"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G11-09",
+          "title": "WorkPackage inspector",
+          "implementation": "Manifest inmutable y vista explicativa diferenciados",
+          "acceptance": "Demostrar en el candidato exacto que manifest inmutable y vista explicativa diferenciados; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+          "falsification": "Text prose sustituye normative manifest",
+          "verification_requirements": [
+            "INTERFACE_PARITY",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/cli",
+            "src/guardian/interfaces/api",
+            "src/guardian/interfaces/mcp",
+            "src/guardian/interfaces/reporting"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G11-10",
+          "title": "Approval workflow",
+          "implementation": "Interfaz solicita autorizaciones sin autoadjudicación de permisos",
+          "acceptance": "Demostrar en el candidato exacto que interfaz solicita autorizaciones sin autoadjudicación de permisos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+          "falsification": "Un click de UI ratifica sin identidad",
+          "verification_requirements": [
+            "INTERFACE_PARITY",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/cli",
+            "src/guardian/interfaces/api",
+            "src/guardian/interfaces/mcp",
+            "src/guardian/interfaces/reporting"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G11-11",
+          "title": "Export reproducible",
+          "implementation": "Informes JSON/Markdown con revisión, fuente y scope",
+          "acceptance": "Demostrar en el candidato exacto que informes json/markdown con revisión, fuente y scope; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+          "falsification": "Export pierde versión y evidencia",
+          "verification_requirements": [
+            "INTERFACE_PARITY",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/cli",
+            "src/guardian/interfaces/api",
+            "src/guardian/interfaces/mcp",
+            "src/guardian/interfaces/reporting"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G11-12",
+          "title": "Interface parity",
+          "implementation": "Las mismas llamadas de CLI/API/UI/MCP producen igual state/verdict",
+          "acceptance": "Demostrar en el candidato exacto que las mismas llamadas de cli/api/ui/mcp producen igual state/verdict; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-11.",
+          "falsification": "Un cliente calcula PASS alternativo",
+          "verification_requirements": [
+            "INTERFACE_PARITY",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/interfaces/cli",
+            "src/guardian/interfaces/api",
+            "src/guardian/interfaces/mcp",
+            "src/guardian/interfaces/reporting"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        }
+      ],
+      "development_complete": "Todas las obligaciones aplicables originales implementadas en fuente, junto con tests/adversarios/verificadores escritos, sin implementaciones pendientes ni cambios normativos no autorizados; la ejecución material es estado separado.",
+      "campaign_closed": "Además del desarrollo completo: suites ejecutadas sobre candidato exacto, auditoría adversaria conforme a política, integración entre componentes, evidencia auténtica, recursos aplicables y recibo de cierre acotado.",
+      "independent_adversarial_review_required": true,
+      "qualification_claim": false
+    },
+    {
+      "id": "G-12",
+      "title": "Fiabilidad, escala y operación",
+      "goal": "Persistencia reconstruible, recovery, concurrencia, rendimiento y compatibilidad de schema.",
+      "depends_on": [
+        "G-01",
+        "G-02",
+        "G-09"
+      ],
+      "excluded_scope": "No ejecutar microservicios u ORM solo por complejidad aparente.",
+      "owner": "Operations",
+      "proposed_modules": [
+        "src/guardian/persistence/git_repository.py",
+        "src/guardian/persistence/sqlite_projection.py",
+        "src/guardian/persistence/recovery.py",
+        "src/guardian/bootstrap/runtime.py"
+      ],
+      "verification_profile": "REPLAY_CONCURRENCY_RESOURCES",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "obligations": [
+        {
+          "id": "G12-01",
+          "title": "Rebuild from Git",
+          "implementation": "Proyección SQLite reconstructible desde authority vigente",
+          "acceptance": "Demostrar en el candidato exacto que proyección sqlite reconstructible desde authority vigente; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+          "falsification": "Perdida SQLite destruye norma",
+          "verification_requirements": [
+            "REPLAY_CONCURRENCY_RESOURCES",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/persistence/git_repository.py",
+            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/recovery.py",
+            "src/guardian/bootstrap/runtime.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G12-02",
+          "title": "Crash-safe admission",
+          "implementation": "Detener cada fase publication y reconstruir sin partial authority",
+          "acceptance": "Demostrar en el candidato exacto que detener cada fase publication y reconstruir sin partial authority; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+          "falsification": "Crash produce revisión parcial",
+          "verification_requirements": [
+            "REPLAY_CONCURRENCY_RESOURCES",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/persistence/git_repository.py",
+            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/recovery.py",
+            "src/guardian/bootstrap/runtime.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G12-03",
+          "title": "Idempotency",
+          "implementation": "Replays/retries no duplican eventos ni obligations",
+          "acceptance": "Demostrar en el candidato exacto que replays/retries no duplican eventos ni obligations; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+          "falsification": "Reintento AddCampaign duplica",
+          "verification_requirements": [
+            "REPLAY_CONCURRENCY_RESOURCES",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/persistence/git_repository.py",
+            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/recovery.py",
+            "src/guardian/bootstrap/runtime.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G12-04",
+          "title": "Index incremental",
+          "implementation": "Consultas/impact graph escalan por subgrafo y revision",
+          "acceptance": "Demostrar en el candidato exacto que consultas/impact graph escalan por subgrafo y revision; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+          "falsification": "Cada consulta reparsea corpus completo",
+          "verification_requirements": [
+            "REPLAY_CONCURRENCY_RESOURCES",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/persistence/git_repository.py",
+            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/recovery.py",
+            "src/guardian/bootstrap/runtime.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G12-05",
+          "title": "Budgets",
+          "implementation": "Time/memory/input cardinality/config de analyzer y runner, resultados RESOURCE_LIMITED",
+          "acceptance": "Demostrar en el candidato exacto que time/memory/input cardinality/config de analyzer y runner, resultados resource_limited; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+          "falsification": "Analysis timeout afirma coverage completa",
+          "verification_requirements": [
+            "REPLAY_CONCURRENCY_RESOURCES",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/persistence/git_repository.py",
+            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/recovery.py",
+            "src/guardian/bootstrap/runtime.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G12-06",
+          "title": "Schema compatibility",
+          "implementation": "Migration readers fail closed por normative features desconocidos",
+          "acceptance": "Demostrar en el candidato exacto que migration readers fail closed por normative features desconocidos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+          "falsification": "Old reader ignora nueva regla obligatoria",
+          "verification_requirements": [
+            "REPLAY_CONCURRENCY_RESOURCES",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/persistence/git_repository.py",
+            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/recovery.py",
+            "src/guardian/bootstrap/runtime.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G12-07",
+          "title": "Logs and observability",
+          "implementation": "Trazas de decisiones de admisión/verificador/candidate sin secretos",
+          "acceptance": "Demostrar en el candidato exacto que trazas de decisiones de admisión/verificador/candidate sin secretos; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+          "falsification": "No puede explicarse por qué se admitió",
+          "verification_requirements": [
+            "REPLAY_CONCURRENCY_RESOURCES",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/persistence/git_repository.py",
+            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/recovery.py",
+            "src/guardian/bootstrap/runtime.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G12-08",
+          "title": "Concurrent writers",
+          "implementation": "Conflictos por revisión expected y read/write protected sets",
+          "acceptance": "Demostrar en el candidato exacto que conflictos por revisión expected y read/write protected sets; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+          "falsification": "Se pierde actualización simultánea",
+          "verification_requirements": [
+            "REPLAY_CONCURRENCY_RESOURCES",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/persistence/git_repository.py",
+            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/recovery.py",
+            "src/guardian/bootstrap/runtime.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G12-09",
+          "title": "Protected deployment",
+          "implementation": "Install separada de candidate editable, configuración documentada",
+          "acceptance": "Demostrar en el candidato exacto que install separada de candidate editable, configuración documentada; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+          "falsification": "Agente cambia Gatekeeper instalado",
+          "verification_requirements": [
+            "REPLAY_CONCURRENCY_RESOURCES",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/persistence/git_repository.py",
+            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/recovery.py",
+            "src/guardian/bootstrap/runtime.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G12-10",
+          "title": "Performance receipts",
+          "implementation": "Benchmarks repetibles con ambiente, corpus y recursos reales",
+          "acceptance": "Demostrar en el candidato exacto que benchmarks repetibles con ambiente, corpus y recursos reales; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-12.",
+          "falsification": "Se declara throughput sin medición",
+          "verification_requirements": [
+            "REPLAY_CONCURRENCY_RESOURCES",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "src/guardian/persistence/git_repository.py",
+            "src/guardian/persistence/sqlite_projection.py",
+            "src/guardian/persistence/recovery.py",
+            "src/guardian/bootstrap/runtime.py"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        }
+      ],
+      "development_complete": "Todas las obligaciones aplicables originales implementadas en fuente, junto con tests/adversarios/verificadores escritos, sin implementaciones pendientes ni cambios normativos no autorizados; la ejecución material es estado separado.",
+      "campaign_closed": "Además del desarrollo completo: suites ejecutadas sobre candidato exacto, auditoría adversaria conforme a política, integración entre componentes, evidencia auténtica, recursos aplicables y recibo de cierre acotado.",
+      "independent_adversarial_review_required": true,
+      "qualification_claim": false
+    },
+    {
+      "id": "G-13",
+      "title": "Pilotos científicos y cualificación integral",
+      "goal": "Demostrar funciones completas en proyectos heterogéneos con adversarios reales.",
+      "depends_on": [
+        "G-08",
+        "G-10",
+        "G-11",
+        "G-12"
+      ],
+      "excluded_scope": "No declarar plataform PASS sumando tests locales sin E2E.",
+      "owner": "End-to-End Qualification",
+      "proposed_modules": [
+        "tests/end_to_end",
+        "tests/adversarial",
+        "fixtures/synthetic_projects",
+        "fixtures/historical_migrations"
+      ],
+      "verification_profile": "GUARDIAN_PLATFORM_QUALIFICATION",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "obligations": [
+        {
+          "id": "G13-01",
+          "title": "Proyecto sintético",
+          "implementation": "Crear SourceUniverse arquitectura campañas requisitos y contratos completos en fixture",
+          "acceptance": "Demostrar en el candidato exacto que crear sourceuniverse arquitectura campañas requisitos y contratos completos en fixture; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+          "falsification": "Una obligación omitida no se detecta",
+          "verification_requirements": [
+            "GUARDIAN_PLATFORM_QUALIFICATION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "tests/end_to_end",
+            "tests/adversarial",
+            "fixtures/synthetic_projects",
+            "fixtures/historical_migrations"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G13-02",
+          "title": "Ampliar proyecto",
+          "implementation": "Extender 3→4 campañas 12→17 obligaciones sin editar núcleo",
+          "acceptance": "Demostrar en el candidato exacto que extender 3→4 campañas 12→17 obligaciones sin editar núcleo; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+          "falsification": "Extension exige parche en motor",
+          "verification_requirements": [
+            "GUARDIAN_PLATFORM_QUALIFICATION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "tests/end_to_end",
+            "tests/adversarial",
+            "fixtures/synthetic_projects",
+            "fixtures/historical_migrations"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G13-03",
+          "title": "Rust real",
+          "implementation": "Importar librería Rust y verificar arquitectura/API/consumidores contractuales",
+          "acceptance": "Demostrar en el candidato exacto que importar librería rust y verificar arquitectura/api/consumidores contractuales; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+          "falsification": "Cambio de firma roto recibe PASS",
+          "verification_requirements": [
+            "GUARDIAN_PLATFORM_QUALIFICATION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "tests/end_to_end",
+            "tests/adversarial",
+            "fixtures/synthetic_projects",
+            "fixtures/historical_migrations"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G13-04",
+          "title": "C++ real",
+          "implementation": "Importar C++ compile profiles macros ABI y resource checks",
+          "acceptance": "Demostrar en el candidato exacto que importar c++ compile profiles macros abi y resource checks; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+          "falsification": "Macro o profile no inspeccionado declarado complete",
+          "verification_requirements": [
+            "GUARDIAN_PLATFORM_QUALIFICATION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "tests/end_to_end",
+            "tests/adversarial",
+            "fixtures/synthetic_projects",
+            "fixtures/historical_migrations"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G13-05",
+          "title": "Lean real",
+          "implementation": "Comprobar theorem statement, compiled proof, axiom audit independientemente",
+          "acceptance": "Demostrar en el candidato exacto que comprobar theorem statement, compiled proof, axiom audit independientemente; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+          "falsification": "Nombre de teorema se cualifica sin proof",
+          "verification_requirements": [
+            "GUARDIAN_PLATFORM_QUALIFICATION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "tests/end_to_end",
+            "tests/adversarial",
+            "fixtures/synthetic_projects",
+            "fixtures/historical_migrations"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G13-06",
+          "title": "Multi repo",
+          "implementation": "Dos o más source cuts con revision/owner independientes",
+          "acceptance": "Demostrar en el candidato exacto que dos o más source cuts con revision/owner independientes; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+          "falsification": "Se mezclan autoridades históricas",
+          "verification_requirements": [
+            "GUARDIAN_PLATFORM_QUALIFICATION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "tests/end_to_end",
+            "tests/adversarial",
+            "fixtures/synthetic_projects",
+            "fixtures/historical_migrations"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G13-07",
+          "title": "Migración real",
+          "implementation": "Source/target/oracle/resource/consumer parity con protected cone",
+          "acceptance": "Demostrar en el candidato exacto que source/target/oracle/resource/consumer parity con protected cone; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+          "falsification": "Se pierden casos históricos",
+          "verification_requirements": [
+            "GUARDIAN_PLATFORM_QUALIFICATION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "tests/end_to_end",
+            "tests/adversarial",
+            "fixtures/synthetic_projects",
+            "fixtures/historical_migrations"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G13-08",
+          "title": "Monoagente",
+          "implementation": "WorkPackage produce entrega parcial rechazada, independiente si requerido",
+          "acceptance": "Demostrar en el candidato exacto que workpackage produce entrega parcial rechazada, independiente si requerido; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+          "falsification": "Agent self-report completa tarea",
+          "verification_requirements": [
+            "GUARDIAN_PLATFORM_QUALIFICATION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "tests/end_to_end",
+            "tests/adversarial",
+            "fixtures/synthetic_projects",
+            "fixtures/historical_migrations"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G13-09",
+          "title": "Multiagente",
+          "implementation": "Perfil A0–A4 con handoffs, audit after builder complete y receipts",
+          "acceptance": "Demostrar en el candidato exacto que perfil a0–a4 con handoffs, audit after builder complete y receipts; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+          "falsification": "Un handoff borra obligación",
+          "verification_requirements": [
+            "GUARDIAN_PLATFORM_QUALIFICATION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "tests/end_to_end",
+            "tests/adversarial",
+            "fixtures/synthetic_projects",
+            "fixtures/historical_migrations"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G13-10",
+          "title": "Security red team",
+          "implementation": "Intentos de modificar policy/receipts/permissions/test y self certify",
+          "acceptance": "Demostrar en el candidato exacto que intentos de modificar policy/receipts/permissions/test y self certify; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+          "falsification": "Gatekeeper cede a candidata maliciosa",
+          "verification_requirements": [
+            "GUARDIAN_PLATFORM_QUALIFICATION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "tests/end_to_end",
+            "tests/adversarial",
+            "fixtures/synthetic_projects",
+            "fixtures/historical_migrations"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G13-11",
+          "title": "Selective invalidation",
+          "implementation": "Docs irrelevantes se reusan; protected changes invalidan claims afectados",
+          "acceptance": "Demostrar en el candidato exacto que docs irrelevantes se reusan; protected changes invalidan claims afectados; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+          "falsification": "Revalidación global o reuse inseguro",
+          "verification_requirements": [
+            "GUARDIAN_PLATFORM_QUALIFICATION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "tests/end_to_end",
+            "tests/adversarial",
+            "fixtures/synthetic_projects",
+            "fixtures/historical_migrations"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        },
+        {
+          "id": "G13-12",
+          "title": "Independent system audit",
+          "implementation": "Auditor externo revisa todo el programa de obligaciones y evidencias E2E",
+          "acceptance": "Demostrar en el candidato exacto que auditor externo revisa todo el programa de obligaciones y evidencias e2e; ejecutar comprobaciones positivas de contrato y correspondencia documental, conservar obligaciones previas y producir el recibo exigido por G-13.",
+          "falsification": "Local PASS oculta fallo end-to-end",
+          "verification_requirements": [
+            "GUARDIAN_PLATFORM_QUALIFICATION",
+            "TEST_POSITIVE_IN_SCOPE",
+            "TEST_NEGATIVE_OR_MUTATION",
+            "SOURCE_AND_REVISION_TRACE"
+          ],
+          "proposed_module_refs": [
+            "tests/end_to_end",
+            "tests/adversarial",
+            "fixtures/synthetic_projects",
+            "fixtures/historical_migrations"
+          ],
+          "status": "SPECIFIED_NOT_IMPLEMENTED",
+          "evidence_refs": []
+        }
+      ],
+      "development_complete": "Todas las obligaciones aplicables originales implementadas en fuente, junto con tests/adversarios/verificadores escritos, sin implementaciones pendientes ni cambios normativos no autorizados; la ejecución material es estado separado.",
+      "campaign_closed": "Además del desarrollo completo: suites ejecutadas sobre candidato exacto, auditoría adversaria conforme a política, integración entre componentes, evidencia auténtica, recursos aplicables y recibo de cierre acotado.",
+      "independent_adversarial_review_required": true,
+      "qualification_claim": false
+    }
+  ],
+  "closed_campaigns": 0,
+  "implemented_obligations": 0,
+  "material_validations_executed": 0,
+  "qualified_obligations": 0
+}
