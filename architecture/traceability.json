@@ -29,7 +29,9 @@
             "G00-10",
             "G00-11",
             "G00-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-07",
@@ -46,11 +48,15 @@
             "G07-10",
             "G07-11",
             "G07-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-02",
@@ -71,7 +77,9 @@
             "G00-10",
             "G00-11",
             "G00-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-07",
@@ -88,7 +96,9 @@
             "G07-10",
             "G07-11",
             "G07-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-13",
@@ -105,11 +115,15 @@
             "G13-10",
             "G13-11",
             "G13-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-03",
@@ -130,7 +144,9 @@
             "G00-10",
             "G00-11",
             "G00-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-02",
@@ -147,7 +163,9 @@
             "G02-10",
             "G02-11",
             "G02-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-10",
@@ -164,11 +182,15 @@
             "G10-10",
             "G10-11",
             "G10-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-04",
@@ -189,7 +211,9 @@
             "G01-10",
             "G01-11",
             "G01-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-09",
@@ -206,7 +230,9 @@
             "G09-10",
             "G09-11",
             "G09-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-10",
@@ -223,11 +249,15 @@
             "G10-10",
             "G10-11",
             "G10-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-05",
@@ -248,7 +278,9 @@
             "G01-10",
             "G01-11",
             "G01-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-13",
@@ -265,11 +297,15 @@
             "G13-10",
             "G13-11",
             "G13-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-06",
@@ -290,7 +326,9 @@
             "G00-10",
             "G00-11",
             "G00-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-01",
@@ -307,11 +345,15 @@
             "G01-10",
             "G01-11",
             "G01-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-07",
@@ -332,7 +374,9 @@
             "G07-10",
             "G07-11",
             "G07-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-10",
@@ -349,11 +393,15 @@
             "G10-10",
             "G10-11",
             "G10-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-08",
@@ -374,7 +422,9 @@
             "G00-10",
             "G00-11",
             "G00-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-06",
@@ -391,11 +441,15 @@
             "G06-10",
             "G06-11",
             "G06-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-09",
@@ -416,7 +470,9 @@
             "G00-10",
             "G00-11",
             "G00-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-02",
@@ -433,7 +489,9 @@
             "G02-10",
             "G02-11",
             "G02-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-10",
@@ -450,11 +508,15 @@
             "G10-10",
             "G10-11",
             "G10-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-10",
@@ -475,7 +537,9 @@
             "G00-10",
             "G00-11",
             "G00-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-05",
@@ -492,7 +556,9 @@
             "G05-10",
             "G05-11",
             "G05-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-09",
@@ -509,11 +575,15 @@
             "G09-10",
             "G09-11",
             "G09-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-11",
@@ -534,11 +604,15 @@
             "G02-10",
             "G02-11",
             "G02-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-12",
@@ -559,11 +633,15 @@
             "G10-10",
             "G10-11",
             "G10-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-13",
@@ -582,7 +660,9 @@
             "G03-08",
             "G03-09",
             "G03-10"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-11",
@@ -599,11 +679,15 @@
             "G11-10",
             "G11-11",
             "G11-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-14",
@@ -624,11 +708,15 @@
             "G04-10",
             "G04-11",
             "G04-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-15",
@@ -649,7 +737,9 @@
             "G05-10",
             "G05-11",
             "G05-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-06",
@@ -666,11 +756,15 @@
             "G06-10",
             "G06-11",
             "G06-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-16",
@@ -691,7 +785,9 @@
             "G05-10",
             "G05-11",
             "G05-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-06",
@@ -708,7 +804,9 @@
             "G06-10",
             "G06-11",
             "G06-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-13",
@@ -725,11 +823,15 @@
             "G13-10",
             "G13-11",
             "G13-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-17",
@@ -750,7 +852,9 @@
             "G06-10",
             "G06-11",
             "G06-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-13",
@@ -767,11 +871,15 @@
             "G13-10",
             "G13-11",
             "G13-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-18",
@@ -792,7 +900,9 @@
             "G06-10",
             "G06-11",
             "G06-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-09",
@@ -809,11 +919,15 @@
             "G09-10",
             "G09-11",
             "G09-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-19",
@@ -834,7 +948,9 @@
             "G06-10",
             "G06-11",
             "G06-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-10",
@@ -851,11 +967,15 @@
             "G10-10",
             "G10-11",
             "G10-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-20",
@@ -876,7 +996,9 @@
             "G02-10",
             "G02-11",
             "G02-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-06",
@@ -893,7 +1015,9 @@
             "G06-10",
             "G06-11",
             "G06-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-10",
@@ -910,11 +1034,15 @@
             "G10-10",
             "G10-11",
             "G10-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-21",
@@ -935,11 +1063,15 @@
             "G10-10",
             "G10-11",
             "G10-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-22",
@@ -960,7 +1092,9 @@
             "G00-10",
             "G00-11",
             "G00-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-01",
@@ -977,7 +1111,9 @@
             "G01-10",
             "G01-11",
             "G01-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-10",
@@ -994,11 +1130,15 @@
             "G10-10",
             "G10-11",
             "G10-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-23",
@@ -1018,7 +1158,9 @@
             "G08-09",
             "G08-10",
             "G08-11"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-13",
@@ -1035,11 +1177,15 @@
             "G13-10",
             "G13-11",
             "G13-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-24",
@@ -1059,7 +1205,9 @@
             "G08-09",
             "G08-10",
             "G08-11"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-13",
@@ -1076,11 +1224,15 @@
             "G13-10",
             "G13-11",
             "G13-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-25",
@@ -1101,7 +1253,9 @@
             "G07-10",
             "G07-11",
             "G07-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-08",
@@ -1117,11 +1271,15 @@
             "G08-09",
             "G08-10",
             "G08-11"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-26",
@@ -1142,11 +1300,15 @@
             "G09-10",
             "G09-11",
             "G09-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-27",
@@ -1167,11 +1329,15 @@
             "G11-10",
             "G11-11",
             "G11-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-28",
@@ -1192,7 +1358,9 @@
             "G02-10",
             "G02-11",
             "G02-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-03",
@@ -1207,7 +1375,9 @@
             "G03-08",
             "G03-09",
             "G03-10"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-05",
@@ -1224,7 +1394,9 @@
             "G05-10",
             "G05-11",
             "G05-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-11",
@@ -1241,11 +1413,15 @@
             "G11-10",
             "G11-11",
             "G11-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-29",
@@ -1266,7 +1442,9 @@
             "G01-10",
             "G01-11",
             "G01-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-03",
@@ -1281,7 +1459,9 @@
             "G03-08",
             "G03-09",
             "G03-10"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-12",
@@ -1296,11 +1476,15 @@
             "G12-08",
             "G12-09",
             "G12-10"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-30",
@@ -1321,7 +1505,9 @@
             "G01-10",
             "G01-11",
             "G01-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-07",
@@ -1338,7 +1524,9 @@
             "G07-10",
             "G07-11",
             "G07-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-12",
@@ -1353,11 +1541,15 @@
             "G12-08",
             "G12-09",
             "G12-10"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-31",
@@ -1378,7 +1570,9 @@
             "G00-10",
             "G00-11",
             "G00-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-07",
@@ -1395,7 +1589,9 @@
             "G07-10",
             "G07-11",
             "G07-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-13",
@@ -1412,11 +1608,15 @@
             "G13-10",
             "G13-11",
             "G13-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-32",
@@ -1437,7 +1637,9 @@
             "G06-10",
             "G06-11",
             "G06-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-10",
@@ -1454,11 +1656,15 @@
             "G10-10",
             "G10-11",
             "G10-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-33",
@@ -1479,7 +1685,9 @@
             "G09-10",
             "G09-11",
             "G09-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-12",
@@ -1494,11 +1702,15 @@
             "G12-08",
             "G12-09",
             "G12-10"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     },
     {
       "requirement_id": "PG-REQ-34",
@@ -1519,7 +1731,9 @@
             "G09-10",
             "G09-11",
             "G09-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         },
         {
           "campaign_id": "G-13",
@@ -1536,11 +1750,15 @@
             "G13-10",
             "G13-11",
             "G13-12"
-          ]
+          ],
+          "link_class": "CAMPAIGN_RESPONSIBILITY_BROAD",
+          "semantic_refinement_proven": false
         }
       ],
       "status": "DESIGN_COVERAGE_PROPOSED",
-      "fine_grained_semantic_links_verified": false
+      "fine_grained_semantic_links_verified": false,
+      "mapping_granularity": "CAMPAIGN_RESPONSIBILITY_BROAD",
+      "semantic_sufficiency_proven": false
     }
   ],
   "decision_to_campaign": [
@@ -2356,5 +2574,14 @@
     "design_choices": "architecture/g00_design_decisions.json",
     "index": "docs/campaigns/G-00/INDEX.md",
     "authority": "PROPOSED_DETAIL_NOT_IMPLEMENTED_OR_RATIFIED"
-  }
+  },
+  "mapping_semantics": "BROAD_CAMPAIGN_RESPONSIBILITY_ONLY",
+  "not_sufficient_for_claims": [
+    "SEMANTIC_REQUIREMENT_COVERAGE",
+    "REFINEMENT_SUFFICIENCY",
+    "IMPLEMENTATION_COMPLETENESS",
+    "MATERIAL_QUALIFICATION"
+  ],
+  "fine_grained_proposed_crosswalk": "architecture/ccrr_requirement_crosswalk_proposed.json",
+  "ccrr_review_status": "CORRECTION_PROPOSED_NOT_RATIFIED"
 }

@@ -44,3 +44,7 @@ Se comprobaron además la unicidad de IDs, existencia de todas las obligaciones 
 **Campaign closed:** además se ejecutaron suites materiales, auditoría independiente exigida, controles de arquitectura y recibos válidos sobre candidato exacto.
 
 Este documento **no** afirma ninguno de esos dos cierres. El siguiente paso de diseño es ratificar las decisiones de `architecture/g00_design_decisions.json` o mantener HOLD específico; después los bloques B00…B09 se podrán desarrollar conforme a sus contratos.
+
+## Nota posterior de revisión CCRR — 19-10-2026
+
+El PASS_STATIC_REMOTE_READBACK_DESIGN_ONLY anterior sigue limitado al diseño y corte que examinó. No prueba suficiencia semántica de refinamientos, compilación GSL, código productivo o resultados materiales. [Extensión de G-00](CCRR_EXTENSION_PROPOSED.md) y [registro de correcciones](../../revision-2026-10-19/00_REVIEW_AND_CORRECTION_REGISTER.md) son propuestas sin ratificar. GSL-0 no está diseñado.

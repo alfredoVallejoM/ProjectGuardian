@@ -28,3 +28,7 @@ SQLite como proyección transaccional reconstruible, con tablas entities, relati
 ## Condiciones de cierre
 Pruebas de tipos de relaciones, n-aridad, multiplicidad, integridad referencial, dependencias condicionales, owners incompatibles, scope, no mezcla interproyecto, ciclos, variantes ALL/ANY, staleness, invalidación, y explicación de soporte.
 
+
+## Ampliación CCRR propuesta: grafo informativo frente a justificación
+
+Una relación trazable entre PG-REQ, campaña y obligación no constituye implicación semántica. RefinementCase(G,D,J,A,PO) es una hiperarista que requiere prueba de (A∧D∧J⇒G) y factibilidad. Las expresiones ALL/ANY no son intercambiables. SupportCone sólo utiliza relaciones de soporte probatorio admitidas; ImpactCone opera sobre dependencias protegidas reales, no solo paths. Un DAG de tareas completo no demuestra el objetivo raíz si carece de bridges. [Formalismo](../revision-2026-10-19/01_CCRR_FORMAL_ASSURANCE_KERNEL.md). **Propuesta aún no ratificada.**

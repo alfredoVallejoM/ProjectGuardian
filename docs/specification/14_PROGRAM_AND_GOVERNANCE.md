@@ -22,3 +22,7 @@ PG-SPEC-01…12: requisitos registrados, trazados a campañas y obligaciones; ca
 ## Policy de avances
 Un agente no se declara DONE cuando existen gaps exigibles. A3 entra después de implementación completa del bloque; A4 verifica integraciones y ejecuciones reales. Adaptadores/SDKs no ejercen autoridad normativa. Programmatic crosswalk REQUIREMENT→CAMPAIGN→OBLIGATION→MODULE→TEST→EVIDENCE. Informes de progreso muestran gaps, UNKNOWN, FUTURE y RESEARCH por separado.
 
+
+## Suplemento propuesto: CCRR y SH (19-10-2026)
+
+Las 14 campañas/163 obligaciones originales permanecen como programa funcional; SH-00…SH-12 son cortes transversales de ensayo y NO campañas adicionales. [Extensiones por campaña](../campaigns/CCRR_EXTENSION_INDEX.md). Un enlace de trazabilidad no prueba suficiencia de refinamiento; requieren puentes, hipótesis y PO independientes. [Orden y frontera de confianza](../revision-2026-10-19/04_ENGINEERING_CAMPAIGN_OWNERSHIP_AND_SEQUENCE.md). Ninguna ADR queda ratificada mediante este texto y GSL-0 aún no tiene contrato diseñado.

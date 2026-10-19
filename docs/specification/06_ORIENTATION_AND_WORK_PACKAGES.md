@@ -30,3 +30,7 @@ Un agente puede solicitar `orient`, `explain`, `dependencies`, `consumers`, `sou
 ## Contexto pequeño, verdad grande
 El agente nunca necesita tener todo el grafo en prompt. Recibe un índice completo de obligaciones y recursos recuperables. La validación posterior usa el universo normativo completo, no el texto que cabía en su contexto. Reducción de tokens es optimización explicativa, no alteración contractual.
 
+
+## Contrato CCRR adicional (propuesto)
+
+El WorkPackage debe incluir no solo RequiredObligationClosure, sino además RefinementCases, sus proof obligations de suficiencia, bridges de integración y restricciones de realización. Descomponer en subpaquetes preserva el contrato padre y las obligaciones compartidas. Una explicación paginada puede omitir detalles de visualización, nunca reducir el cierre del manifiesto. El validador independiente reconstruye el cierre desde el ProjectContract, no desde la entrega del constructor. [Integraciones](../revision-2026-10-19/02_E2E_ASSURANCE_AND_ADVERSARIAL_CONTRACTS.md). Sin implementación ni ratificación.

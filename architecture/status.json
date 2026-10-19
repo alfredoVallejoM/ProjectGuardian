@@ -60,5 +60,24 @@
     "audit_report": "docs/campaigns/G-00/17_DOCUMENTARY_AUDIT.md",
     "implementation_claim": false,
     "certification_claim": false
+  },
+  "ccrr_design_correction": {
+    "review_date": "2026-10-19",
+    "source_head": "af8c396e5598a1b00c764a27a8cde948ca7ade7e",
+    "state": "PROPOSED_NOT_RATIFIED",
+    "documents": "docs/revision-2026-10-19/INDEX.md",
+    "campaign_extension_index": "docs/campaigns/CCRR_EXTENSION_INDEX.md",
+    "requirements_crosswalk": "architecture/ccrr_requirement_crosswalk_proposed.json",
+    "obligation_extension_index": "architecture/ccrr_campaign_extensions_proposed.json",
+    "original_requirements_preserved": 34,
+    "original_adrs_preserved": 30,
+    "original_campaigns_preserved": 14,
+    "original_obligations_preserved": 163,
+    "gsl0_contract": "NOT_DESIGNED_DISCUSSION_PENDING",
+    "ccrr_theorems": "SPECIFIED_CANDIDATE_NOT_MECHANIZED",
+    "v0": "PLANNED_NOT_IMPLEMENTED",
+    "selfhost": "SH00_SH12_PLANNED_NOT_EXECUTED",
+    "branch_protection_observed": false,
+    "confidence": "DOCUMENTARY_RECONCILIATION_NOT_MATERIAL"
   }
 }

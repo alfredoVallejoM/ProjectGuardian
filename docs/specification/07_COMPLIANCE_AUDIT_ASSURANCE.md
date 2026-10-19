@@ -32,3 +32,7 @@ SOURCE_COVERAGE, SPECIFICATION_COVERAGE, IMPLEMENTATION_COVERAGE, MATERIAL_VALID
 ## ExplainState
 Resultado = Verdict + Scope + SupportPaths + Gaps + Evidence + PolicyRevision. Los caminos informativos se distinguen de prueba/soporte. Debe ser posible explicar qué falta exactamente para cerrar cualquier obligación o campaña.
 
+
+## Contrato de suficiencia probatoria CCRR (propuesto)
+
+Separar: (1) prueba de que una descomposición D+J basta para G, (2) evidencia de que el candidato realiza D+J, (3) autoridad para admitir. No sumar todos los tests encontrados para cerrar una obligación superior. Cada prueba tiene sujeto, revisión, scope, clase (deductiva/finita/acotada/empírica), runner, dependencias y policy. Un test authored no constituye ValidationRun. Un receipt externo o textual no constituye verdad universal sin las hipótesis del verificador. UNKNOWN/CONFLICT y falsificaciones nunca se promocionan. [CCRR](../revision-2026-10-19/01_CCRR_FORMAL_ASSURANCE_KERNEL.md). Propuesta pendiente.

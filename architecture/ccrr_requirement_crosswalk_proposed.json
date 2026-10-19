@@ -1,0 +1,435 @@
+{
+  "schema": "guardian/ccrr-semantic-crosswalk-proposed/v1",
+  "authority": "PROPOSED_NOT_RATIFIED",
+  "source_commit": "af8c396e5598a1b00c764a27a8cde948ca7ade7e",
+  "original_source": "architecture/requirements.json",
+  "replaces_original_broad_mapping": false,
+  "links_are": "SELECTIVE_CANDIDATE_RESPONSIBILITY_NOT_SUFFICIENCY_PROOF",
+  "semantic_equivalence_verified": false,
+  "requirements": [
+    {
+      "id": "PG-REQ-01",
+      "proposed_direct_obligation_refs": [
+        "G00-02",
+        "G07-08",
+        "G07-09",
+        "G09-02"
+      ],
+      "discriminating_adversarial_question": "Proyecto ajeno no tiene dependencia productiva en Guardian ni recibe su autoridad por nombre.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-02",
+      "proposed_direct_obligation_refs": [
+        "G00-05",
+        "G01-02",
+        "G02-02",
+        "G13-02"
+      ],
+      "discriminating_adversarial_question": "Nueva estructura de proyecto/relación se representa sin hardcodear tipo ni número de campañas.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-03",
+      "proposed_direct_obligation_refs": [
+        "G00-05",
+        "G02-01",
+        "G02-07",
+        "G10-02"
+      ],
+      "discriminating_adversarial_question": "El contrato integral distingue requisitos, realizaciones y justificaciones, sin omitir facetas.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-04",
+      "proposed_direct_obligation_refs": [
+        "G01-04",
+        "G01-05",
+        "G09-10",
+        "G10-09"
+      ],
+      "discriminating_adversarial_question": "Refinamiento/generalización no acepta una conducta nueva que rompa el dominio protegido.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-05",
+      "proposed_direct_obligation_refs": [
+        "G01-02",
+        "G01-03",
+        "G01-12"
+      ],
+      "discriminating_adversarial_question": "Extensión de campaña mantiene sus antiguos compromisos y nuevo cierre no hereda PASS.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-06",
+      "proposed_direct_obligation_refs": [
+        "G00-01",
+        "G01-06",
+        "G01-07",
+        "G10-02"
+      ],
+      "discriminating_adversarial_question": "Cambio de ruta, nombre o ubicación no elimina identidad ni linaje de obligación.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-07",
+      "proposed_direct_obligation_refs": [
+        "G00-03",
+        "G07-01",
+        "G10-01"
+      ],
+      "discriminating_adversarial_question": "Toda afirmación de completitud identifica fuente y corte inmutable con exclusiones visibles.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-08",
+      "proposed_direct_obligation_refs": [
+        "G00-07",
+        "G06-11",
+        "G10-12"
+      ],
+      "discriminating_adversarial_question": "Un test authored no equivale a material PASS ni a scientific qualification.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-09",
+      "proposed_direct_obligation_refs": [
+        "G00-06",
+        "G02-07",
+        "G10-05"
+      ],
+      "discriminating_adversarial_question": "UNKNOWN/CONFLICT preservados bajo scope, sin reclasificar para reducir denominador.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-10",
+      "proposed_direct_obligation_refs": [
+        "G02-05",
+        "G05-01",
+        "G05-03",
+        "G05-10"
+      ],
+      "discriminating_adversarial_question": "Código observado contiene dependencia prohibida que no modifica la arquitectura autorizada.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-11",
+      "proposed_direct_obligation_refs": [
+        "G02-01",
+        "G02-02",
+        "G02-08",
+        "G02-09"
+      ],
+      "discriminating_adversarial_question": "Relación de tres roles conserva todos sus sujetos y no se confunde con prueba.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-12",
+      "proposed_direct_obligation_refs": [
+        "G02-10",
+        "G05-12",
+        "G10-01",
+        "G10-03",
+        "G10-04"
+      ],
+      "discriminating_adversarial_question": "Un gap por obligación incompleta continúa visible pese a pasar todos los tests encontrados.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-13",
+      "proposed_direct_obligation_refs": [
+        "G03-01",
+        "G03-02",
+        "G03-03",
+        "G03-06"
+      ],
+      "discriminating_adversarial_question": "Agente nuevo recupera propósito, owner, consumidores, restricciones, fuentes y estados.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-14",
+      "proposed_direct_obligation_refs": [
+        "G04-01",
+        "G04-02",
+        "G04-08",
+        "G04-12"
+      ],
+      "discriminating_adversarial_question": "Paquete mutilado se rechaza al recalcular cierre desde norma y no desde manifest.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-15",
+      "proposed_direct_obligation_refs": [
+        "G05-06",
+        "G07-03",
+        "G07-04",
+        "G07-05"
+      ],
+      "discriminating_adversarial_question": "No basta un archivo correcto no utilizado: vínculo con código/build/ruta efectiva.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-16",
+      "proposed_direct_obligation_refs": [
+        "G04-05",
+        "G05-11",
+        "G13-12"
+      ],
+      "discriminating_adversarial_question": "Dos módulos passing unitariamente pero incompatibles no cierran la capacidad global.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-17",
+      "proposed_direct_obligation_refs": [
+        "G06-09",
+        "G06-10",
+        "G13-12"
+      ],
+      "discriminating_adversarial_question": "Auditor distinto después de bloquear autoría; findings por obligación y documento.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-18",
+      "proposed_direct_obligation_refs": [
+        "G06-02",
+        "G06-08",
+        "G09-06"
+      ],
+      "discriminating_adversarial_question": "Receipt manual de otro SHA no obtiene admisión material.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-19",
+      "proposed_direct_obligation_refs": [
+        "G06-05",
+        "G06-06",
+        "G10-08"
+      ],
+      "discriminating_adversarial_question": "Evidencia protegida relevante invalida; cambio independiente conserva certificate scoped.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-20",
+      "proposed_direct_obligation_refs": [
+        "G02-09",
+        "G06-07",
+        "G12-04"
+      ],
+      "discriminating_adversarial_question": "Actualización incremental encuentra exactamente las claims afectadas comparada con full rebuild.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-21",
+      "proposed_direct_obligation_refs": [
+        "G01-05",
+        "G10-06",
+        "G10-07",
+        "G10-09"
+      ],
+      "discriminating_adversarial_question": "Migración no recorta entradas ni consumidores del contrato histórico.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-22",
+      "proposed_direct_obligation_refs": [
+        "G00-05",
+        "G01-02",
+        "G03-08",
+        "G06-11"
+      ],
+      "discriminating_adversarial_question": "Obligación futura/investigadora no aparece como certificada ni desaparece del universo.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-23",
+      "proposed_direct_obligation_refs": [
+        "G08-07",
+        "G13-08"
+      ],
+      "discriminating_adversarial_question": "Un agente sin equipo multiagent desarrolla un bloque con auditoría según política.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-24",
+      "proposed_direct_obligation_refs": [
+        "G08-08",
+        "G08-09",
+        "G13-09"
+      ],
+      "discriminating_adversarial_question": "Handoffs preservan paquete/snapshot y no crean varias normas por agente.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-25",
+      "proposed_direct_obligation_refs": [
+        "G07-12",
+        "G08-11",
+        "G11-12"
+      ],
+      "discriminating_adversarial_question": "Cambio de herramienta o SDK no cambia semántica del contrato y las interfaces concuerdan.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-26",
+      "proposed_direct_obligation_refs": [
+        "G09-02",
+        "G09-03",
+        "G09-10"
+      ],
+      "discriminating_adversarial_question": "Candidato no modifica policy que lo evalúa ni se autopromueve.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-27",
+      "proposed_direct_obligation_refs": [
+        "G07-08",
+        "G07-09",
+        "G11-02"
+      ],
+      "discriminating_adversarial_question": "Múltiples fuentes repos permanecen tipadas y no heredan autoridad entre sí.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-28",
+      "proposed_direct_obligation_refs": [
+        "G03-04",
+        "G03-07",
+        "G11-04",
+        "G11-08"
+      ],
+      "discriminating_adversarial_question": "Toda explicación histórica reconoce fuente y diferencia observado de cualificado.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-29",
+      "proposed_direct_obligation_refs": [
+        "G01-07",
+        "G12-01",
+        "G12-03"
+      ],
+      "discriminating_adversarial_question": "Al reconstruir tras fallos el estado admitido coincide con Git canónico.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-30",
+      "proposed_direct_obligation_refs": [
+        "G05-10",
+        "G07-11",
+        "G12-06"
+      ],
+      "discriminating_adversarial_question": "Agregar implementación nueva no requiere reescribir núcleo ni ignorar features desconocidas.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-31",
+      "proposed_direct_obligation_refs": [
+        "G00-02",
+        "G07-08",
+        "G07-09",
+        "G13-06"
+      ],
+      "discriminating_adversarial_question": "Documentos homónimos de dos repos no colapsan sus owners ni compromisos.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-32",
+      "proposed_direct_obligation_refs": [
+        "G06-04",
+        "G06-05",
+        "G10-12"
+      ],
+      "discriminating_adversarial_question": "No se emite certificado científico desde enlace, test escrito o evidencia empírica insuficiente.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-33",
+      "proposed_direct_obligation_refs": [
+        "G09-05",
+        "G09-09",
+        "G12-02"
+      ],
+      "discriminating_adversarial_question": "Solo código evaluado, autorizado y con revisión esperada pasa a main sin estado intermedio híbrido.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    },
+    {
+      "id": "PG-REQ-34",
+      "proposed_direct_obligation_refs": [
+        "G09-03",
+        "G09-12",
+        "G13-10",
+        "G13-12"
+      ],
+      "discriminating_adversarial_question": "La revisión propia del Gatekeeper requiere raíz previa independiente y no obtiene autocertificación.",
+      "required_next_step": "REVIEW_ORIGINAL_SOURCE_AND_CONSTRUCT_FACETS_WITH_SUFFICIENCY_PROOFS",
+      "proof_status": "NOT_ESTABLISHED",
+      "ratification": "PENDING"
+    }
+  ]
+}

@@ -33,3 +33,7 @@ Obligación borrada, test quitado, política modificada, receipt ficticio, commi
 ## Limitaciones
 Administrador con bypass de branch protection forma parte de la trusted computing base. Usar reglas de repositorio y credenciales limitadas según entorno; no prometer seguridad absoluta. Si se permite push fuera de Guardian, el estado Git debe marcarse como cambios no admitidos al reimportarlo.
 
+
+## Bootstrap del autogobierno y límite de confianza (propuesto)
+
+V0 es oráculo externo fijado, distinto del candidato. Los cortes SH-00…SH-12 son evidencias de G existentes, no campañas que se autoaprueban. Antes de aceptar una modificación del Gatekeeper, ejecutar la política **anterior** instalada y verificadores independientes; candidato no controla permiso, runner, trusted policy ni credencial de escritura. La rama main observada no estaba protegida: sin impedir escritura directa de un constructor, registrar TRUST_GAP y abstenerse de declarar publicación segura. [Plan SH](../revision-2026-10-19/03_SELFHOST_V0_AND_SH00_SH12.md). Sin implementación ni ratificación.

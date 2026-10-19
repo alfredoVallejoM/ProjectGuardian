@@ -28,3 +28,7 @@ No todas son fallas definitivamente demostradas: registrar `ObservedFact`, `Cand
 ## Política anti-corrupción
 Importar programas históricos sin cambiar IDs ni exagerar estados. Ningún proyecto adquiere obligaciones de otro por coincidencia semántica; `ApprovedSourceImport` obligatorio.
 
+
+## Ampliación CCRR propuesta: testigos de realización
+
+RealizationLink es un vínculo candidato, NO prueba de conformidad. RealizationWitness debe identificar contrato abstracto, código real, ruta pública, build/profile, representación de estados, invariantes, cobertura de dominio y evidencias. Función privada PASS no acredita wrapper público; AST parcial no implica cobertura total. Para algoritmo exigido, comprobar refinamiento de pasos, no solo igualdad de salida. La realización de una estructura compuesta exige sus bridges e integración real. [Contratos E2E](../revision-2026-10-19/02_E2E_ASSURANCE_AND_ADVERSARIAL_CONTRACTS.md). Estado: PROPUESTO, sin implementación.

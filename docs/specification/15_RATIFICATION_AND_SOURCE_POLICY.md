@@ -27,3 +27,7 @@ Aún no hay código, runner confiable, servidor MCP, interfaz UI, base SQLite, f
 ## Siguiente deliberación técnica
 No iniciar implementación sin revisar la topología: dónde residen source adapters vs knowledge, quién es owner del Scope/Applicability, dónde se declara el evaluador de SupportCone, qué es núcleo confiable, cuándo registrar perfiles y cómo versionar contratos. Un nuevo documento no sustituye automáticamente estas decisiones.
 
+
+## Corrección de fuente normativa y GSL (propuesta 19-10-2026)
+
+[Delta de ratificación de ADR](../revision-2026-10-19/06_ADR_RATIFICATION_DELTA.md). La futura fuente tipada GSL y el IR no pueden competir como dos autoridades editables; la regla exacta de propiedad de fuente/IR es una decisión ABIERTA para GSL-0. Los registros CCRR y los enlaces finos nuevos son PROPOSED_NOT_RATIFIED; el corpus original y sus estados permanecen como fuentes para reconciliación. Una compilación exitosa o enlace semántico candidato no es ratificación. No fingir evidencia material ni aprobar cambios con la política que el propio candidato introduzca.

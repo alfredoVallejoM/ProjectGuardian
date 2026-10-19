@@ -114,3 +114,7 @@ La auditoría debe listar cada uno de los 12 padres y sus 10 cláusulas, disting
 
 \`G00_DEVELOPMENT_COMPLETE\` solo si todo G-00 original y cada cláusula aplicable está implementada, incluida autoría de pruebas/verificadores. \`G00_CAMPAIGN_CLOSED\` exige material execution + adversarial review + integration + receipts válidos para el ámbito G-00. Nunca implica que G-01…G-13 o la plataforma completa estén terminadas.
 
+
+## Enmienda de planificación propuesta (sin cambiar B00…B09)
+
+B00 debe examinar la suficiencia de 120 subcláusulas respecto a los doce padres, separar enlaces de fuente de implicaciones semánticas y preparar la raíz externa V0. [Especificación corregida de la etapa](../../revision-2026-10-19/03_SELFHOST_V0_AND_SH00_SH12.md). No se añade una obligación histórica nueva ni se ratifica GSL-0. B01…B09 desarrollan las mismas 12 obligaciones, con testigos de refinamiento cuando el contrato los exija. Ningún resultado del candidato se utiliza como único oráculo de su propia corrección.

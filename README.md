@@ -31,3 +31,7 @@ Python 3.12+ tipado, monolito modular, domain inmutable + functional core/impera
 
 ## Campaña fundacional desarrollada en detalle
 La [especificación completa de G-00](docs/campaigns/G-00/INDEX.md) documenta identidad, proyectos, fuentes, ontología de obligaciones, scope, constitución, referencias, schemas, evaluador, APIs, falsaciones y criterios de cierre. Los números son compromisos de diseño y **no reflejan tests o código desarrollados**.
+
+## Revisión de octubre 2026
+
+[Corrección propuesta CCRR y campañas](docs/revision-2026-10-19/INDEX.md). GSL-0 pendiente.

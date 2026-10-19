@@ -11,3 +11,7 @@
 - [Matriz de 163 obligaciones asignadas](../traceability/OBLIGATION_IMPLEMENTATION_MATRIX.md)
 
 **Autoridades propuestas:** `architecture/module_blueprint.json` para rutas, `architecture/obligation_implementation_workmap.json` para asignaciones de obligaciones y `architecture/campaigns.json` para contratos originales. Son diseños no ratificados, sin código ni pruebas materiales. El número 142 **no** es un objetivo de crear físicamente 142 archivos: manda la cohesión y la existencia de consumidores reales.
+
+## Actualización CCRR/GSL/SH propuesta
+
+[Revisión de arquitectura y responsabilidades](../revision-2026-10-19/INDEX.md). El atlas de módulos no se reescribe: spec_lang es una frontera candidata y no una topología ratificada. El contrato y la gramática GSL-0 siguen pendientes de decisión.
