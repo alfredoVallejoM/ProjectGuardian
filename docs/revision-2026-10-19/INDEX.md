@@ -20,3 +20,8 @@ Registros originales vigentes como diseño propuesto: architecture/requirements.
 **Siguiente deliberación DESPUÉS de esta corrección documental:** contrato GSL-0, gramática, AST, tipos y semántica, política de IR, oráculos y condiciones exactas de compilación. No se desarrollan aquí.
 
 - [06 — ADR y decisiones pendientes](06_ADR_RATIFICATION_DELTA.md)
+
+
+## Actualización posterior 20-10-2026
+
+Ya existe un [**contrato GSL-0 candidato y auditoría real de Charloom**](../revision-2026-10-20/INDEX.md). La «frontera pendiente» aquí documenta el estado de 19-10; las propuestas posteriores **no están ratificadas ni implementadas**. Se conserva intacto el programa G-00…G-13 y el contrato original.

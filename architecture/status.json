@@ -79,5 +79,17 @@
     "selfhost": "SH00_SH12_PLANNED_NOT_EXECUTED",
     "branch_protection_observed": false,
     "confidence": "DOCUMENTARY_RECONCILIATION_NOT_MATERIAL"
+  },
+  "gsl0_candidate_review": {
+    "review_date": "2026-10-20",
+    "authority": "DESIGN_CANDIDATE_NOT_RATIFIED",
+    "compiler_formal_spec": "docs/specification/GSL0_FORMAL_COMPILER_CONTRACT_PROPOSED.md",
+    "charloom_real_source_audit": "docs/architecture/CHARLOOM_TEXT_SOURCE_REUSE_AUDIT_2026_10_20.md",
+    "charloom_source_pin": "3de6e1ec205394b6ac9c232dd66b1550ffad2fd9",
+    "extraction_program": "docs/campaigns/GSL0_CHARLOOM_EXTRACTION_PROGRAM_PROPOSED.md",
+    "charloom_source_kernel": "NOT_EXTRACTED",
+    "rust_cargo_executions": "NOT_RUN",
+    "gsl_compiler": "NOT_IMPLEMENTED",
+    "contract_ratified": false
   }
 }

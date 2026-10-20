@@ -1,0 +1,261 @@
+{
+  "schema": "guardian/gsl0-compiler-contract-candidate/v1",
+  "authority": "DESIGN_CANDIDATE_NOT_RATIFIED",
+  "source_spec": "docs/specification/GSL0_FORMAL_COMPILER_CONTRACT_PROPOSED.md",
+  "text_reuse_audit": "docs/architecture/CHARLOOM_TEXT_SOURCE_REUSE_AUDIT_2026_10_20.md",
+  "source_commit": "3d2d406de0f9bf42ae217fe15ab5860d919a7c33",
+  "not_implemented": true,
+  "not_materially_qualified": true,
+  "syntax_and_semantics_pending_ratification": true,
+  "language_profiles": {
+    "GSL0": "normative sources identities scope objective capability property obligation relation verification",
+    "GSL1": "refinement proof obligations and evolutions",
+    "GSL2": "algorithm models and implementation realization",
+    "GSL3": "process resource qualification and governance"
+  },
+  "return_variants": [
+    "Rejected",
+    "Analyzed",
+    "Compiled"
+  ],
+  "stages": [
+    {
+      "id": "GSL0-C00",
+      "name": "SOURCE_ACQUIRE",
+      "input": "SourceCut",
+      "output": "SOURCE_ACQUIREResult",
+      "properties": [
+        "source_project_revision_pinned",
+        "typed_stage_boundary",
+        "no_normative_promotion",
+        "source_map_propagation"
+      ],
+      "state": "DESIGN_CANDIDATE"
+    },
+    {
+      "id": "GSL0-C01",
+      "name": "MARKDOWN_EXTRACT",
+      "input": "SOURCE_ACQUIREResult",
+      "output": "MARKDOWN_EXTRACTResult",
+      "properties": [
+        "source_project_revision_pinned",
+        "typed_stage_boundary",
+        "no_normative_promotion",
+        "source_map_propagation"
+      ],
+      "state": "DESIGN_CANDIDATE"
+    },
+    {
+      "id": "GSL0-C02",
+      "name": "LOSSLESS_SCAN",
+      "input": "MARKDOWN_EXTRACTResult",
+      "output": "LOSSLESS_SCANResult",
+      "properties": [
+        "source_project_revision_pinned",
+        "typed_stage_boundary",
+        "no_normative_promotion",
+        "source_map_propagation"
+      ],
+      "state": "DESIGN_CANDIDATE"
+    },
+    {
+      "id": "GSL0-C03",
+      "name": "GSL_LEX",
+      "input": "LOSSLESS_SCANResult",
+      "output": "GSL_LEXResult",
+      "properties": [
+        "source_project_revision_pinned",
+        "typed_stage_boundary",
+        "no_normative_promotion",
+        "source_map_propagation"
+      ],
+      "state": "DESIGN_CANDIDATE"
+    },
+    {
+      "id": "GSL0-C04",
+      "name": "GSL_CST",
+      "input": "GSL_LEXResult",
+      "output": "GSL_CSTResult",
+      "properties": [
+        "source_project_revision_pinned",
+        "typed_stage_boundary",
+        "no_normative_promotion",
+        "source_map_propagation"
+      ],
+      "state": "DESIGN_CANDIDATE"
+    },
+    {
+      "id": "GSL0-C05",
+      "name": "GSL_AST",
+      "input": "GSL_CSTResult",
+      "output": "GSL_ASTResult",
+      "properties": [
+        "source_project_revision_pinned",
+        "typed_stage_boundary",
+        "no_normative_promotion",
+        "source_map_propagation"
+      ],
+      "state": "DESIGN_CANDIDATE"
+    },
+    {
+      "id": "GSL0-C06",
+      "name": "GSL_RESOLVE",
+      "input": "GSL_ASTResult",
+      "output": "GSL_RESOLVEResult",
+      "properties": [
+        "source_project_revision_pinned",
+        "typed_stage_boundary",
+        "no_normative_promotion",
+        "source_map_propagation"
+      ],
+      "state": "DESIGN_CANDIDATE"
+    },
+    {
+      "id": "GSL0-C07",
+      "name": "GSL_TYPECHECK",
+      "input": "GSL_RESOLVEResult",
+      "output": "GSL_TYPECHECKResult",
+      "properties": [
+        "source_project_revision_pinned",
+        "typed_stage_boundary",
+        "no_normative_promotion",
+        "source_map_propagation"
+      ],
+      "state": "DESIGN_CANDIDATE"
+    },
+    {
+      "id": "GSL0-C08",
+      "name": "GSL_SEMANTIC_CHECK",
+      "input": "GSL_TYPECHECKResult",
+      "output": "GSL_SEMANTIC_CHECKResult",
+      "properties": [
+        "source_project_revision_pinned",
+        "typed_stage_boundary",
+        "no_normative_promotion",
+        "source_map_propagation"
+      ],
+      "state": "DESIGN_CANDIDATE"
+    },
+    {
+      "id": "GSL0-C09",
+      "name": "GSL_ELABORATE",
+      "input": "GSL_SEMANTIC_CHECKResult",
+      "output": "GSL_ELABORATEResult",
+      "properties": [
+        "source_project_revision_pinned",
+        "typed_stage_boundary",
+        "no_normative_promotion",
+        "source_map_propagation"
+      ],
+      "state": "DESIGN_CANDIDATE"
+    },
+    {
+      "id": "GSL0-C10",
+      "name": "GSL_PROOF_OBLIGATIONS",
+      "input": "GSL_ELABORATEResult",
+      "output": "GSL_PROOF_OBLIGATIONSResult",
+      "properties": [
+        "source_project_revision_pinned",
+        "typed_stage_boundary",
+        "no_normative_promotion",
+        "source_map_propagation"
+      ],
+      "state": "DESIGN_CANDIDATE"
+    },
+    {
+      "id": "GSL0-C11",
+      "name": "IR_VALIDATE",
+      "input": "GSL_PROOF_OBLIGATIONSResult",
+      "output": "IR_VALIDATEResult",
+      "properties": [
+        "source_project_revision_pinned",
+        "typed_stage_boundary",
+        "no_normative_promotion",
+        "source_map_propagation"
+      ],
+      "state": "DESIGN_CANDIDATE"
+    },
+    {
+      "id": "GSL0-C12",
+      "name": "CANONICALIZE",
+      "input": "IR_VALIDATEResult",
+      "output": "CANONICALIZEResult",
+      "properties": [
+        "source_project_revision_pinned",
+        "typed_stage_boundary",
+        "no_normative_promotion",
+        "source_map_propagation"
+      ],
+      "state": "DESIGN_CANDIDATE"
+    },
+    {
+      "id": "GSL0-C13",
+      "name": "CONTRACT_DIFF",
+      "input": "CANONICALIZEResult",
+      "output": "CONTRACT_DIFFResult",
+      "properties": [
+        "source_project_revision_pinned",
+        "typed_stage_boundary",
+        "no_normative_promotion",
+        "source_map_propagation"
+      ],
+      "state": "DESIGN_CANDIDATE"
+    },
+    {
+      "id": "GSL0-C14",
+      "name": "BUNDLE_EMIT",
+      "input": "CONTRACT_DIFFResult",
+      "output": "BUNDLE_EMITResult",
+      "properties": [
+        "source_project_revision_pinned",
+        "typed_stage_boundary",
+        "no_normative_promotion",
+        "source_map_propagation"
+      ],
+      "state": "DESIGN_CANDIDATE"
+    }
+  ],
+  "proof_requirements": [
+    "BYTE_RECONSTRUCTION",
+    "TOKEN_TRIVIA_RECONSTRUCTION",
+    "CST_YIELD",
+    "AST_TO_CST_ORIGIN",
+    "TYPE_PRESERVATION",
+    "V4_EVALUATION_PRESERVATION",
+    "SOURCE_TO_IR_COVERAGE",
+    "IR_TO_SOURCE_GROUNDING",
+    "CANONICAL_REPRODUCIBILITY",
+    "INCREMENTAL_EQUALS_FULL",
+    "COMPILATION_DOES_NOT_RATIFY"
+  ],
+  "bootstrap_first_case": {
+    "parent": "G00-01",
+    "source_clauses": [
+      "G00-01-F01",
+      "G00-01-F02",
+      "G00-01-F03",
+      "G00-01-F04",
+      "G00-01-F05",
+      "G00-01-F06",
+      "G00-01-F07",
+      "G00-01-F08",
+      "G00-01-F09",
+      "G00-01-F10"
+    ],
+    "logical_tests": [
+      "G00-01-T01",
+      "G00-01-T02",
+      "G00-01-T03",
+      "G00-01-T04",
+      "G00-01-T05",
+      "G00-01-T06",
+      "G00-01-T07",
+      "G00-01-T08",
+      "G00-01-T09",
+      "G00-01-T10"
+    ],
+    "semantic_sufficiency": "UNPROVEN",
+    "material": "NOT_RUN"
+  },
+  "rust_toolchain_available_in_current_session": false
+}

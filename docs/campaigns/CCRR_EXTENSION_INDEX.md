@@ -28,3 +28,8 @@ Complementos:
 - [GSL-0 pendiente, frontera](../revision-2026-10-19/05_GSL0_DISCUSSION_BOUNDARY.md)
 
 Cada documento de campaña reitera la implementación y falsación originales por ID, añade una hipótesis de garantía CCRR por obligación y obliga a un argumento de suficiencia del compromiso superior. La validación documental de esas relaciones sigue pendiente: los enlaces no acreditan semántica ni material PASS.
+
+
+## Diseño del frontend GSL-0 y extracción text/AST Charloom
+
+[Contrato GSL-0, auditoría de fuentes y programa CTK](../revision-2026-10-20/INDEX.md). LC00–LC12 y CTK00–CTK11 son unidades subordinadas propuestas que requieren reconciliación con G-00 B00–B09 y G-07, no nuevas campañas normativas. El código aún no está extraído ni certificado.

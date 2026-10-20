@@ -54,3 +54,8 @@ Una precisión posterior no sustituye el alcance anterior, salvo operación expl
 ## Revisión CCRR 19-10-2026
 
 [Informe de corrección y ampliación](revision-2026-10-19/INDEX.md) · [Extensiones G-00…G-13](campaigns/CCRR_EXTENSION_INDEX.md). Registros propuestos en architecture/ccrr_*.json. Sin código ni validación material nueva; GSL-0 pendiente.
+
+
+## Candidato de contrato GSL-0 y auditoría Charloom (20-10-2026)
+
+[Revisión del compilador, fuente Charloom auditada y programa de extracción](revision-2026-10-20/INDEX.md). Se propone un núcleo textual Rust desacoplado de Compute Master; GSL/CCRR conserva los tipos y la autoridad. Diseño sin ratificar, crate no creado ni compilado materialmente.

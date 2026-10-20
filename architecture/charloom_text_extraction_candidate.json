@@ -1,0 +1,198 @@
+{
+  "schema": "guardian/charloom-text-extraction-candidate/v1",
+  "authority": "PROPOSED_NOT_RATIFIED",
+  "source_repo": "alfredoVallejoM/charloom",
+  "source_commit": "3de6e1ec205394b6ac9c232dd66b1550ffad2fd9",
+  "guardian_base_commit": "3d2d406de0f9bf42ae217fe15ab5860d919a7c33",
+  "code_extracted": false,
+  "rust_materially_validated": false,
+  "source_feature_gate": "research-generalization",
+  "planned_crate": "charloom-source-kernel",
+  "planned_product_boundary": "TEXT_RANGE_SEGMENT_STRUCTURE_GENERIC_CST_ONLY",
+  "forbid_deps": [
+    "charloom root integration",
+    "compute_master modules",
+    "compute_mvp",
+    "research-generalization runtime",
+    "Guardian governance code"
+  ],
+  "stable_dependencies_candidate": [
+    "charloom-core",
+    "charloom-engine"
+  ],
+  "source_files": [
+    {
+      "path": "src/generalization/common.rs",
+      "stage": "CTK-A",
+      "api_to_consider": "TextRange64,TextSummary,StructureNode,StructureStore,StructureBuilder",
+      "action": "ISOLATE_SUBSET",
+      "dependencies_to_isolate": "charloom-core;charloom-engine",
+      "obligations": [
+        "CTK-P01",
+        "CTK-P02",
+        "CTK-P03"
+      ],
+      "source_revision": "3de6e1ec205394b6ac9c232dd66b1550ffad2fd9"
+    },
+    {
+      "path": "src/generalization/text.rs",
+      "stage": "CTK-A",
+      "api_to_consider": "LosslessScanner,LosslessSegment,scan_lossless,segments_reconstruct_source",
+      "action": "EXTRACT_AND_REEXPORT_CANDIDATE",
+      "dependencies_to_isolate": "common;charloom-core;charloom-engine",
+      "obligations": [
+        "CTK-P01",
+        "CTK-P02"
+      ],
+      "source_revision": "3de6e1ec205394b6ac9c232dd66b1550ffad2fd9"
+    },
+    {
+      "path": "src/generalization/text_hierarchy.rs",
+      "stage": "CTK-A",
+      "api_to_consider": "build_document_hierarchy",
+      "action": "EXTRACT_NO_MARKDOWN_SEMANTICS",
+      "dependencies_to_isolate": "common;text",
+      "obligations": [
+        "CTK-P03"
+      ],
+      "source_revision": "3de6e1ec205394b6ac9c232dd66b1550ffad2fd9"
+    },
+    {
+      "path": "src/generalization/text_index.rs",
+      "stage": "CTK-A",
+      "api_to_consider": "StructuralIndex,covering_path,nodes_of_kind,intersecting_leaves",
+      "action": "EXTRACT",
+      "dependencies_to_isolate": "common",
+      "obligations": [
+        "CTK-P06"
+      ],
+      "source_revision": "3de6e1ec205394b6ac9c232dd66b1550ffad2fd9"
+    },
+    {
+      "path": "src/generalization/text_edit.rs",
+      "stage": "CTK-A",
+      "api_to_consider": "TextEdit,ValidatedLosslessSegments,plan_lossless_patch,apply_lossless_patch",
+      "action": "EXTRACT",
+      "dependencies_to_isolate": "common;text",
+      "obligations": [
+        "CTK-P05"
+      ],
+      "source_revision": "3de6e1ec205394b6ac9c232dd66b1550ffad2fd9"
+    },
+    {
+      "path": "src/generalization/text_stream.rs",
+      "stage": "CTK-A",
+      "api_to_consider": "StreamingLosslessBuilder",
+      "action": "EXTRACT",
+      "dependencies_to_isolate": "common;text;charloom-core;charloom-engine",
+      "obligations": [
+        "CTK-P04"
+      ],
+      "source_revision": "3de6e1ec205394b6ac9c232dd66b1550ffad2fd9"
+    },
+    {
+      "path": "src/generalization/compute_cst.rs",
+      "stage": "CTK-B",
+      "api_to_consider": "GenericTokenization,GenericCstPipeline,balanced delimiters,token reconstruction",
+      "action": "EXTRACT_ONLY_GENERIC_ALGORITHMS_DECOUPLE_COMPUTE",
+      "dependencies_to_isolate": "common;compute stage needs replacement;GSL-aware lexing required",
+      "obligations": [
+        "CTK-P07",
+        "CTK-P09"
+      ],
+      "source_revision": "3de6e1ec205394b6ac9c232dd66b1550ffad2fd9"
+    },
+    {
+      "path": "src/generalization/compute_ast.rs",
+      "stage": "CTK-B",
+      "api_to_consider": "CST-to-AST structural correspondence",
+      "action": "EXTRACT_ONLY_GENERIC_ALGORITHMS_DECOUPLE_COMPUTE",
+      "dependencies_to_isolate": "common;compute stage needs replacement;compute_cst",
+      "obligations": [
+        "CTK-P08",
+        "CTK-P09"
+      ],
+      "source_revision": "3de6e1ec205394b6ac9c232dd66b1550ffad2fd9"
+    },
+    {
+      "path": "src/generalization/compute_lowering.rs",
+      "stage": "REFERENCE_ONLY",
+      "api_to_consider": "Generic HIR/IR origin correspondence",
+      "action": "DO_NOT_COPY_SEMANTIC_IR",
+      "dependencies_to_isolate": "compute_ast;compute stages",
+      "obligations": [
+        "CTK-P09"
+      ],
+      "source_revision": "3de6e1ec205394b6ac9c232dd66b1550ffad2fd9"
+    },
+    {
+      "path": "src/generalization/corpus.rs",
+      "stage": "CTK-C",
+      "api_to_consider": "CorpusForest,DocumentOrigin,Annotation",
+      "action": "OPTIONAL",
+      "dependencies_to_isolate": "common;text_hierarchy;digest",
+      "obligations": [
+        "CTK-P12"
+      ],
+      "source_revision": "3de6e1ec205394b6ac9c232dd66b1550ffad2fd9"
+    },
+    {
+      "path": "src/generalization/argument_span.rs",
+      "stage": "CTK-C",
+      "api_to_consider": "DiscourseSpan,DiscourseSpanStore",
+      "action": "OPTIONAL_WITH_INFORMATION_SEPARATION",
+      "dependencies_to_isolate": "common;digest;information",
+      "obligations": [
+        "CTK-P12"
+      ],
+      "source_revision": "3de6e1ec205394b6ac9c232dd66b1550ffad2fd9"
+    },
+    {
+      "path": "src/generalization/argument_claim.rs",
+      "stage": "CTK-C",
+      "api_to_consider": "ClaimModality,ClaimQuantifier,ClaimAttribution,ClaimStore",
+      "action": "REFERENCE_OR_OPTIONAL_NO_NORMATIVE_AUTHORITY",
+      "dependencies_to_isolate": "information;argument_span",
+      "obligations": [
+        "CTK-P12"
+      ],
+      "source_revision": "3de6e1ec205394b6ac9c232dd66b1550ffad2fd9"
+    },
+    {
+      "path": "src/generalization/information_schema.rs",
+      "stage": "CTK-C",
+      "api_to_consider": "PredicateSchema,SchemaRegistry",
+      "action": "REFERENCE_ONLY_UNTIL_SEMANTIC_FIT",
+      "dependencies_to_isolate": "information;relation",
+      "obligations": [
+        "CTK-P09"
+      ],
+      "source_revision": "3de6e1ec205394b6ac9c232dd66b1550ffad2fd9"
+    }
+  ],
+  "existing_tests": [
+    "tests/generalization_t02_c02.rs",
+    "tests/generalization_t03_c03.rs",
+    "tests/generalization_t06_c06.rs",
+    "tests/generalization_t08_c08.rs",
+    "tests/generalization_t09_c09.rs",
+    "tests/generalization_g2_argument_foundation.rs"
+  ],
+  "formal_obligations": [
+    "SOURCE_YIELD",
+    "UTF8_BOUNDARIES",
+    "VALID_STRUCTURE",
+    "STREAM_EQ_FULL_SCAN",
+    "EDIT_EQ_FULL_SCAN",
+    "INDEX_SOUNDNESS",
+    "CST_YIELD",
+    "AST_ORIGIN",
+    "NO_COMPUTE_DEPS",
+    "DETERMINISM",
+    "REVISION_ANCHORED_SPANS"
+  ],
+  "licensing": "AGPL-3.0-only source; commercial path separately licensed; verify holders and third-party at extraction",
+  "integration": "Rust batch helper versioned protocol; Python Guardian owns typed semantic IR and normative admission",
+  "next_stage": "CTK-00 SOURCE_FREEZE_DEPENDENCY_AUDIT",
+  "status": "PLANNED_NO_RUNS"
+}
