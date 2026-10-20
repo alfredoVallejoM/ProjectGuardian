@@ -1,0 +1,37 @@
+gsl "0.1";
+project "ProjectGuardian";
+source "PG-CAMPAIGNS" { locator: "architecture/campaigns.json"; source_cut: context; }
+source "PG-CLAUSES" { locator: "architecture/g00_functional_refinement.json"; source_cut: context; }
+source "PG-TESTS" { locator: "architecture/g00_validation_plan.json"; source_cut: context; }
+scope "G00-FOUNDATION" { project: project("ProjectGuardian"); campaign: "G-00"; }
+property "G00-01-F01-P" { from: source_item("PG-CLAUSES", "G00-01-F01"); kind: constitution; subject: project("ProjectGuardian"); deferred_semantics: "guardian/future-contract/G00-01-F01"; }
+property "G00-01-F02-P" { from: source_item("PG-CLAUSES", "G00-01-F02"); kind: constitution; subject: project("ProjectGuardian"); deferred_semantics: "guardian/future-contract/G00-01-F02"; }
+property "G00-01-F03-P" { from: source_item("PG-CLAUSES", "G00-01-F03"); kind: constitution; subject: project("ProjectGuardian"); deferred_semantics: "guardian/future-contract/G00-01-F03"; }
+property "G00-01-F04-P" { from: source_item("PG-CLAUSES", "G00-01-F04"); kind: constitution; subject: project("ProjectGuardian"); deferred_semantics: "guardian/future-contract/G00-01-F04"; }
+property "G00-01-F05-P" { from: source_item("PG-CLAUSES", "G00-01-F05"); kind: constitution; subject: project("ProjectGuardian"); deferred_semantics: "guardian/future-contract/G00-01-F05"; }
+property "G00-01-F06-P" { from: source_item("PG-CLAUSES", "G00-01-F06"); kind: constitution; subject: project("ProjectGuardian"); deferred_semantics: "guardian/future-contract/G00-01-F06"; }
+property "G00-01-F07-P" { from: source_item("PG-CLAUSES", "G00-01-F07"); kind: constitution; subject: project("ProjectGuardian"); deferred_semantics: "guardian/future-contract/G00-01-F07"; }
+property "G00-01-F08-P" { from: source_item("PG-CLAUSES", "G00-01-F08"); kind: constitution; subject: project("ProjectGuardian"); deferred_semantics: "guardian/future-contract/G00-01-F08"; }
+property "G00-01-F09-P" { from: source_item("PG-CLAUSES", "G00-01-F09"); kind: constitution; subject: project("ProjectGuardian"); deferred_semantics: "guardian/future-contract/G00-01-F09"; }
+property "G00-01-F10-P" { from: source_item("PG-CLAUSES", "G00-01-F10"); kind: constitution; subject: project("ProjectGuardian"); deferred_semantics: "guardian/future-contract/G00-01-F10"; }
+obligation "G00-01" { from: source_item("PG-CAMPAIGNS", "G00-01"); kind: constitution; scope: scope("G00-FOUNDATION"); when: true; requires: property("G00-01-F01-P"); verification: verification_ref("G00-01-T01"); requires: property("G00-01-F02-P"); verification: verification_ref("G00-01-T02"); requires: property("G00-01-F03-P"); verification: verification_ref("G00-01-T03"); requires: property("G00-01-F04-P"); verification: verification_ref("G00-01-T04"); requires: property("G00-01-F05-P"); verification: verification_ref("G00-01-T05"); requires: property("G00-01-F06-P"); verification: verification_ref("G00-01-T06"); requires: property("G00-01-F07-P"); verification: verification_ref("G00-01-T07"); requires: property("G00-01-F08-P"); verification: verification_ref("G00-01-T08"); requires: property("G00-01-F09-P"); verification: verification_ref("G00-01-T09"); requires: property("G00-01-F10-P"); verification: verification_ref("G00-01-T10"); }
+verification "G00-01-T01" { from: source_item("PG-TESTS", "G00-01-T01"); target: obligation("G00-01"); property: property("G00-01-F01-P"); method: property_and_negative; }
+relation "G00-01-F01-DETAIL" { kind: proposed_detail; parent: obligation("G00-01"); child: clause("G00-01-F01"); }
+verification "G00-01-T02" { from: source_item("PG-TESTS", "G00-01-T02"); target: obligation("G00-01"); property: property("G00-01-F02-P"); method: property_and_negative; }
+relation "G00-01-F02-DETAIL" { kind: proposed_detail; parent: obligation("G00-01"); child: clause("G00-01-F02"); }
+verification "G00-01-T03" { from: source_item("PG-TESTS", "G00-01-T03"); target: obligation("G00-01"); property: property("G00-01-F03-P"); method: property_and_negative; }
+relation "G00-01-F03-DETAIL" { kind: proposed_detail; parent: obligation("G00-01"); child: clause("G00-01-F03"); }
+verification "G00-01-T04" { from: source_item("PG-TESTS", "G00-01-T04"); target: obligation("G00-01"); property: property("G00-01-F04-P"); method: property_and_negative; }
+relation "G00-01-F04-DETAIL" { kind: proposed_detail; parent: obligation("G00-01"); child: clause("G00-01-F04"); }
+verification "G00-01-T05" { from: source_item("PG-TESTS", "G00-01-T05"); target: obligation("G00-01"); property: property("G00-01-F05-P"); method: property_and_negative; }
+relation "G00-01-F05-DETAIL" { kind: proposed_detail; parent: obligation("G00-01"); child: clause("G00-01-F05"); }
+verification "G00-01-T06" { from: source_item("PG-TESTS", "G00-01-T06"); target: obligation("G00-01"); property: property("G00-01-F06-P"); method: property_and_negative; }
+relation "G00-01-F06-DETAIL" { kind: proposed_detail; parent: obligation("G00-01"); child: clause("G00-01-F06"); }
+verification "G00-01-T07" { from: source_item("PG-TESTS", "G00-01-T07"); target: obligation("G00-01"); property: property("G00-01-F07-P"); method: property_and_negative; }
+relation "G00-01-F07-DETAIL" { kind: proposed_detail; parent: obligation("G00-01"); child: clause("G00-01-F07"); }
+verification "G00-01-T08" { from: source_item("PG-TESTS", "G00-01-T08"); target: obligation("G00-01"); property: property("G00-01-F08-P"); method: property_and_negative; }
+relation "G00-01-F08-DETAIL" { kind: proposed_detail; parent: obligation("G00-01"); child: clause("G00-01-F08"); }
+verification "G00-01-T09" { from: source_item("PG-TESTS", "G00-01-T09"); target: obligation("G00-01"); property: property("G00-01-F09-P"); method: property_and_negative; }
+relation "G00-01-F09-DETAIL" { kind: proposed_detail; parent: obligation("G00-01"); child: clause("G00-01-F09"); }
+verification "G00-01-T10" { from: source_item("PG-TESTS", "G00-01-T10"); target: obligation("G00-01"); property: property("G00-01-F10-P"); method: property_and_negative; }
+relation "G00-01-F10-DETAIL" { kind: proposed_detail; parent: obligation("G00-01"); child: clause("G00-01-F10"); }

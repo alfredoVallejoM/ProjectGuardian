@@ -59,3 +59,11 @@ Una precisión posterior no sustituye el alcance anterior, salvo operación expl
 ## Candidato de contrato GSL-0 y auditoría Charloom (20-10-2026)
 
 [Revisión del compilador, fuente Charloom auditada y programa de extracción](revision-2026-10-20/INDEX.md). Se propone un núcleo textual Rust desacoplado de Compute Master; GSL/CCRR conserva los tipos y la autoridad. Diseño sin ratificar, crate no creado ni compilado materialmente.
+
+## Desarrollo prioritario GSL y extracción CTK (20-10-2026)
+
+- [Arquitectura completa y formal del compilador GSL-0…GSL-3](specification/GSL_LANGUAGE_FULL_COMPILER_ARCHITECTURE_PROPOSED.md).
+- [Programa de desarrollo GSL-first y mejoras paralelas Charloom](campaigns/GSL_LANGUAGE_AND_CHARLOOM_FOCUSED_SEQUENCE_PROPOSED.md).
+- [Experimento GSL-0 de referencia](../experiments/gsl0_reference/README.md) y su [vertical candidata G00-01](../experiments/gsl0_reference/g00_01_candidate.gsl).
+
+Estado: diseño propuesto, prototipo parcial, sin compilador productivo ni garantías materialmente cualificadas. CTK-01 está escrito en Charloom `main`, pendiente de prueba Cargo.

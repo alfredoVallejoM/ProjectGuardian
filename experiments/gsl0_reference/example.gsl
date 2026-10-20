@@ -1,0 +1,34 @@
+gsl "0.1";
+project "ProjectGuardian";
+source "PG-G00" {
+    locator: "architecture/campaigns.json";
+    source_cut: context;
+}
+scope "G00-FOUNDATION" {
+    project: project("ProjectGuardian");
+    campaign: "G-00";
+}
+property "PG-ID-DISTINCT" {
+    kind: constitution;
+    subject: project("ProjectGuardian");
+    holds: nominal_distinct(kind("ProjectId"), kind("RevisionId"));
+}
+obligation "G00-01" {
+    from: source_item("PG-G00", "G00-01");
+    kind: constitution;
+    scope: scope("G00-FOUNDATION");
+    when: true;
+    requires: property("PG-ID-DISTINCT");
+    verification: verification_ref("G00-01-T01");
+}
+verification "G00-01-T01" {
+    from: source_item("PG-G00", "G00-01-T01");
+    target: obligation("G00-01");
+    property: property("PG-ID-DISTINCT");
+    method: property_and_negative;
+}
+relation "G00-01-F01-DETAIL" {
+    kind: proposed_detail;
+    parent: obligation("G00-01");
+    child: clause("G00-01-F01");
+}

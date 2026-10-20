@@ -1,0 +1,32 @@
+start: version project_decl declaration*
+version: "gsl" ESCAPED_STRING ";"
+project_decl: "project" ESCAPED_STRING ";"
+?declaration: source_decl | scope_decl | objective_decl | capability_decl | property_decl | obligation_decl | verification_decl | relation_decl
+source_decl: "source" ESCAPED_STRING "{" field* "}"
+scope_decl: "scope" ESCAPED_STRING "{" field* "}"
+objective_decl: "objective" ESCAPED_STRING "{" field* "}"
+capability_decl: "capability" ESCAPED_STRING "{" field* "}"
+property_decl: "property" ESCAPED_STRING "{" field* "}"
+obligation_decl: "obligation" ESCAPED_STRING "{" field* "}"
+verification_decl: "verification" ESCAPED_STRING "{" field* "}"
+relation_decl: "relation" ESCAPED_STRING "{" field* "}"
+field: NAME ":" expr ";"
+?expr: disjunction
+?disjunction: conjunction ("or" conjunction)* -> disjunction
+?conjunction: negation ("and" negation)* -> conjunction
+?negation: "not" negation -> negative
+         | atom
+?atom: call
+     | ESCAPED_STRING -> string
+     | SIGNED_NUMBER -> number
+     | "true" -> true
+     | "false" -> false
+     | NAME -> name
+     | "(" expr ")"
+call: NAME "(" [expr ("," expr)*] ")"
+NAME: /[A-Za-z_][A-Za-z_0-9]*/
+%import common.ESCAPED_STRING
+%import common.SIGNED_NUMBER
+%import common.WS
+%ignore WS
+%ignore /\/\/[^\n]*/

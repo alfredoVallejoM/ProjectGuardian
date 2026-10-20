@@ -1,0 +1,38 @@
+{
+  "PG-CAMPAIGNS": {
+    "locator": "architecture/campaigns.json",
+    "logical_items": [
+      "G00-01"
+    ]
+  },
+  "PG-CLAUSES": {
+    "locator": "architecture/g00_functional_refinement.json",
+    "logical_items": [
+      "G00-01-F01",
+      "G00-01-F02",
+      "G00-01-F03",
+      "G00-01-F04",
+      "G00-01-F05",
+      "G00-01-F06",
+      "G00-01-F07",
+      "G00-01-F08",
+      "G00-01-F09",
+      "G00-01-F10"
+    ]
+  },
+  "PG-TESTS": {
+    "locator": "architecture/g00_validation_plan.json",
+    "logical_items": [
+      "G00-01-T01",
+      "G00-01-T02",
+      "G00-01-T03",
+      "G00-01-T04",
+      "G00-01-T05",
+      "G00-01-T06",
+      "G00-01-T07",
+      "G00-01-T08",
+      "G00-01-T09",
+      "G00-01-T10"
+    ]
+  }
+}
