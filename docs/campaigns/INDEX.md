@@ -27,3 +27,9 @@
 ## Extensiones CCRR propuestas
 
 [Índice de las 14 extensiones por campaña](CCRR_EXTENSION_INDEX.md). Conservan los 163 IDs originales con falsaciones y puentes nuevos candidatos. No son nuevas campañas ni demostraciones de suficiencia ratificadas.
+
+## Implementación productiva progresiva (20-10-2026)
+
+El [protocolo de ejecución G-00…G-13](G00_G13_PROGRESSIVE_PRODUCT_IMPLEMENTATION.md) fija autoría, pruebas, adversarios, integración, revisión independiente y los dos estados separados DEVELOPMENT_COMPLETE / CAMPAIGN_CLOSED. No altera la autoridad de las 163 obligaciones.
+
+El [ledger inicial de las 163 obligaciones](../../architecture/implementation_progress_2026_10_20.json) enumera cada ID canónico, y para G-00 sus cláusulas, APIs, pruebas, adversarios e integraciones esperadas. Es una proyección de seguimiento, **no** una fuente de autoridad ni un certificado. No contabiliza candidatos locales no publicados.
