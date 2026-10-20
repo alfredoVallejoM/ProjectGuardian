@@ -67,3 +67,5 @@ Una precisión posterior no sustituye el alcance anterior, salvo operación expl
 - [Experimento GSL-0 de referencia](../experiments/gsl0_reference/README.md) y su [vertical candidata G00-01](../experiments/gsl0_reference/g00_01_candidate.gsl).
 
 Estado: diseño propuesto, prototipo parcial, sin compilador productivo ni garantías materialmente cualificadas. CTK-01 está escrito en Charloom `main`, pendiente de prueba Cargo.
+
+- [Verificación local limitada GSL-0 y pruebas materiales pendientes](revision-2026-10-20/07_GSL0_REFERENCE_SMOKE_STATUS.md). Las 30 funciones pytest están escritas, no calificadas como suite ejecutada sobre el commit.

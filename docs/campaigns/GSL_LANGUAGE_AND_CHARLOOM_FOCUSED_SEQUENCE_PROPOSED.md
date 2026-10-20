@@ -34,7 +34,7 @@ En una referencia Python/Lark aislada (experiments/gsl0_reference) se elaboró u
 - Representa propiedades diferidas y enlaces padre/hijo con PO UNPROVEN.
 - Mantiene estado PROPOSED_NOT_RATIFIED, nunca emite certificados.
 
-En la sesión de desarrollo autoral, 30 tests Python pasaron, incluidos casos negativos. La vertical G00-01 CANDIDATA tiene 35 declaraciones (3 fuentes, 1 scope, 10 properties, 1 obligation, 10 verification specs, 10 relaciones) y genera 20 PO UNPROVEN. Los IDs reales se basan en tres catálogos fuente distintos: campaigns.json, g00_functional_refinement.json y g00_validation_plan.json.
+Se han publicado 30 funciones de test Python (28 de compilador y 2 de lógica finita). **No hay recibo de una ejecución íntegra de pytest sobre el commit publicado en esta intervención**; se han ejecutado comprobaciones locales limitadas de gramática, AST y álgebra V4. No atribuir PASS de la suite completa hasta ejecutarla de forma reproducible. La vertical G00-01 CANDIDATA tiene 35 declaraciones (3 fuentes, 1 scope, 10 properties, 1 obligation, 10 verification specs, 10 relaciones) y genera 20 PO UNPROVEN. Los IDs reales se basan en tres catálogos fuente distintos: campaigns.json, g00_functional_refinement.json y g00_validation_plan.json.
 
 **Esto NO equivale a GSL-0 completo ni a conformidad de todas las obligaciones G00.** Faltan import Markdown, parser normativo completo, cuantificador finito, recuperación de errores formal, scopes completos, firmas de predicados extensibles, correspondencia con dominio productivo, evaluación material de código, fuente Git congelada con grants, hermeticidad/seguridad y prueba semántica mecanizada. El catálogo del experimento está inyectado y no es un gate de autoridad.
 
