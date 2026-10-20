@@ -126,3 +126,20 @@ def test_domain_gsl_coexistence_without_certification(pinned):
     material=TypedStatus(StatusAxis.MATERIAL,MaterialStatus.NOT_RUN)
     qualification=TypedStatus(StatusAxis.QUALIFICATION,QualificationStatus.UNQUALIFIED)
     assert material.value is MaterialStatus.NOT_RUN and qualification.value is QualificationStatus.UNQUALIFIED
+
+
+def test_disallowed_operator_does_not_pass_even_if_semantically_equal(pinned):
+    bundle,ctx=pinned
+    expr=b'not (alpha and beta)'
+    forbidden=dataclasses.replace(ctx,supported_features=frozenset({'v4-atom'}))
+    res=verify_semantics(bundle,forbidden,origin(bundle,expr),lower_formula(parse_source_formula(expr)))
+    assert res.status is OracleStatus.UNSUPPORTED_FEATURE and not res.acceptable
+
+
+def test_deep_candidate_ir_fails_closed_without_recursion_error(pinned):
+    bundle,ctx=pinned
+    candidate=FormulaIR('yes')
+    for _ in range(1100):
+        candidate=FormulaIR('not',(candidate,))
+    result=verify_semantics(bundle,ctx,origin(bundle,b'not (alpha and beta)'),candidate)
+    assert result.status is OracleStatus.INVALID_IR and not result.acceptable

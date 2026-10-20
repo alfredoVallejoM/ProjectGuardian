@@ -127,11 +127,12 @@ class SourceOrigin:
             raise ValueError('SOURCE_ORIGIN_MISMATCH')
         if self.byte_end > len(bundle.source_bytes):
             raise ValueError('SOURCE_ORIGIN_OUT_OF_BOUNDS')
-        try:
-            bundle.source_bytes[:self.byte_start].decode('utf-8','strict')
-            bundle.source_bytes[:self.byte_end].decode('utf-8','strict')
-        except UnicodeDecodeError as exc:
-            raise ValueError('SOURCE_ORIGIN_SPLITS_UTF8') from exc
+        # SourceBundle already validates the full UTF-8 byte stream once.
+        # Checking continuation bytes is O(1) per span, avoiding quadratic
+        # prefix decodes when a large source has many IR declarations.
+        data=bundle.source_bytes
+        if (self.byte_start<len(data) and data[self.byte_start]&0b11000000==0b10000000) or (self.byte_end<len(data) and data[self.byte_end]&0b11000000==0b10000000):
+            raise ValueError('SOURCE_ORIGIN_SPLITS_UTF8')
 
 
 @dataclass(frozen=True, slots=True)
@@ -186,7 +187,7 @@ class DeclarationIR:
 
 
 _FIELDS: dict[EntityKind,dict[str,IRType]]={
-    EntityKind.SOURCE: {'locator':IRType.TEXT,'source_cut':IRType.TEXT},
+    EntityKind.SOURCE: {'locator':IRType.TEXT,'source_cut':IRType.REF},
     EntityKind.SCOPE: {'project':IRType.REF,'campaign':IRType.TEXT},
     EntityKind.OBJECTIVE: {'from':IRType.SOURCE_ITEM,'scope':IRType.REF},
     EntityKind.CAPABILITY: {'from':IRType.SOURCE_ITEM,'scope':IRType.REF},
@@ -206,6 +207,7 @@ _REQUIRED: dict[EntityKind,frozenset[str]]={
     EntityKind.RELATION: frozenset({'kind','parent','child'}),
 }
 _REFERENCE_KIND={
+    (EntityKind.SOURCE,'source_cut'):EntityKind.SOURCE,
     (EntityKind.SCOPE,'project'):EntityKind.PROJECT,
     (EntityKind.OBJECTIVE,'scope'):EntityKind.SCOPE,
     (EntityKind.CAPABILITY,'scope'):EntityKind.SCOPE,
@@ -251,6 +253,8 @@ class ContractIR:
                 raise ValueError('DUPLICATE_DECLARATION')
             ids.add(d.identity)
             for f in d.fields:
+                if d.identity.kind is EntityKind.SOURCE and f.name=='source_cut' and f.typed_value.value!=self.source:
+                    raise ValueError('SOURCE_CUT_MUST_MATCH_PINNED_CONTEXT')
                 v=f.typed_value
                 if v.kind is IRType.REF and v.value.project!=self.project:
                     raise ValueError('FOREIGN_PROJECT_REFERENCE')

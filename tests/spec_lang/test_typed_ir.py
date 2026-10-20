@@ -141,3 +141,26 @@ def test_property_cannot_fake_proof_by_omitting_interpreted_vs_deferred(pinned):
     prop=ir.declarations[0]
     with pytest.raises(ValueError,match='precisely one'):
         DeclarationIR(prop.identity,prop.origin,tuple(f for f in prop.fields if f.name!='deferred_semantics'))
+
+
+def test_source_cut_cannot_be_mutable_text_or_foreign_ref(pinned):
+    ir,bundle,ctx=sample(pinned)
+    origin=ir.declarations[0].origin
+    source_decl=ref(ctx.project,EntityKind.SOURCE,'source-manifest',bundle.revision)
+    with pytest.raises(TypeError,match='WRONG_FIELD_TYPE'):
+        DeclarationIR(source_decl,origin,(
+            IRField('locator',IRValue(IRType.TEXT,'architecture/campaigns.json')),
+            IRField('source_cut',IRValue(IRType.TEXT,'main')),
+        ))
+    typed=DeclarationIR(source_decl,origin,(
+        IRField('locator',IRValue(IRType.TEXT,'architecture/campaigns.json')),
+        IRField('source_cut',IRValue(IRType.REF,bundle.source_ref)),
+    ))
+    assert replace(ir,declarations=ir.declarations+(typed,))
+    other_ref=ref(ctx.project,EntityKind.SOURCE,'unrelated-source',bundle.revision)
+    wrong=DeclarationIR(source_decl,origin,(
+        IRField('locator',IRValue(IRType.TEXT,'architecture/campaigns.json')),
+        IRField('source_cut',IRValue(IRType.REF,other_ref)),
+    ))
+    with pytest.raises(ValueError,match='SOURCE_CUT_MUST_MATCH_PINNED_CONTEXT'):
+        replace(ir,declarations=ir.declarations+(wrong,))

@@ -214,13 +214,45 @@ def _atoms_source(s:SourceFormula)->set[str]:
 
 
 def _atoms_ir(s:FormulaIR)->set[str]:
-    return ({s.name} if s.op=='atom' else set()) | set().union(*(_atoms_ir(x) for x in s.args))
+    result:set[str]=set()
+    pending=[s]
+    while pending:
+        x=pending.pop()
+        if x.op=='atom':result.add(x.name)
+        pending.extend(x.args)
+    return result
+
+
+def _used_ops_source(s:SourceFormula)->set[str]:
+    if isinstance(s,SourceConstant):return set()
+    if isinstance(s,SourceAtom):return {'v4-atom'}
+    if isinstance(s,SourceNot):return {'v4-not'}|_used_ops_source(s.inner)
+    if isinstance(s,SourceAnd):return {'v4-and'}|_used_ops_source(s.left)|_used_ops_source(s.right)
+    if isinstance(s,SourceOr):return {'v4-or'}|_used_ops_source(s.left)|_used_ops_source(s.right)
+    raise TypeError('unknown source expression')
+
+
+def _used_ops_ir(s:FormulaIR,max_nodes:int=10000)->set[str]:
+    used:set[str]=set()
+    pending=[(s,0)]
+    processed=0
+    while pending:
+        node,depth=pending.pop()
+        processed+=1
+        if processed>max_nodes or depth>_MAX_PARSE_DEPTH:
+            raise ValueError('GSL_IR_RESOURCE_LIMIT')
+        op={'atom':'v4-atom','not':'v4-not','and':'v4-and','or':'v4-or'}.get(node.op)
+        if op is not None:used.add(op)
+        pending.extend((a,depth+1) for a in node.args)
+    return used
 
 
 class OracleStatus(str,Enum):
     FINITE_EQUIVALENT = 'FINITE_EQUIVALENT'
     COUNTEREXAMPLE = 'COUNTEREXAMPLE'
     INCONCLUSIVE_RESOURCE_LIMIT = 'INCONCLUSIVE_RESOURCE_LIMIT'
+    UNSUPPORTED_FEATURE = 'UNSUPPORTED_FEATURE'
+    INVALID_IR = 'INVALID_IR'
     INVALID_SOURCE = 'INVALID_SOURCE'
     UNTRUSTED_PIN = 'UNTRUSTED_PIN'
 
@@ -258,6 +290,15 @@ def verify_semantics(
         src=parse_source_formula(bundle.source_bytes[origin.byte_start:origin.byte_end])
     except (ValueError,UnicodeDecodeError,TypeError) as exc:
         return OracleResult(OracleStatus.INVALID_SOURCE,(),0,reason=str(exc))
+    try:
+        source_features=_used_ops_source(src)
+        candidate_features=_used_ops_ir(candidate)
+        # Pre-validate VM depth even on a zero-valuation or constant formula.
+        _ir_instructions(candidate)
+    except (ValueError,RecursionError,TypeError) as exc:
+        return OracleResult(OracleStatus.INVALID_IR,(),0,reason=str(exc))
+    if not (source_features|candidate_features) <= context.supported_features:
+        return OracleResult(OracleStatus.UNSUPPORTED_FEATURE,(),0,reason='operator not supported by pinned semantic profile')
     names=tuple(sorted(_atoms_source(src)|_atoms_ir(candidate)))
     if type(max_atoms) is not int or type(max_valuations) is not int or max_atoms<0 or max_valuations<=0 or len(names)>max_atoms or 4**len(names)>max_valuations:
         return OracleResult(OracleStatus.INCONCLUSIVE_RESOURCE_LIMIT,names,0,reason='exhaustive source/IR valuation budget exceeded')
