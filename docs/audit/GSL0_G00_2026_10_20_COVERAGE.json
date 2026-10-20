@@ -1,0 +1,2082 @@
+{
+  "schema": "guardian/adversarial-status-review/v1",
+  "timestamp": "2026-10-20",
+  "authority": "AUDIT_FINDINGS_NOT_RATIFICATION",
+  "repository": "alfredoVallejoM/ProjectGuardian",
+  "remote_head": "32a7577d95fcc0337b41a3e828be44e9f03bdebb",
+  "source_revisions": [
+    "architecture/campaigns.json",
+    "architecture/g00_functional_refinement.json",
+    "architecture/g00_api_contracts.json",
+    "architecture/g00_validation_plan.json"
+  ],
+  "repository_product_src_exists": false,
+  "g00": {
+    "original_obligations": 12,
+    "implemented_original_obligations": 0,
+    "original_clauses": 120,
+    "implemented_product_clauses": 0,
+    "logical_verification_specs": 120,
+    "actual_authored_g00_tests": 0,
+    "api_contracts": 58,
+    "implemented_product_apis": 0,
+    "adversarial_scenarios": 36,
+    "authored_g00_adversarial_scenarios": 0,
+    "integrated_verticals": 7,
+    "executed_integrated_verticals": 0,
+    "source_status": "SPECIFIED_NOT_IMPLEMENTED",
+    "development_complete": false,
+    "material_qualified": false,
+    "groups": [
+      {
+        "id": "G00-01",
+        "title": "Identidades tipadas",
+        "original_implementation": "IDs de proyecto, entidad, revisión y digest nominalmente distintos, serializables y con validación",
+        "source_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "code_productive": "NOT_IMPLEMENTED",
+        "development_status": "INCOMPLETE",
+        "material_status": "NOT_RUN",
+        "clauses": [
+          {
+            "id": "G00-01-F01",
+            "source_behavior": "Implementar constructores distintos para ProjectId, EntityId, RevisionId y ContentDigest",
+            "source_acceptance": "Un parser devuelve instancias con discriminante correcto y rechaza intercambio entre clases",
+            "source_falsification": "La misma cadena se acepta como el tipo de identificador equivocado",
+            "original_test": "G00-01-T01",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-01-F02",
+            "source_behavior": "Asociar EntityId a ProjectId y EntityKind exactos",
+            "source_acceptance": "La igualdad de entidades exige namespace y clase además del valor",
+            "source_falsification": "Una entidad de proyecto B equivale a otra de A por tener el mismo texto",
+            "original_test": "G00-01-T02",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-01-F03",
+            "source_behavior": "Validar longitud, alfabeto, prefijos y sintaxis de ID canónico",
+            "source_acceptance": "Una entrada fuera de la gramática devuelve InvalidIdentity con path y causa",
+            "source_falsification": "Se admite ID vacío, path traversal o texto con delimitadores inseguros",
+            "original_test": "G00-01-T03",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-01-F04",
+            "source_behavior": "Modelar Alias como referencia legible con ámbito y procedencia",
+            "source_acceptance": "Un alias resuelve solo cuando hay un candidato exacto en el ámbito",
+            "source_falsification": "El primer alias duplicado gana por orden de diccionario",
+            "original_test": "G00-01-T04",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-01-F05",
+            "source_behavior": "Permitir cambiar nombre de presentación/ruta sin cambiar LogicalId",
+            "source_acceptance": "El mismo EntityId se mantiene tras el cambio de alias o ruta",
+            "source_falsification": "El identificador canónico se regenera porque se movió el archivo",
+            "original_test": "G00-01-T05",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-01-F06",
+            "source_behavior": "Representar cada EntityRef con RevisionId obligatorio para evaluación normativa",
+            "source_acceptance": "La referencia resuelve a revisión exacta o produce error tipado",
+            "source_falsification": "Una branch mutable se considera RevisionId certificable",
+            "original_test": "G00-01-T06",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-01-F07",
+            "source_behavior": "Validar algoritmo, codificación y longitud de ContentDigest",
+            "source_acceptance": "Algoritmo y hex completo se conservan al serializar",
+            "source_falsification": "Digest abreviado o algoritmo distinto se acepta como idéntico",
+            "original_test": "G00-01-T07",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-01-F08",
+            "source_behavior": "Recibir IDs generados como entrada y solo validarlos en domain",
+            "source_acceptance": "Ejecutar validadores con mismos inputs no usa hora ni RNG",
+            "source_falsification": "El constructor puro invoca time o uuid internamente y cambia resultados",
+            "original_test": "G00-01-T08",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-01-F09",
+            "source_behavior": "Serializar y deserializar todos los ID sin perder kind ni project",
+            "source_acceptance": "El roundtrip conserva tipo nominal, valor y namespace",
+            "source_falsification": "Todos los IDs se serializan como string sin tipo recuperable",
+            "original_test": "G00-01-T09",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-01-F10",
+            "source_behavior": "Detectar IDs repetidos de distinta entidad en un mismo namespace y clase",
+            "source_acceptance": "Registrar DuplicateLogicalId sin fusionar obligaciones",
+            "source_falsification": "La segunda entidad sobrescribe la primera",
+            "original_test": "G00-01-T10",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          }
+        ],
+        "api_refs": [
+          {
+            "id": "G00-API-001",
+            "function": "parse_project_id",
+            "owner": "src/guardian/domain/identity.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-002",
+            "function": "parse_entity_id",
+            "owner": "src/guardian/domain/identity.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-003",
+            "function": "parse_revision_id",
+            "owner": "src/guardian/domain/identity.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-004",
+            "function": "parse_content_digest",
+            "owner": "src/guardian/domain/identity.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-005",
+            "function": "encode_identity",
+            "owner": "src/guardian/domain/identity.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-006",
+            "function": "decode_identity",
+            "owner": "src/guardian/domain/identity.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-007",
+            "function": "bind_alias",
+            "owner": "src/guardian/domain/identity.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-008",
+            "function": "resolve_entity",
+            "owner": "src/guardian/domain/identity.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          }
+        ],
+        "attacks": [
+          {
+            "id": "ADV-01",
+            "mutation": "Use the same raw string as ProjectId and RevisionId",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-02",
+            "mutation": "Deserialize a reference without entity kind",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-03",
+            "mutation": "Alias resolves to two entities in the same namespace",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          }
+        ],
+        "gap": "No production source module at any declared G-00 owner path; experiment does not implement these behaviors."
+      },
+      {
+        "id": "G00-02",
+        "title": "Project y aislamiento",
+        "original_implementation": "Project y fuente de autoridad por proyecto; políticas de importación independientes",
+        "source_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "code_productive": "NOT_IMPLEMENTED",
+        "development_status": "INCOMPLETE",
+        "material_status": "NOT_RUN",
+        "clauses": [
+          {
+            "id": "G00-02-F01",
+            "source_behavior": "Definir ProjectDefinition con ID estable y metadatos separados",
+            "source_acceptance": "Renombrar display name no cambia ProjectId ni constitución",
+            "source_falsification": "Cambiar nombre recrea proyecto y borra linaje",
+            "original_test": "G00-02-T01",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-02-F02",
+            "source_behavior": "Registrar repositorios y políticas de fuente por proyecto",
+            "source_acceptance": "Fuente fuera de allowlist da denegación o requerimiento de importación",
+            "source_falsification": "Un repo arbitrario se convierte en fuente normativa",
+            "original_test": "G00-02-T02",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-02-F03",
+            "source_behavior": "Representar EMBEDDED, SIDECAR y FEDERATED como descriptores válidos",
+            "source_acceptance": "Cada modo tiene sus campos obligatorios y no altera contrato central",
+            "source_falsification": "SIDECAR se interpreta como fuente secundaria de verdad editable",
+            "original_test": "G00-02-T03",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-02-F04",
+            "source_behavior": "Requerir ProjectId en vistas y llamadas de dominio",
+            "source_acceptance": "Dos proyectos alternados mantienen estados y refs propios",
+            "source_falsification": "Se usa un global current_project implícito",
+            "original_test": "G00-02-T04",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-02-F05",
+            "source_behavior": "Exigir descriptor de importación aprobado para refs ajenas",
+            "source_acceptance": "Una importación sin alcance produce REQUIRES_APPROVAL",
+            "source_falsification": "Contratos externos se incorporan por similitud textual",
+            "original_test": "G00-02-T05",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-02-F06",
+            "source_behavior": "Restringir importación a cortes, rutas o contratos concedidos",
+            "source_acceptance": "Permiso para un SourceCut no concede todo otro repositorio",
+            "source_falsification": "Importar un archivo autoriza todos los archivos del repo",
+            "original_test": "G00-02-T06",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-02-F07",
+            "source_behavior": "Fijar constitution/policy revision en definición de proyecto",
+            "source_acceptance": "Las reglas se evalúan sobre revisión indicada, nunca latest accidental",
+            "source_falsification": "Actualizar policy global cambia evaluación histórica sin revisión",
+            "original_test": "G00-02-T07",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-02-F08",
+            "source_behavior": "Representar múltiples repositorios con identidades/cortes independientes",
+            "source_acceptance": "Una vista federada conserva commit y autoridad de cada fuente",
+            "source_falsification": "Se aplica un único SHA como revisión de todos los repos",
+            "original_test": "G00-02-T08",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-02-F09",
+            "source_behavior": "Permitir mismos nombres humanos en proyectos diferentes",
+            "source_acceptance": "El resolver distingue ProjectId y no mezcla alias",
+            "source_falsification": "Los dos proyectos comparten una tabla autoritativa de nombres",
+            "original_test": "G00-02-T09",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-02-F10",
+            "source_behavior": "Construir vista de proyecto read-only con entradas explícitas",
+            "source_acceptance": "Validar no modifica fuentes, contratos ni config",
+            "source_falsification": "Validación cambia el registro del proyecto en memoria",
+            "original_test": "G00-02-T10",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          }
+        ],
+        "api_refs": [
+          {
+            "id": "G00-API-009",
+            "function": "validate_project",
+            "owner": "src/guardian/domain/project.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-010",
+            "function": "validate_storage_mode",
+            "owner": "src/guardian/domain/project.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-011",
+            "function": "check_project_membership",
+            "owner": "src/guardian/domain/project.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-012",
+            "function": "build_readonly_project_view",
+            "owner": "src/guardian/application/project_service.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-016",
+            "function": "check_source_membership",
+            "owner": "src/guardian/domain/source.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-057",
+            "function": "inspect_project_definition",
+            "owner": "src/guardian/application/project_service.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          }
+        ],
+        "attacks": [
+          {
+            "id": "ADV-04",
+            "mutation": "Read another project's obligation under matching human name",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-05",
+            "mutation": "Approve all of an external repository based on a file-level grant",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-06",
+            "mutation": "Change a project's display name and regenerate its ProjectId",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          }
+        ],
+        "gap": "No production source module at any declared G-00 owner path; experiment does not implement these behaviors."
+      },
+      {
+        "id": "G00-03",
+        "title": "SourceUniverse",
+        "original_implementation": "Universo de fuentes con commits, documentación, inclusiones, exclusiones y límites explícitos",
+        "source_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "code_productive": "NOT_IMPLEMENTED",
+        "development_status": "INCOMPLETE",
+        "material_status": "NOT_RUN",
+        "clauses": [
+          {
+            "id": "G00-03-F01",
+            "source_behavior": "Modelar SourceCut Git con commit completo, repo, kind y path opcional",
+            "source_acceptance": "Branch sin resolución a corte fijo no vale para cierre de cobertura",
+            "source_falsification": "main se almacena como commit inmutable",
+            "original_test": "G00-03-T01",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-03-F02",
+            "source_behavior": "Distinguir SourceRef documental con revisión/identidad de captura",
+            "source_acceptance": "Una cita se liga a documento y revisión, no solo título",
+            "source_falsification": "Un nombre de documento sin corte se trata como versión completa",
+            "original_test": "G00-03-T02",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-03-F03",
+            "source_behavior": "Definir reglas explícitas de qué fuentes pertenecen al universo",
+            "source_acceptance": "Cambiar include set genera revisión de universo, no reinterpreta corte viejo",
+            "source_falsification": "Todo archivo del mundo se presume incluido",
+            "original_test": "G00-03-T03",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-03-F04",
+            "source_behavior": "Exigir razón/autoridad al excluir fuentes de un universo comprometido",
+            "source_acceptance": "Una exclusión no documentada produce diagnóstico",
+            "source_falsification": "Se excluye archivo problemático para declarar cobertura",
+            "original_test": "G00-03-T04",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-03-F05",
+            "source_behavior": "Registrar known_missing y unavailable sin inventar contenido",
+            "source_acceptance": "La evaluación conserva SOURCE_MISSING y no afirma exhaustividad",
+            "source_falsification": "Fuente no descargada se marca reconciled",
+            "original_test": "G00-03-T05",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-03-F06",
+            "source_behavior": "Clasificar historia BASE/DELTA/SUPERSEDED/REFERENCE según scope",
+            "source_acceptance": "Dos cuts del mismo repo no se suman como poblaciones semánticas disjuntas",
+            "source_falsification": "El número de archivos se duplica como capacidades",
+            "original_test": "G00-03-T06",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-03-F07",
+            "source_behavior": "Separar IDENTIFIED, IDENTITY_VERIFIED, CONTENT_OBSERVED, SEMANTIC_RECONCILED",
+            "source_acceptance": "Un árbol remoto leído no se declara censo AST completo",
+            "source_falsification": "Pointer de blob se trata como implementacion certificada",
+            "original_test": "G00-03-T07",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-03-F08",
+            "source_behavior": "Registrar observaciones sin convertirlas en decisiones ratificadas",
+            "source_acceptance": "Un README o comentario no altera constitution aprobada",
+            "source_falsification": "Una instrucción en fichero fuente autoriza cambiar reglas",
+            "original_test": "G00-03-T08",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-03-F09",
+            "source_behavior": "SourceUniverse incluye alcance y límites antes de reclamo de completeness",
+            "source_acceptance": "Universo con known_missing no permite claim de cobertura completa",
+            "source_falsification": "Se declara 100% porque todas las filas ya registradas tienen ref",
+            "original_test": "G00-03-T09",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-03-F10",
+            "source_behavior": "Representar feature/corpus/platform/time scope del inventario",
+            "source_acceptance": "Informe puede explicar qué universo quedó fuera",
+            "source_falsification": "Una cifra de cobertura carece de denominador y exclusiones",
+            "original_test": "G00-03-T10",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          }
+        ],
+        "api_refs": [
+          {
+            "id": "G00-API-013",
+            "function": "validate_git_source_cut",
+            "owner": "src/guardian/domain/source.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-014",
+            "function": "validate_document_source",
+            "owner": "src/guardian/domain/source.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-015",
+            "function": "validate_source_universe",
+            "owner": "src/guardian/domain/source.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-016",
+            "function": "check_source_membership",
+            "owner": "src/guardian/domain/source.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-017",
+            "function": "validate_inclusion_exclusion",
+            "owner": "src/guardian/domain/source.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-018",
+            "function": "describe_source_coverage",
+            "owner": "src/guardian/domain/source.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          }
+        ],
+        "attacks": [
+          {
+            "id": "ADV-07",
+            "mutation": "Use branch HEAD string as immutable source revision",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-08",
+            "mutation": "Declare a universe complete with known_missing records",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-09",
+            "mutation": "Sum overlapping base/delta files as disjoint semantic capabilities",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          }
+        ],
+        "gap": "No production source module at any declared G-00 owner path; experiment does not implement these behaviors."
+      },
+      {
+        "id": "G00-04",
+        "title": "Constitución y decisión",
+        "original_implementation": "Jerarquía de normas y decisiones con RATIFIED distinto de PROPOSED, autorización y precedencia",
+        "source_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "code_productive": "NOT_IMPLEMENTED",
+        "development_status": "INCOMPLETE",
+        "material_status": "NOT_RUN",
+        "clauses": [
+          {
+            "id": "G00-04-F01",
+            "source_behavior": "Distinguir PROPOSED, APPROVED, REJECTED y SUPERSEDED en DecisionRevision",
+            "source_acceptance": "El parser conserva estado y no presupone aprobación",
+            "source_falsification": "Una propuesta se toma como norma ratificada",
+            "original_test": "G00-04-T01",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-04-F02",
+            "source_behavior": "Modelar ApprovalRef separado de texto de decisión",
+            "source_acceptance": "Un registro autodenominado aprobado sin contexto confiable no concede autoridad",
+            "source_falsification": "Un campo approver textual basta para ratificar",
+            "original_test": "G00-04-T02",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-04-F03",
+            "source_behavior": "RuleRevision especifica ID, kind, scope, predicate, autoridad y versión",
+            "source_acceptance": "Regla inválida no entra al evaluador como obligación cumplida",
+            "source_falsification": "Una norma sin scope se aplica universalmente",
+            "original_test": "G00-04-T03",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-04-F04",
+            "source_behavior": "Separar source observation de contractual decision",
+            "source_acceptance": "El código observado no redefine requisito aprobado",
+            "source_falsification": "El último commit corrige automáticamente la especificación",
+            "original_test": "G00-04-T04",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-04-F05",
+            "source_behavior": "AuthorityContext debe recibirse explícitamente de frontera externa",
+            "source_acceptance": "Ausencia de contexto emite UNKNOWN_AUTHORITY o REQUIRES_APPROVAL",
+            "source_falsification": "JSON presentado por agente autentica al principal",
+            "original_test": "G00-04-T05",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-04-F06",
+            "source_behavior": "Aplicar supersession ratificada solo dentro de ámbito y revisión",
+            "source_acceptance": "La regla antigua persiste como histórica pero no se sobreescribe",
+            "source_falsification": "Una decisión posterior sin aprobación reemplaza la anterior",
+            "original_test": "G00-04-T06",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-04-F07",
+            "source_behavior": "No elegir una de dos fuentes conflictivas solo por fecha",
+            "source_acceptance": "Detectar conflicto sin preferencia heurística",
+            "source_falsification": "El documento más reciente gana por defecto",
+            "original_test": "G00-04-T07",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-04-F08",
+            "source_behavior": "Emitir ConflictRecord e identificar reglas/claims afectados",
+            "source_acceptance": "El conflicto bloquea solo el ámbito pertinente y se conserva",
+            "source_falsification": "La UI oculta un conflicto para cerrar el proyecto",
+            "original_test": "G00-04-T08",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-04-F09",
+            "source_behavior": "Validar que decision/policy pertenecen al proyecto y ámbito",
+            "source_acceptance": "Decisión de proyecto ajeno requiere importación y autoridad",
+            "source_falsification": "Una regla externa gobierna proyecto sin permiso",
+            "original_test": "G00-04-T09",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-04-F10",
+            "source_behavior": "Construir AmendmentRequest sin mutar policy protegida",
+            "source_acceptance": "La enmienda permanece pendiente de aceptación externa",
+            "source_falsification": "Evaluador constitucional ratifica su propia modificación",
+            "original_test": "G00-04-T10",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          }
+        ],
+        "api_refs": [
+          {
+            "id": "G00-API-019",
+            "function": "validate_decision",
+            "owner": "src/guardian/domain/authority.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-020",
+            "function": "required_approvals",
+            "owner": "src/guardian/constitution/authority_resolution.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-021",
+            "function": "evaluate_authority",
+            "owner": "src/guardian/constitution/authority_resolution.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-022",
+            "function": "validate_rule",
+            "owner": "src/guardian/domain/constitution.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-023",
+            "function": "validate_constitution",
+            "owner": "src/guardian/domain/constitution.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-024",
+            "function": "make_amendment_request",
+            "owner": "src/guardian/constitution/amendments.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          }
+        ],
+        "attacks": [
+          {
+            "id": "ADV-10",
+            "mutation": "Declare RATIFIED without a trusted approval context",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-11",
+            "mutation": "Load a foreign project's rule as local constitution",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-12",
+            "mutation": "Treat most recently edited requirement as supercession",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          }
+        ],
+        "gap": "No production source module at any declared G-00 owner path; experiment does not implement these behaviors."
+      },
+      {
+        "id": "G00-05",
+        "title": "Ontología de compromisos",
+        "original_implementation": "Modelos independientes de Objective, Capability, Property y Obligation",
+        "source_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "code_productive": "NOT_IMPLEMENTED",
+        "development_status": "INCOMPLETE",
+        "material_status": "NOT_RUN",
+        "clauses": [
+          {
+            "id": "G00-05-F01",
+            "source_behavior": "ObjectiveRevision contiene propósito, fuentes y exclusiones sin ser task",
+            "source_acceptance": "Una capacidad puede derivar de un objetivo sin heredar estado completo",
+            "source_falsification": "Objetivo equivale a campaign ticket",
+            "original_test": "G00-05-T01",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-05-F02",
+            "source_behavior": "CapabilityRevision describe comportamiento, contexto y owner",
+            "source_acceptance": "Una capacidad existe como contrato aunque no haya código",
+            "source_falsification": "Crear archivo vacio marca capacidad IMPLEMENTED",
+            "original_test": "G00-05-T02",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-05-F03",
+            "source_behavior": "PropertyRevision declara garantía, hipótesis y ámbito",
+            "source_acceptance": "Una propiedad comparte capacidades sin duplicar su identidad",
+            "source_falsification": "Una prueba registrada se transforma en Property",
+            "original_test": "G00-05-T03",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-05-F04",
+            "source_behavior": "ObligationRevision tiene statement, applicability, due, source, authority",
+            "source_acceptance": "El validador separa obligación aprobada de borrador",
+            "source_falsification": "Un TODO sin fuente se acepta como obligación ratificada",
+            "original_test": "G00-05-T04",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-05-F05",
+            "source_behavior": "Obligation registra acceptance, falsification y verification requirements",
+            "source_acceptance": "Una obligación normativa sin aceptación exigida es diagnosticada",
+            "source_falsification": "La aceptación se reduce a existe test",
+            "original_test": "G00-05-T05",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-05-F06",
+            "source_behavior": "VerificationSpecRef es contrato; ValidationRun no se crea al definir obligación",
+            "source_acceptance": "Spec sin ejecución mantiene NOT_RUN",
+            "source_falsification": "Una función test_ en un archivo acredita PASS",
+            "original_test": "G00-05-T06",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-05-F07",
+            "source_behavior": "ArchitectureRevision separa component owner y dependencias del código observado",
+            "source_acceptance": "Import real no se considera norma ratificada",
+            "source_falsification": "El diseño se reescribe para coincidir con import actual",
+            "original_test": "G00-05-T07",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-05-F08",
+            "source_behavior": "CampaignRevision referencia IDs de obligaciones por scope/hito",
+            "source_acceptance": "Una misma obligación en dos campañas conserva ID y revisión",
+            "source_falsification": "Copiar texto a nueva campaña crea nueva autoridad paralela",
+            "original_test": "G00-05-T08",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-05-F09",
+            "source_behavior": "Permitir objetivos/capacidades/propiedades/obligaciones con referencias múltiples",
+            "source_acceptance": "Doble owner/productor no fuerza jerarquía uno-a-uno inventada",
+            "source_falsification": "Se rechaza legítimo uso compartido de propiedad",
+            "original_test": "G00-05-T09",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-05-F10",
+            "source_behavior": "Research/Future/Optional no son Current sin decisión",
+            "source_acceptance": "Un objetivo de investigación se visualiza sin exigirse como desarrollo actual",
+            "source_falsification": "Un constructor mueve CURRENT a RESEARCH para ocultar falta",
+            "original_test": "G00-05-T10",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          }
+        ],
+        "api_refs": [
+          {
+            "id": "G00-API-025",
+            "function": "validate_objective",
+            "owner": "src/guardian/domain/objective.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-026",
+            "function": "validate_capability",
+            "owner": "src/guardian/domain/capability.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-027",
+            "function": "validate_property",
+            "owner": "src/guardian/domain/property.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-028",
+            "function": "validate_obligation",
+            "owner": "src/guardian/domain/obligation.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-029",
+            "function": "validate_campaign",
+            "owner": "src/guardian/domain/campaign.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-030",
+            "function": "validate_architecture_contract",
+            "owner": "src/guardian/domain/architecture.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-038",
+            "function": "inspect_due",
+            "owner": "src/guardian/domain/campaign.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-058",
+            "function": "inspect_contract",
+            "owner": "src/guardian/application/contract_service.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          }
+        ],
+        "attacks": [
+          {
+            "id": "ADV-13",
+            "mutation": "Equate a capability with the path of its implementation",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-14",
+            "mutation": "Create admitted obligation with empty acceptance criteria",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-15",
+            "mutation": "Duplicate a Property when referenced by two campaigns",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          }
+        ],
+        "gap": "No production source module at any declared G-00 owner path; experiment does not implement these behaviors."
+      },
+      {
+        "id": "G00-06",
+        "title": "Scope y applicability",
+        "original_implementation": "SupportProfile tipado y predicados YES/NO/UNKNOWN/CONFLICT conservadores",
+        "source_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "code_productive": "NOT_IMPLEMENTED",
+        "development_status": "INCOMPLETE",
+        "material_status": "NOT_RUN",
+        "clauses": [
+          {
+            "id": "G00-06-F01",
+            "source_behavior": "SupportProfile con project, revision, milestone, features, domain y resources tipados",
+            "source_acceptance": "Dimensiones no especificadas se registran desconocidas",
+            "source_falsification": "Campo ausente equivale a falso",
+            "original_test": "G00-06-T01",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-06-F02",
+            "source_behavior": "ScopeExpression usa Atom, ALL, ANY, NOT, True/False explícitos",
+            "source_acceptance": "No se acepta eval de código ni operadores no registrados",
+            "source_falsification": "Se ejecuta Python arbitrario de un contrato",
+            "original_test": "G00-06-T02",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-06-F03",
+            "source_behavior": "ApplicabilityResult distingue YES NO UNKNOWN CONFLICT como par de evidencias",
+            "source_acceptance": "Los cuatro casos tienen roundtrip y testigos distintos",
+            "source_falsification": "Conflicto se convierte en unknown",
+            "original_test": "G00-06-T03",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-06-F04",
+            "source_behavior": "AND usa truth-support intersection y false-support union",
+            "source_acceptance": "AND(YES,UNKNOWN)=UNKNOWN y AND(YES,NO)=NO",
+            "source_falsification": "AND desconocido produce YES por identidad vacía",
+            "original_test": "G00-06-T04",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-06-F05",
+            "source_behavior": "OR y NOT siguen álgebra de soporte y preservan conflictos internos",
+            "source_acceptance": "OR(NO,UNKNOWN)=UNKNOWN y NOT(CONFLICT)=CONFLICT",
+            "source_falsification": "NOT UNKNOWN se convierte en YES",
+            "original_test": "G00-06-T05",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-06-F06",
+            "source_behavior": "NO por ausencia solo cuando dimensión declara conjunto exhaustivo",
+            "source_acceptance": "Feature ausente en lista incompleta da UNKNOWN",
+            "source_falsification": "Feature X no listado se considera NO",
+            "original_test": "G00-06-T06",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-06-F07",
+            "source_behavior": "Applicability distinto de compromiso temporal y ratificación",
+            "source_acceptance": "Obligación FUTURE aplicable no es CURRENT sin cambio autorizado",
+            "source_falsification": "Constructor altera milestone para cerrar",
+            "original_test": "G00-06-T07",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-06-F08",
+            "source_behavior": "VerifierPredicate sin verificador/observación confiable devuelve UNKNOWN",
+            "source_acceptance": "Desconocido no ejecuta plugin ni confiere PASS",
+            "source_falsification": "Script ajeno devuelve PASS sin admisión",
+            "original_test": "G00-06-T08",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-06-F09",
+            "source_behavior": "StepBudget limita profundidad/nodos/pasos y reporta recurso insuficiente",
+            "source_acceptance": "Agotamiento produce ResourceLimited con diagnóstico",
+            "source_falsification": "Análisis parcial declara completo",
+            "original_test": "G00-06-T09",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-06-F10",
+            "source_behavior": "YES y NO referencian fuentes y revisiones del mismo perfil",
+            "source_acceptance": "Una evidencia de proyecto B no se usa automáticamente en A",
+            "source_falsification": "Una afirmación sin scope se acepta universalmente",
+            "original_test": "G00-06-T10",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          }
+        ],
+        "api_refs": [
+          {
+            "id": "G00-API-031",
+            "function": "validate_support_profile",
+            "owner": "src/guardian/domain/scope.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-032",
+            "function": "validate_scope_expression",
+            "owner": "src/guardian/domain/scope.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-033",
+            "function": "evaluate_atom",
+            "owner": "src/guardian/domain/scope.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-034",
+            "function": "evaluate_scope",
+            "owner": "src/guardian/domain/scope.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-035",
+            "function": "and_evidence",
+            "owner": "src/guardian/domain/scope.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-036",
+            "function": "or_evidence",
+            "owner": "src/guardian/domain/scope.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-037",
+            "function": "negate_evidence",
+            "owner": "src/guardian/domain/scope.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-038",
+            "function": "inspect_due",
+            "owner": "src/guardian/domain/campaign.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          }
+        ],
+        "attacks": [
+          {
+            "id": "ADV-16",
+            "mutation": "Interpret an absent feature list as a negative witness",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-17",
+            "mutation": "Convert NOT(UNKNOWN) to YES",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-18",
+            "mutation": "Treat evidence of both inclusion and exclusion as NO",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-19",
+            "mutation": "Accept an executable Python expression as ScopePredicate",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-20",
+            "mutation": "Run out of evaluation steps then return PASS",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          }
+        ],
+        "gap": "No production source module at any declared G-00 owner path; experiment does not implement these behaviors."
+      },
+      {
+        "id": "G00-07",
+        "title": "Estados separados",
+        "original_implementation": "Dimensiones source, implementation, audit, material, assurance, migration sin flag completed mutable",
+        "source_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "code_productive": "NOT_IMPLEMENTED",
+        "development_status": "INCOMPLETE",
+        "material_status": "NOT_RUN",
+        "clauses": [
+          {
+            "id": "G00-07-F01",
+            "source_behavior": "StatusAxis Source/Decision/Commitment/Implementation/Audit/Material/Support/Qualification/Migration",
+            "source_acceptance": "Los nueve ejes son distinguibles en parse y serialización",
+            "source_falsification": "Un PASS de Audit se trata como Material.PASS",
+            "original_test": "G00-07-T01",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-07-F02",
+            "source_behavior": "Source IDENTIFIED no implica SEMANTIC_RECONCILED",
+            "source_acceptance": "Status Source no altera code status",
+            "source_falsification": "Git tree leído se declara implementación",
+            "original_test": "G00-07-T02",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-07-F03",
+            "source_behavior": "PROPOSED/APPROVED y CURRENT/FUTURE se modelan por separado",
+            "source_acceptance": "No convertir future en current mediante observación textual",
+            "source_falsification": "Decision PROPOSED activa CURRENT sin aprobación",
+            "original_test": "G00-07-T03",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-07-F04",
+            "source_behavior": "DEVELOPED y NOT_RUN son compatibles sin falsedad",
+            "source_acceptance": "Un test escrito no cambia Material a PASS",
+            "source_falsification": "Estado de compilación no ejecutada se considera PASS",
+            "original_test": "G00-07-T04",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-07-F05",
+            "source_behavior": "Audit PASS requiere AuditRecord posterior y política de independencia",
+            "source_acceptance": "Definir estado Audit no concede dictamen auditado",
+            "source_falsification": "Constructor se autocalifica auditor independiente",
+            "original_test": "G00-07-T05",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-07-F06",
+            "source_behavior": "Support CURRENT y QualifiedInScope dependen de evidencia futura no del estado escrito",
+            "source_acceptance": "G00 no dispone de método issue_certificate",
+            "source_falsification": "StatusObservation produce certificado",
+            "original_test": "G00-07-T06",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-07-F07",
+            "source_behavior": "Migration CLOSED no se deduce de un resultado unitario",
+            "source_acceptance": "MIGRATION_PARITY_PENDING permanece separado",
+            "source_falsification": "Un smoke test cierra migración histórica",
+            "original_test": "G00-07-T07",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-07-F08",
+            "source_behavior": "StatusObservation guarda fuente, revisión, actor y ámbito",
+            "source_acceptance": "Una observación no se convierte en StatusProjection confiable",
+            "source_falsification": "Se escribe completed true para saltar gates",
+            "original_test": "G00-07-T08",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-07-F09",
+            "source_behavior": "Material.NOT_RUN distinto de FAIL y de SUCCESS",
+            "source_acceptance": "Reporte indica ausencia de ejecución material",
+            "source_falsification": "NOT_RUN se borra del informe por conveniencia",
+            "original_test": "G00-07-T09",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-07-F10",
+            "source_behavior": "Estado vectorial presenta todas dimensiones requeridas con límites",
+            "source_acceptance": "Un resumen deja visible evidencia pendiente",
+            "source_falsification": "Solo se muestra verde DONE aunque QUALIFIED=UNQUALIFIED",
+            "original_test": "G00-07-T10",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          }
+        ],
+        "api_refs": [
+          {
+            "id": "G00-API-039",
+            "function": "parse_status",
+            "owner": "src/guardian/domain/outcomes.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-040",
+            "function": "validate_status_observation",
+            "owner": "src/guardian/domain/outcomes.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-041",
+            "function": "render_status_vector",
+            "owner": "src/guardian/domain/outcomes.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-042",
+            "function": "check_illegal_promotion",
+            "owner": "src/guardian/domain/outcomes.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          }
+        ],
+        "attacks": [
+          {
+            "id": "ADV-21",
+            "mutation": "Map Implementation.DEVELOPED to Material.PASS",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-22",
+            "mutation": "Map Audit.PASS directly to Scientific QUALIFIED",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-23",
+            "mutation": "Treat Material.NOT_RUN as a passing test",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          }
+        ],
+        "gap": "No production source module at any declared G-00 owner path; experiment does not implement these behaviors."
+      },
+      {
+        "id": "G00-08",
+        "title": "Integridad de referencias",
+        "original_implementation": "Referencias internas, revisión esperada y rutas interproyecto validadas",
+        "source_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "code_productive": "NOT_IMPLEMENTED",
+        "development_status": "INCOMPLETE",
+        "material_status": "NOT_RUN",
+        "clauses": [
+          {
+            "id": "G00-08-F01",
+            "source_behavior": "EntityRef contiene project, kind, logical_id, revision",
+            "source_acceptance": "Faltante revision en contrato normativo se rechaza",
+            "source_falsification": "Se acepta referencia latest flotante",
+            "original_test": "G00-08-T01",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-08-F02",
+            "source_behavior": "Resolver verifica expected_kind antes de devolver entidad",
+            "source_acceptance": "ObligationId no resuelve como Capability",
+            "source_falsification": "El mismo texto sustituye a tipos distintos",
+            "original_test": "G00-08-T02",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-08-F03",
+            "source_behavior": "Resolver solo encuentra revisiones admitidas y referidas",
+            "source_acceptance": "Revision histórica existe solo como historical y no current",
+            "source_falsification": "Resolver elige último documento",
+            "original_test": "G00-08-T03",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-08-F04",
+            "source_behavior": "Alias con dos candidatos produce AmbiguousAlias",
+            "source_acceptance": "No se elige por orden de inserción",
+            "source_falsification": "Duplicación de alias colapsa entidades",
+            "original_test": "G00-08-T04",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-08-F05",
+            "source_behavior": "No aplicar aciclicidad universal a ontología",
+            "source_acceptance": "Ciclo legítimo de relaciones no se rechaza como dependencia ejecutiva",
+            "source_falsification": "Todo ciclo matemático es considerado fallo",
+            "original_test": "G00-08-T05",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-08-F06",
+            "source_behavior": "Referencia de otro proyecto exige permiso/import explícito por corte",
+            "source_acceptance": "Import grant limitado no autoriza repo completo",
+            "source_falsification": "Cualquier link externo es autorizado",
+            "original_test": "G00-08-T06",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-08-F07",
+            "source_behavior": "Validar GitSourcePath relativo y sin traversal/absolutos",
+            "source_acceptance": "../ y rutas absolutas se rechazan",
+            "source_falsification": "Ruta escapa root del repo",
+            "original_test": "G00-08-T07",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-08-F08",
+            "source_behavior": "Detectar referencias no existentes con diagnóstico de causa",
+            "source_acceptance": "OrphanRef no produce fallback a entidad genérica",
+            "source_falsification": "Falta ref y se crea objeto placeholder ratificado",
+            "original_test": "G00-08-T08",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-08-F09",
+            "source_behavior": "EntityRef y SourceRef tienen resolvers/contextos diferentes",
+            "source_acceptance": "URL arbitraria no es Git immutable source",
+            "source_falsification": "Se trata SourcePath como EntityId",
+            "original_test": "G00-08-T09",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-08-F10",
+            "source_behavior": "Reference resolver no altera snapshot ni índices nominales",
+            "source_acceptance": "Mismo View+Ref da mismo outcome sin side effects",
+            "source_falsification": "Resolver crea automáticamente una nueva revision",
+            "original_test": "G00-08-T10",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          }
+        ],
+        "api_refs": [
+          {
+            "id": "G00-API-008",
+            "function": "resolve_entity",
+            "owner": "src/guardian/domain/identity.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-011",
+            "function": "check_project_membership",
+            "owner": "src/guardian/domain/project.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-012",
+            "function": "build_readonly_project_view",
+            "owner": "src/guardian/application/project_service.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-043",
+            "function": "validate_references",
+            "owner": "src/guardian/domain/identity.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-044",
+            "function": "validate_source_path",
+            "owner": "src/guardian/domain/source.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          }
+        ],
+        "attacks": [
+          {
+            "id": "ADV-24",
+            "mutation": "Resolve entity by latest revision when explicit revision missing",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-25",
+            "mutation": "Use an absolute or parent-traversal Git path",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-26",
+            "mutation": "Create ratified placeholder for unresolved EntityRef",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          }
+        ],
+        "gap": "No production source module at any declared G-00 owner path; experiment does not implement these behaviors."
+      },
+      {
+        "id": "G00-09",
+        "title": "Esquemas versionados",
+        "original_implementation": "JSON Schema con normative features, validación de payload y versiones incompatibles",
+        "source_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "code_productive": "NOT_IMPLEMENTED",
+        "development_status": "INCOMPLETE",
+        "material_status": "NOT_RUN",
+        "clauses": [
+          {
+            "id": "G00-09-F01",
+            "source_behavior": "Cada registro contiene schema version y discriminante de tipo",
+            "source_acceptance": "Roundtrip mantiene schema+record_type",
+            "source_falsification": "Un objeto sin version se admite con default normativo",
+            "original_test": "G00-09-T01",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-09-F02",
+            "source_behavior": "Registrar required_normative_features y bloquear desconocidas",
+            "source_acceptance": "Desconocida da UNSUPPORTED_NORMATIVE_FEATURE",
+            "source_falsification": "Un lector viejo ignora nueva obligación",
+            "original_test": "G00-09-T02",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-09-F03",
+            "source_behavior": "Variantes de estado/kind desconocidas se rechazan",
+            "source_acceptance": "Unknown enum no se transforma en status UNKNOWN de otro eje",
+            "source_falsification": "Variante desconocida se mapea a primer enum",
+            "original_test": "G00-09-T03",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-09-F04",
+            "source_behavior": "Distinguir ausencia, null y lista vacía cuando semánticamente diferentes",
+            "source_acceptance": "Acceptance omitida no se convierte en lista validada",
+            "source_falsification": "Un None equivale a array de pruebas vacío",
+            "original_test": "G00-09-T04",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-09-F05",
+            "source_behavior": "Encode/decode preserva IDs tipos revision y source refs",
+            "source_acceptance": "Import+export produce mismo contrato tipado",
+            "source_falsification": "Se pierden project IDs",
+            "original_test": "G00-09-T05",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-09-F06",
+            "source_behavior": "Números enteros grandes usan formato exacto establecido",
+            "source_acceptance": "Roundtrip preserva big integers",
+            "source_falsification": "Se redondea un ID numérico o resource bound",
+            "original_test": "G00-09-T06",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-09-F07",
+            "source_behavior": "Rechazar NaN/infinito donde el contrato exige serialización canónica",
+            "source_acceptance": "Invalid numeric syntax produce DecodeError",
+            "source_falsification": "NaN se usa para invalidar comparaciones",
+            "original_test": "G00-09-T07",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-09-F08",
+            "source_behavior": "Extensiones no normativas solo dentro de espacio permitido",
+            "source_acceptance": "Desconocido informativo no cambia evaluación",
+            "source_falsification": "Campo extra cambia decisión de cierre",
+            "original_test": "G00-09-T08",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-09-F09",
+            "source_behavior": "Comparar versiones y features; cambios semánticos requieren migración",
+            "source_acceptance": "Lector antiguo bloquea cambio de meaning",
+            "source_falsification": "Schema viejo acepta campos de nueva regla ignorándolos",
+            "original_test": "G00-09-T09",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-09-F10",
+            "source_behavior": "Schema registry se pasa como argumento/revisión sin buscar latest",
+            "source_acceptance": "Mismo descriptor resulta misma validación",
+            "source_falsification": "Codec cambia comportamiento por update remoto",
+            "original_test": "G00-09-T10",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          }
+        ],
+        "api_refs": [
+          {
+            "id": "G00-API-045",
+            "function": "lookup_schema_descriptor",
+            "owner": "src/guardian/persistence/schema_registry.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-046",
+            "function": "validate_envelope",
+            "owner": "src/guardian/persistence/schema_registry.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-047",
+            "function": "decode_record",
+            "owner": "src/guardian/persistence/schema_registry.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-048",
+            "function": "encode_record",
+            "owner": "src/guardian/persistence/schema_registry.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-049",
+            "function": "check_reader_compatibility",
+            "owner": "src/guardian/persistence/schema_registry.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          }
+        ],
+        "attacks": [
+          {
+            "id": "ADV-27",
+            "mutation": "Ignore required normative feature unknown to reader",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-28",
+            "mutation": "Treat null and empty acceptance list as equivalent defaults",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-29",
+            "mutation": "Coerce unknown status enum to first known member",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          }
+        ],
+        "gap": "No production source module at any declared G-00 owner path; experiment does not implement these behaviors."
+      },
+      {
+        "id": "G00-10",
+        "title": "Evaluador constitucional puro",
+        "original_implementation": "Función de evaluación de normas sin E/S ni dependencia del clock",
+        "source_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "code_productive": "NOT_IMPLEMENTED",
+        "development_status": "INCOMPLETE",
+        "material_status": "NOT_RUN",
+        "clauses": [
+          {
+            "id": "G00-10-F01",
+            "source_behavior": "Evaluador recibe constitution, view, fact set, profile, authority y budget",
+            "source_acceptance": "Sin datos de contexto se devuelve error explícito",
+            "source_falsification": "Evaluador lee variables de entorno",
+            "original_test": "G00-10-T01",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-10-F02",
+            "source_behavior": "Verificar tipos, versiones, regla y proyecto antes de ejecutar predicados",
+            "source_acceptance": "Entrada estructural inválida no se trata como FAIL científico",
+            "source_falsification": "Malformed schema da PASS",
+            "original_test": "G00-10-T02",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-10-F03",
+            "source_behavior": "Enumerar todas reglas obligatorias conocidas y listarlas en report",
+            "source_acceptance": "Regla no soportada queda UNKNOWN_UNEVALUATED",
+            "source_falsification": "Se omite regla desconocida del denominador",
+            "original_test": "G00-10-T03",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-10-F04",
+            "source_behavior": "Evaluar ScopeExpression con testigos antes de rule predicate",
+            "source_acceptance": "NOT_APPLICABLE requiere NO probado",
+            "source_falsification": "UNKNOWN se ignora y el total es PASS",
+            "original_test": "G00-10-T04",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-10-F05",
+            "source_behavior": "Resolver decisiones solo con AuthorityContext externo y scoped",
+            "source_acceptance": "Propuesta contradictoria no adquiere autoridad",
+            "source_falsification": "Último documento gana",
+            "original_test": "G00-10-T05",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-10-F06",
+            "source_behavior": "Despachar RuleKind a función trusted registrada y determinista",
+            "source_acceptance": "Mismo input genera mismo diagnóstico",
+            "source_falsification": "Un callback externo cambia resultados",
+            "original_test": "G00-10-T06",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-10-F07",
+            "source_behavior": "Rechazar predicado arbitrario en JSON de proyecto",
+            "source_acceptance": "El runtime no ejecuta eval/exec en policy",
+            "source_falsification": "Script del proyecto es cargado como norma",
+            "original_test": "G00-10-T07",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-10-F08",
+            "source_behavior": "Contar reglas, profundidad y pasos; identificar no examinadas",
+            "source_acceptance": "ResourceLimited nunca es PASS",
+            "source_falsification": "Timeout se trata como cumplimiento",
+            "original_test": "G00-10-T08",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-10-F09",
+            "source_behavior": "Reportar RuleEvaluation con ID, verdict, scope, motivos y testigos",
+            "source_acceptance": "Una violación no oculta otras reglas",
+            "source_falsification": "Solo devuelve true",
+            "original_test": "G00-10-T09",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-10-F10",
+            "source_behavior": "Evaluación ordena resultados e inputs y no muta hechos",
+            "source_acceptance": "Permutar entrada produce misma salida estable",
+            "source_falsification": "Se altera FactSet o dicta resultado según reloj",
+            "original_test": "G00-10-T10",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          }
+        ],
+        "api_refs": [
+          {
+            "id": "G00-API-022",
+            "function": "validate_rule",
+            "owner": "src/guardian/domain/constitution.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-050",
+            "function": "evaluate_constitution",
+            "owner": "src/guardian/constitution/evaluator.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-051",
+            "function": "evaluate_registered_rule",
+            "owner": "src/guardian/constitution/evaluator.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-052",
+            "function": "validate_rule_registry",
+            "owner": "src/guardian/constitution/invariants.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-053",
+            "function": "collect_constitution_report",
+            "owner": "src/guardian/constitution/evaluator.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          }
+        ],
+        "attacks": [
+          {
+            "id": "ADV-30",
+            "mutation": "Return PASS without evaluating one required RuleRevision",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-31",
+            "mutation": "Let a pure evaluator read wall clock / environment to decide",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-32",
+            "mutation": "Run a project-provided callback as a trusted RuleEvaluator",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          }
+        ],
+        "gap": "No production source module at any declared G-00 owner path; experiment does not implement these behaviors."
+      },
+      {
+        "id": "G00-11",
+        "title": "Conflictos de autoridad",
+        "original_implementation": "ConflictRecord con fuentes incompatibles y bloqueo de afirmaciones derivadas",
+        "source_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "code_productive": "NOT_IMPLEMENTED",
+        "development_status": "INCOMPLETE",
+        "material_status": "NOT_RUN",
+        "clauses": [
+          {
+            "id": "G00-11-F01",
+            "source_behavior": "Distinguir observed fact, normative rule, decision, proposed inference",
+            "source_acceptance": "Hecho no sobreescribe obligación sin enmienda",
+            "source_falsification": "Código observado define política nueva",
+            "original_test": "G00-11-T01",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-11-F02",
+            "source_behavior": "Comprobar si afirmaciones incompatibles aplican al mismo perfil",
+            "source_acceptance": "Scopes disjuntos no se bloquean entre sí",
+            "source_falsification": "Todo desacuerdo textual es CONFLICT global",
+            "original_test": "G00-11-T02",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-11-F03",
+            "source_behavior": "Permitir dos decisiones históricas en cortes distintos sin conflicto vigente",
+            "source_acceptance": "La precedencia temporal se explica por revisiones autorizadas",
+            "source_falsification": "Se borra historia para resolver",
+            "original_test": "G00-11-T03",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-11-F04",
+            "source_behavior": "ConflictRecord incluye ambas afirmaciones, fuentes y perfiles",
+            "source_acceptance": "El informe no pierde uno de los witness refs",
+            "source_falsification": "Conflicto con evidencia positiva y negativa se llama UNKNOWN",
+            "original_test": "G00-11-T04",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-11-F05",
+            "source_behavior": "Nunca preferir automáticamente fecha, SHA, orden de registro",
+            "source_acceptance": "Resolver sin política explícita devuelve Conflict/Unknown",
+            "source_falsification": "El último archivo se impone",
+            "original_test": "G00-11-T05",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-11-F06",
+            "source_behavior": "Decisión ratificada de sustitución resuelve dentro del scope",
+            "source_acceptance": "Sin aprobación no se retira regla anterior",
+            "source_falsification": "Texto SUPERSEDED sin autoridad basta",
+            "original_test": "G00-11-T06",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-11-F07",
+            "source_behavior": "Identificar obligaciones/claims dependientes de conflicto",
+            "source_acceptance": "Componentes independientes no se marcan fail global",
+            "source_falsification": "Un conflicto pequeño impide orientación de todo el proyecto",
+            "original_test": "G00-11-T07",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-11-F08",
+            "source_behavior": "Un PASS parcial conserva lista de conflictos pendientes",
+            "source_acceptance": "Report completo lista reglas en disputa",
+            "source_falsification": "Se descarta contradicción al agregar resultados",
+            "original_test": "G00-11-T08",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-11-F09",
+            "source_behavior": "Ordenar conflictos por ids y paths para diagnósticos estables",
+            "source_acceptance": "Permutación de fuentes no altera ConflictRecord",
+            "source_falsification": "Hash/set iteration cambia qué claim se bloquea",
+            "original_test": "G00-11-T09",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-11-F10",
+            "source_behavior": "Conflictos entre proyectos aislados no se fusionan sin import autorizado",
+            "source_acceptance": "Norma proyecto A no compite con B automáticamente",
+            "source_falsification": "Similaridades entre repos crean mismo conflicto normativo",
+            "original_test": "G00-11-T10",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          }
+        ],
+        "api_refs": [
+          {
+            "id": "G00-API-054",
+            "function": "detect_conflicts",
+            "owner": "src/guardian/constitution/precedence.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-055",
+            "function": "resolve_precedence",
+            "owner": "src/guardian/constitution/precedence.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-056",
+            "function": "localize_conflicts",
+            "owner": "src/guardian/constitution/precedence.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          }
+        ],
+        "attacks": [
+          {
+            "id": "ADV-33",
+            "mutation": "Silently prefer the newest of two incompatible ratified rules",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-34",
+            "mutation": "Block a disjoint project with another project's conflict",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          },
+          {
+            "id": "ADV-35",
+            "mutation": "Drop one witness when merging conflict diagnostics",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          }
+        ],
+        "gap": "No production source module at any declared G-00 owner path; experiment does not implement these behaviors."
+      },
+      {
+        "id": "G00-12",
+        "title": "Tests fundamentales",
+        "original_implementation": "Pruebas positivas, negativas, invariantes de identidad, source scope y authority",
+        "source_status": "SPECIFIED_NOT_IMPLEMENTED",
+        "code_productive": "NOT_IMPLEMENTED",
+        "development_status": "INCOMPLETE",
+        "material_status": "NOT_RUN",
+        "clauses": [
+          {
+            "id": "G00-12-F01",
+            "source_behavior": "Escribir tests tipados de IDs aliases revisiones y roundtrips",
+            "source_acceptance": "Mutación que confunde EntityId/RevisionId falla test",
+            "source_falsification": "Solo comprobar que tipo existe",
+            "original_test": "G00-12-T01",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-12-F02",
+            "source_behavior": "Cubrir cortes no fijos, known_missing, importaciones y ScopeUniverse",
+            "source_acceptance": "Fuente faltante impide afirmar complete",
+            "source_falsification": "Todos los SourceRef se aceptan",
+            "original_test": "G00-12-T02",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-12-F03",
+            "source_behavior": "Proponer/ratificar/precedencia con y sin trusted context",
+            "source_acceptance": "Auto-aprobación de texto se detecta",
+            "source_falsification": "Solo probar decisión feliz",
+            "original_test": "G00-12-T03",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-12-F04",
+            "source_behavior": "Construir proyecto multiobjective/multicapability y relaciones compartidas",
+            "source_acceptance": "Propiedad compartida no se duplica ni se autocertifica",
+            "source_falsification": "Modelo solo permite relación uno-a-uno",
+            "original_test": "G00-12-T04",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-12-F05",
+            "source_behavior": "Cubrir 4 valores y AND OR NOT con testigos",
+            "source_acceptance": "Truth table ejecutada coincide con contrato",
+            "source_falsification": "UNKNOWN y NO pasan indistintos",
+            "original_test": "G00-12-T05",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-12-F06",
+            "source_behavior": "Testear combinaciones DEVELOPED/NOT_RUN/UNQUALIFIED",
+            "source_acceptance": "No existe promoción automática de ejes",
+            "source_falsification": "Un flag completed controla todos estados",
+            "original_test": "G00-12-T06",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-12-F07",
+            "source_behavior": "Cubrir versions, normative features, invalid types, roundtrip y payload hostil",
+            "source_acceptance": "Lectores viejos rechazan nueva norma no comprendida",
+            "source_falsification": "Se aceptan enums desconocidos",
+            "original_test": "G00-12-T07",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-12-F08",
+            "source_behavior": "Ejecutar misma entrada permutada y con budget variable",
+            "source_acceptance": "Determinismo, no IO, reporte de reglas no examinadas",
+            "source_falsification": "Falla una norma y reporte oculta otras",
+            "original_test": "G00-12-T08",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-12-F09",
+            "source_behavior": "Integrar en memoria dos proyectos, imports explícitos y constituciones separadas",
+            "source_acceptance": "Ninguna autoridad se mezcla por nombre",
+            "source_falsification": "Project B hereda decision de A",
+            "original_test": "G00-12-T09",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          },
+          {
+            "id": "G00-12-F10",
+            "source_behavior": "Banco adversario muta source/status/rule/reference/predicate y compara resultado esperado",
+            "source_acceptance": "Al menos una mutación por familia dispara diagnóstico correcto",
+            "source_falsification": "Una mutación de regla ratificada queda PASS",
+            "original_test": "G00-12-T10",
+            "test_authored": false,
+            "test_executed": false,
+            "implementation": "NO_PRODUCTIVE_CODE_PRESENT"
+          }
+        ],
+        "api_refs": [
+          {
+            "id": "G00-API-057",
+            "function": "inspect_project_definition",
+            "owner": "src/guardian/application/project_service.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          },
+          {
+            "id": "G00-API-058",
+            "function": "inspect_contract",
+            "owner": "src/guardian/application/contract_service.py",
+            "status": "DESIGN_PROPOSED_NOT_IMPLEMENTED"
+          }
+        ],
+        "attacks": [
+          {
+            "id": "ADV-36",
+            "mutation": "Modify a normative condition and make tests pass by deleting adversarial case",
+            "test_authored": false,
+            "run_status": "NOT_RUN"
+          }
+        ],
+        "gap": "No production source module at any declared G-00 owner path; experiment does not implement these behaviors."
+      }
+    ]
+  },
+  "gsl0": {
+    "remote_path": "experiments/gsl0_reference/",
+    "remote_development": "REFERENCE_PROTOTYPE_ONLY",
+    "remote_tests": "30 declared test functions, not proof of full original GSL0 contract",
+    "local_candidate": {
+      "location": "separate uncommitted runtime artifact",
+      "pytest": "113 passed 1 skipped",
+      "coverage_percent_approx": 91,
+      "remote_synced": false,
+      "corrections_not_in_remote": true
+    },
+    "gaps": [
+      {
+        "id": "GSL-BLOCK-01",
+        "description": "G00-01 property↔verification↔clause↔parent bindings can be swapped while preserving all IDs and passing the existing published reference compiler. Synthetic adversarial proof exhibited with compile_strict returned COMPILED.",
+        "criticality": "HIGH",
+        "remediation": "Pin independently derived mapping from original corpus; enforce in candidate compiler and CLI."
+      },
+      {
+        "id": "GSL-BLOCK-02",
+        "description": "Structural independent IR checker does not compare semantic field values to original source. Mutating obligation applicability true→false and recomputing hashes passes check with source unchanged.",
+        "criticality": "HIGH",
+        "remediation": "Independent source-to-IR semantic check and trusted compilation attestation; structural hashes alone are insufficient."
+      },
+      {
+        "id": "GSL-BLOCK-03",
+        "description": "Corpus-integration test skipped in isolated local runtime; full historical source bytes are not present in its checkout.",
+        "criticality": "HIGH",
+        "remediation": "Run real corpus at pinned Git checkout and issue exact-SHA receipt."
+      },
+      {
+        "id": "GSL-BLOCK-04",
+        "description": "Local source implementation not published in ProjectGuardian/main; remote has only prototype under experiments.",
+        "criticality": "HIGH",
+        "remediation": "Reconcile local candidate with repo and run suite on published tree."
+      },
+      {
+        "id": "GSL-BLOCK-05",
+        "description": "Full GSL0 original authoring language contracts (markdown recovery, IR equivalence, independent semantic preservation and source authority) not materially verified.",
+        "criticality": "HIGH",
+        "remediation": "Complete contract-by-contract coverage and independent gate."
+      }
+    ]
+  },
+  "summary": "NO: Neither GSL0 nor G00 qualifies for DevelopmentComplete; G00 0/12 original product obligations, 0/120 product clauses, GSL0 reference only. No material campaign certificates."
+}
