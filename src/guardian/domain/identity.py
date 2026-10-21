@@ -121,7 +121,7 @@ class EntityRef:
 
 
 def parse_project_id(raw: object, path: str = "$") -> Result[ProjectId]:
-    if raw == "":
+    if type(raw) is str and raw == "":
         return _reject("EMPTY_ID", path, "ProjectId", raw, "empty project ID")
     try:
         return Result(ProjectId(raw))
@@ -141,7 +141,7 @@ def parse_entity_id(project: object, kind: object, raw: object, path: str = "$")
 
 
 def parse_revision_id(raw: object, path: str = "$") -> Result[RevisionId]:
-    if raw is None or raw == "":
+    if raw is None or (type(raw) is str and raw == ""):
         return _reject("REVISION_REQUIRED", path, "RevisionId", raw, "revision must be fixed")
     try:
         return Result(RevisionId(raw))

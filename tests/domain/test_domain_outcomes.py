@@ -42,7 +42,10 @@ def test_no_not_run_promotion():
 
 def test_vector_is_typed_sorted_and_non_duplicated():
     items = (TypedStatus(StatusAxis.MATERIAL, MaterialStatus.NOT_RUN), TypedStatus(StatusAxis.DECISION, DecisionStatus.PROPOSED))
-    assert render_status_vector(items).value == {'decision':'proposed', 'material':'not_run'}
+    assert render_status_vector(items).value['decision']=='proposed'
+    assert render_status_vector(items).value['material']=='not_run'
+    assert render_status_vector(items).value['qualification']=='unobserved'
+    assert len(render_status_vector(items).value)==9
     assert render_status_vector(items + (items[0],)).diagnostics[0].code == 'DUPLICATE_STATUS_AXIS'
 
 

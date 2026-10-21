@@ -7,7 +7,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from enum import Enum
-from typing import Generic, Mapping, TypeVar
+from typing import Generic, Mapping, TypeVar, TYPE_CHECKING
 
 T = TypeVar('T')
 
@@ -166,7 +166,10 @@ def render_status_vector(items: tuple[TypedStatus, ...]) -> Result[dict[str, str
     axes = [i.axis for i in items]
     if len(set(axes)) != len(axes):
         return Result(diagnostics=(Diagnostic('DUPLICATE_STATUS_AXIS', '$.statuses', 'unique axes', 'tuple', 'axis was specified multiple times'),))
-    return Result({i.axis.value: i.value.value for i in sorted(items, key=lambda i: i.axis.value)})
+    # Display all nine axes, including those with no observation. Absence of
+    # evidence is not an inferred status (especially not PASS or QUALIFIED).
+    observed={i.axis:i.value.value for i in items}
+    return Result({axis.value:observed.get(axis,'unobserved') for axis in sorted(StatusAxis,key=lambda x:x.value)})
 
 
 def check_illegal_promotion(source: TypedStatus, target: TypedStatus) -> Result[bool]:
@@ -178,3 +181,69 @@ def check_illegal_promotion(source: TypedStatus, target: TypedStatus) -> Result[
     if source == target:
         return Result(True)
     return Result(diagnostics=(Diagnostic('TRANSITION_NOT_AUTHORIZED', '$.promotion', 'authorized G01/G09 transition', target.value.value, 'pure domain cannot promote lifecycle state'),))
+
+
+class DueStatus(str, Enum):
+    """Orthogonal scheduling classification; not a decision or admission status."""
+    CURRENT='current'
+    FUTURE='future'
+    CONDITIONAL='conditional'
+    OPTIONAL='optional'
+    RESEARCH='research'
+
+
+@dataclass(frozen=True,slots=True)
+class StatusObservation:
+    """Untrusted, descriptive status assertion with pinned provenance.
+
+    Future G01/G06/G09 may project authorized states from verified events;
+    merely constructing this value never issues a certificate or transition.
+    """
+    entity: object
+    status: TypedStatus
+    source_ref: object
+    scope_ref: object
+    revision: object
+    observer: str
+    evidence_refs: tuple[object,...]=()
+    due: DueStatus|None=None
+
+    def __post_init__(self)->None:
+        # Local import avoids domain identity↔outcomes import cycle.
+        from guardian.domain.identity import EntityRef,EntityKind,RevisionId
+        if not isinstance(self.entity,EntityRef) or not isinstance(self.status,TypedStatus):
+            raise TypeError('INVALID_STATUS_OBSERVATION')
+        if not isinstance(self.source_ref,EntityRef) or self.source_ref.kind is not EntityKind.SOURCE:
+            raise TypeError('STATUS_SOURCE_REF_REQUIRED')
+        if not isinstance(self.scope_ref,EntityRef) or self.scope_ref.kind is not EntityKind.SCOPE:
+            raise TypeError('STATUS_SCOPE_REF_REQUIRED')
+        if not isinstance(self.revision,RevisionId):
+            raise TypeError('STATUS_REVISION_REQUIRED')
+        if type(self.observer) is not str or not self.observer.strip():
+            raise ValueError('STATUS_OBSERVER_REQUIRED')
+        if (type(self.evidence_refs) is not tuple
+                or any(not isinstance(x,EntityRef) for x in self.evidence_refs)):
+            raise TypeError('STATUS_EVIDENCE_REFS_INVALID')
+        if self.due is not None and not isinstance(self.due,DueStatus):
+            raise TypeError('STATUS_DUE_INVALID')
+        if any(x.project != self.entity.project for x in
+               (self.source_ref,self.scope_ref,*self.evidence_refs)):
+            raise ValueError('STATUS_CROSS_PROJECT_PROVENANCE')
+
+
+def validate_status_observation(observation: object, project_view: object) -> Result[StatusObservation]:
+    """Structural and source-membership validation, NO authority promotion."""
+    from guardian.application.project_service import ReadOnlyProjectView
+    if not isinstance(observation,StatusObservation) or not isinstance(project_view,ReadOnlyProjectView):
+        return Result(diagnostics=(Diagnostic('INVALID_STATUS_OBSERVATION','$.status',
+            'StatusObservation+ReadOnlyProjectView','untyped','status observation must be scoped'),))
+    if observation.entity.project!=project_view.definition.project_id:
+        return Result(diagnostics=(Diagnostic('STATUS_WRONG_PROJECT','$.entity',
+            'local project','foreign','status observation belongs to another project'),))
+    if observation.source_ref not in project_view.source_universe.included:
+        return Result(diagnostics=(Diagnostic('STATUS_SOURCE_OUTSIDE_UNIVERSE','$.source',
+            'included source cut','unknown','status provenance absent from source universe'),))
+    if observation.revision != observation.entity.revision:
+        return Result(diagnostics=(Diagnostic('STATUS_REVISION_MISMATCH','$.revision',
+            'entity revision','different revision','status observation revision is not pinned to entity'),))
+    return Result(observation)

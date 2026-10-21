@@ -64,7 +64,8 @@ def test_positive_product_interconnection_real_types():
         TypedStatus(StatusAxis.MATERIAL,MaterialStatus.NOT_RUN),
         TypedStatus(StatusAxis.QUALIFICATION,QualificationStatus.UNQUALIFIED),
     ))
-    assert status.value=={'material':'not_run','qualification':'unqualified'}
+    assert status.value['material']=='not_run' and status.value['qualification']=='unqualified'
+    assert status.value['audit']=='unobserved' and len(status.value)==9
 
 
 def test_two_projects_with_overlapping_id_never_merge_authority():

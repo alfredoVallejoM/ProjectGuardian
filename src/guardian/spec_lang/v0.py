@@ -438,6 +438,92 @@ class ContractSemanticResult:
                 and not self.deferred_properties and not self.pending_proofs)
 
 
+
+def _independent_field_value_spans(raw: bytes, *, base_offset: int) -> dict[str, tuple[tuple[int, int], ...]]:
+    """Locate actual `field: expression;` value bytes, excluding strings/comments.
+
+    This verifier lexer is intentionally separate from the productive GSL
+    frontend. It binds a V4 formula origin to its FIELD rather than accepting
+    any formula-looking substring anywhere within the declaration, including
+    comments, strings, or a different field. It is a bounded LC02 contract
+    check, not the full LC03/LC04 declaration-origin proof.
+    """
+    if len(raw) > 2_000_000:
+        raise ValueError('GSL_V0_FIELD_RESOURCE_LIMIT')
+    value = raw.decode('utf-8', 'strict')
+    positions = [base_offset]
+    for char in value:
+        positions.append(positions[-1] + len(char.encode('utf-8')))
+    tokens: list[tuple[str, str, int, int]] = []
+    i = 0
+    while i < len(value):
+        c = value[i]
+        if c.isspace():
+            i += 1
+            continue
+        if value.startswith('//', i):
+            end = value.find('\n', i + 2)
+            i = len(value) if end < 0 else end
+            continue
+        if value.startswith('/*', i):
+            end = value.find('*/', i + 2)
+            if end < 0:
+                raise ValueError('GSL_V0_UNTERMINATED_COMMENT')
+            i = end + 2
+            continue
+        start = i
+        if c == '"':
+            i += 1
+            escaped = False
+            while i < len(value):
+                if value[i] == '"' and not escaped:
+                    i += 1
+                    break
+                if value[i] == '\\' and not escaped:
+                    escaped = True
+                else:
+                    escaped = False
+                i += 1
+            else:
+                raise ValueError('GSL_V0_UNTERMINATED_STRING')
+            kind = 'string'
+        elif c.isascii() and (c.isalpha() or c == '_'):
+            i += 1
+            while i < len(value) and value[i].isascii() and (value[i].isalnum() or value[i] == '_'):
+                i += 1
+            kind = 'name'
+        else:
+            i += 1
+            kind = 'punct'
+        tokens.append((kind, value[start:i], positions[start], positions[i]))
+        if len(tokens) > 100_000:
+            raise ValueError('GSL_V0_FIELD_RESOURCE_LIMIT')
+    result: dict[str, list[tuple[int, int]]] = {}
+    for idx in range(len(tokens) - 2):
+        head = tokens[idx]
+        if head[0] != 'name' or tokens[idx+1][1] != ':':
+            continue
+        paren = 0
+        last = None
+        for j in range(idx+2, len(tokens)):
+            current=tokens[j]
+            punctuation = current[1]
+            if punctuation == '(':
+                paren += 1
+            elif punctuation == ')':
+                paren -= 1
+            if paren < 0:
+                break
+            if punctuation == ';' and paren == 0:
+                if last is not None:
+                    result.setdefault(head[1], []).append((tokens[idx+2][2], last[3]))
+                break
+            if punctuation in ('{', '}') and paren == 0:
+                break
+            last = current
+    return {name: tuple(spans) for name, spans in result.items()}
+
+
 def verify_contract_semantics(
     ir: ContractIR,
     bundle: SourceBundle,
@@ -508,6 +594,11 @@ def verify_contract_semantics(
         return ContractSemanticResult(OracleStatus.INCONCLUSIVE_NO_INTERPRETED_FORMULAS, 0, 0, 0,
                                       deferred_properties=tuple(deferred), reason='no interpreted formulas to compare')
 
+    # A caller-supplied source map alone cannot prove the selected bytes are
+    # the semantic value of the claimed field. Recompute field anchors from
+    # pinned source bytes with a separate small lexer, ignoring comments and
+    # strings; compare exact occurrence and complete expression range.
+    field_ranges: dict[tuple[int, int], dict[str, tuple[tuple[int, int], ...]]] = {}
     checked = 0
     valuations = 0
     for key, (candidate, declaration_origin) in interpretations.items():
@@ -518,6 +609,21 @@ def verify_contract_semantics(
             return ContractSemanticResult(OracleStatus.MISSING_BINDING, len(interpretations), checked, valuations,
                                           grounding, deferred_properties=tuple(deferred),
                                           reason='field source location not contained within declaration origin')
+        span_key = (declaration_origin.byte_start, declaration_origin.byte_end)
+        if span_key not in field_ranges:
+            try:
+                field_ranges[span_key] = _independent_field_value_spans(
+                    bundle.source_bytes[span_key[0]:span_key[1]],base_offset=span_key[0])
+            except (ValueError, UnicodeDecodeError) as exc:
+                return ContractSemanticResult(OracleStatus.INVALID_SOURCE, len(interpretations), checked, valuations,
+                                              counterexample=grounding,deferred_properties=tuple(deferred),
+                                              reason=str(exc))
+        spans = field_ranges[span_key].get(key[1], ())
+        expected_occurrences=sum(1 for k in expectation.interpreted_fields if k[0]==key[0] and k[1]==key[1])
+        if len(spans)!=expected_occurrences or key[2] >= len(spans) or spans[key[2]] != (src.byte_start, src.byte_end):
+            return ContractSemanticResult(OracleStatus.MISSING_BINDING, len(interpretations), checked, valuations,
+                                          counterexample=grounding,deferred_properties=tuple(deferred),
+                                          reason='formula grounding is not the complete value of the named source field')
         outcome = verify_semantics(bundle, context, src, candidate,
                                    max_atoms=max_atoms, max_valuations=max_valuations)
         valuations += outcome.valuations_checked

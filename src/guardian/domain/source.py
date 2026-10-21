@@ -110,8 +110,16 @@ class ApprovedSourceImport:
     repository: RepositoryId | None
     permitted_path: str | None
     approval_ref: EntityRef
+    pinned_cut: SourceCut
 
     def __post_init__(self)->None:
+        if not isinstance(self.pinned_cut,(GitSourceCut,DocumentSourceCut)) or self.pinned_cut.ref != self.source_ref:
+            raise ValueError('IMPORT_PINNED_CUT_REQUIRED')
+        if isinstance(self.pinned_cut,GitSourceCut):
+            if self.repository!=self.pinned_cut.repository or self.permitted_path!=self.pinned_cut.path:
+                raise ValueError('IMPORT_CUT_REPOSITORY_PATH_MISMATCH')
+        elif self.repository is not None or self.permitted_path is not None:
+            raise ValueError('IMPORT_DOCUMENT_CUT_SCOPE_MISMATCH')
         if not isinstance(self.target_project,ProjectId) or not isinstance(self.source_ref,EntityRef) or self.source_ref.kind is not EntityKind.SOURCE:
             raise TypeError('import must bind exact pinned source and target project')
         if self.target_project==self.source_ref.project:
@@ -149,7 +157,8 @@ def check_source_membership(project:ProjectDefinition, source:SourceCut, grants:
     if grants is None or not isinstance(grants,TrustedImportGrants):
         return MembershipVerdict(MembershipStatus.REQUIRES_APPROVAL,'IMPORT_REQUIRED','external trusted grant context required')
     for grant in grants.grants:
-        if grant.target_project!=project.project_id or grant.source_ref!=source.ref:
+        if (grant.target_project!=project.project_id or grant.source_ref!=source.ref
+                or grant.pinned_cut!=source):
             continue
         if isinstance(source,GitSourceCut):
             if grant.repository!=source.repository or grant.permitted_path!=source.path:
@@ -323,13 +332,17 @@ def validate_source_universe(universe:SourceUniverseRevision,project:ProjectDefi
         if not status.allowed:
             findings.append(_diag(status.code,'$.entries',status.detail))
         if e.acquisition is SourceStatus.MISSING:
+            findings.append(_diag('SOURCE_MISSING','$.entries','declared source is missing; do not treat as observed'))
             unverified.append(e.cut.ref)
         elif e.acquisition is not SourceStatus.SEMANTIC_RECONCILED:
             unverified.append(e.cut.ref)
         if e.baseline_ref is not None:
             baseline=entries.get(e.baseline_ref)
-            if baseline is None or baseline.lineage!=e.lineage:
-                findings.append(_diag('INVALID_HISTORICAL_BASELINE','$.entries','baseline not found in same history'))
+            if (baseline is None or baseline.lineage!=e.lineage
+                    or type(baseline.cut) is not type(e.cut)
+                    or (isinstance(e.cut,GitSourceCut) and baseline.cut.repository!=e.cut.repository)):
+                findings.append(_diag('INVALID_HISTORICAL_BASELINE','$.entries',
+                                      'baseline absent, foreign repository/type, or different history'))
     # A lineage with multiple BASE cuts is ambiguous; distinguish history roles.
     groups:dict[tuple[RepositoryId,str],list[SourceEntry]]={}
     for e in universe.entries:
@@ -353,7 +366,7 @@ def validate_source_universe(universe:SourceUniverseRevision,project:ProjectDefi
                 if nxt is None:
                     break  # INVALID_HISTORICAL_BASELINE is reported above.
                 at=nxt
-    if universe.known_missing:
+    if universe.known_missing or any(e.acquisition is SourceStatus.MISSING for e in universe.entries):
         findings.append(_diag('SOURCE_COVERAGE_UNKNOWN','$.known_missing','known source gaps are visible'))
     if not universe.declared_limits:
         findings.append(_diag('COVERAGE_LIMITS_NOT_DECLARED','$.scope','explicit coverage limitations required'))

@@ -24,6 +24,10 @@ from guardian.spec_lang.contract import (
 _FORMULA_ATOM = re.compile(r'[A-Za-z_][A-Za-z_0-9]*\Z', re.ASCII)
 _FORMULA_NODE_LIMIT = 10000
 _FORMULA_DEPTH_LIMIT = 64
+_MAX_IR_BYTES = 8_000_000
+_MAX_IR_DECLARATIONS = 25_000
+_MAX_IR_PROOFS = 50_000
+_MAX_IR_FIELDS_PER_DECLARATION = 1_000
 _FORMULA_RESERVED = frozenset({'and', 'or', 'not', 'yes', 'no', 'unknown', 'conflict'})
 
 
@@ -398,6 +402,8 @@ def decode_ir(raw:bytes)->ContractIR:
     """Strict decoder; unsupported fields/versions/semantic discriminants fail closed."""
     if not isinstance(raw,bytes):
         raise TypeError('IR decoder accepts exact bytes')
+    if len(raw)>_MAX_IR_BYTES:
+        raise ValueError('IR_SCHEMA_RESOURCE_LIMIT')
     def reject_duplicates(pairs:list[tuple[str,Any]])->dict:
         out:dict[str,Any]={}
         for k,v in pairs:
@@ -415,12 +421,16 @@ def decode_ir(raw:bytes)->ContractIR:
         raise ValueError('IR_PROJECT_MUST_BE_NOMINAL')
     if not isinstance(data['declarations'],list) or not isinstance(data['proofs'],list):
         raise ValueError('IR_COLLECTION_SCHEMA')
+    if len(data['declarations'])>_MAX_IR_DECLARATIONS or len(data['proofs'])>_MAX_IR_PROOFS:
+        raise ValueError('IR_SCHEMA_RESOURCE_LIMIT')
     ds=[]
     for raw_decl in data['declarations']:
         d=_exact(raw_decl,frozenset({'identity','origin','fields'}))
         o=_exact(d['origin'],frozenset({'source','digest','byte_start','byte_end'}))
         if not isinstance(d['fields'],list):
             raise ValueError('IR_FIELDS_NOT_LIST')
+        if len(d['fields'])>_MAX_IR_FIELDS_PER_DECLARATION:
+            raise ValueError('IR_SCHEMA_RESOURCE_LIMIT')
         fs=[]
         for raw_field in d['fields']:
             f=_exact(raw_field,frozenset({'name','value'}))

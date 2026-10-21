@@ -197,7 +197,7 @@ def test_g00_03_f04_foreign_source_exclusion_requires_target_project_decision():
     a=project();foreign=project('project-beta');s=cut(foreign)
     own_decision=entity(a.project_id,EntityKind.DECISION,'exclude-source')
     grant_decision=entity(a.project_id,EntityKind.DECISION,'grant-import')
-    grant=TrustedImportGrants((ApprovedSourceImport(a.project_id,s.ref,s.repository,s.path,grant_decision),))
+    grant=TrustedImportGrants((ApprovedSourceImport(a.project_id,s.ref,s.repository,s.path,grant_decision,s),))
     excl=SourceExclusion(s.ref,'untrusted for this target',own_decision)
     u=universe(a,(s,),included=(),excluded=(excl,),missing=(MissingSource('missing','not acquired'),))
     v=validate_source_universe(u,a,{s.ref:s},grant,trusted_exclusion_decisions=frozenset({own_decision}))

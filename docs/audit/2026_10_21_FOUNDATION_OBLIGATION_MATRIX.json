@@ -1,0 +1,394 @@
+{
+  "schema": "guardian/foundation-adversarial-audit/v1",
+  "authority_snapshot": [
+    "architecture/campaigns.json",
+    "architecture/g00_functional_refinement.json",
+    "architecture/g00_api_contracts.json",
+    "architecture/g00_validation_plan.json"
+  ],
+  "pre_audit_remote_head": "e3c5ac46dd459aeba097c9e2a6bd66c1bfc34911",
+  "candidate_scope": [
+    "G00-B01",
+    "G00-B02",
+    "GSL0-LC00",
+    "GSL0-LC01",
+    "GSL0-LC02",
+    "GSL0-LC03"
+  ],
+  "authoritative_parent_obligations_closed": [],
+  "clause_direct_test_crosswalk": {
+    "G00-01-F01": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_domain_identity.py::test_f01_nominal_wrappers_are_runtime_distinct"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-01-F02": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_domain_identity.py::test_f02_project_and_kind_are_in_identity_equality"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-01-F03": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_domain_identity.py::test_f03_rejects_invalid_tokens",
+        "tests/domain/test_domain_identity.py::test_f03_errors_have_stable_location_and_reason"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-01-F04": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_domain_identity.py::test_f04_alias_is_scoped_provenanced_and_never_first_wins"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-01-F05": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_domain_identity.py::test_f05_rename_is_not_a_new_id"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-01-F06": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_domain_identity.py::test_f06_revision_must_be_pinned_and_exact"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-01-F07": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_domain_identity.py::test_f07_digest_algorithm_and_full_length_canonicalization"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-01-F08": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_domain_identity.py::test_f08_domain_accepts_given_ids_without_clock_or_randomness"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-01-F09": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_domain_identity.py::test_f09_typed_codec_roundtrip",
+        "tests/domain/test_domain_identity.py::test_f09_codec_fail_closed_no_kind_loss_or_unknown_features"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-01-F10": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_domain_identity.py::test_f10_registry_detects_same_id_distinct_lineages"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-02-F01": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f01_rename_keeps_id_constitution_and_policy"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-02-F02": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f02_repository_policy_blocks_unknown_repository"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-02-F03": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f03_storage_modes_are_declarative",
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f03_federation_requires_distinct_owners"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-02-F04": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f04_explicit_project_identity_in_views"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-02-F05": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f05_foreign_refs_need_import_descriptor_and_trusted_grants"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-02-F06": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f06_import_scope_never_spills_to_other_cut_path_or_repo"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-02-F07": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f07_pinned_constitution_and_source_policy_versions"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-02-F08": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f08_federated_repos_preserve_independent_commits"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-02-F09": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f09_same_human_aliases_separate_project_namespaces"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-02-F10": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f10_readonly_project_snapshot_no_input_mutations"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-03-F01": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f01_pinned_git_sha_object_and_relative_path"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-03-F02": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f02_document_has_revision_and_capture_identity"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-03-F03": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f03_inclusion_set_is_explicit_versioned_and_not_world"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-03-F04": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f04_exclusion_requires_reason_and_approval_ref",
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f04_foreign_source_exclusion_requires_target_project_decision"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-03-F05": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f05_known_missing_preserved_and_no_complete_claim"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-03-F06": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f06_history_delta_not_double_counted_as_disjoint"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-03-F07": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f07_observation_states_are_not_certification"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-03-F08": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f08_source_claim_does_not_modify_constitution"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-03-F09": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f09_scope_coverage_has_denominator_missing_and_limits"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    },
+    "G00-03-F10": {
+      "implementation_review": "CODE_AND_CONTRACT_TEST_PRESENT",
+      "direct_tests": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f10_corporal_feature_platform_time_scope_not_optional"
+      ],
+      "material_status": "LOCAL_RUN_ONLY",
+      "parent_closed": false
+    }
+  },
+  "reproducible_findings": [
+    {
+      "id": "FND-01",
+      "contract": "G00-03-F05",
+      "mutation_reproduced_on_prior_candidate": true,
+      "fix_file": "src/guardian/domain/source.py",
+      "new_falsification": "tests/domain/test_adversarial_new_gaps.py::test_missing_entry_blocks_positive_universe_validation",
+      "author_self_audit": "CORRECTED",
+      "independent_audit": "PENDING"
+    },
+    {
+      "id": "FND-02",
+      "contract": "G00-02-F10",
+      "mutation_reproduced_on_prior_candidate": true,
+      "fix_file": "src/guardian/application/project_service.py",
+      "new_falsification": "tests/domain/test_adversarial_new_gaps.py::test_direct_view_cannot_bypass_universe_conflict",
+      "author_self_audit": "CORRECTED",
+      "independent_audit": "PENDING"
+    },
+    {
+      "id": "FND-03",
+      "contract": "G00-03-F06",
+      "mutation_reproduced_on_prior_candidate": true,
+      "fix_file": "src/guardian/domain/source.py",
+      "new_falsification": "tests/domain/test_adversarial_new_gaps.py::test_cross_repository_delta_is_not_valid_history",
+      "author_self_audit": "CORRECTED",
+      "independent_audit": "PENDING"
+    },
+    {
+      "id": "FND-04",
+      "contract": "G00-02-F06",
+      "mutation_reproduced_on_prior_candidate": true,
+      "fix_file": "src/guardian/domain/source.py",
+      "new_falsification": "tests/domain/test_adversarial_new_gaps.py::test_exact_import_grant_does_not_cover_different_commit",
+      "author_self_audit": "CORRECTED",
+      "independent_audit": "PENDING"
+    },
+    {
+      "id": "FND-05",
+      "contract": "GSL-T05",
+      "mutation_reproduced_on_prior_candidate": true,
+      "fix_file": "src/guardian/spec_lang/v0.py",
+      "new_falsification": "tests/spec_lang/test_lc02_grounding_spoof.py::test_attack_ir_formula_bound_to_comment_instead_of_named_field",
+      "author_self_audit": "CORRECTED",
+      "independent_audit": "PENDING"
+    },
+    {
+      "id": "FND-06",
+      "contract": "G00-07-F10",
+      "mutation_reproduced_on_prior_candidate": true,
+      "fix_file": "src/guardian/domain/outcomes.py",
+      "new_falsification": "tests/domain/test_g00_07_observations.py::test_g00_07_renderer_never_hides_missing_material_or_qualification",
+      "author_self_audit": "CORRECTED",
+      "independent_audit": "PENDING"
+    },
+    {
+      "id": "FND-07",
+      "contract": "G00-07-F08",
+      "mutation_reproduced_on_prior_candidate": true,
+      "fix_file": "src/guardian/domain/outcomes.py",
+      "new_falsification": "tests/domain/test_g00_07_observations.py::test_g00_07_observation_is_descriptive_scoped_pinned_and_separate_from_authority",
+      "author_self_audit": "CORRECTED",
+      "independent_audit": "PENDING"
+    },
+    {
+      "id": "FND-08",
+      "contract": "GSL-T01",
+      "mutation_reproduced_on_prior_candidate": true,
+      "fix_file": "src/guardian/spec_lang/syntax.py",
+      "new_falsification": "tests/spec_lang/test_lc03_scan_pipeline_guard.py::test_lc03_skipped_or_failing_lossless_scan_prevents_analyzed",
+      "author_self_audit": "CORRECTED",
+      "independent_audit": "PENDING"
+    },
+    {
+      "id": "FND-09",
+      "contract": "GSL0-LC01",
+      "mutation_reproduced_on_prior_candidate": true,
+      "fix_file": "src/guardian/spec_lang/ir.py",
+      "new_falsification": "tests/spec_lang/test_lc02_grounding_spoof.py::test_decoder_exhaustion_rejected_before_parsing_untrusted_ir",
+      "author_self_audit": "CORRECTED",
+      "independent_audit": "PENDING"
+    },
+    {
+      "id": "FND-10",
+      "contract": "G00-02-F10",
+      "mutation_reproduced_on_prior_candidate": true,
+      "fix_file": "src/guardian/application/project_service.py",
+      "new_falsification": "tests/domain/test_adversarial_new_gaps.py::test_readonly_view_rejects_untyped_cut_and_mismatch_of_equal_ref",
+      "author_self_audit": "CORRECTED",
+      "independent_audit": "PENDING"
+    },
+    {
+      "id": "FND-11",
+      "contract": "G00-01-F08",
+      "mutation_reproduced_on_prior_candidate": true,
+      "fix_file": "src/guardian/domain/identity.py",
+      "new_falsification": "tests/domain/test_adversarial_new_gaps.py::test_id_parser_rejects_user_defined_equality_without_executing_it",
+      "author_self_audit": "CORRECTED",
+      "independent_audit": "PENDING"
+    }
+  ],
+  "original_g00_clauses_total": 120,
+  "covered_clause_ids_in_scope": 30,
+  "original_g00_obligations_total": 12,
+  "original_guardian_obligations_total": 163,
+  "original_g00_adversaries_total": 36,
+  "adversaries_original_scope": [
+    "ADV-01",
+    "ADV-02",
+    "ADV-03",
+    "ADV-04",
+    "ADV-05",
+    "ADV-06",
+    "ADV-07",
+    "ADV-08",
+    "ADV-09"
+  ],
+  "local_test_run": {
+    "python": "3.13.5",
+    "command": "python -m pytest -q",
+    "passed": 226,
+    "failed": 0,
+    "skipped": 0,
+    "exact_remote_material_receipt": null
+  },
+  "external_ratification": "PENDING",
+  "independent_reviewer": "PENDING",
+  "campaign_closed": false,
+  "notes": "Directly traced tests and corrected defects are not a proof that all G00 obligations or GSL compiler stages are complete."
+}

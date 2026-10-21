@@ -8,7 +8,8 @@ from guardian.domain.identity import EntityRef
 from guardian.domain.project import ProjectDefinition, validate_project
 from guardian.domain.source import (
     SourceCut, SourceUniverseRevision, SourceUniverseValidation,
-    TrustedImportGrants, validate_source_universe,
+    TrustedImportGrants, check_source_membership, validate_inclusion_exclusion,
+    validate_source_universe,
 )
 from guardian.domain.outcomes import Diagnostic, Result, SourceStatus
 from guardian.spec_lang.contract import SourceBundle, CompileContext, verify_source_context
@@ -25,7 +26,7 @@ class ReadOnlyProjectView:
         if (not isinstance(self.definition,ProjectDefinition) or not isinstance(self.source_universe,SourceUniverseRevision)
                 or self.source_universe.identity.project!=self.definition.project_id):
             raise ValueError('PROJECT_SNAPSHOT_INVALID')
-        if type(self.sources) is not tuple or any(not hasattr(s,'ref') for s in self.sources):
+        if type(self.sources) is not tuple or any(not isinstance(s,SourceCut) for s in self.sources):
             raise TypeError('sources must be frozen typed cuts')
         if len({s.ref for s in self.sources})!=len(self.sources):
             raise ValueError('DUPLICATE_LOGICAL_ID')
@@ -37,6 +38,14 @@ class ReadOnlyProjectView:
             raise ValueError('FORBIDDEN_CROSS_PROJECT_REF')
         if {s.ref for s in self.sources}!={e.cut.ref for e in self.source_universe.entries}:
             raise ValueError('PROJECT_SOURCES_MISMATCH')
+        if any(s!=next(e.cut for e in self.source_universe.entries if e.cut.ref==s.ref)
+               for s in self.sources):
+            raise ValueError('PROJECT_SOURCES_MISMATCH')
+        # Coverage incompleteness is not a structural error; conflicts,
+        # duplicate membership and missing catalog entries are.
+        fatal={'SOURCE_SCOPE_CONFLICT','DUPLICATE_SOURCE_MEMBERSHIP','UNKNOWN_SOURCE'}
+        if any(d.code in fatal for d in validate_inclusion_exclusion(self.source_universe)):
+            raise ValueError('INVALID_SOURCE_UNIVERSE_MEMBERSHIP')
 
 
 def inspect_project_definition(project:object)->Result[ProjectDefinition]:
@@ -67,12 +76,18 @@ def verify_bundle_in_project(view:ReadOnlyProjectView,bundle:SourceBundle,contex
         return Result(diagnostics=(Diagnostic('GSL_PROJECT_CONTEXT_INVALID','$.bundle','typed project/source/compiler','untyped','invalid inputs'),))
     if view.definition.project_id!=bundle.project or context.project!=bundle.project:
         return Result(diagnostics=(Diagnostic('GSL_FOREIGN_PROJECT','$.bundle','same project','foreign','cross-project compilation'),))
+    if any(x.cut==bundle.source_ref for x in view.source_universe.excluded):
+        return Result(diagnostics=(Diagnostic('GSL_SOURCE_EXCLUDED','$.bundle','included and not excluded source','excluded',
+                                              'source is explicitly denied by universe'),))
     if bundle.source_ref not in view.source_universe.included:
         return Result(diagnostics=(Diagnostic('GSL_SOURCE_OUTSIDE_UNIVERSE','$.bundle','included pinned source cut','excluded','source not in declared include set'),))
     matching=[x for x in view.sources if x.ref==bundle.source_ref]
     if len(matching)!=1:
         return Result(diagnostics=(Diagnostic('GSL_SOURCE_CUT_MISSING','$.bundle','exact source','missing','no unique source cut'),))
     source=matching[0]
+    if not check_source_membership(view.definition,source).allowed:
+        return Result(diagnostics=(Diagnostic('GSL_SOURCE_NOT_AUTHORIZED','$.bundle','authorized local pinned source',
+                                              'unauthorized','source outside local repository/source policy'),))
     entries=[x for x in view.source_universe.entries if x.cut.ref==bundle.source_ref]
     if len(entries)!=1 or entries[0].acquisition not in (SourceStatus.CONTENT_OBSERVED,SourceStatus.SEMANTIC_RECONCILED):
         return Result(diagnostics=(Diagnostic('GSL_SOURCE_NOT_OBSERVED','$.bundle','material source content observed','unknown','source acquisition state not sufficient'),))

@@ -12,8 +12,8 @@ from typing import TypeAlias
 from guardian.domain.outcomes import Diagnostic
 from guardian.spec_lang.contract import (CompileContext, CompileStatus,
     CompilationStage, SourceBundle, verify_source_context)
-from .text import (Extraction, FrontendError, NormativeUnit, TextSpan,
-    Token, TokenKind, TokenStream, extract_normative_units, lex_gsl)
+from .text import (Extraction, FrontendError, NormativeUnit, TextSpan, TextSegment,
+    Token, TokenKind, TokenStream, extract_normative_units, lossless_scan, lex_gsl)
 
 MAX_NESTING=64
 DECLARATIONS=frozenset({'source','scope','objective','capability','property','obligation','verification','relation'})
@@ -277,6 +277,7 @@ class FrontendAnalysis:
     units:tuple[AnalyzedUnit,...]
     diagnostics:tuple[Diagnostic,...]
     extraction:Extraction|None=None
+    segments:tuple[TextSegment,...]=()
 
     def __post_init__(self)->None:
         if self.status not in (CompileStatus.ANALYZED,CompileStatus.REJECTED):
@@ -287,6 +288,10 @@ class FrontendAnalysis:
             raise TypeError('LC03_FRONTEND_UNTYPED_CONTENT')
         if self.status is CompileStatus.ANALYZED and (self.stage is not CompilationStage.ABSTRACT or self.diagnostics or not self.units or not isinstance(self.extraction,Extraction)):
             raise ValueError('LC03_ANALYZED_REQUIRES_FULL_SYNTAX')
+        if self.status is CompileStatus.ANALYZED and (not self.segments or
+                any(not isinstance(s,TextSegment) for s in self.segments) or
+                b''.join(x.raw for x in self.segments)!=self.extraction.source.source_bytes):
+            raise ValueError('LC03_LOSSLESS_SCAN_REQUIRED')
         if self.status is CompileStatus.REJECTED and not self.diagnostics:
             raise ValueError('LC03_REJECTION_REQUIRES_DIAGNOSTICS')
 
@@ -301,10 +306,13 @@ def analyze_source(bundle:SourceBundle,context:CompileContext,*,source_format:st
     if not pinned.ok:
         return FrontendAnalysis(CompileStatus.REJECTED,CompilationStage.ACQUIRE,(),pinned.diagnostics)
     extraction=None
+    segments:tuple[TextSegment,...]=()
     analyzed=[]
     stage=CompilationStage.EXTRACT
     try:
         extraction=extract_normative_units(bundle,source_format=source_format)
+        stage=CompilationStage.SCAN
+        segments=lossless_scan(bundle)
         for unit in extraction.units:
             stage=CompilationStage.LEX
             stream=lex_gsl(unit)
@@ -315,7 +323,7 @@ def analyze_source(bundle:SourceBundle,context:CompileContext,*,source_format:st
             if ast.project!=context.project.value:
                 raise FrontendError('GSL_FOREIGN_PROJECT',ast.span.start,'source declares a different project')
             analyzed.append(AnalyzedUnit(stream,cst,ast))
-        return FrontendAnalysis(CompileStatus.ANALYZED,CompilationStage.ABSTRACT,tuple(analyzed),(),extraction)
+        return FrontendAnalysis(CompileStatus.ANALYZED,CompilationStage.ABSTRACT,tuple(analyzed),(),extraction,segments)
     except FrontendError as exc:
         return FrontendAnalysis(CompileStatus.REJECTED,stage,tuple(analyzed),
-            (Diagnostic(exc.code,f'$.source.byte[{exc.byte_start}]','valid GSL syntax','invalid',exc.message),),extraction)
+            (Diagnostic(exc.code,f'$.source.byte[{exc.byte_start}]','valid GSL syntax','invalid',exc.message),),extraction,segments)

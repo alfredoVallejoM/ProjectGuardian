@@ -76,8 +76,8 @@ def test_swapping_field_provenance_fails_closed(pinned):
     ir,bundle,ctx,bindings,expected=instance(pinned)
     wrong=replace(bindings[0],origin=bindings[1].origin)
     result=verify_contract_semantics(ir,bundle,ctx,(wrong,bindings[1]),expectation=expected)
-    assert result.status is OracleStatus.COUNTEREXAMPLE and result.counterexample==wrong
-    assert result.oracle_result.source_value!=result.oracle_result.ir_value
+    assert result.status is OracleStatus.MISSING_BINDING and result.counterexample==wrong
+    assert not result.acceptable
 
 
 def test_ir_mutation_and_rehashed_digest_cannot_deceive_independent_oracle(pinned):
