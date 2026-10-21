@@ -106,7 +106,7 @@
       "GSL0-LC02"
     ],
     "implementation_state": "IMPLEMENTED_CANDIDATE_BLOCK_ONLY",
-    "tests_passed_local": 103,
+    "tests_passed_local": 104,
     "tests_skipped_local": 0,
     "test_environment": "Python 3.13.5 / pytest",
     "exact_blob_readback": "9_OF_9_GIT_BLOB_SHAS_MATCH_LOCAL_CANDIDATE",
