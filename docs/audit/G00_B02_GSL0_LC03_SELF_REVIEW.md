@@ -6,6 +6,7 @@
 |---|---|---|---|
 | B02-R01 | SourceUniverse | ExclusionRef apunta a una decisión pero se interpreta como aprobada sin autenticación | **Corregido:** `EXCLUSION_AUTHORITY_UNVERIFIED` salvo contexto confiable externo explícito; nunca se firma o ratifica aquí |
 | B02-R02 | SourceHistory | DELTA-A depende de DELTA-B, y B de A; ningún BASE | **Corregido:** `HISTORICAL_CYCLE` + `HISTORICAL_BASE_MISSING` |
+| B02-R08 | Cross-project exclusion | La exclusión de una fuente importada exige decisión del proyecto destino, no del proyecto fuente | **Corregido:** `EXCLUSION_WRONG_PROJECT` y prueba de permiso importado con aprobación local |
 | B02-R03 | Projects | Dos proyectos comparten human alias/repo path | **Comprobado:** `ProjectId` evita fusión y la lectura foreign requiere permiso |
 | B02-R04 | Import grants | Un permiso del archivo X se intenta usar para Y | **Comprobado:** exige mismo SourceRef, repo y path exactos |
 | B02-R05 | Coverage | Missing o dos commits relacionados se cuentan como cobertura completa | **Comprobado:** missing explícito; `eligible_for_complete_claim=false`; NO fuente de certificados |

@@ -17,8 +17,8 @@
   "tests": {
     "command": "python -m pytest -q",
     "baseline_previous_count": 104,
-    "observed_total": 205,
-    "observed_new_count": 101,
+    "observed_total": 206,
+    "observed_new_count": 102,
     "failures": 0,
     "skips": 0,
     "python": "3.13.5",
@@ -109,7 +109,8 @@
     "G00-03-F04": {
       "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
       "test_nodes": [
-        "tests/domain/test_g00_b02_source.py::test_g00_03_f04_exclusion_requires_reason_and_approval_ref"
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f04_exclusion_requires_reason_and_approval_ref",
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f04_foreign_source_exclusion_requires_target_project_decision"
       ]
     },
     "G00-03-F05": {
@@ -249,7 +250,7 @@
   "expected_sha256": {
     "src/guardian/domain/identity.py": "d4b9da9fec25f51f1d91462a85125add232742e33683ae36b08fc4753a177b81",
     "src/guardian/domain/project.py": "52bc18248aa73c75e4d3e3a6cfa6a7c2709cc51f80ee40b839bee274d1102cdd",
-    "src/guardian/domain/source.py": "1479c27196a909779472baf05fa26787a261f5c908c720c736fe73048047c833",
+    "src/guardian/domain/source.py": "9cfe1a9bc0baea4630a64ff91dfe4aa56e866abbcfa074ad5ecd0609f60a4edf",
     "src/guardian/application/__init__.py": "e3d9e24e17e5e2113771c36c91282dce2b57fa3b4bd8d9ed271a6e929ef85109",
     "src/guardian/application/project_service.py": "9331a1454ddaf271e02402a064969175c84c3e983543065f0232ff1db493a815",
     "src/guardian/spec_lang/text.py": "dc93dd3d459cf4255f4b296b74e63fed0d0ccb5e2f4a77b5cdc8995978382344",
@@ -257,13 +258,13 @@
     "pyproject.toml": "8d5b766b8ba4503d659fdeb3a6a5c08ad3189740151a385cf05b00d53d52a94f",
     "tests/foundation_b02.py": "08ebc80e99c9a7a0a26565450fba48b3977b916151865f0ec6168c5775edcd73",
     "tests/domain/test_g00_b02_project.py": "37f9f1c33e3b0ebc55378613d073984fd5b1f4ffa6fc95e0d8ff720bf3dd7b7f",
-    "tests/domain/test_g00_b02_source.py": "f965197a8df4370c00313c5cea73200d03d9b5733f908321cd34c067110fd9e1",
+    "tests/domain/test_g00_b02_source.py": "16d80bb62e7528fb6c19dd657f96c3e9734d4cec2954bcd84d076e92c9502b42",
     "tests/spec_lang/test_lc03_text.py": "5436329c842a414f7f576cf49277e14b72f66fdaa89518f10460f56b719f8857",
     "tests/spec_lang/test_lc03_syntax.py": "8106233005bc14f2b5fc642539a297015e65aba33a6ca34d91a1cb6ed7f00c69",
     "tests/integration/test_g00_b02_gsl0_lc03.py": "f4541a3af8c75c6960b87c004a72ca26693667daed0d2ba1c3c5f1c25353bf9d",
-    "docs/implementation/G00_B02_GSL0_LC03.md": "c63e3785c3cc97370d503fc10bf38170e1eed56aa6b7c13368fba80a9ec6e8a4",
+    "docs/implementation/G00_B02_GSL0_LC03.md": "4e54960a25722a43bc0ce3a3c198794c69c8b0092253fdf4938b0e27708031c3",
     "docs/verification/GSL0_LC03_LOSSLESS_PRESERVATION.md": "4344b89c5858fffbf43ff11f6c21ebdaa7cff6df683ffae298b354a72c1b739e",
-    "docs/audit/G00_B02_GSL0_LC03_SELF_REVIEW.md": "04ff30df6a96fd8f2ea039aa237ceed92d1ee1dd96f1d274b4b7eadc96b7dba5"
+    "docs/audit/G00_B02_GSL0_LC03_SELF_REVIEW.md": "c2bd47f097b2c8dfde3204e60100ec04e36a32ded80e0d8a94ebae79c2ece195"
   },
   "candidate_paths": [
     "src/guardian/domain/identity.py",

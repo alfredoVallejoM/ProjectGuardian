@@ -5,7 +5,7 @@
 Guardian preserva lo que se **exigió**, distingue lo que se **implementó realmente** y verifica qué se **acreditó** mediante fuentes y evidencias por ámbito. Opera con personas, cero/uno/varios agentes y distintos lenguajes y repositorios. La coordinación multiagente es una aplicación opcional; el guardián del contrato del proyecto es el producto central.
 
 ## Estado real
-**ESPECIFICACIÓN GENERAL PROPUESTA · BLOQUES PRODUCTIVOS G00-B01/B02 Y GSL0-LC00…LC03 IMPLEMENTADOS EN CANDIDATO · 205 PRUEBAS LOCALES PASS · NO RATIFICADO NI CERTIFICADO.**
+**ESPECIFICACIÓN GENERAL PROPUESTA · BLOQUES PRODUCTIVOS G00-B01/B02 Y GSL0-LC00…LC03 IMPLEMENTADOS EN CANDIDATO · 206 PRUEBAS LOCALES PASS · NO RATIFICADO NI CERTIFICADO.**
 La documentación se ha normalizado desde la conversación de diseño; no constituye una transcripción literal ni un cierre de la fuente histórica. No se han ratificado formalmente las ADR. Se ha iniciado la implementación productiva de los bloques fundacionales; ninguna campaña G-00…G-13 está cerrada.
 
 ## Qué está registrado
@@ -49,4 +49,4 @@ La [especificación completa de G-00](docs/campaigns/G-00/INDEX.md) documenta id
 - [G00-B02 + GSL0-LC03: implementación real e integración](docs/implementation/G00_B02_GSL0_LC03.md).
 - [Matriz específica de cláusulas, adversarios, APIs y controles](docs/implementation/G00_B02_GSL0_LC03_PROGRESS.json).
 - [Preservación textual](docs/verification/GSL0_LC03_LOSSLESS_PRESERVATION.md) y [autorrevisión adversaria, no auditoría independiente](docs/audit/G00_B02_GSL0_LC03_SELF_REVIEW.md).
-- Suite local del corte: **205 PASS / 0 SKIP**; los límites de compilación, ratificación y certificación material siguen explícitos.
+- Suite local del corte: **206 PASS / 0 SKIP**; los límites de compilación, ratificación y certificación material siguen explícitos.

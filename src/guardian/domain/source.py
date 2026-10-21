@@ -202,8 +202,7 @@ class SourceExclusion:
             raise TypeError('source exclusion requires pinned SourceRef')
         if type(self.reason) is not str or not self.reason.strip():
             raise ValueError('EXCLUSION_UNJUSTIFIED')
-        if (not isinstance(self.approval_ref,EntityRef) or self.approval_ref.kind is not EntityKind.DECISION
-                or self.approval_ref.project!=self.cut.project):
+        if not isinstance(self.approval_ref,EntityRef) or self.approval_ref.kind is not EntityKind.DECISION:
             raise ValueError('EXCLUSION_APPROVAL_REQUIRED')
 
 
@@ -306,6 +305,8 @@ def validate_source_universe(universe:SourceUniverseRevision,project:ProjectDefi
             or any(not isinstance(x,EntityRef) or x.kind is not EntityKind.DECISION for x in trusted_exclusion_decisions)):
         raise TypeError('exclusion trust context must be a frozen set of exact DECISION refs')
     for exclusion in universe.excluded:
+        if exclusion.approval_ref.project != universe.identity.project:
+            findings.append(_diag('EXCLUSION_WRONG_PROJECT','$.excluded','exclusion must be authorized by owning target project'))
         if (trusted_exclusion_decisions is None or exclusion.approval_ref not in trusted_exclusion_decisions):
             findings.append(_diag('EXCLUSION_AUTHORITY_UNVERIFIED','$.excluded',
                                   'approval reference alone does not prove an authenticated decision'))

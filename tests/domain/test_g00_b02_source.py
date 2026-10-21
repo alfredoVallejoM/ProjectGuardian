@@ -190,3 +190,20 @@ def test_g00_03_commit_object_does_not_accept_blob_path():
     p=project();s=cut(p)
     with pytest.raises(ValueError,match='COMMIT_OBJECT_HAS_NO_PATH'):
         replace(s,object_kind=GitObjectKind.COMMIT)
+
+
+def test_g00_03_f04_foreign_source_exclusion_requires_target_project_decision():
+    from guardian.domain.source import ApprovedSourceImport, TrustedImportGrants
+    a=project();foreign=project('project-beta');s=cut(foreign)
+    own_decision=entity(a.project_id,EntityKind.DECISION,'exclude-source')
+    grant_decision=entity(a.project_id,EntityKind.DECISION,'grant-import')
+    grant=TrustedImportGrants((ApprovedSourceImport(a.project_id,s.ref,s.repository,s.path,grant_decision),))
+    excl=SourceExclusion(s.ref,'untrusted for this target',own_decision)
+    u=universe(a,(s,),included=(),excluded=(excl,),missing=(MissingSource('missing','not acquired'),))
+    v=validate_source_universe(u,a,{s.ref:s},grant,trusted_exclusion_decisions=frozenset({own_decision}))
+    assert 'EXCLUSION_WRONG_PROJECT' not in {d.code for d in v.diagnostics}
+    assert 'EXCLUSION_AUTHORITY_UNVERIFIED' not in {d.code for d in v.diagnostics}
+    altered=replace(excl,approval_ref=entity(foreign.project_id,EntityKind.DECISION,'foreign-approval'))
+    invalid=replace(u,excluded=(altered,))
+    v2=validate_source_universe(invalid,a,{s.ref:s},grant,trusted_exclusion_decisions=frozenset({altered.approval_ref}))
+    assert 'EXCLUSION_WRONG_PROJECT' in {d.code for d in v2.diagnostics}
