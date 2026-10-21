@@ -1,6 +1,6 @@
 # Programa G-00…G-13 — dosieres normativos propuestos
 
-**14 campañas; 163 obligaciones detalladas, ninguna implementada, ejecutada ni certificada.**
+**14 campañas; 163 obligaciones detalladas. Ninguna campaña está íntegramente cerrada; hay código productivo de G00-B01, sin completar todavía G-00.**
 
 | Campaña | Objetivo | Obligaciones | Dependencias |
 |---|---|---:|---|
@@ -20,7 +20,7 @@
 | [G-13](G-13.md) | Pilotos científicos y cualificación integral | 12 | G-08, G-10, G-11, G-12 |
 
 ## Contrato común de cierre
-**Development complete** exige toda implementación, tests, adversarios y verificadores desarrollados. **Campaign closed** exige además auditoría, runs, integración, recursos y receipts reales. Todas las filas están SPECIFIED_NOT_IMPLEMENTED. Los 34 requisitos y 30 ADR se relacionan mediante los registros architecture/; cambios semánticos por ChangeSet ratificado.
+**Development complete** exige toda implementación, tests, adversarios y verificadores desarrollados. **Campaign closed** exige además auditoría, runs, integración, recursos y receipts reales. Las filas del registro original permanecen en SPECIFIED_NOT_IMPLEMENTED por ausencia de cierres de las obligaciones padres; hay desarrollo parcial real del corte B01, documentado aparte. Los 34 requisitos y 30 ADR se relacionan mediante los registros architecture/; cambios semánticos por ChangeSet ratificado.
 
 **G-00 en detalle:** [especificación completa de fundamentos, operaciones, tests y decisiones](G-00/INDEX.md) — 12 obligaciones originales desarrolladas en 120 cláusulas subordinadas, pendientes de ratificación e implementación.
 
@@ -32,4 +32,8 @@
 
 El [protocolo de ejecución G-00…G-13](G00_G13_PROGRESSIVE_PRODUCT_IMPLEMENTATION.md) fija autoría, pruebas, adversarios, integración, revisión independiente y los dos estados separados DEVELOPMENT_COMPLETE / CAMPAIGN_CLOSED. No altera la autoridad de las 163 obligaciones.
 
-El [ledger inicial de las 163 obligaciones](../../architecture/implementation_progress_2026_10_20.json) enumera cada ID canónico, y para G-00 sus cláusulas, APIs, pruebas, adversarios e integraciones esperadas. Es una proyección de seguimiento, **no** una fuente de autoridad ni un certificado. No contabiliza candidatos locales no publicados.
+El [ledger inicial de las 163 obligaciones](../../architecture/implementation_progress_2026_10_20.json) enumera cada ID canónico, y para G-00 sus cláusulas, APIs, pruebas, adversarios e integraciones esperadas. Es una proyección de seguimiento, **no** una fuente de autoridad ni un certificado. Es una instantánea histórica del 20-10-2026: no contabiliza los bloques implementados y publicados posteriormente.
+
+## Estado de la primera implementación productiva (21-10-2026)
+
+[Desarrollo G00-B01 y GSL0-LC00…LC02](../implementation/G00_B01_GSL0_LC00_LC02.md) · [matriz de progreso por cláusula y adversario](../implementation/G00_B01_GSL0_LC00_LC02_PROGRESS.json). Las 103 pruebas ejecutadas localmente y el code-cut remoto están separados de ratificación, auditoría independiente y cierre material de campaña.
