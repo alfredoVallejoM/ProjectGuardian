@@ -5,7 +5,7 @@
 Guardian preserva lo que se **exigió**, distingue lo que se **implementó realmente** y verifica qué se **acreditó** mediante fuentes y evidencias por ámbito. Opera con personas, cero/uno/varios agentes y distintos lenguajes y repositorios. La coordinación multiagente es una aplicación opcional; el guardián del contrato del proyecto es el producto central.
 
 ## Estado real
-**ESPECIFICACIÓN GENERAL PROPUESTA · NÚCLEO G00-B01 + GSL0-LC00…LC02 IMPLEMENTADO COMO CANDIDATO · 103 PRUEBAS LOCALES PASS · NO CERTIFICADO.**
+**ESPECIFICACIÓN GENERAL PROPUESTA · NÚCLEO G00-B01 + GSL0-LC00…LC02 IMPLEMENTADO COMO CANDIDATO · 104 PRUEBAS LOCALES PASS · NO CERTIFICADO.**
 La documentación se ha normalizado desde la conversación de diseño; no constituye una transcripción literal ni un cierre de la fuente histórica. No se han ratificado formalmente las ADR. Se ha iniciado la implementación productiva de los bloques fundacionales; ninguna campaña G-00…G-13 está cerrada.
 
 ## Qué está registrado
@@ -40,4 +40,4 @@ La [especificación completa de G-00](docs/campaigns/G-00/INDEX.md) documenta id
 
 - [Código y validación: G00-B01 + GSL0-LC00…LC02](docs/implementation/G00_B01_GSL0_LC00_LC02.md).
 - [Ledger acotado por bloque, sin falsos cierres](docs/implementation/G00_B01_GSL0_LC00_LC02_PROGRESS.json).
-- Pruebas ejecutadas localmente: **103 PASS / 0 SKIP**, Python 3.13.5; [commit de código publicado](https://github.com/alfredoVallejoM/ProjectGuardian/commit/8a17518fc45d5a9623698349e358e9b06ed79cad), blobs exactos verificados con el candidato. No se atribuye certificación fuerte ni se afirma que el compilador total esté desarrollado.
+- Pruebas ejecutadas localmente: **104 PASS / 0 SKIP**, Python 3.13.5; [commit de código publicado](https://github.com/alfredoVallejoM/ProjectGuardian/commit/8a17518fc45d5a9623698349e358e9b06ed79cad), blobs exactos verificados con el candidato. No se atribuye certificación fuerte ni se afirma que el compilador total esté desarrollado.
