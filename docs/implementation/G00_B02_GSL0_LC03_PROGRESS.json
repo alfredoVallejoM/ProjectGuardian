@@ -1,0 +1,287 @@
+{
+  "schema": "guardian/progress-implementation-slice/v1",
+  "date": "2026-10-21",
+  "campaign": "G-00",
+  "gsl_slice": "GSL0-LC03",
+  "canonical_unchanged": [
+    "architecture/campaigns.json",
+    "architecture/g00_functional_refinement.json",
+    "architecture/g00_api_contracts.json",
+    "architecture/g00_validation_plan.json"
+  ],
+  "technical_state": "IMPLEMENTED_CANDIDATE_AND_LOCALLY_TESTED",
+  "original_parent_development_complete": false,
+  "campaign_closed": false,
+  "qualified": false,
+  "source_authority_ratified": false,
+  "tests": {
+    "command": "python -m pytest -q",
+    "baseline_previous_count": 104,
+    "observed_total": 205,
+    "observed_new_count": 101,
+    "failures": 0,
+    "skips": 0,
+    "python": "3.13.5",
+    "subject": "local candidate, independently qualified runner/receipt absent"
+  },
+  "clauses": {
+    "G00-02-F01": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f01_rename_keeps_id_constitution_and_policy"
+      ]
+    },
+    "G00-02-F02": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f02_repository_policy_blocks_unknown_repository"
+      ]
+    },
+    "G00-02-F03": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f03_storage_modes_are_declarative[embedded]",
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f03_storage_modes_are_declarative[sidecar]",
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f03_storage_modes_are_declarative[federated]",
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f03_federation_requires_distinct_owners"
+      ]
+    },
+    "G00-02-F04": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f04_explicit_project_identity_in_views"
+      ]
+    },
+    "G00-02-F05": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f05_foreign_refs_need_import_descriptor_and_trusted_grants"
+      ]
+    },
+    "G00-02-F06": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f06_import_scope_never_spills_to_other_cut_path_or_repo"
+      ]
+    },
+    "G00-02-F07": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f07_pinned_constitution_and_source_policy_versions"
+      ]
+    },
+    "G00-02-F08": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f08_federated_repos_preserve_independent_commits"
+      ]
+    },
+    "G00-02-F09": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f09_same_human_aliases_separate_project_namespaces"
+      ]
+    },
+    "G00-02-F10": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_project.py::test_g00_02_f10_readonly_project_snapshot_no_input_mutations"
+      ]
+    },
+    "G00-03-F01": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f01_pinned_git_sha_object_and_relative_path"
+      ]
+    },
+    "G00-03-F02": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f02_document_has_revision_and_capture_identity"
+      ]
+    },
+    "G00-03-F03": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f03_inclusion_set_is_explicit_versioned_and_not_world"
+      ]
+    },
+    "G00-03-F04": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f04_exclusion_requires_reason_and_approval_ref"
+      ]
+    },
+    "G00-03-F05": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f05_known_missing_preserved_and_no_complete_claim"
+      ]
+    },
+    "G00-03-F06": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f06_history_delta_not_double_counted_as_disjoint"
+      ]
+    },
+    "G00-03-F07": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f07_observation_states_are_not_certification"
+      ]
+    },
+    "G00-03-F08": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f08_source_claim_does_not_modify_constitution"
+      ]
+    },
+    "G00-03-F09": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f09_scope_coverage_has_denominator_missing_and_limits"
+      ]
+    },
+    "G00-03-F10": {
+      "status": "IMPLEMENTED_TESTED_LOCAL_BLOCK",
+      "test_nodes": [
+        "tests/domain/test_g00_b02_source.py::test_g00_03_f10_corporal_feature_platform_time_scope_not_optional"
+      ]
+    }
+  },
+  "adversaries": {
+    "ADV-04": [
+      "tests/domain/test_g00_b02_project.py::test_adv04_project_name_collision_never_grants_cross_project_identity"
+    ],
+    "ADV-05": [
+      "tests/domain/test_g00_b02_project.py::test_adv05_file_import_is_not_repository_wide_approval"
+    ],
+    "ADV-06": [
+      "tests/domain/test_g00_b02_project.py::test_adv06_rename_cannot_drift_project_id"
+    ],
+    "ADV-07": [
+      "tests/domain/test_g00_b02_source.py::test_adv07_mutable_HEAD_never_valid_git_cut"
+    ],
+    "ADV-08": [
+      "tests/domain/test_g00_b02_source.py::test_adv08_missing_source_does_not_issue_coverage_pass"
+    ],
+    "ADV-09": [
+      "tests/domain/test_g00_b02_source.py::test_adv09_two_BASE_cuts_same_history_detect_double_population"
+    ]
+  },
+  "apis": {
+    "G00-API-009": {
+      "owner": "guardian.domain.project",
+      "operation": "validate_project",
+      "status": "IMPLEMENTED_IN_PRODUCT_BLOCK"
+    },
+    "G00-API-010": {
+      "owner": "guardian.domain.project",
+      "operation": "validate_storage_mode",
+      "status": "IMPLEMENTED_IN_PRODUCT_BLOCK"
+    },
+    "G00-API-011": {
+      "owner": "guardian.domain.project",
+      "operation": "check_project_membership",
+      "status": "IMPLEMENTED_IN_PRODUCT_BLOCK"
+    },
+    "G00-API-012": {
+      "owner": "guardian.application.project_service",
+      "operation": "build_readonly_project_view",
+      "status": "IMPLEMENTED_IN_PRODUCT_BLOCK"
+    },
+    "G00-API-013": {
+      "owner": "guardian.domain.source",
+      "operation": "validate_git_source_cut",
+      "status": "IMPLEMENTED_IN_PRODUCT_BLOCK"
+    },
+    "G00-API-014": {
+      "owner": "guardian.domain.source",
+      "operation": "validate_document_source",
+      "status": "IMPLEMENTED_IN_PRODUCT_BLOCK"
+    },
+    "G00-API-015": {
+      "owner": "guardian.domain.source",
+      "operation": "validate_source_universe",
+      "status": "IMPLEMENTED_IN_PRODUCT_BLOCK"
+    },
+    "G00-API-016": {
+      "owner": "guardian.domain.source",
+      "operation": "check_source_membership",
+      "status": "IMPLEMENTED_IN_PRODUCT_BLOCK"
+    },
+    "G00-API-017": {
+      "owner": "guardian.domain.source",
+      "operation": "validate_inclusion_exclusion",
+      "status": "IMPLEMENTED_IN_PRODUCT_BLOCK"
+    },
+    "G00-API-018": {
+      "owner": "guardian.domain.source",
+      "operation": "describe_source_coverage",
+      "status": "IMPLEMENTED_IN_PRODUCT_BLOCK"
+    }
+  },
+  "integration": {
+    "G00-V01": "PARTIAL_B02; G00-08 exact reference resolver pending",
+    "G00-V03": "PARTIAL_B02; G00-11 conflict policy pending",
+    "B02_to_LC03": "PRODUCTIVE_IN_MEMORY"
+  },
+  "source_laws": {
+    "GSL-T01": "LOCAL_FINITE_TESTS_NOT_MECHANIZED",
+    "GSL-T02": "LOCAL_FINITE_TESTS_NOT_MECHANIZED",
+    "GSL-T03": "LOCAL_FINITE_TESTS_NOT_MECHANIZED"
+  },
+  "holds": [
+    "G00_B05_AUTHORITY",
+    "G00_B06_RESOLVER",
+    "G00_12_FULL_VERTICALS",
+    "GSL0_LC04_NAMESPACES_IMPORTS",
+    "GSL0_LC05_TYPECHECK",
+    "GSL0_LC06_LOWERING",
+    "GSL0_LC07_SOURCEMAP",
+    "GSL0_LC08_PROOF_OBLIGATIONS",
+    "GSL0_LC09_HISTORICAL_COVERAGE",
+    "GSL0_LC10_INDEPENDENT_AUDIT",
+    "GSL0_LC12_MATERIAL_QUALIFICATION",
+    "RATIFICATION_EXTERNAL",
+    "G09_TRUST_BOUNDARY"
+  ],
+  "expected_sha256": {
+    "src/guardian/domain/identity.py": "d4b9da9fec25f51f1d91462a85125add232742e33683ae36b08fc4753a177b81",
+    "src/guardian/domain/project.py": "52bc18248aa73c75e4d3e3a6cfa6a7c2709cc51f80ee40b839bee274d1102cdd",
+    "src/guardian/domain/source.py": "1479c27196a909779472baf05fa26787a261f5c908c720c736fe73048047c833",
+    "src/guardian/application/__init__.py": "e3d9e24e17e5e2113771c36c91282dce2b57fa3b4bd8d9ed271a6e929ef85109",
+    "src/guardian/application/project_service.py": "9331a1454ddaf271e02402a064969175c84c3e983543065f0232ff1db493a815",
+    "src/guardian/spec_lang/text.py": "dc93dd3d459cf4255f4b296b74e63fed0d0ccb5e2f4a77b5cdc8995978382344",
+    "src/guardian/spec_lang/syntax.py": "f9e4a7e356134269255aa1542136c7f1c301ba280cd7092627831588c7684a68",
+    "pyproject.toml": "8d5b766b8ba4503d659fdeb3a6a5c08ad3189740151a385cf05b00d53d52a94f",
+    "tests/foundation_b02.py": "08ebc80e99c9a7a0a26565450fba48b3977b916151865f0ec6168c5775edcd73",
+    "tests/domain/test_g00_b02_project.py": "37f9f1c33e3b0ebc55378613d073984fd5b1f4ffa6fc95e0d8ff720bf3dd7b7f",
+    "tests/domain/test_g00_b02_source.py": "f965197a8df4370c00313c5cea73200d03d9b5733f908321cd34c067110fd9e1",
+    "tests/spec_lang/test_lc03_text.py": "5436329c842a414f7f576cf49277e14b72f66fdaa89518f10460f56b719f8857",
+    "tests/spec_lang/test_lc03_syntax.py": "8106233005bc14f2b5fc642539a297015e65aba33a6ca34d91a1cb6ed7f00c69",
+    "tests/integration/test_g00_b02_gsl0_lc03.py": "f4541a3af8c75c6960b87c004a72ca26693667daed0d2ba1c3c5f1c25353bf9d",
+    "docs/implementation/G00_B02_GSL0_LC03.md": "c63e3785c3cc97370d503fc10bf38170e1eed56aa6b7c13368fba80a9ec6e8a4",
+    "docs/verification/GSL0_LC03_LOSSLESS_PRESERVATION.md": "4344b89c5858fffbf43ff11f6c21ebdaa7cff6df683ffae298b354a72c1b739e",
+    "docs/audit/G00_B02_GSL0_LC03_SELF_REVIEW.md": "04ff30df6a96fd8f2ea039aa237ceed92d1ee1dd96f1d274b4b7eadc96b7dba5"
+  },
+  "candidate_paths": [
+    "src/guardian/domain/identity.py",
+    "src/guardian/domain/project.py",
+    "src/guardian/domain/source.py",
+    "src/guardian/application/__init__.py",
+    "src/guardian/application/project_service.py",
+    "src/guardian/spec_lang/text.py",
+    "src/guardian/spec_lang/syntax.py",
+    "pyproject.toml",
+    "tests/foundation_b02.py",
+    "tests/domain/test_g00_b02_project.py",
+    "tests/domain/test_g00_b02_source.py",
+    "tests/spec_lang/test_lc03_text.py",
+    "tests/spec_lang/test_lc03_syntax.py",
+    "tests/integration/test_g00_b02_gsl0_lc03.py",
+    "docs/implementation/G00_B02_GSL0_LC03.md",
+    "docs/verification/GSL0_LC03_LOSSLESS_PRESERVATION.md",
+    "docs/audit/G00_B02_GSL0_LC03_SELF_REVIEW.md"
+  ]
+}

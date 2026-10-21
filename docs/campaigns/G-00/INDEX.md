@@ -2,7 +2,7 @@
 
 **Autoridad original:** [G-00 canónica](../G-00.md), doce obligaciones G00-01…12, sin cambios de estado ni numeración. **Alcance:** datos e invariantes puros del proyecto, constitución, source universe, applicability, referencias, schemas y evaluador local.
 
-## Guía de funcionamiento (documentos de diseño, ninguno implementado)
+## Guía de funcionamiento (documentación normativa de referencia; desarrollo parcial enlazado al final)
 
 | Orden | Documento | Función |
 |---|---|---|
@@ -36,7 +36,7 @@
 
 ## Trazabilidad
 
-**G00-01…12 → 10 cláusulas G00-XX-F01…F10 → un test lógico por cláusula → módulos/operaciones de diseño → pruebas y receipts futuros.** Las pruebas escritas o ejecutadas todavía son **cero**. La existencia de este catálogo no constituye G00_DEVELOPMENT_COMPLETE.
+**G00-01…12 → 10 cláusulas G00-XX-F01…F10 → un test lógico por cláusula → módulos/operaciones de diseño → pruebas y receipts futuros.** Los IDs de pruebas del catálogo son contratos históricos; el código de pruebas actualmente existente se informa por corte, sin sustituir el denominador de 120. La existencia de este catálogo no constituye G00_DEVELOPMENT_COMPLETE.
 
 ## Fronteras que hay que conservar
 
@@ -49,3 +49,10 @@
 - G-10 completa cobertura de especificación/migración.
 
 El desarrollo de G-00 **no puede cerrar automáticamente ninguna campaña posterior**; las decisiones no ratificadas no son todavía políticas de publicación efectivas.
+
+## Implementaciones materializadas desde la línea base documental
+
+- [Primer corte G00-B01/GSL-LC00…02](../../implementation/G00_B01_GSL0_LC00_LC02.md).
+- [Segundo corte G00-B02/GSL-LC03](../../implementation/G00_B02_GSL0_LC03.md) y [matriz de implementación](../../implementation/G00_B02_GSL0_LC03_PROGRESS.json).
+
+Estos cortes no transforman la especificación canónica en una campaña cerrada ni ratifican las ADR originales.

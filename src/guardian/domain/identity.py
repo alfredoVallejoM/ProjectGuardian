@@ -43,6 +43,8 @@ class EntityKind(str, Enum):
     DECISION = "decision"
     RULE = "rule"
     SOURCE = "source"
+    SOURCE_POLICY = "source_policy"
+    SOURCE_UNIVERSE = "source_universe"
     SCOPE = "scope"
     CLAUSE = "clause"
     RELATION = "relation"

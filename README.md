@@ -5,7 +5,7 @@
 Guardian preserva lo que se **exigió**, distingue lo que se **implementó realmente** y verifica qué se **acreditó** mediante fuentes y evidencias por ámbito. Opera con personas, cero/uno/varios agentes y distintos lenguajes y repositorios. La coordinación multiagente es una aplicación opcional; el guardián del contrato del proyecto es el producto central.
 
 ## Estado real
-**ESPECIFICACIÓN GENERAL PROPUESTA · NÚCLEO G00-B01 + GSL0-LC00…LC02 IMPLEMENTADO COMO CANDIDATO · 104 PRUEBAS LOCALES PASS · NO CERTIFICADO.**
+**ESPECIFICACIÓN GENERAL PROPUESTA · BLOQUES PRODUCTIVOS G00-B01/B02 Y GSL0-LC00…LC03 IMPLEMENTADOS EN CANDIDATO · 205 PRUEBAS LOCALES PASS · NO RATIFICADO NI CERTIFICADO.**
 La documentación se ha normalizado desde la conversación de diseño; no constituye una transcripción literal ni un cierre de la fuente histórica. No se han ratificado formalmente las ADR. Se ha iniciado la implementación productiva de los bloques fundacionales; ninguna campaña G-00…G-13 está cerrada.
 
 ## Qué está registrado
@@ -24,7 +24,7 @@ La documentación se ha normalizado desde la conversación de diseño; no consti
 No borrar ni rebajar obligaciones; ninguna prueba escrita implica ejecución; no certificados científicos por evidencia documental; ningún agente autocertifica sus entregas; cada proyecto mantiene su autoridad; nuevos requisitos/campañas se añaden sin modificar el núcleo; los paquetes de trabajo no reducen el cierre normativo por límites de contexto; los cambios impactan solo conos protegidos cuando es demostrable.
 
 ## Próxima deliberación
-Continuar G00-B02/B06 y GSL0-LC03…LC08 después del corte fundacional publicado. Resolver las decisiones de autoridad pendientes sin confundir implementación con ratificación, y mantener la auditoría adversaria independiente antes de admitir cierres.
+Continuar G00-B03/B06 y GSL0-LC04…LC08, aprovechando los dos cortes fundacionales publicados. Resolver las decisiones de autoridad pendientes sin confundir implementación con ratificación, y mantener la auditoría adversaria independiente antes de admitir cierres.
 
 ## Contorno técnico
 Python 3.12+ tipado, monolito modular, domain inmutable + functional core/imperative shell, puertos y adaptadores; Git como autoridad, SQLite como índice derivado, verificadores externos por ámbito, CLI/API/UI/MCP y agent SDK optativos. Sin microservicios por defecto ni hard cap de LOC.
@@ -43,3 +43,10 @@ La [especificación completa de G-00](docs/campaigns/G-00/INDEX.md) documenta id
 - Pruebas ejecutadas localmente: **104 PASS / 0 SKIP**, Python 3.13.5; [commit de código publicado](https://github.com/alfredoVallejoM/ProjectGuardian/commit/8a17518fc45d5a9623698349e358e9b06ed79cad), blobs exactos verificados con el candidato. No se atribuye certificación fuerte ni se afirma que el compilador total esté desarrollado.
 
 - [Argumento de preservación V4](docs/verification/GSL0_LC02_V4_PRESERVATION.md) y [readback exacto de los módulos/product tests](docs/implementation/G00_B01_GSL0_LC00_LC02_LOCAL_READBACK.md).
+
+## Segundo corte productivo — 21-10-2026
+
+- [G00-B02 + GSL0-LC03: implementación real e integración](docs/implementation/G00_B02_GSL0_LC03.md).
+- [Matriz específica de cláusulas, adversarios, APIs y controles](docs/implementation/G00_B02_GSL0_LC03_PROGRESS.json).
+- [Preservación textual](docs/verification/GSL0_LC03_LOSSLESS_PRESERVATION.md) y [autorrevisión adversaria, no auditoría independiente](docs/audit/G00_B02_GSL0_LC03_SELF_REVIEW.md).
+- Suite local del corte: **205 PASS / 0 SKIP**; los límites de compilación, ratificación y certificación material siguen explícitos.
