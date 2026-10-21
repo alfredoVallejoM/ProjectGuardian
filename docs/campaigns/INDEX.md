@@ -36,4 +36,4 @@ El [ledger inicial de las 163 obligaciones](../../architecture/implementation_pr
 
 ## Estado de la primera implementación productiva (21-10-2026)
 
-[Desarrollo G00-B01 y GSL0-LC00…LC02](../implementation/G00_B01_GSL0_LC00_LC02.md) · [matriz de progreso por cláusula y adversario](../implementation/G00_B01_GSL0_LC00_LC02_PROGRESS.json). Las 103 pruebas ejecutadas localmente y el code-cut remoto están separados de ratificación, auditoría independiente y cierre material de campaña.
+[Desarrollo G00-B01 y GSL0-LC00…LC02](../implementation/G00_B01_GSL0_LC00_LC02.md) · [matriz de progreso por cláusula y adversario](../implementation/G00_B01_GSL0_LC00_LC02_PROGRESS.json). Las 104 pruebas ejecutadas localmente y el code-cut remoto están separados de ratificación, auditoría independiente y cierre material de campaña.
