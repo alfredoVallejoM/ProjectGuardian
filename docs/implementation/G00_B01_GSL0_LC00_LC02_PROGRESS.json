@@ -69,7 +69,7 @@
     "material_receipt": "NONE",
     "python": "3.13.5",
     "source": "local working copy",
-    "tests_passed": 103,
+    "tests_passed": 104,
     "tests_skipped": 0
   },
   "product_files_sha256": {
@@ -79,7 +79,7 @@
     "src/guardian/domain/identity.py": "ea101ac7c2beff70fc58bf50a12b579fe56d38d2f157c617ee04946807015874",
     "src/guardian/domain/outcomes.py": "b4cb91a6c95605a26384faf51e17f08f6063a5995e269dd5f1211a9c70d51bb9",
     "src/guardian/spec_lang/__init__.py": "909580b5915f44ee3592a1d7ecdb115a5d51c49f0455176be0d16797b5cf4983",
-    "src/guardian/spec_lang/contract.py": "7a1081189e9623db6c31e1e72d611312af23a206e44dc419c352cd8fbccbcb07",
+    "src/guardian/spec_lang/contract.py": "3341ed769a5766116574066ecc46c967fa6edc8523208444196f8d8f9f7b91fa",
     "src/guardian/spec_lang/ir.py": "d84395593fbce9de1ffe64cfd0f6fbc001630e37e51463623700f2bda47c2936",
     "src/guardian/spec_lang/v0.py": "f184a2cca75bb073e23e351b54c4a2b68e215ac2a12f9b0fbbd899e066df2ee3"
   },
