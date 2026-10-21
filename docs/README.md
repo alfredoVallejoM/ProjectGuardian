@@ -31,7 +31,7 @@
 - `docs/assurance/`: banco de falsaciones y pruebas cruzadas.
 - `docs/decisions/`: fichas por ADR y enmiendas futuras.
 
-**Estado actualizado:** existe código productivo del corte G00-B01 + GSL0-LC00…LC02, con 103 pruebas locales PASS; no hay certificado fuerte de campaña. El resto de esquemas y rutas futuras sigue siendo diseño, no implementación. Las poblaciones de requisitos/obligaciones son propuestas revisables mediante un procedimiento de cambio versionado.
+**Estado actualizado:** existe código productivo del corte G00-B01 + GSL0-LC00…LC02, con 104 pruebas locales PASS; no hay certificado fuerte de campaña. El resto de esquemas y rutas futuras sigue siendo diseño, no implementación. Las poblaciones de requisitos/obligaciones son propuestas revisables mediante un procedimiento de cambio versionado.
 
 ## Principio de permanencia
 Una precisión posterior no sustituye el alcance anterior, salvo operación explícita `SUPERSEDE` con justificación, autoridad, correspondencia histórica y análisis de impacto. El proyecto no exige cinco agentes: opera con humanos, cero/uno/varios agentes. El grafo, el programa y la auditoría se subordinan al contrato íntegro del proyecto, no al último resumen narrativo.
