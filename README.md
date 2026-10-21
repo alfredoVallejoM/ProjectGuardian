@@ -41,3 +41,5 @@ La [especificación completa de G-00](docs/campaigns/G-00/INDEX.md) documenta id
 - [Código y validación: G00-B01 + GSL0-LC00…LC02](docs/implementation/G00_B01_GSL0_LC00_LC02.md).
 - [Ledger acotado por bloque, sin falsos cierres](docs/implementation/G00_B01_GSL0_LC00_LC02_PROGRESS.json).
 - Pruebas ejecutadas localmente: **104 PASS / 0 SKIP**, Python 3.13.5; [commit de código publicado](https://github.com/alfredoVallejoM/ProjectGuardian/commit/8a17518fc45d5a9623698349e358e9b06ed79cad), blobs exactos verificados con el candidato. No se atribuye certificación fuerte ni se afirma que el compilador total esté desarrollado.
+
+- [Argumento de preservación V4](docs/verification/GSL0_LC02_V4_PRESERVATION.md) y [readback exacto de los módulos/product tests](docs/implementation/G00_B01_GSL0_LC00_LC02_LOCAL_READBACK.md).
