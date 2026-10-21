@@ -77,3 +77,13 @@ def test_compiled_requires_emitted_stage_not_intermediate_success(pinned):
     with pytest.raises(ValueError,match='GSL_COMPILED_REQUIRES_FINAL_STAGE'):
         CompilationResult(CompileStatus.COMPILED,CompilationStage.TYPECHECK,(),bundle.expected_digest)
     assert CompilationResult(CompileStatus.COMPILED,CompilationStage.EMIT,(),bundle.expected_digest).status is CompileStatus.COMPILED
+
+def test_stage_manifest_preserves_c00_to_c14_without_conflating_scanner_and_lexer():
+    observed=[(stage.value.split('_')[0],stage.value.split('_',1)[1]) for stage in CompilationStage]
+    assert observed==[
+        ('C00','SOURCE_ACQUIRE'),('C01','MARKDOWN_EXTRACT'),('C02','LOSSLESS_SCAN'),
+        ('C03','GSL_LEX'),('C04','GSL_CST'),('C05','GSL_AST'),('C06','GSL_RESOLVE'),
+        ('C07','GSL_TYPECHECK'),('C08','GSL_SEMANTIC_CHECK'),('C09','GSL_ELABORATE'),
+        ('C10','GSL_PROOF_OBLIGATIONS'),('C11','IR_VALIDATE'),('C12','CANONICALIZE'),
+        ('C13','CONTRACT_DIFF'),('C14','BUNDLE_EMIT')
+    ]
