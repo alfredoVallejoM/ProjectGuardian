@@ -31,7 +31,7 @@
 - `docs/assurance/`: banco de falsaciones y pruebas cruzadas.
 - `docs/decisions/`: fichas por ADR y enmiendas futuras.
 
-**No hay código productivo ni evidencia material aún.** Los esquemas y rutas futuras se describen como diseños, nunca como archivos implementados. Las poblaciones de requisitos/obligaciones son propuestas revisables mediante un procedimiento de cambio versionado.
+**Estado actualizado:** existe código productivo del corte G00-B01 + GSL0-LC00…LC02, con 103 pruebas locales PASS; no hay certificado fuerte de campaña. El resto de esquemas y rutas futuras sigue siendo diseño, no implementación. Las poblaciones de requisitos/obligaciones son propuestas revisables mediante un procedimiento de cambio versionado.
 
 ## Principio de permanencia
 Una precisión posterior no sustituye el alcance anterior, salvo operación explícita `SUPERSEDE` con justificación, autoridad, correspondencia histórica y análisis de impacto. El proyecto no exige cinco agentes: opera con humanos, cero/uno/varios agentes. El grafo, el programa y la auditoría se subordinan al contrato íntegro del proyecto, no al último resumen narrativo.
@@ -48,12 +48,12 @@ Una precisión posterior no sustituye el alcance anterior, salvo operación expl
 - [Auditoría estática de la publicación](../docs/assurance/DESIGN_PUBLICATION_AUDIT.md): cotejo documental y límites de la evidencia.
 
 ### Profundización de la campaña fundacional
-- [G-00 completa](campaigns/G-00/INDEX.md): modelos, interfaces, 120 cláusulas de comportamiento, 58 operaciones, 36 adversarios, 7 verticales y diez cortes de desarrollo. **Diseño sin implementación.**
+- [G-00 completa](campaigns/G-00/INDEX.md): modelos, interfaces, 120 cláusulas de comportamiento, 58 operaciones, 36 adversarios, 7 verticales y diez cortes de desarrollo. **Diseño integral, con primer bloque fundacional implementado parcialmente.**
 - [Revisión documental estática de G-00](campaigns/G-00/17_DOCUMENTARY_AUDIT.md): integridad referencial comprobada, sin implementación material.
 
 ## Revisión CCRR 19-10-2026
 
-[Informe de corrección y ampliación](revision-2026-10-19/INDEX.md) · [Extensiones G-00…G-13](campaigns/CCRR_EXTENSION_INDEX.md). Registros propuestos en architecture/ccrr_*.json. Sin código ni validación material nueva; GSL-0 pendiente.
+[Informe de corrección y ampliación](revision-2026-10-19/INDEX.md) · [Extensiones G-00…G-13](campaigns/CCRR_EXTENSION_INDEX.md). Registros propuestos en architecture/ccrr_*.json. Esta sección refleja el estado histórico del 19-10: desde entonces se implementaron G00-B01 y los cortes técnicos LC00…LC02, sin ratificación de GSL completo.
 
 
 ## Candidato de contrato GSL-0 y auditoría Charloom (20-10-2026)
@@ -66,6 +66,10 @@ Una precisión posterior no sustituye el alcance anterior, salvo operación expl
 - [Programa de desarrollo GSL-first y mejoras paralelas Charloom](campaigns/GSL_LANGUAGE_AND_CHARLOOM_FOCUSED_SEQUENCE_PROPOSED.md).
 - [Experimento GSL-0 de referencia](../experiments/gsl0_reference/README.md) y su [vertical candidata G00-01](../experiments/gsl0_reference/g00_01_candidate.gsl).
 
-Estado: diseño propuesto, prototipo parcial, sin compilador productivo ni garantías materialmente cualificadas. CTK-01 está escrito en Charloom `main`, pendiente de prueba Cargo.
+Estado actualizado: arquitectura GSL completa propuesta, compilador GSL completo pendiente; los cortes LC00…LC02 sí tienen módulos productivos, sin garantías materialmente cualificadas. CTK-01 está escrito en Charloom `main`, pendiente de prueba Cargo.
 
 - [Verificación local limitada GSL-0 y pruebas materiales pendientes](revision-2026-10-20/07_GSL0_REFERENCE_SMOKE_STATUS.md). Las 30 funciones pytest están escritas, no calificadas como suite ejecutada sobre el commit.
+
+## Primer bloque de implementación productiva — 21-10-2026
+
+[Especificación del corte ejecutado, limitaciones y suite](implementation/G00_B01_GSL0_LC00_LC02.md) · [registro de avance por obligación](implementation/G00_B01_GSL0_LC00_LC02_PROGRESS.json). Se conservan 14 campañas/163 obligaciones originales; ningún padre G-00 ha recibido falso `DEVELOPMENT_COMPLETE`.
