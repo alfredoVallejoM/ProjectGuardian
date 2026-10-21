@@ -10,18 +10,19 @@
   "module_routes_proposed": 142,
   "architecture_discussion_questions": 14,
   "adversarial_scenarios_proposed": 24,
-  "implementation_started": false,
-  "code_implemented": false,
-  "tests_executed": false,
+  "implementation_started": true,
+  "code_implemented": true,
+  "tests_executed": true,
   "certifications_issued": false,
   "requirements_fine_grained_semantic_crosswalk_qualified": false,
   "source_conversations_archived_in_repo": false,
   "planning_ledger_structural_check": "G00_DETAILED_DESIGN_PUBLISHED_NEEDS_STATIC_VERIFICATION",
   "notes": [
-    "Planning-only records uploaded, no production modules materialized",
+    "Historical pre-implementation design snapshot; production foundation code now exists, see latest_implementation_observation",
     "Source design conversation normalized not copied verbatim",
     "Rule and obligation statuses remain proposed until explicit ratification",
-    "Static linkage does not imply implementation, math validation or future change safety"
+    "Static linkage does not imply implementation, math validation or future change safety",
+    "The original 163-obligation census, G00-00…13 plans and historical reviews are not rewritten by this scoped source implementation."
   ],
   "entity_types_specified": 24,
   "service_interfaces_proposed": 14,
@@ -37,7 +38,8 @@
     "no_code_implemented": true,
     "no_tests_executed": true,
     "navigation_links_checked": 89,
-    "summary": "34 requirements, 30 ADR, 14 campaigns, 163 obligations, 142 proposed module entries, 163 obligation->module assignments, navigation links present"
+    "summary": "34 requirements, 30 ADR, 14 campaigns, 163 obligations, 142 proposed module entries, 163 obligation->module assignments, navigation links present",
+    "historical_snapshot": true
   },
   "g00_detailed_program": {
     "campaign": "G-00",
@@ -90,6 +92,30 @@
     "charloom_source_kernel": "NOT_EXTRACTED",
     "rust_cargo_executions": "NOT_RUN",
     "gsl_compiler": "NOT_IMPLEMENTED",
-    "contract_ratified": false
+    "contract_ratified": false,
+    "historical_snapshot": true
+  },
+  "implementation_scope": "PARTIAL_FOUNDATION_G00_B01_GSL0_LC00_LC02_ONLY",
+  "latest_implementation_observation": {
+    "observed_date": "2026-10-21",
+    "code_commit": "8a17518fc45d5a9623698349e358e9b06ed79cad",
+    "blocks": [
+      "G00-B01",
+      "GSL0-LC00",
+      "GSL0-LC01",
+      "GSL0-LC02"
+    ],
+    "implementation_state": "IMPLEMENTED_CANDIDATE_BLOCK_ONLY",
+    "tests_passed_local": 103,
+    "tests_skipped_local": 0,
+    "test_environment": "Python 3.13.5 / pytest",
+    "exact_blob_readback": "9_OF_9_GIT_BLOB_SHAS_MATCH_LOCAL_CANDIDATE",
+    "full_campaigns_closed": 0,
+    "original_G00_parents_complete": 0,
+    "gsl0_formally_ratified": false,
+    "independently_audited": false,
+    "material_campaign_receipt": "NONE",
+    "progress_record": "docs/implementation/G00_B01_GSL0_LC00_LC02_PROGRESS.json",
+    "scope_report": "docs/implementation/G00_B01_GSL0_LC00_LC02.md"
   }
 }
