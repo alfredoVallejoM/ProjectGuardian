@@ -1,0 +1,103 @@
+{
+  "adversaries": {
+    "ADV-01": "tests/domain/test_domain_identity.py::test_adversarial_01_same_text_never_cross_type_decodes",
+    "ADV-02": "tests/domain/test_domain_identity.py::test_adversarial_02_reference_missing_semantic_kind_is_rejected",
+    "ADV-03": "tests/domain/test_domain_identity.py::test_adversarial_03_duplicate_alias_is_ambiguous_regardless_of_order"
+  },
+  "authority": "architecture/campaigns.json; architecture/g00_functional_refinement.json; architecture/g00_api_contracts.json; architecture/g00_validation_plan.json",
+  "functional_clause_tests": {
+    "G00-01-F01": [
+      "test_f01_nominal_wrappers_are_runtime_distinct"
+    ],
+    "G00-01-F02": [
+      "test_f02_project_and_kind_are_in_identity_equality"
+    ],
+    "G00-01-F03": [
+      "test_f03_errors_have_stable_location_and_reason",
+      "test_f03_rejects_invalid_tokens"
+    ],
+    "G00-01-F04": [
+      "test_f04_alias_is_scoped_provenanced_and_never_first_wins"
+    ],
+    "G00-01-F05": [
+      "test_f05_rename_is_not_a_new_id"
+    ],
+    "G00-01-F06": [
+      "test_f06_revision_must_be_pinned_and_exact"
+    ],
+    "G00-01-F07": [
+      "test_f07_digest_algorithm_and_full_length_canonicalization"
+    ],
+    "G00-01-F08": [
+      "test_f08_domain_accepts_given_ids_without_clock_or_randomness"
+    ],
+    "G00-01-F09": [
+      "test_f09_codec_fail_closed_no_kind_loss_or_unknown_features",
+      "test_f09_typed_codec_roundtrip"
+    ],
+    "G00-01-F10": [
+      "test_f10_registry_detects_same_id_distinct_lineages"
+    ]
+  },
+  "gsl0": {
+    "LC00": [
+      "src/guardian/spec_lang/contract.py",
+      "tests/spec_lang/test_contract.py",
+      "tests/spec_lang/test_lc00_contract_extended.py"
+    ],
+    "LC01": [
+      "src/guardian/spec_lang/ir.py",
+      "tests/spec_lang/test_typed_ir.py"
+    ],
+    "LC02": [
+      "src/guardian/spec_lang/v0.py",
+      "tests/spec_lang/test_v0.py",
+      "tests/spec_lang/test_lc01_lc02_semantic_audit.py"
+    ]
+  },
+  "holds": [
+    "GSL0_RATIFICATION_EXTERNAL",
+    "G00_01_API008_B06",
+    "G00_07_LIFECYCLE_FUTURE_BLOCKS",
+    "GSL0_LC03_TO_LC08_FRONTEND",
+    "GSL0_LC09_HISTORICAL_COVERAGE",
+    "INDEPENDENT_AGENT_AUDIT",
+    "MATERIAL_REMOTE_SHA_REPLAY"
+  ],
+  "local_validation": {
+    "command": "pytest -q",
+    "material_receipt": "NONE",
+    "python": "3.13.5",
+    "source": "local working copy",
+    "tests_passed": 103,
+    "tests_skipped": 0
+  },
+  "product_files_sha256": {
+    "src/guardian/__init__.py": "bf95a67dce58ecbe6b9de4a44d8207b85b5f7d1158396812ad8a1f367d5a18ca",
+    "src/guardian/domain/__init__.py": "2be4a23cca43a8f40f0c15a15b1d706db1b3e9f6320afb2bf7a00502261c030d",
+    "src/guardian/domain/evidence_logic.py": "650c6326c02c8c7db48d15befb4b0d7e3607765ce35c82a6685b67c2276d1990",
+    "src/guardian/domain/identity.py": "ea101ac7c2beff70fc58bf50a12b579fe56d38d2f157c617ee04946807015874",
+    "src/guardian/domain/outcomes.py": "b4cb91a6c95605a26384faf51e17f08f6063a5995e269dd5f1211a9c70d51bb9",
+    "src/guardian/spec_lang/__init__.py": "909580b5915f44ee3592a1d7ecdb115a5d51c49f0455176be0d16797b5cf4983",
+    "src/guardian/spec_lang/contract.py": "7a1081189e9623db6c31e1e72d611312af23a206e44dc419c352cd8fbccbcb07",
+    "src/guardian/spec_lang/ir.py": "d84395593fbce9de1ffe64cfd0f6fbc001630e37e51463623700f2bda47c2936",
+    "src/guardian/spec_lang/v0.py": "f184a2cca75bb073e23e351b54c4a2b68e215ac2a12f9b0fbbd899e066df2ee3"
+  },
+  "schema": "guardian/foundation-progress-record/v1",
+  "scope": {
+    "development_units": [
+      "G00-B01",
+      "GSL0-LC00",
+      "GSL0-LC01",
+      "GSL0-LC02"
+    ],
+    "not_closed_original_obligations": [
+      "G00-01",
+      "G00-07"
+    ],
+    "not_qualified": true,
+    "not_ratified_language": true
+  },
+  "status": "IMPLEMENTED_CANDIDATE_BLOCK_ONLY",
+  "timestamp": "2026-10-21"
+}

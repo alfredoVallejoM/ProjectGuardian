@@ -6,6 +6,7 @@ this module does NOT implement parsing or claim normative admission.
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 from enum import Enum
 from hashlib import sha256
@@ -19,6 +20,11 @@ from guardian.spec_lang.contract import (
     TYPED_IR_SCHEMA, SEMANTIC_VERSION, ProofObligation,
     SourceBundle, ProofState,
 )
+
+_FORMULA_ATOM = re.compile(r'[A-Za-z_][A-Za-z_0-9]*\Z', re.ASCII)
+_FORMULA_NODE_LIMIT = 10000
+_FORMULA_DEPTH_LIMIT = 64
+_FORMULA_RESERVED = frozenset({'and', 'or', 'not', 'yes', 'no', 'unknown', 'conflict'})
 
 
 class IRType(str, Enum):
@@ -92,7 +98,8 @@ class FormulaIR:
         if not isinstance(self.args,tuple) or not all(isinstance(a, FormulaIR) for a in self.args):
             raise TypeError('formula args must be typed')
         if self.op == 'atom':
-            if not isinstance(self.name,str) or not self.name or self.args:
+            if (type(self.name) is not str or _FORMULA_ATOM.fullmatch(self.name) is None
+                    or self.name in _FORMULA_RESERVED or self.args):
                 raise ValueError('atom needs name and no operands')
         elif self.op in ('yes','no','unknown','conflict'):
             if self.name is not None or self.args:
@@ -176,6 +183,8 @@ class DeclarationIR:
                 expected_enum = RelationKind if self.identity.kind is EntityKind.RELATION else CommitmentKind
                 if not isinstance(field.typed_value.value,expected_enum):
                     raise TypeError(f'WRONG_ENUM_KIND:{field.name}')
+            if field.typed_value.kind is IRType.V4:
+                _validate_formula_tree(field.typed_value.value)
             by_name[field.name]=by_name.get(field.name,0)+1
             if by_name[field.name]>1 and field.name not in ('requires','verification'):
                 raise ValueError(f'DUPLICATE_FIELD:{field.name}')
@@ -262,6 +271,8 @@ class ContractIR:
                     raise ValueError('FOREIGN_SOURCE_ITEM')
         if any(p.origin.project!=self.project or p.origin not in ids for p in self.proofs):
             raise ValueError('ORPHAN_PROOF_OBLIGATION')
+        if len({(p.identifier, p.origin) for p in self.proofs}) != len(self.proofs):
+            raise ValueError('DUPLICATE_PROOF_OBLIGATION')
 
     def verify_sources(self,bundle:SourceBundle) -> None:
         if self.source != bundle.source_ref or self.source_digest!=bundle.expected_digest:
@@ -291,6 +302,28 @@ def _value_to_data(v:IRValue)->dict[str,object]:
 
 def _formula_to_data(f:FormulaIR)->dict[str,object]:
     return {'op':f.op,'name':f.name,'args':[_formula_to_data(a) for a in f.args]}
+
+
+def _validate_formula_tree(formula:FormulaIR)->None:
+    """Reject cycles and unbounded expansion, but permit shared immutable subterms."""
+    pending=[(formula,0,False)]
+    count=0
+    active:set[int]=set()
+    while pending:
+        item,depth,exiting=pending.pop()
+        if exiting:
+            active.remove(id(item))
+            continue
+        count+=1
+        if count>_FORMULA_NODE_LIMIT or depth>_FORMULA_DEPTH_LIMIT:
+            raise ValueError('IR_FORMULA_RESOURCE_LIMIT')
+        if not isinstance(item,FormulaIR):
+            raise TypeError('IR_FORMULA_UNTYPED_NODE')
+        if id(item) in active:
+            raise ValueError('IR_FORMULA_CYCLE')
+        active.add(id(item))
+        pending.append((item,depth,True))
+        pending.extend((a,depth+1,False) for a in reversed(item.args))
 
 
 def ir_to_data(ir:ContractIR)->dict[str,object]:
@@ -335,11 +368,13 @@ def _digest(value:object)->ContentDigest:
     return r.value
 
 
-def _formula_from_data(obj:object)->FormulaIR:
+def _formula_from_data(obj:object,depth:int=0)->FormulaIR:
+    if depth>_FORMULA_DEPTH_LIMIT:
+        raise ValueError('IR_FORMULA_RESOURCE_LIMIT')
     x=_exact(obj,frozenset({'op','name','args'}))
     if not isinstance(x['args'],list):
         raise ValueError('IR_FORMULA_ARGS')
-    return FormulaIR(x['op'],tuple(_formula_from_data(a) for a in x['args']),x['name'])
+    return FormulaIR(x['op'],tuple(_formula_from_data(a,depth+1) for a in x['args']),x['name'])
 
 
 def _value_from_data(obj:object)->IRValue:
@@ -370,8 +405,11 @@ def decode_ir(raw:bytes)->ContractIR:
                 raise ValueError('DUPLICATE_JSON_KEY')
             out[k]=v
         return out
-    data=_exact(json.loads(raw.decode('utf-8','strict'),object_pairs_hook=reject_duplicates),
-                frozenset({'schema','semantic_version','project','source','source_digest','declarations','proofs'}))
+    try:
+        decoded=json.loads(raw.decode('utf-8','strict'),object_pairs_hook=reject_duplicates)
+    except RecursionError as exc:
+        raise ValueError('IR_SCHEMA_RESOURCE_LIMIT') from exc
+    data=_exact(decoded,frozenset({'schema','semantic_version','project','source','source_digest','declarations','proofs'}))
     project=decode_identity(data['project'])
     if not project.ok or not isinstance(project.value,ProjectId):
         raise ValueError('IR_PROJECT_MUST_BE_NOMINAL')

@@ -26,8 +26,8 @@ def _reject(code: str, path: str, expected: str, value: object, reason: str) -> 
 
 
 def _token(text: str, name: str) -> None:
-    if not isinstance(text, str):
-        raise TypeError(f"{name} must be a string")
+    if type(text) is not str:
+        raise TypeError(f"{name} must be a plain string")
     if not 3 <= len(text) <= 96 or _TOKEN.fullmatch(text) is None:
         raise ValueError(f"invalid canonical {name}")
 
@@ -83,7 +83,7 @@ class RevisionId:
     value: str
 
     def __post_init__(self) -> None:
-        if not isinstance(self.value, str) or _REVISION.fullmatch(self.value) is None:
+        if type(self.value) is not str or _REVISION.fullmatch(self.value) is None:
             raise ValueError("RevisionId must be a pinned, opaque revision token")
 
 
@@ -95,7 +95,7 @@ class ContentDigest:
     def __post_init__(self) -> None:
         if not isinstance(self.algorithm, DigestAlgorithm):
             raise TypeError("digest algorithm must be known")
-        if not isinstance(self.hex, str):
+        if type(self.hex) is not str:
             raise TypeError("digest hex must be a string")
         length = {DigestAlgorithm.SHA256: 64, DigestAlgorithm.SHA512: 128}[self.algorithm]
         if len(self.hex) != length or _HEX.fullmatch(self.hex) is None:
@@ -150,7 +150,7 @@ def parse_revision_id(raw: object, path: str = "$") -> Result[RevisionId]:
 def parse_content_digest(algorithm: object, hex_value: object, path: str = "$") -> Result[ContentDigest]:
     if not isinstance(algorithm, DigestAlgorithm):
         return _reject("UNSUPPORTED_DIGEST", path, "DigestAlgorithm", algorithm, "unrecognized digest algorithm")
-    if not isinstance(hex_value, str):
+    if type(hex_value) is not str:
         return _reject("DIGEST_MALFORMED", path, "hex string", hex_value, "invalid digest")
     try:
         return Result(ContentDigest(algorithm, hex_value.lower()))
@@ -219,7 +219,7 @@ class Alias:
     label: str
 
     def __post_init__(self) -> None:
-        if not isinstance(self.label, str) or not 1 <= len(self.label.strip()) <= 256:
+        if type(self.label) is not str or not 1 <= len(self.label.strip()) <= 256:
             raise ValueError("alias must be nonempty Unicode text, up to 256 characters")
         if self.label != unicodedata.normalize("NFC", self.label) or self.label != self.label.strip():
             raise ValueError("alias must be NFC and not padded")
@@ -244,6 +244,12 @@ class AliasBinding:
 class AliasIndex:
     bindings: tuple[AliasBinding, ...] = ()
 
+    def __post_init__(self) -> None:
+        if type(self.bindings) is not tuple or not all(isinstance(b, AliasBinding) for b in self.bindings):
+            raise TypeError("AliasIndex requires immutable typed bindings")
+        if len(set(self.bindings)) != len(self.bindings):
+            raise ValueError("DUPLICATE_ALIAS_BINDING")
+
 
 @dataclass(frozen=True, slots=True)
 class AliasBindingResult:
@@ -253,6 +259,8 @@ class AliasBindingResult:
 
 def bind_alias(index: AliasIndex, target: EntityRef, alias: Alias, source: EntityRef) -> AliasBindingResult:
     """Pure index update, exposing duplicates and ambiguities, never first-wins."""
+    if not isinstance(index, AliasIndex):
+        raise TypeError("expected AliasIndex")
     binding = AliasBinding(alias, target, source)
     if binding in index.bindings:
         return AliasBindingResult(index, (Diagnostic("DUPLICATE_BINDING", "$.alias", "new alias binding", "AliasBinding", "already present"),))
@@ -265,6 +273,8 @@ def bind_alias(index: AliasIndex, target: EntityRef, alias: Alias, source: Entit
 
 
 def resolve_alias(index: AliasIndex, project: ProjectId, kind: EntityKind, alias: Alias) -> Result[EntityRef]:
+    if not isinstance(index, AliasIndex):
+        return _reject("INVALID_ID_SCHEMA", "$.aliases", "AliasIndex", index, "invalid alias index")
     if not isinstance(project, ProjectId) or not isinstance(kind, EntityKind) or not isinstance(alias, Alias):
         return _reject("WRONG_ID_KIND", "$.alias", "typed alias scope", alias, "scope is not typed")
     matches = {b.target for b in index.bindings if b.target.project == project and b.target.kind == kind and b.alias == alias}
@@ -289,6 +299,17 @@ class IdentityRegistration:
 @dataclass(frozen=True, slots=True)
 class IdentityIndex:
     registrations: tuple[IdentityRegistration, ...] = ()
+
+    def __post_init__(self) -> None:
+        if type(self.registrations) is not tuple or not all(isinstance(r, IdentityRegistration) for r in self.registrations):
+            raise TypeError("IdentityIndex requires immutable typed registrations")
+        seen: dict[EntityId, str] = {}
+        for item in self.registrations:
+            if item.identity in seen and seen[item.identity] != item.lineage:
+                raise ValueError("DUPLICATE_LOGICAL_ID")
+            if item.identity in seen:
+                raise ValueError("DUPLICATE_IDENTITY_REGISTRATION")
+            seen[item.identity] = item.lineage
 
 
 def register_identity(index: IdentityIndex, identity: EntityId, lineage: str) -> Result[IdentityIndex]:

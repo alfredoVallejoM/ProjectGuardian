@@ -14,12 +14,14 @@ from typing import Mapping
 
 from guardian.domain.evidence_logic import FourValued, UNKNOWN, YES, NO, CONFLICT
 from guardian.domain.identity import EntityRef
-from guardian.spec_lang.contract import SourceBundle, CompileContext, verify_source_context
-from guardian.spec_lang.ir import FormulaIR, SourceOrigin
+from guardian.spec_lang.contract import ProofObligation, SourceBundle, CompileContext, verify_source_context
+from guardian.spec_lang.ir import ContractIR, FormulaIR, IRType, SourceOrigin
 
 _SOURCE_TOKEN = re.compile(r'[A-Za-z_][A-Za-z_0-9]*|\(|\)|\S')
 _KEYWORDS = {'not','and','or','yes','no','unknown','conflict'}
 _MAX_PARSE_DEPTH = 64
+_MAX_SOURCE_TOKENS = 10000
+_MAX_FORMULA_NODES = 10000
 
 
 class SourceFormula:
@@ -46,11 +48,19 @@ class SourceAtom(SourceFormula):
 class SourceNot(SourceFormula):
     inner: SourceFormula
 
+    def __post_init__(self) -> None:
+        if not isinstance(self.inner, SourceFormula):
+            raise TypeError('source NOT requires a source formula')
+
 
 @dataclass(frozen=True, slots=True)
 class SourceAnd(SourceFormula):
     left: SourceFormula
     right: SourceFormula
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.left, SourceFormula) or not isinstance(self.right, SourceFormula):
+            raise TypeError('source AND requires source formulas')
 
 
 @dataclass(frozen=True, slots=True)
@@ -58,10 +68,16 @@ class SourceOr(SourceFormula):
     left: SourceFormula
     right: SourceFormula
 
+    def __post_init__(self) -> None:
+        if not isinstance(self.left, SourceFormula) or not isinstance(self.right, SourceFormula):
+            raise TypeError('source OR requires source formulas')
+
 
 class _SourceParser:
     def __init__(self,raw:str):
         self.tokens=[m.group(0) for m in _SOURCE_TOKEN.finditer(raw)]
+        if len(self.tokens)>_MAX_SOURCE_TOKENS:
+            raise ValueError('GSL_V0_SOURCE_RESOURCE_LIMIT')
         self.i=0
         if not self.tokens:
             raise ValueError('GSL_V0_EMPTY_SOURCE_FORMULA')
@@ -121,21 +137,49 @@ class _SourceParser:
 def parse_source_formula(raw:bytes)->SourceFormula:
     if not isinstance(raw,bytes):
         raise TypeError('source formula requires raw UTF-8 bytes')
-    return _SourceParser(raw.decode('utf-8','strict')).parse()
+    source=_SourceParser(raw.decode('utf-8','strict')).parse()
+    _validate_source_tree(source)
+    return source
+
+
+def _validate_source_tree(root:SourceFormula)->None:
+    """Bound left-associated formulas as well as recursive parentheses/NOTs.
+
+    The source parser is not a credentialed verifier and must never turn a
+    hostile input into an uncaught RecursionError or a vacuous PASS.
+    """
+    pending=[(root,0)]
+    nodes=0
+    while pending:
+        node,depth=pending.pop()
+        nodes+=1
+        if nodes>_MAX_FORMULA_NODES or depth>_MAX_PARSE_DEPTH:
+            raise ValueError('GSL_V0_SOURCE_RESOURCE_LIMIT')
+        if isinstance(node,SourceNot):
+            pending.append((node.inner,depth+1))
+        elif isinstance(node,(SourceAnd,SourceOr)):
+            pending.extend(((node.left,depth+1),(node.right,depth+1)))
+        elif not isinstance(node,(SourceAtom,SourceConstant)):
+            raise TypeError('invalid source formula node')
 
 
 def lower_formula(source:SourceFormula)->FormulaIR:
     """Candidate translator; oracle must NOT derive expected results from this."""
+    _validate_source_tree(source)
+    return _lower_validated(source)
+
+
+def _lower_validated(source:SourceFormula)->FormulaIR:
     if isinstance(source,SourceAtom):
         return FormulaIR('atom',name=source.name)
     if isinstance(source,SourceConstant):
         return FormulaIR(source.value)
     if isinstance(source,SourceNot):
-        return FormulaIR('not',(lower_formula(source.inner),))
+        return FormulaIR('not',(_lower_validated(source.inner),))
     if isinstance(source,SourceAnd):
-        return FormulaIR('and',(lower_formula(source.left),lower_formula(source.right)))
+        return FormulaIR('and',(_lower_validated(source.left),_lower_validated(source.right)))
     if isinstance(source,SourceOr):
-        return FormulaIR('or',(lower_formula(source.left),lower_formula(source.right)))
+        return FormulaIR('or',(_lower_validated(source.left),_lower_validated(source.right)))
     raise TypeError('unknown source formula type')
 
 
@@ -164,7 +208,12 @@ def _source_eval(f:SourceFormula,valuation:Mapping[str,tuple[bool,bool]])->tuple
 def _ir_instructions(ir:FormulaIR)->list[tuple[str,str|None]]:
     """Build a postfix VM program without consulting source evaluator."""
     instructions=[]
+    seen_nodes=0
     def walk(f:FormulaIR,depth:int=0):
+        nonlocal seen_nodes
+        seen_nodes+=1
+        if seen_nodes>_MAX_FORMULA_NODES:
+            raise ValueError('GSL_IR_RESOURCE_LIMIT')
         if depth>_MAX_PARSE_DEPTH:
             raise ValueError('GSL_IR_MAX_DEPTH')
         for arg in f.args:
@@ -255,6 +304,9 @@ class OracleStatus(str,Enum):
     INVALID_IR = 'INVALID_IR'
     INVALID_SOURCE = 'INVALID_SOURCE'
     UNTRUSTED_PIN = 'UNTRUSTED_PIN'
+    MISSING_BINDING = 'MISSING_BINDING'
+    INCONCLUSIVE_NO_INTERPRETED_FORMULAS = 'INCONCLUSIVE_NO_INTERPRETED_FORMULAS'
+    INCONCLUSIVE_EXPECTED_COVERAGE = 'INCONCLUSIVE_EXPECTED_COVERAGE'
 
 
 @dataclass(frozen=True,slots=True)
@@ -288,9 +340,10 @@ def verify_semantics(
     try:
         origin.verify_against(bundle)
         src=parse_source_formula(bundle.source_bytes[origin.byte_start:origin.byte_end])
-    except (ValueError,UnicodeDecodeError,TypeError) as exc:
+    except (ValueError,UnicodeDecodeError,TypeError,RecursionError) as exc:
         return OracleResult(OracleStatus.INVALID_SOURCE,(),0,reason=str(exc))
     try:
+        _validate_source_tree(src)
         source_features=_used_ops_source(src)
         candidate_features=_used_ops_ir(candidate)
         # Pre-validate VM depth even on a zero-valuation or constant formula.
@@ -299,14 +352,181 @@ def verify_semantics(
         return OracleResult(OracleStatus.INVALID_IR,(),0,reason=str(exc))
     if not (source_features|candidate_features) <= context.supported_features:
         return OracleResult(OracleStatus.UNSUPPORTED_FEATURE,(),0,reason='operator not supported by pinned semantic profile')
+    if 'finite-v4-oracle' not in context.supported_features:
+        return OracleResult(OracleStatus.UNSUPPORTED_FEATURE,(),0,reason='finite oracle not enabled in semantic profile')
     names=tuple(sorted(_atoms_source(src)|_atoms_ir(candidate)))
     if type(max_atoms) is not int or type(max_valuations) is not int or max_atoms<0 or max_valuations<=0 or len(names)>max_atoms or 4**len(names)>max_valuations:
         return OracleResult(OracleStatus.INCONCLUSIVE_RESOURCE_LIMIT,names,0,reason='exhaustive source/IR valuation budget exceeded')
     for n,assignment in enumerate(itertools.product(((False,False),(True,False),(False,True),(True,True)),repeat=len(names)),1):
         v=dict(zip(names,assignment))
-        source_value=_source_eval(src,v)
-        ir_value=evaluate_ir(candidate,{k:FourValued(*x) for k,x in v.items()})
+        try:
+            source_value=_source_eval(src,v)
+        except (ValueError,TypeError,RecursionError) as exc:
+            return OracleResult(OracleStatus.INVALID_SOURCE,names,n-1,reason=str(exc))
+        try:
+            ir_value=evaluate_ir(candidate,{k:FourValued(*x) for k,x in v.items()})
+        except (ValueError,TypeError,RecursionError,IndexError) as exc:
+            return OracleResult(OracleStatus.INVALID_IR,names,n-1,reason=str(exc))
         current=(ir_value.positive,ir_value.negative)
         if source_value!=current:
             return OracleResult(OracleStatus.COUNTEREXAMPLE,names,n,tuple(zip(names,assignment)),source_value,current,'semantic mismatch under pinned original source')
     return OracleResult(OracleStatus.FINITE_EQUIVALENT,names,4**len(names))
+
+
+@dataclass(frozen=True, slots=True)
+class FormulaGrounding:
+    """Independently supplied source location for ONE interpreted IR field.
+
+    It is not a source map attestation: the verifier checks its source byte
+    content and its placement in the declaration against an independent pin.
+    It cannot infer the human meaning of an arbitrary textual specification.
+    """
+    declaration: EntityRef
+    field_name: str
+    field_occurrence: int
+    origin: SourceOrigin
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.declaration, EntityRef) or not isinstance(self.origin, SourceOrigin):
+            raise TypeError('formula binding needs a pinned declaration and source')
+        if type(self.field_name) is not str or not self.field_name.isidentifier():
+            raise ValueError('formula binding needs exact field name')
+        if type(self.field_occurrence) is not int or self.field_occurrence < 0:
+            raise ValueError('formula binding occurrence must be a nonnegative integer')
+
+
+@dataclass(frozen=True, slots=True)
+class CoverageExpectation:
+    """Immutable independent inventory; must NOT be inferred from candidate IR.
+
+    GSL-0 does not acquire or ratify this inventory. LC09 must establish its
+    completeness against the original authoritative G-00 corpus.
+    """
+    declarations: frozenset[EntityRef]
+    interpreted_fields: frozenset[tuple[EntityRef,str,int]]
+
+    def __post_init__(self) -> None:
+        if (type(self.declarations) is not frozenset or
+                any(not isinstance(d, EntityRef) for d in self.declarations)):
+            raise TypeError('expected declaration identities must be nominal')
+        if type(self.interpreted_fields) is not frozenset:
+            raise TypeError('expected formula identifiers must be immutable')
+        for field in self.interpreted_fields:
+            if (type(field) is not tuple or len(field) != 3 or not isinstance(field[0], EntityRef)
+                    or type(field[1]) is not str or not field[1].isidentifier()
+                    or type(field[2]) is not int or field[2] < 0
+                    or field[0] not in self.declarations):
+                raise ValueError('expected formula must belong to a declared typed entity')
+
+
+@dataclass(frozen=True, slots=True)
+class ContractSemanticResult:
+    """Full coverage of the *interpreted V4 subset*, never product qualification."""
+    status: OracleStatus
+    interpreted_fields: int
+    checked_fields: int
+    valuations_checked: int
+    counterexample: FormulaGrounding | None = None
+    oracle_result: OracleResult | None = None
+    deferred_properties: tuple[EntityRef, ...] = ()
+    pending_proofs: tuple[ProofObligation, ...] = ()
+    reason: str = ''
+
+    @property
+    def acceptable(self) -> bool:
+        return (self.status is OracleStatus.FINITE_EQUIVALENT
+                and not self.deferred_properties and not self.pending_proofs)
+
+
+def verify_contract_semantics(
+    ir: ContractIR,
+    bundle: SourceBundle,
+    context: CompileContext,
+    groundings: tuple[FormulaGrounding, ...],
+    *,
+    expectation: CoverageExpectation | None = None,
+    max_atoms: int = 6,
+    max_valuations: int = 4096,
+) -> ContractSemanticResult:
+    """Fail closed on every interpreted field missing independent grounding.
+
+    A syntactically valid IR with hashes recalculated but a dropped/rewired
+    formula cannot be called semantically equivalent. This is LC02 V0 only:
+    LC03–LC08 must prove that GSL elaboration supplies complete groundings.
+    """
+    if (not isinstance(ir, ContractIR) or not isinstance(bundle, SourceBundle)
+            or not isinstance(context, CompileContext) or type(groundings) is not tuple
+            or any(not isinstance(g, FormulaGrounding) for g in groundings)):
+        return ContractSemanticResult(OracleStatus.INVALID_IR, 0, 0, 0, reason='typed contract inputs required')
+    if not verify_source_context(bundle, context).ok:
+        return ContractSemanticResult(OracleStatus.UNTRUSTED_PIN, 0, 0, 0, reason='source pin is not trusted')
+    if expectation is None:
+        return ContractSemanticResult(OracleStatus.INCONCLUSIVE_EXPECTED_COVERAGE, 0, 0, 0,
+                                      reason='no independent source declaration/field inventory supplied')
+    if not isinstance(expectation, CoverageExpectation):
+        return ContractSemanticResult(OracleStatus.INVALID_SOURCE, 0, 0, 0,
+                                      reason='expected source inventory is not typed')
+    try:
+        ir.verify_sources(bundle)
+    except (ValueError, TypeError) as exc:
+        return ContractSemanticResult(OracleStatus.INVALID_IR, 0, 0, 0, reason=str(exc))
+
+    interpretations: dict[tuple[EntityRef, str, int], tuple[FormulaIR, SourceOrigin]] = {}
+    deferred: list[EntityRef] = []
+    for declaration in ir.declarations:
+        counts: dict[str, int] = {}
+        for field in declaration.fields:
+            nth = counts.get(field.name, 0)
+            counts[field.name] = nth + 1
+            if field.typed_value.kind is IRType.V4:
+                interpretations[(declaration.identity, field.name, nth)] = (
+                    field.typed_value.value, declaration.origin
+                )
+            elif field.typed_value.kind is IRType.DEFERRED:
+                deferred.append(declaration.identity)
+
+    if ({d.identity for d in ir.declarations} != expectation.declarations or
+            set(interpretations) != expectation.interpreted_fields):
+        return ContractSemanticResult(OracleStatus.MISSING_BINDING, len(interpretations), 0, 0,
+                                      deferred_properties=tuple(deferred),
+                                      reason='candidate declaration/field inventory differs from independent source inventory')
+
+    bound: dict[tuple[EntityRef, str, int], FormulaGrounding] = {}
+    for grounding in groundings:
+        key = (grounding.declaration, grounding.field_name, grounding.field_occurrence)
+        if key in bound:
+            return ContractSemanticResult(OracleStatus.MISSING_BINDING, len(interpretations), 0, 0,
+                                          deferred_properties=tuple(deferred), reason='duplicate formula grounding')
+        bound[key] = grounding
+    if set(bound) != set(interpretations):
+        missing = sorted(str(k[0].entity.value) + '.' + k[1] + ':' + str(k[2]) for k in set(interpretations)-set(bound))
+        extra = sorted(str(k[0].entity.value) + '.' + k[1] + ':' + str(k[2]) for k in set(bound)-set(interpretations))
+        return ContractSemanticResult(OracleStatus.MISSING_BINDING, len(interpretations), 0, 0,
+                                      deferred_properties=tuple(deferred),
+                                      reason=f'grounding coverage mismatch: missing={missing}, extra={extra}')
+    if not interpretations:
+        return ContractSemanticResult(OracleStatus.INCONCLUSIVE_NO_INTERPRETED_FORMULAS, 0, 0, 0,
+                                      deferred_properties=tuple(deferred), reason='no interpreted formulas to compare')
+
+    checked = 0
+    valuations = 0
+    for key, (candidate, declaration_origin) in interpretations.items():
+        grounding = bound[key]
+        src = grounding.origin
+        if (src.source != declaration_origin.source or src.source_digest != declaration_origin.source_digest
+                or not (declaration_origin.byte_start <= src.byte_start < src.byte_end <= declaration_origin.byte_end)):
+            return ContractSemanticResult(OracleStatus.MISSING_BINDING, len(interpretations), checked, valuations,
+                                          grounding, deferred_properties=tuple(deferred),
+                                          reason='field source location not contained within declaration origin')
+        outcome = verify_semantics(bundle, context, src, candidate,
+                                   max_atoms=max_atoms, max_valuations=max_valuations)
+        valuations += outcome.valuations_checked
+        if not outcome.acceptable:
+            return ContractSemanticResult(outcome.status, len(interpretations), checked, valuations,
+                                          counterexample=grounding, oracle_result=outcome,
+                                          deferred_properties=tuple(deferred), pending_proofs=ir.proofs,
+                                          reason=outcome.reason)
+        checked += 1
+    return ContractSemanticResult(OracleStatus.FINITE_EQUIVALENT, len(interpretations), checked, valuations,
+                                  deferred_properties=tuple(deferred), pending_proofs=ir.proofs,
+                                  reason='all interpreted V4 fields checked; deferred properties and POs do not qualify')
