@@ -5,7 +5,7 @@
 Guardian preserva lo que se **exigió**, distingue lo que se **implementó realmente** y verifica qué se **acreditó** mediante fuentes y evidencias por ámbito. Opera con personas, cero/uno/varios agentes y distintos lenguajes y repositorios. La coordinación multiagente es una aplicación opcional; el guardián del contrato del proyecto es el producto central.
 
 ## Estado real
-**ESPECIFICACIÓN GENERAL PROPUESTA · BLOQUES PRODUCTIVOS G00-B01/B02 Y GSL0-LC00…LC03 IMPLEMENTADOS EN CANDIDATO · 206 PRUEBAS LOCALES PASS · NO RATIFICADO NI CERTIFICADO.**
+**ESPECIFICACIÓN GENERAL PROPUESTA · G00-B01/B02 Y GSL0-LC00…LC03 COMO CANDIDATO REMEDIADO · 226 PRUEBAS LOCALES PASS · SIN CERTIFICACIÓN MATERIAL NI AUDITORÍA INDEPENDIENTE.**
 La documentación se ha normalizado desde la conversación de diseño; no constituye una transcripción literal ni un cierre de la fuente histórica. No se han ratificado formalmente las ADR. Se ha iniciado la implementación productiva de los bloques fundacionales; ninguna campaña G-00…G-13 está cerrada.
 
 ## Qué está registrado
@@ -50,3 +50,9 @@ La [especificación completa de G-00](docs/campaigns/G-00/INDEX.md) documenta id
 - [Matriz específica de cláusulas, adversarios, APIs y controles](docs/implementation/G00_B02_GSL0_LC03_PROGRESS.json).
 - [Preservación textual](docs/verification/GSL0_LC03_LOSSLESS_PRESERVATION.md) y [autorrevisión adversaria, no auditoría independiente](docs/audit/G00_B02_GSL0_LC03_SELF_REVIEW.md).
 - Suite local del corte: **206 PASS / 0 SKIP**; los límites de compilación, ratificación y certificación material siguen explícitos.
+
+## Auditoría adversaria y remediación — 21-10-2026
+
+- [Acta de revisión adversaria del código fundacional](docs/audit/2026_10_21_FOUNDATION_ADVERSARIAL_REVIEW.md): once defectos reproducidos y corregidos en el candidato (fuentes, imports, autoridad, procedencia V4, estados, límites de recursos).
+- [Matriz de obligaciones y falsaciones](docs/audit/2026_10_21_FOUNDATION_OBLIGATION_MATRIX.json): 30 cláusulas G00-01/02/03 enlazadas a pruebas directas; 163 obligaciones canónicas preservadas.
+- Código remediado en [commit `ac13444b`](https://github.com/alfredoVallejoM/ProjectGuardian/commit/ac13444b62219beeb53570fc81ce7220832dacb4); **226/226 PASS localmente, sin SKIP**, y 18/18 objetos Git comprobados. Sin run independiente sobre SHA remoto ni recibo firmado.

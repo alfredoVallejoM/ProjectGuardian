@@ -56,3 +56,7 @@ El desarrollo de G-00 **no puede cerrar automáticamente ninguna campaña poster
 - [Segundo corte G00-B02/GSL-LC03](../../implementation/G00_B02_GSL0_LC03.md) y [matriz de implementación](../../implementation/G00_B02_GSL0_LC03_PROGRESS.json).
 
 Estos cortes no transforman la especificación canónica en una campaña cerrada ni ratifican las ADR originales.
+
+## Auditoría adversaria de implementación (21-10-2026)
+
+[Revisión y 11 defectos corregidos](../../audit/2026_10_21_FOUNDATION_ADVERSARIAL_REVIEW.md) · [trazabilidad por obligaciones](../../audit/2026_10_21_FOUNDATION_OBLIGATION_MATRIX.json). G00-B01/B02 ejecutados con 226 tests locales PASS junto a GSL-LC00…03. El desarrollo sigue parcial donde las obligaciones padres requieren B03/B06, consumidores, evidencia material y autoridad protegida.

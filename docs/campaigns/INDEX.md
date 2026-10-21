@@ -41,3 +41,7 @@ El [ledger inicial de las 163 obligaciones](../../architecture/implementation_pr
 ## Segundo corte integrado — 21-10-2026
 
 [Desarrollo G00-B02 y GSL0-LC03](../implementation/G00_B02_GSL0_LC03.md) · [20 cláusulas G00-02/03, 10 APIs y seis adversarios trazados](../implementation/G00_B02_GSL0_LC03_PROGRESS.json). Frontend textual ANALYZED, no COMPILADO; suites locales 206 PASS sin cierre de campaña.
+
+## Revisión adversaria y remediación del núcleo (21-10-2026)
+
+[Acta adversaria y fronteras abiertas](../audit/2026_10_21_FOUNDATION_ADVERSARIAL_REVIEW.md) · [matriz de 30 cláusulas y 11 correcciones](../audit/2026_10_21_FOUNDATION_OBLIGATION_MATRIX.json). 226 pruebas locales PASS, 0 SKIP; no son cierre de obligación padre, ratificación o certificado material.
