@@ -78,6 +78,7 @@ def test_compiled_requires_emitted_stage_not_intermediate_success(pinned):
         CompilationResult(CompileStatus.COMPILED,CompilationStage.TYPECHECK,(),bundle.expected_digest)
     assert CompilationResult(CompileStatus.COMPILED,CompilationStage.EMIT,(),bundle.expected_digest).status is CompileStatus.COMPILED
 
+
 def test_stage_manifest_preserves_c00_to_c14_without_conflating_scanner_and_lexer():
     observed=[(stage.value.split('_')[0],stage.value.split('_',1)[1]) for stage in CompilationStage]
     assert observed==[
