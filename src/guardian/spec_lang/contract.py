@@ -22,20 +22,27 @@ _SYMBOL_NAME = re.compile(r'[A-Za-z_][A-Za-z_0-9]*\Z', re.ASCII)
 
 
 class CompilationStage(str, Enum):
-    ACQUIRE = 'C00_ACQUIRE'
-    EXTRACT = 'C01_EXTRACT'
-    LEX = 'C02_LEX'
-    PARSE = 'C03_PARSE'
-    ABSTRACT = 'C04_ABSTRACT'
-    RESOLVE = 'C05_RESOLVE'
-    TYPECHECK = 'C06_TYPECHECK'
-    SEMANTIC_CHECK = 'C07_SEMANTIC_CHECK'
-    ELABORATE = 'C08_ELABORATE'
-    GENERATE_PO = 'C09_GENERATE_PO'
-    VERIFY_IR = 'C10_VERIFY_IR'
-    CANONICALIZE = 'C11_CANONICALIZE'
-    DIFF = 'C12_DIFF'
-    EMIT = 'C13_EMIT'
+    """Stable candidate step order from architecture/gsl0_compiler_contract_candidate.json.
+
+    These are stage identifiers, not assertions that the stages beyond LC02
+    already have working implementations or have been normatively ratified.
+    """
+    ACQUIRE = 'C00_SOURCE_ACQUIRE'
+    EXTRACT = 'C01_MARKDOWN_EXTRACT'
+    SCAN = 'C02_LOSSLESS_SCAN'
+    LEX = 'C03_GSL_LEX'
+    PARSE = 'C04_GSL_CST'
+    ABSTRACT = 'C05_GSL_AST'
+    RESOLVE = 'C06_GSL_RESOLVE'
+    TYPECHECK = 'C07_GSL_TYPECHECK'
+    SEMANTIC_CHECK = 'C08_GSL_SEMANTIC_CHECK'
+    ELABORATE = 'C09_GSL_ELABORATE'
+    GENERATE_PO = 'C10_GSL_PROOF_OBLIGATIONS'
+    VERIFY_IR = 'C11_IR_VALIDATE'
+    CANONICALIZE = 'C12_CANONICALIZE'
+    DIFF = 'C13_CONTRACT_DIFF'
+    EMIT = 'C14_BUNDLE_EMIT'
+
 
 
 class CompileStatus(str, Enum):
