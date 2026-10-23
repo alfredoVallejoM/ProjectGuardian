@@ -235,14 +235,17 @@ class CompileContext:
             raise ValueError('GSL_VERSION_UNSUPPORTED')
         if self.compiler.semantic_version != self.semantic_version:
             raise ValueError('GSL_COMPILER_VERSION_MISMATCH')
-        if not isinstance(self.expected_sources, tuple) or not self.expected_sources:
+        if type(self.expected_sources) is not tuple or not self.expected_sources:
             raise ValueError('at least one trusted source cut is required')
         if not isinstance(self.supported_features, frozenset) or not all(isinstance(x,str) for x in self.supported_features):
             raise TypeError('features must be a frozen set of names')
         if not self.supported_features <= {'v4-atom','v4-not','v4-and','v4-or','deferred-property','finite-v4-oracle'}:
             raise ValueError('GSL_UNSUPPORTED_NORMATIVE_FEATURE')
         seen: set[EntityRef] = set()
-        for source_ref, digest in self.expected_sources:
+        for pair in self.expected_sources:
+            if type(pair) is not tuple or len(pair) != 2:
+                raise TypeError('source pins must be immutable exact pairs')
+            source_ref, digest = pair
             if not isinstance(source_ref, EntityRef) or source_ref.kind != EntityKind.SOURCE:
                 raise TypeError('expected sources require pinned SOURCE EntityRef')
             if source_ref.project != self.project or not isinstance(digest, ContentDigest):
@@ -299,6 +302,8 @@ class CompilationResult:
             raise TypeError('invalid GSL stage or status')
         if not isinstance(self.diagnostics, tuple) or any(not isinstance(d,Diagnostic) for d in self.diagnostics):
             raise TypeError('invalid diagnostics')
+        if self.artifact_digest is not None and type(self.artifact_digest) is not ContentDigest:
+            raise TypeError('artifact digest must be nominal ContentDigest')
         if self.status == CompileStatus.REJECTED and not self.diagnostics:
             raise ValueError('rejection requires diagnostic')
         if self.status == CompileStatus.COMPILED and (self.diagnostics or self.artifact_digest is None):

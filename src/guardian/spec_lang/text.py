@@ -89,7 +89,13 @@ class NormativeUnit:
     def __post_init__(self)->None:
         if not isinstance(self.source,SourceBundle) or not isinstance(self.span,TextSpan):
             raise TypeError('unit needs fixed source and span')
-        if not isinstance(self.raw,bytes) or not self.raw or self.source.source_bytes[self.span.start:self.span.end]!=self.raw:
+        data = self.source.source_bytes
+        if self.span.end > len(data):
+            raise ValueError('SOURCE_UNIT_OUT_OF_BOUNDS')
+        for offset in (self.span.start, self.span.end):
+            if offset < len(data) and data[offset] & 0xC0 == 0x80:
+                raise ValueError('SOURCE_UNIT_SPLITS_UTF8')
+        if type(self.raw) is not bytes or not self.raw or data[self.span.start:self.span.end]!=self.raw:
             raise ValueError('SOURCE_UNIT_BYTES_MISMATCH')
         if self.format not in ('gsl','markdown-fence'):
             raise ValueError('UNKNOWN_SOURCE_UNIT_FORMAT')

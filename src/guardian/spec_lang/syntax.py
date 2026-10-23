@@ -269,6 +269,18 @@ class AnalyzedUnit:
     cst:CSTGroup
     ast:ParsedModule
 
+    def __post_init__(self) -> None:
+        if (not isinstance(self.token_stream, TokenStream) or not isinstance(self.cst, CSTGroup)
+                or not isinstance(self.ast, ParsedModule)):
+            raise TypeError('ANALYZED_UNIT_UNTYPED')
+        if (self.ast.source != self.token_stream.unit or self.cst.span != self.token_stream.unit.span
+                or self.ast.project != self.token_stream.unit.source.project.value):
+            raise ValueError('ANALYZED_UNIT_SOURCE_MISMATCH')
+        # Composite boundaries must reject forged/reconstructed values as well
+        # as the normal pipeline. This is coherence, not an independent oracle.
+        if self.cst != build_cst(self.token_stream) or self.ast != parse_gsl(self.token_stream):
+            raise ValueError('ANALYZED_UNIT_SYNTAX_MISMATCH')
+
 
 @dataclass(frozen=True,slots=True)
 class FrontendAnalysis:
@@ -292,6 +304,16 @@ class FrontendAnalysis:
                 any(not isinstance(s,TextSegment) for s in self.segments) or
                 b''.join(x.raw for x in self.segments)!=self.extraction.source.source_bytes):
             raise ValueError('LC03_LOSSLESS_SCAN_REQUIRED')
+        if self.status is CompileStatus.ANALYZED:
+            if tuple(u.token_stream.unit for u in self.units) != self.extraction.units:
+                raise ValueError('ANALYZED_EXTRACTION_MISMATCH')
+            offset = 0
+            for segment in self.segments:
+                if segment.span.start != offset:
+                    raise ValueError('ANALYZED_SCAN_SPAN_GAP')
+                offset = segment.span.end
+            if offset != len(self.extraction.source.source_bytes):
+                raise ValueError('ANALYZED_SCAN_SPAN_MISMATCH')
         if self.status is CompileStatus.REJECTED and not self.diagnostics:
             raise ValueError('LC03_REJECTION_REQUIRES_DIAGNOSTICS')
 

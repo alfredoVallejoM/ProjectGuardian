@@ -151,7 +151,7 @@ def check_source_membership(project:ProjectDefinition, source:SourceCut, grants:
     if not isinstance(project,ProjectDefinition) or not isinstance(source,(GitSourceCut,DocumentSourceCut)):
         return MembershipVerdict(MembershipStatus.UNKNOWN,'INVALID_SOURCE','project and typed source required')
     if source.ref.project==project.project_id:
-        if isinstance(source,GitSourceCut) and source.repository not in project.source_policy.allow_repositories:
+        if isinstance(source,GitSourceCut) and source.repository not in project.permitted_source_repositories:
             return MembershipVerdict(MembershipStatus.DENIED,'SOURCE_REPOSITORY_DENIED','repo absent from project allowlist')
         return MembershipVerdict(MembershipStatus.ALLOWED,'SOURCE_MEMBER','source belongs to this project and source policy')
     if grants is None or not isinstance(grants,TrustedImportGrants):
@@ -340,32 +340,41 @@ def validate_source_universe(universe:SourceUniverseRevision,project:ProjectDefi
             baseline=entries.get(e.baseline_ref)
             if (baseline is None or baseline.lineage!=e.lineage
                     or type(baseline.cut) is not type(e.cut)
-                    or (isinstance(e.cut,GitSourceCut) and baseline.cut.repository!=e.cut.repository)):
+                    or history_source_key(baseline.cut) != history_source_key(e.cut)):
                 findings.append(_diag('INVALID_HISTORICAL_BASELINE','$.entries',
                                       'baseline absent, foreign repository/type, or different history'))
-    # A lineage with multiple BASE cuts is ambiguous; distinguish history roles.
-    groups:dict[tuple[RepositoryId,str],list[SourceEntry]]={}
-    for e in universe.entries:
-        if isinstance(e.cut,GitSourceCut):
-            groups.setdefault((e.cut.repository,e.lineage),[]).append(e)
+    # History applies to every admitted source kind, not Git alone. Labels
+    # cannot make identical physical cuts disjoint or remove cycles.
+    physical = [material_source_key(e.cut) for e in universe.entries]
+    if len(set(physical)) != len(physical):
+        findings.append(_diag('SOURCE_POPULATION_DOUBLE_COUNT', '$.entries',
+                              'multiple nominal aliases of the same material cut'))
+    groups: dict[tuple[object, ...], list[SourceEntry]] = {}
+    for entry in universe.entries:
+        groups.setdefault(history_source_key(entry.cut) + (entry.lineage,), []).append(entry)
     for group in groups.values():
-        if sum(x.role is HistoryRole.BASE for x in group)>1:
-            findings.append(_diag('SOURCE_POPULATION_DOUBLE_COUNT','$.entries','multiple BASE cuts in one history'))
-        if any(x.role in (HistoryRole.DELTA,HistoryRole.SUPERSEDED) for x in group) and not any(x.role is HistoryRole.BASE for x in group):
-            findings.append(_diag('HISTORICAL_BASE_MISSING','$.entries','delta/superseded history has no baseline'))
-        lookup={x.cut.ref:x for x in group}
-        for entry in group:
-            at=entry
-            seen=set()
-            while at.baseline_ref is not None:
-                if at.cut.ref in seen:
-                    findings.append(_diag('HISTORICAL_CYCLE','$.entries','cyclic baseline chain'))
-                    break
-                seen.add(at.cut.ref)
-                nxt=lookup.get(at.baseline_ref)
-                if nxt is None:
-                    break  # INVALID_HISTORICAL_BASELINE is reported above.
-                at=nxt
+        if sum(x.role is HistoryRole.BASE for x in group) > 1:
+            findings.append(_diag('SOURCE_POPULATION_DOUBLE_COUNT', '$.entries',
+                                  'multiple BASE cuts in one history'))
+        if (any(x.role in (HistoryRole.DELTA, HistoryRole.SUPERSEDED) for x in group)
+                and not any(x.role is HistoryRole.BASE for x in group)):
+            findings.append(_diag('HISTORICAL_BASE_MISSING', '$.entries', 'history has no baseline'))
+    # Traverse the entire baseline graph, even if an invalid lineage/type edge
+    # was already reported. Multiple diagnostics must not hide an actual cycle.
+    finished: set[EntityRef] = set()
+    for entry in universe.entries:
+        current = entry
+        path: set[EntityRef] = set()
+        while current.cut.ref not in finished:
+            if current.cut.ref in path:
+                findings.append(_diag('HISTORICAL_CYCLE', '$.entries', 'cyclic baseline chain'))
+                break
+            path.add(current.cut.ref)
+            following = entries.get(current.baseline_ref)
+            if following is None:
+                break
+            current = following
+        finished.update(path)
     if universe.known_missing or any(e.acquisition is SourceStatus.MISSING for e in universe.entries):
         findings.append(_diag('SOURCE_COVERAGE_UNKNOWN','$.known_missing','known source gaps are visible'))
     if not universe.declared_limits:
@@ -384,12 +393,57 @@ class SourceCoverageDescriptor:
     coverage_qualified:bool=False
 
 
+def history_source_key(cut: SourceCut) -> tuple[object, ...]:
+    """Physical history independent of caller-provided aliases/lineage labels."""
+    if isinstance(cut, GitSourceCut):
+        return ('git', cut.repository)
+    return ('document', cut.locator)
+
+
+def material_source_key(cut: SourceCut) -> tuple[object, ...]:
+    if isinstance(cut, GitSourceCut):
+        return ('git', cut.repository, cut.commit, cut.object_kind, cut.path)
+    return ('document', cut.locator, cut.document_version)
+
+
 def describe_source_coverage(universe:SourceUniverseRevision)->SourceCoverageDescriptor:
     if not isinstance(universe,SourceUniverseRevision):
         raise TypeError('SourceUniverseRevision required')
-    lineages={}
-    for e in universe.entries:
-        key=(e.cut.repository if isinstance(e.cut,GitSourceCut) else e.cut.ref.project,e.lineage)
-        lineages[key]=lineages.get(key,0)+1
-    return SourceCoverageDescriptor(universe.scope,len(universe.included),universe.known_missing,
-                                    universe.declared_limits,all(n==1 for n in lineages.values()),False)
+    included = set(universe.included)
+    entries = tuple(e for e in universe.entries if e.cut.ref in included)
+    missing = list(universe.known_missing)
+    for entry in universe.entries:
+        if entry.acquisition is SourceStatus.MISSING:
+            cut = entry.cut
+            locator = (f'{cut.repository.provider}:{cut.repository.slug}@{cut.commit}:{cut.path or ""}'
+                       if isinstance(cut, GitSourceCut) else f'{cut.locator}@{cut.document_version}')
+            item = MissingSource(locator, 'SOURCE_MISSING: acquisition state is missing')
+            if not any(m.locator == locator for m in missing):
+                missing.append(item)
+    limits = list(universe.declared_limits)
+    if missing:
+        limits.append('SOURCE_MISSING: source acquisition or known inventory gaps remain')
+    if any(e.acquisition not in (SourceStatus.CONTENT_OBSERVED, SourceStatus.SEMANTIC_RECONCILED)
+           for e in entries):
+        limits.append('SOURCE_NOT_FULLY_OBSERVED: metadata does not establish source content coverage')
+    # Sort each repository's physical paths rather than comparing O(n^2)
+    # pairs. Adjacent prefixes suffice to detect all tree/file overlap.
+    paths: dict[RepositoryId, list[str]] = {}
+    documents: list[str] = []
+    disjoint = (len(included) == len(universe.included) == len(entries)
+                and not missing and not validate_inclusion_exclusion(universe))
+    for entry in entries:
+        cut = entry.cut
+        if isinstance(cut, GitSourceCut):
+            paths.setdefault(cut.repository, []).append(cut.path or '')
+        else:
+            documents.append(cut.locator)
+    if (paths and documents) or len(set(documents)) != len(documents):
+        disjoint = False
+    for values in paths.values():
+        ordered = sorted(values)
+        if any(left == '' or right == left or right.startswith(left + '/')
+               for left, right in zip(ordered, ordered[1:])):
+            disjoint = False
+    return SourceCoverageDescriptor(universe.scope,len(included),tuple(missing),
+                                    tuple(dict.fromkeys(limits)),disjoint,False)

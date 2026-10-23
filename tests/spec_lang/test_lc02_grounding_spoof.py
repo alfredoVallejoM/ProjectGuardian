@@ -67,7 +67,8 @@ def test_expected_named_field_span_still_accepts_valid_normative_formula(pinned)
     raw=b'/* when: no; */\nwhen: yes; // ignore no\nholds: (gamma or delta);\n'
     begin=raw.index(b'yes')
     report=_new_source_contract(pinned,raw,'yes',(begin,begin+3))
-    assert report.acceptable and report.status is OracleStatus.FINITE_EQUIVALENT
+    assert report.formula_equivalent and report.status is OracleStatus.FINITE_EQUIVALENT
+    assert not report.acceptable and not report.full_contract_equivalent
 
 
 def test_decoder_exhaustion_rejected_before_parsing_untrusted_ir():

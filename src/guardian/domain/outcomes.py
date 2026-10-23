@@ -152,7 +152,11 @@ class TypedStatus:
 def parse_status(axis: object, value: object, path: str = '$.status') -> Result[TypedStatus]:
     if not isinstance(axis, StatusAxis):
         return Result(diagnostics=(Diagnostic('WRONG_STATUS_AXIS', path, 'StatusAxis', type(axis).__name__, 'unknown status axis'),))
-    if not isinstance(value, str):
+    if type(value) is _STATUS_TYPES[axis]:
+        return Result(TypedStatus(axis, value))
+    if isinstance(value, Enum):
+        return Result(diagnostics=(Diagnostic('WRONG_STATUS_AXIS', path, _STATUS_TYPES[axis].__name__, type(value).__name__, 'enum belongs to another axis'),))
+    if type(value) is not str:
         return Result(diagnostics=(Diagnostic('UNSUPPORTED_VARIANT', path, _STATUS_TYPES[axis].__name__, type(value).__name__, 'not a string'),))
     try:
         return Result(TypedStatus(axis, _STATUS_TYPES[axis](value)))
@@ -233,17 +237,43 @@ class StatusObservation:
 
 def validate_status_observation(observation: object, project_view: object) -> Result[StatusObservation]:
     """Structural and source-membership validation, NO authority promotion."""
-    from guardian.application.project_service import ReadOnlyProjectView
-    if not isinstance(observation,StatusObservation) or not isinstance(project_view,ReadOnlyProjectView):
+    from guardian.domain.project_view import ReadOnlyEntityView
+    if not isinstance(observation,StatusObservation) or not isinstance(project_view,ReadOnlyEntityView):
         return Result(diagnostics=(Diagnostic('INVALID_STATUS_OBSERVATION','$.status',
             'StatusObservation+ReadOnlyProjectView','untyped','status observation must be scoped'),))
-    if observation.entity.project!=project_view.definition.project_id:
+    if observation.entity.project!=project_view.project_id:
         return Result(diagnostics=(Diagnostic('STATUS_WRONG_PROJECT','$.entity',
             'local project','foreign','status observation belongs to another project'),))
-    if observation.source_ref not in project_view.source_universe.included:
+    if not project_view.contains_source(observation.source_ref):
         return Result(diagnostics=(Diagnostic('STATUS_SOURCE_OUTSIDE_UNIVERSE','$.source',
             'included source cut','unknown','status provenance absent from source universe'),))
     if observation.revision != observation.entity.revision:
         return Result(diagnostics=(Diagnostic('STATUS_REVISION_MISMATCH','$.revision',
             'entity revision','different revision','status observation revision is not pinned to entity'),))
+    for label, ref in (('entity', observation.entity), ('scope', observation.scope_ref),
+                       *((f'evidence[{i}]', ref) for i, ref in enumerate(observation.evidence_refs))):
+        if not project_view.contains_entity(ref):
+            return Result(diagnostics=(Diagnostic('ORPHAN_REFERENCE', '$.'+label,
+                'exact reference in snapshot', 'missing', 'no implicit revision or placeholder permitted'),))
     return Result(observation)
+
+
+def encode_status(status: TypedStatus) -> dict[str, str]:
+    """Versioned nominal codec; encoding is not lifecycle authorization."""
+    if type(status) is not TypedStatus:
+        raise TypeError('TypedStatus required')
+    return {'schema': 'guardian.status/v1', 'axis': status.axis.value, 'value': status.value.value}
+
+
+def decode_status(envelope: object) -> Result[TypedStatus]:
+    if (type(envelope) is not dict or set(envelope) != {'schema', 'axis', 'value'}
+            or any(type(v) is not str for v in envelope.values())
+            or envelope['schema'] != 'guardian.status/v1'):
+        return Result(diagnostics=(Diagnostic('INVALID_STATUS_SCHEMA', '$.status',
+            'guardian.status/v1', type(envelope).__name__, 'strict nominal envelope required'),))
+    try:
+        axis = StatusAxis(envelope['axis'])
+    except ValueError:
+        return Result(diagnostics=(Diagnostic('WRONG_STATUS_AXIS', '$.status.axis',
+            'known status axis', 'str', 'unknown axis'),))
+    return parse_status(axis, envelope['value'])

@@ -1,0 +1,346 @@
+{
+  "schema": "guardian/remediation-coverage/v1",
+  "baseline_sha256": "053980beba36c7545969fcb2e50193def6573b19aa0f75ba40128d651d2b7dcb",
+  "scope": "Q01-Q15 corrections to G00-B01/B02 and GSL0-LC00-LC03, not full G00/GSL closure",
+  "original_clause_ids": [
+    "G00-01-F01",
+    "G00-01-F02",
+    "G00-01-F03",
+    "G00-01-F04",
+    "G00-01-F05",
+    "G00-01-F06",
+    "G00-01-F07",
+    "G00-01-F08",
+    "G00-01-F09",
+    "G00-01-F10",
+    "G00-02-F01",
+    "G00-02-F02",
+    "G00-02-F03",
+    "G00-02-F04",
+    "G00-02-F05",
+    "G00-02-F06",
+    "G00-02-F07",
+    "G00-02-F08",
+    "G00-02-F09",
+    "G00-02-F10",
+    "G00-03-F01",
+    "G00-03-F02",
+    "G00-03-F03",
+    "G00-03-F04",
+    "G00-03-F05",
+    "G00-03-F06",
+    "G00-03-F07",
+    "G00-03-F08",
+    "G00-03-F09",
+    "G00-03-F10",
+    "G00-04-F01",
+    "G00-04-F02",
+    "G00-04-F03",
+    "G00-04-F04",
+    "G00-04-F05",
+    "G00-04-F06",
+    "G00-04-F07",
+    "G00-04-F08",
+    "G00-04-F09",
+    "G00-04-F10",
+    "G00-05-F01",
+    "G00-05-F02",
+    "G00-05-F03",
+    "G00-05-F04",
+    "G00-05-F05",
+    "G00-05-F06",
+    "G00-05-F07",
+    "G00-05-F08",
+    "G00-05-F09",
+    "G00-05-F10",
+    "G00-06-F01",
+    "G00-06-F02",
+    "G00-06-F03",
+    "G00-06-F04",
+    "G00-06-F05",
+    "G00-06-F06",
+    "G00-06-F07",
+    "G00-06-F08",
+    "G00-06-F09",
+    "G00-06-F10",
+    "G00-07-F01",
+    "G00-07-F02",
+    "G00-07-F03",
+    "G00-07-F04",
+    "G00-07-F05",
+    "G00-07-F06",
+    "G00-07-F07",
+    "G00-07-F08",
+    "G00-07-F09",
+    "G00-07-F10",
+    "G00-08-F01",
+    "G00-08-F02",
+    "G00-08-F03",
+    "G00-08-F04",
+    "G00-08-F05",
+    "G00-08-F06",
+    "G00-08-F07",
+    "G00-08-F08",
+    "G00-08-F09",
+    "G00-08-F10",
+    "G00-09-F01",
+    "G00-09-F02",
+    "G00-09-F03",
+    "G00-09-F04",
+    "G00-09-F05",
+    "G00-09-F06",
+    "G00-09-F07",
+    "G00-09-F08",
+    "G00-09-F09",
+    "G00-09-F10",
+    "G00-10-F01",
+    "G00-10-F02",
+    "G00-10-F03",
+    "G00-10-F04",
+    "G00-10-F05",
+    "G00-10-F06",
+    "G00-10-F07",
+    "G00-10-F08",
+    "G00-10-F09",
+    "G00-10-F10",
+    "G00-11-F01",
+    "G00-11-F02",
+    "G00-11-F03",
+    "G00-11-F04",
+    "G00-11-F05",
+    "G00-11-F06",
+    "G00-11-F07",
+    "G00-11-F08",
+    "G00-11-F09",
+    "G00-11-F10",
+    "G00-12-F01",
+    "G00-12-F02",
+    "G00-12-F03",
+    "G00-12-F04",
+    "G00-12-F05",
+    "G00-12-F06",
+    "G00-12-F07",
+    "G00-12-F08",
+    "G00-12-F09",
+    "G00-12-F10"
+  ],
+  "findings": [
+    {
+      "id": "Q01",
+      "obligations": [
+        "G00-07-F01",
+        "G00-API-039"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q01_status_parser_rejects_an_enum_from_another_axis",
+      "symbols": [
+        "src/guardian/domain/outcomes.py::parse_status"
+      ],
+      "state": "IMPLEMENTED_TESTED",
+      "independent_review": "NOT_PERFORMED"
+    },
+    {
+      "id": "Q02",
+      "obligations": [
+        "G00-02-F02",
+        "G00-02-F03",
+        "G00-API-010",
+        "G00-API-016"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q02_sidcar_governance_repository_is_a_valid_project_source",
+      "symbols": [
+        "src/guardian/domain/project.py::permitted_source_repositories",
+        "src/guardian/domain/source.py::check_source_membership"
+      ],
+      "state": "IMPLEMENTED_TESTED",
+      "independent_review": "NOT_PERFORMED"
+    },
+    {
+      "id": "Q03",
+      "obligations": [
+        "G00-03-F06",
+        "G00-API-015",
+        "G00-API-018"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q03_same_material_cut_cannot_be_called_disjoint_by_changing_lineage",
+      "symbols": [
+        "src/guardian/domain/source.py::material_source_key",
+        "src/guardian/domain/source.py::validate_source_universe"
+      ],
+      "state": "IMPLEMENTED_TESTED",
+      "independent_review": "NOT_PERFORMED"
+    },
+    {
+      "id": "Q04",
+      "obligations": [
+        "G00-03-F06"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q04_document_baseline_cycles_are_diagnosed",
+      "symbols": [
+        "src/guardian/domain/source.py::validate_source_universe"
+      ],
+      "state": "IMPLEMENTED_TESTED",
+      "independent_review": "NOT_PERFORMED"
+    },
+    {
+      "id": "Q05",
+      "obligations": [
+        "G00-03-F05",
+        "G00-03-F07",
+        "G00-03-F09",
+        "G00-API-018"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q05_missing_source_entry_is_visible_in_coverage_description",
+      "symbols": [
+        "src/guardian/domain/source.py::describe_source_coverage"
+      ],
+      "state": "IMPLEMENTED_TESTED",
+      "independent_review": "NOT_PERFORMED"
+    },
+    {
+      "id": "Q06",
+      "obligations": [
+        "GSL0-LC00",
+        "GSL-T09"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q06_compile_context_cannot_hold_mutable_source_pins",
+      "symbols": [
+        "src/guardian/spec_lang/contract.py::CompileContext"
+      ],
+      "state": "IMPLEMENTED_TESTED",
+      "independent_review": "NOT_PERFORMED"
+    },
+    {
+      "id": "Q07",
+      "obligations": [
+        "GSL0-LC00",
+        "GSL-T12"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q07_compiled_result_rejects_an_untyped_digest",
+      "symbols": [
+        "src/guardian/spec_lang/contract.py::CompilationResult"
+      ],
+      "state": "IMPLEMENTED_TESTED",
+      "independent_review": "NOT_PERFORMED"
+    },
+    {
+      "id": "Q08",
+      "obligations": [
+        "GSL0-LC03",
+        "GSL-T01",
+        "GSL-T06"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q08_normative_unit_rejects_invalid_byte_boundaries",
+      "symbols": [
+        "src/guardian/spec_lang/text.py::NormativeUnit"
+      ],
+      "state": "IMPLEMENTED_TESTED",
+      "independent_review": "NOT_PERFORMED"
+    },
+    {
+      "id": "Q09",
+      "obligations": [
+        "G00-B01",
+        "G00-B02",
+        "G00-07-F08"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q09_domain_does_not_import_application",
+      "symbols": [
+        "src/guardian/domain/project_view.py::ReadOnlyEntityView"
+      ],
+      "state": "IMPLEMENTED_TESTED",
+      "independent_review": "NOT_PERFORMED"
+    },
+    {
+      "id": "Q10",
+      "obligations": [
+        "G00-07-F08",
+        "G00-08-F08",
+        "G00-API-040"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q10_status_validator_rejects_orphan_entity_and_scope",
+      "symbols": [
+        "src/guardian/domain/outcomes.py::validate_status_observation"
+      ],
+      "state": "IMPLEMENTED_TESTED_BOUNDED",
+      "independent_review": "NOT_PERFORMED"
+    },
+    {
+      "id": "Q11",
+      "obligations": [
+        "GSL0-LC03",
+        "GSL-T03",
+        "GSL-T06"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q11_frontend_result_cannot_pair_a_foreign_ast_with_local_source",
+      "symbols": [
+        "src/guardian/spec_lang/syntax.py::AnalyzedUnit"
+      ],
+      "state": "IMPLEMENTED_TESTED",
+      "independent_review": "NOT_PERFORMED"
+    },
+    {
+      "id": "Q12",
+      "obligations": [
+        "GSL0-LC00",
+        "GSL0-LC02",
+        "GSL0-LC03",
+        "GSL-T05"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q12_true_literal_is_not_accepted_as_an_uninterpreted_atom",
+      "symbols": [
+        "src/guardian/spec_lang/v0.py::_SourceParser"
+      ],
+      "state": "IMPLEMENTED_TESTED",
+      "independent_review": "NOT_PERFORMED"
+    },
+    {
+      "id": "Q13",
+      "obligations": [
+        "GSL0-LC00",
+        "GSL0-LC02",
+        "GSL0-LC03",
+        "GSL-T05"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q13_v0_accepts_legal_block_comments_inside_formula",
+      "symbols": [
+        "src/guardian/spec_lang/source_inventory.py::independent_tokens"
+      ],
+      "state": "IMPLEMENTED_TESTED",
+      "independent_review": "NOT_PERFORMED"
+    },
+    {
+      "id": "Q14",
+      "obligations": [
+        "GSL0-LC02",
+        "GSL0-LC07",
+        "GSL0-LC09",
+        "GSL-T06",
+        "GSL-T07"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q14_declaration_origin_swap_cannot_earn_source_to_ir_equivalence",
+      "symbols": [
+        "src/guardian/spec_lang/source_inventory.py::source_inventory",
+        "src/guardian/spec_lang/source_inventory.py::check_source_correspondence"
+      ],
+      "state": "IMPLEMENTED_TESTED_BOUNDED",
+      "independent_review": "NOT_PERFORMED"
+    },
+    {
+      "id": "Q15",
+      "obligations": [
+        "GSL0-LC04",
+        "GSL0-LC05",
+        "GSL0-LC06",
+        "GSL-T05",
+        "GSL-T06"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q15_ir_reference_changes_are_not_full_contract_equivalence",
+      "symbols": [
+        "src/guardian/spec_lang/v0.py::ContractSemanticResult",
+        "src/guardian/spec_lang/source_inventory.py::_matches"
+      ],
+      "state": "IMPLEMENTED_TESTED_BOUNDED",
+      "independent_review": "NOT_PERFORMED"
+    }
+  ]
+}

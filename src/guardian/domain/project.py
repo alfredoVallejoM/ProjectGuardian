@@ -124,6 +124,15 @@ class ProjectDefinition:
             raise ValueError('PROJECT_REPOSITORY_POLICY_MISMATCH')
 
 
+    @property
+    def permitted_source_repositories(self) -> tuple[RepositoryId, ...]:
+        """Managed repositories plus the explicitly pinned sidecar authority."""
+        managed = self.source_policy.allow_repositories
+        if self.storage.mode is StorageMode.SIDECAR:
+            return managed + (self.storage.authority_repository,)
+        return managed
+
+
 def validate_project(definition: object) -> Result[ProjectDefinition]:
     if not isinstance(definition, ProjectDefinition):
         return Result(diagnostics=(Diagnostic('PROJECT_SNAPSHOT_INVALID','$.project','ProjectDefinition',type(definition).__name__,'expected validated immutable project'),))

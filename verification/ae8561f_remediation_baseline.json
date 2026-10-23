@@ -1,0 +1,380 @@
+{
+  "schema": "guardian/remediation-authority-projection/v1",
+  "subject_sha": "ae8561f020b73693972c8d6d27d541e2709a9d9b",
+  "authority": "Pinned original sources remain authoritative. This is an audit projection, not ratification.",
+  "canonical_blob_pins": {
+    "architecture/campaigns.json": "83c00b70fe2bd46b3027c91901bdf45c9620c3c3",
+    "architecture/g00_functional_refinement.json": "b5e2d1d90578dd942647720314047e5d2e4caac2",
+    "architecture/g00_api_contracts.json": "5d4052c617cf0d962b0ba555ad0ae502e5b818f4",
+    "architecture/g00_validation_plan.json": "238e18d9defde4f943d9a6ecda2f719bf9cc0914"
+  },
+  "original_clause_ids": [
+    "G00-01-F01",
+    "G00-01-F02",
+    "G00-01-F03",
+    "G00-01-F04",
+    "G00-01-F05",
+    "G00-01-F06",
+    "G00-01-F07",
+    "G00-01-F08",
+    "G00-01-F09",
+    "G00-01-F10",
+    "G00-02-F01",
+    "G00-02-F02",
+    "G00-02-F03",
+    "G00-02-F04",
+    "G00-02-F05",
+    "G00-02-F06",
+    "G00-02-F07",
+    "G00-02-F08",
+    "G00-02-F09",
+    "G00-02-F10",
+    "G00-03-F01",
+    "G00-03-F02",
+    "G00-03-F03",
+    "G00-03-F04",
+    "G00-03-F05",
+    "G00-03-F06",
+    "G00-03-F07",
+    "G00-03-F08",
+    "G00-03-F09",
+    "G00-03-F10",
+    "G00-04-F01",
+    "G00-04-F02",
+    "G00-04-F03",
+    "G00-04-F04",
+    "G00-04-F05",
+    "G00-04-F06",
+    "G00-04-F07",
+    "G00-04-F08",
+    "G00-04-F09",
+    "G00-04-F10",
+    "G00-05-F01",
+    "G00-05-F02",
+    "G00-05-F03",
+    "G00-05-F04",
+    "G00-05-F05",
+    "G00-05-F06",
+    "G00-05-F07",
+    "G00-05-F08",
+    "G00-05-F09",
+    "G00-05-F10",
+    "G00-06-F01",
+    "G00-06-F02",
+    "G00-06-F03",
+    "G00-06-F04",
+    "G00-06-F05",
+    "G00-06-F06",
+    "G00-06-F07",
+    "G00-06-F08",
+    "G00-06-F09",
+    "G00-06-F10",
+    "G00-07-F01",
+    "G00-07-F02",
+    "G00-07-F03",
+    "G00-07-F04",
+    "G00-07-F05",
+    "G00-07-F06",
+    "G00-07-F07",
+    "G00-07-F08",
+    "G00-07-F09",
+    "G00-07-F10",
+    "G00-08-F01",
+    "G00-08-F02",
+    "G00-08-F03",
+    "G00-08-F04",
+    "G00-08-F05",
+    "G00-08-F06",
+    "G00-08-F07",
+    "G00-08-F08",
+    "G00-08-F09",
+    "G00-08-F10",
+    "G00-09-F01",
+    "G00-09-F02",
+    "G00-09-F03",
+    "G00-09-F04",
+    "G00-09-F05",
+    "G00-09-F06",
+    "G00-09-F07",
+    "G00-09-F08",
+    "G00-09-F09",
+    "G00-09-F10",
+    "G00-10-F01",
+    "G00-10-F02",
+    "G00-10-F03",
+    "G00-10-F04",
+    "G00-10-F05",
+    "G00-10-F06",
+    "G00-10-F07",
+    "G00-10-F08",
+    "G00-10-F09",
+    "G00-10-F10",
+    "G00-11-F01",
+    "G00-11-F02",
+    "G00-11-F03",
+    "G00-11-F04",
+    "G00-11-F05",
+    "G00-11-F06",
+    "G00-11-F07",
+    "G00-11-F08",
+    "G00-11-F09",
+    "G00-11-F10",
+    "G00-12-F01",
+    "G00-12-F02",
+    "G00-12-F03",
+    "G00-12-F04",
+    "G00-12-F05",
+    "G00-12-F06",
+    "G00-12-F07",
+    "G00-12-F08",
+    "G00-12-F09",
+    "G00-12-F10"
+  ],
+  "original_api_ids": [
+    "G00-API-001",
+    "G00-API-002",
+    "G00-API-003",
+    "G00-API-004",
+    "G00-API-005",
+    "G00-API-006",
+    "G00-API-007",
+    "G00-API-008",
+    "G00-API-009",
+    "G00-API-010",
+    "G00-API-011",
+    "G00-API-012",
+    "G00-API-013",
+    "G00-API-014",
+    "G00-API-015",
+    "G00-API-016",
+    "G00-API-017",
+    "G00-API-018",
+    "G00-API-019",
+    "G00-API-020",
+    "G00-API-021",
+    "G00-API-022",
+    "G00-API-023",
+    "G00-API-024",
+    "G00-API-025",
+    "G00-API-026",
+    "G00-API-027",
+    "G00-API-028",
+    "G00-API-029",
+    "G00-API-030",
+    "G00-API-031",
+    "G00-API-032",
+    "G00-API-033",
+    "G00-API-034",
+    "G00-API-035",
+    "G00-API-036",
+    "G00-API-037",
+    "G00-API-038",
+    "G00-API-039",
+    "G00-API-040",
+    "G00-API-041",
+    "G00-API-042",
+    "G00-API-043",
+    "G00-API-044",
+    "G00-API-045",
+    "G00-API-046",
+    "G00-API-047",
+    "G00-API-048",
+    "G00-API-049",
+    "G00-API-050",
+    "G00-API-051",
+    "G00-API-052",
+    "G00-API-053",
+    "G00-API-054",
+    "G00-API-055",
+    "G00-API-056",
+    "G00-API-057",
+    "G00-API-058"
+  ],
+  "original_adversaries": [
+    "ADV-01",
+    "ADV-02",
+    "ADV-03",
+    "ADV-04",
+    "ADV-05",
+    "ADV-06",
+    "ADV-07",
+    "ADV-08",
+    "ADV-09",
+    "ADV-10",
+    "ADV-11",
+    "ADV-12",
+    "ADV-13",
+    "ADV-14",
+    "ADV-15",
+    "ADV-16",
+    "ADV-17",
+    "ADV-18",
+    "ADV-19",
+    "ADV-20",
+    "ADV-21",
+    "ADV-22",
+    "ADV-23",
+    "ADV-24",
+    "ADV-25",
+    "ADV-26",
+    "ADV-27",
+    "ADV-28",
+    "ADV-29",
+    "ADV-30",
+    "ADV-31",
+    "ADV-32",
+    "ADV-33",
+    "ADV-34",
+    "ADV-35",
+    "ADV-36"
+  ],
+  "original_verticals": [
+    "G00-V01",
+    "G00-V02",
+    "G00-V03",
+    "G00-V04",
+    "G00-V05",
+    "G00-V06",
+    "G00-V07"
+  ],
+  "findings": [
+    {
+      "id": "Q01",
+      "obligations": [
+        "G00-07-F01",
+        "G00-API-039"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q01_status_parser_rejects_an_enum_from_another_axis"
+    },
+    {
+      "id": "Q02",
+      "obligations": [
+        "G00-02-F02",
+        "G00-02-F03",
+        "G00-API-010",
+        "G00-API-016"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q02_sidcar_governance_repository_is_a_valid_project_source"
+    },
+    {
+      "id": "Q03",
+      "obligations": [
+        "G00-03-F06",
+        "G00-API-015",
+        "G00-API-018"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q03_same_material_cut_cannot_be_called_disjoint_by_changing_lineage"
+    },
+    {
+      "id": "Q04",
+      "obligations": [
+        "G00-03-F06"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q04_document_baseline_cycles_are_diagnosed"
+    },
+    {
+      "id": "Q05",
+      "obligations": [
+        "G00-03-F05",
+        "G00-03-F07",
+        "G00-03-F09",
+        "G00-API-018"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q05_missing_source_entry_is_visible_in_coverage_description"
+    },
+    {
+      "id": "Q06",
+      "obligations": [
+        "GSL0-LC00",
+        "GSL-T09"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q06_compile_context_cannot_hold_mutable_source_pins"
+    },
+    {
+      "id": "Q07",
+      "obligations": [
+        "GSL0-LC00",
+        "GSL-T12"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q07_compiled_result_rejects_an_untyped_digest"
+    },
+    {
+      "id": "Q08",
+      "obligations": [
+        "GSL0-LC03",
+        "GSL-T01",
+        "GSL-T06"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q08_normative_unit_rejects_invalid_byte_boundaries"
+    },
+    {
+      "id": "Q09",
+      "obligations": [
+        "G00-B01",
+        "G00-B02",
+        "G00-07-F08"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q09_domain_does_not_import_application"
+    },
+    {
+      "id": "Q10",
+      "obligations": [
+        "G00-07-F08",
+        "G00-08-F08",
+        "G00-API-040"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q10_status_validator_rejects_orphan_entity_and_scope"
+    },
+    {
+      "id": "Q11",
+      "obligations": [
+        "GSL0-LC03",
+        "GSL-T03",
+        "GSL-T06"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q11_frontend_result_cannot_pair_a_foreign_ast_with_local_source"
+    },
+    {
+      "id": "Q12",
+      "obligations": [
+        "GSL0-LC00",
+        "GSL0-LC02",
+        "GSL0-LC03",
+        "GSL-T05"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q12_true_literal_is_not_accepted_as_an_uninterpreted_atom"
+    },
+    {
+      "id": "Q13",
+      "obligations": [
+        "GSL0-LC00",
+        "GSL0-LC02",
+        "GSL0-LC03",
+        "GSL-T05"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q13_v0_accepts_legal_block_comments_inside_formula"
+    },
+    {
+      "id": "Q14",
+      "obligations": [
+        "GSL0-LC02",
+        "GSL0-LC07",
+        "GSL0-LC09",
+        "GSL-T06",
+        "GSL-T07"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q14_declaration_origin_swap_cannot_earn_source_to_ir_equivalence"
+    },
+    {
+      "id": "Q15",
+      "obligations": [
+        "GSL0-LC04",
+        "GSL0-LC05",
+        "GSL0-LC06",
+        "GSL-T05",
+        "GSL-T06"
+      ],
+      "falsification": "tests/test_audit_contract_gaps.py::test_Q15_ir_reference_changes_are_not_full_contract_equivalence"
+    }
+  ]
+}

@@ -59,7 +59,8 @@ def test_entire_interpreted_contract_matches_pinned_source(pinned):
     ir,bundle,ctx,bindings,expected=instance(pinned)
     assert decode_ir(canonical_bytes(ir))==ir
     checked=verify_contract_semantics(ir,bundle,ctx,bindings,expectation=expected)
-    assert checked.acceptable and checked.interpreted_fields==2 and checked.checked_fields==2
+    assert checked.formula_equivalent and checked.interpreted_fields==2 and checked.checked_fields==2
+    assert not checked.acceptable and not checked.full_contract_equivalent
     assert checked.valuations_checked==32
     assert checked.deferred_properties==()
 

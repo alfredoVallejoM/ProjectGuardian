@@ -14,7 +14,10 @@ from foundation_b02 import project,cut,entity,universe
 
 def _view():
     p=project();s=cut(p);u=universe(p,(s,))
-    result=build_readonly_project_view(p,u,{s.ref:s})
+    result=build_readonly_project_view(p,u,{s.ref:s},entities=(
+        entity(p.project_id,EntityKind.OBLIGATION,'spec-identity'),
+        entity(p.project_id,EntityKind.SCOPE,'scope'),
+    ))
     assert result.ok
     return p,s,result.value
 

@@ -1,0 +1,70 @@
+{
+  "schema": "guardian/local-execution-summary/v1",
+  "date": "2026-10-23",
+  "base_commit": "ae8561f020b73693972c8d6d27d541e2709a9d9b",
+  "scope": "Q01-Q15 remediation, not full G00 or GSL0 closure",
+  "source_tree": "7c4fe929a6e988afd03b0dee9e710c7c784fcd95",
+  "tests_tree": "fd208ea8489d3ddec982fd28d1679f92642ecdaa",
+  "tools_tree": "3d31a453da27e23ccd3018cc723c6e894ec3c239",
+  "verification_tree": "ae61b68be20ee47ab2595c0a0e3e8d546346ec98",
+  "python": "3.13.5",
+  "baseline": {
+    "passed": 226
+  },
+  "original_falsification_run": {
+    "failed": 16
+  },
+  "final_suite": {
+    "passed": 691,
+    "failed": 0,
+    "skipped": 0
+  },
+  "hashseed_replays": {
+    "0": 691,
+    "1": 691,
+    "777": 691
+  },
+  "installed_wheel_suite": {
+    "passed": 691,
+    "modules_from_isolated_installation": 17
+  },
+  "wheel_sha256": "6ba8d855739e103606dabcc25846907c28c59116c121af3256f0b3aedccc6492",
+  "targeted_mutants": {
+    "killed": 16,
+    "survived": 0,
+    "invalid_runs": 0,
+    "exhaustive": false
+  },
+  "coverage": {
+    "statements_covered": 2503,
+    "statements_total": 2832,
+    "branches_covered": 1037,
+    "branches_total": 1358
+  },
+  "compileall": "PASS",
+  "structural_traceability_gate": "PASS",
+  "not_run": [
+    "Python 3.12",
+    "static typechecker",
+    "independent reviewer",
+    "complete historical corpus compilation",
+    "full compiler and G00 qualification"
+  ],
+  "signed_attestation": false,
+  "log_sha256": {
+    "baseline.txt": "ff05e5c251e625656fa0c0cf581c0f2f87d34f435701fe69d7c17af18205ceb2",
+    "red-Q01-Q15.txt": "352770320c9042c412958d209b2fcf14eb30eb4afb6d458d4c10b3e886cb5156",
+    "final-tests.txt": "c2813d93dde6f4573c7fa0b6b80abb782eaf2f4e8dd282081f3e5d80ebd37c34",
+    "final-tests.xml": "5f14d81d765d4982011e73d3d18fa64adae448f286f66d038a1757564c3bbf74",
+    "final-coverage.json": "0e15660f92ea5c32aab068800faf678ce8dbced5198a8ccbc289ea3932f22912",
+    "hashseed-0.txt": "3695da55010106c807fc5c2de0d8a79c15157b4a2366839761fe87603edd167b",
+    "hashseed-1.txt": "24ddffc74c4bd2f4a8f1f4460c6d623775ea3979b835c622718fe04e4a861308",
+    "hashseed-777.txt": "85affdf22a47c7f94de700d01aaddd0ae597f638fdb5cce7f739bcac9740ea79",
+    "final-mutations.json": "27623b4b6ca4754b39f9b4b9f39e59e2f6d56edf3f90f1dec30668850829bbc7",
+    "wheel-tests.txt": "d3c14fcb75cb2c1076929a98adcb3ba9280ec9ec86090bacb1ca4357c0776abb",
+    "wheel-build.txt": "11150626751c1eda983f65caf7f3b6d3fc76348332fed5e80689008502a18759",
+    "wheel-install.txt": "14592164cda4abcf6177c859313a8eeac067a20ad06f24788ec2c4c5e1188e3f",
+    "traceability.json": "349ae19eb14dcb84cbd3ce539e7dfabff67d913969e102824c594176de367aec",
+    "compileall.txt": "39dd3f664ab97a5503e00ec8261b20210f125b5fbe2c8ec074a74bafa88f7e2d"
+  }
+}

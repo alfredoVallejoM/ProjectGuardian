@@ -9,7 +9,7 @@ from guardian.domain.project import ProjectDefinition, validate_project
 from guardian.domain.source import (
     SourceCut, SourceUniverseRevision, SourceUniverseValidation,
     TrustedImportGrants, check_source_membership, validate_inclusion_exclusion,
-    validate_source_universe,
+    validate_source_universe, describe_source_coverage, SourceCoverageDescriptor,
 )
 from guardian.domain.outcomes import Diagnostic, Result, SourceStatus
 from guardian.spec_lang.contract import SourceBundle, CompileContext, verify_source_context
@@ -48,8 +48,49 @@ class ReadOnlyProjectView:
             raise ValueError('INVALID_SOURCE_UNIVERSE_MEMBERSHIP')
 
 
-def inspect_project_definition(project:object)->Result[ProjectDefinition]:
-    return validate_project(project)
+    @property
+    def project_id(self):
+        return self.definition.project_id
+
+    def contains_entity(self, ref: EntityRef) -> bool:
+        return (isinstance(ref, EntityRef) and ref.project == self.project_id
+                and ref in self.entities)
+
+    def contains_source(self, ref: EntityRef) -> bool:
+        return (isinstance(ref, EntityRef) and ref in self.source_universe.included
+                and not any(x.cut == ref for x in self.source_universe.excluded)
+                and any(s.ref == ref for s in self.sources))
+
+
+@dataclass(frozen=True, slots=True)
+class ProjectInspection:
+    definition: ProjectDefinition
+    source_coverage: SourceCoverageDescriptor
+    missing_references: tuple[EntityRef, ...]
+    diagnostics: tuple[Diagnostic, ...]
+    qualified: bool = False
+
+
+def inspect_project_definition(project: object, view: ReadOnlyProjectView | None = None) -> Result[ProjectInspection]:
+    """G00-API-057: inspect the actual snapshot without inventing coverage.
+
+    Source policy is supplied as a record; constitution existence must be
+    witnessed in the entity catalog. Imports/approvals remain trust inputs.
+    """
+    valid = validate_project(project)
+    if not valid.ok:
+        return Result(diagnostics=valid.diagnostics)
+    if not isinstance(view, ReadOnlyProjectView) or view.definition != project:
+        return Result(diagnostics=(Diagnostic('PROJECT_VIEW_REQUIRED', '$.view',
+            'matching immutable snapshot', type(view).__name__, 'inspection requires the project view'),))
+    coverage = describe_source_coverage(view.source_universe)
+    missing = tuple(ref for ref in (project.constitution_ref,)
+                    if not view.contains_entity(ref))
+    diagnostics = tuple(Diagnostic('ORPHAN_REFERENCE', '$.constitution',
+        'exact entity in snapshot', 'missing', 'constitution content not supplied') for _ in missing)
+    diagnostics += tuple(Diagnostic('SOURCE_MISSING', '$.sources',
+        'observed source', 'missing', item.reason) for item in coverage.known_missing)
+    return Result(ProjectInspection(project, coverage, missing, diagnostics))
 
 
 def build_readonly_project_view(definition:ProjectDefinition,universe:SourceUniverseRevision,

@@ -1,14 +1,15 @@
 """GSL0-LC02: finite V4 source-semantics oracle and independent IR VM.
 
-The minimal source grammar here is a *verification fragment*, not the future
-GSL grammar (LC03). Its lexer sees source bytes independently of any candidate
-IR or its self-computed hashes. No Python eval, callbacks or project I/O.
+The V4 verification fragment follows the declared LC03 lexical profile but
+uses a separate byte lexer and source interpreter, independent of productive
+parser/lowering code. Formula checks and contract correspondence are distinct.
+No Python eval, callbacks, publication or normative admission capabilities.
 """
 from __future__ import annotations
 
 import itertools
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field, replace
 from enum import Enum
 from typing import Mapping
 
@@ -16,9 +17,10 @@ from guardian.domain.evidence_logic import FourValued, UNKNOWN, YES, NO, CONFLIC
 from guardian.domain.identity import EntityRef
 from guardian.spec_lang.contract import ProofObligation, SourceBundle, CompileContext, verify_source_context
 from guardian.spec_lang.ir import ContractIR, FormulaIR, IRType, SourceOrigin
+from .source_inventory import (independent_tokens, CheckStatus, SourceCorrespondence,
+                              check_source_correspondence)
 
-_SOURCE_TOKEN = re.compile(r'[A-Za-z_][A-Za-z_0-9]*|\(|\)|\S')
-_KEYWORDS = {'not','and','or','yes','no','unknown','conflict'}
+_KEYWORDS = {'not','and','or','yes','no','unknown','conflict','true','false'}
 _MAX_PARSE_DEPTH = 64
 _MAX_SOURCE_TOKENS = 10000
 _MAX_FORMULA_NODES = 10000
@@ -75,7 +77,7 @@ class SourceOr(SourceFormula):
 
 class _SourceParser:
     def __init__(self,raw:str):
-        self.tokens=[m.group(0) for m in _SOURCE_TOKEN.finditer(raw)]
+        self.tokens=[t.text for t in independent_tokens(raw.encode('utf-8'))]
         if len(self.tokens)>_MAX_SOURCE_TOKENS:
             raise ValueError('GSL_V0_SOURCE_RESOURCE_LIMIT')
         self.i=0
@@ -127,8 +129,8 @@ class _SourceParser:
             self.take(')')
             return node
         value=self.take()
-        if value in ('yes','no','unknown','conflict'):
-            return SourceConstant(value)
+        if value in ('yes','no','unknown','conflict','true','false'):
+            return SourceConstant({'true':'yes','false':'no'}.get(value,value))
         if value in _KEYWORDS or re.fullmatch(r'[A-Za-z_][A-Za-z_0-9]*',value) is None:
             raise ValueError('GSL_V0_UNEXPECTED_TOKEN')
         return SourceAtom(value)
@@ -432,10 +434,40 @@ class ContractSemanticResult:
     pending_proofs: tuple[ProofObligation, ...] = ()
     reason: str = ''
 
+    correspondence: SourceCorrespondence = field(default_factory=SourceCorrespondence)
+
+    def __post_init__(self) -> None:
+        if (not isinstance(self.status, OracleStatus) or not isinstance(self.correspondence, SourceCorrespondence)
+                or any(type(n) is not int or n < 0 for n in
+                       (self.interpreted_fields, self.checked_fields, self.valuations_checked))
+                or self.checked_fields > self.interpreted_fields):
+            raise ValueError('INVALID_SEMANTIC_REPORT')
+        if (self.status is OracleStatus.FINITE_EQUIVALENT
+                and (not self.checked_fields or self.checked_fields != self.interpreted_fields)):
+            raise ValueError('INCOMPLETE_FINITE_REPORT')
+        if type(self.deferred_properties) is not tuple or type(self.pending_proofs) is not tuple:
+            raise TypeError('semantic obligations must be immutable')
+
+    @property
+    def formula_equivalent(self) -> bool:
+        """Only the enumerated, grounded V4 fields, under the recorded budget."""
+        return self.status is OracleStatus.FINITE_EQUIVALENT
+
     @property
     def acceptable(self) -> bool:
-        return (self.status is OracleStatus.FINITE_EQUIVALENT
-                and not self.deferred_properties and not self.pending_proofs)
+        """Source correspondence only; NOT admission or full contract validity.
+
+        Legacy boolean narrowed to prevent finite formulas certifying unchecked
+        declarations/fields. See each dimension for guarantees not checked.
+        """
+        return (self.formula_equivalent and not self.deferred_properties and not self.pending_proofs
+                and self.correspondence.declarations is CheckStatus.CHECKED
+                and self.correspondence.fields is CheckStatus.CHECKED)
+
+    @property
+    def full_contract_equivalent(self) -> bool:
+        return (self.acceptable and self.correspondence.reference_integrity is CheckStatus.CHECKED
+                and self.correspondence.historical_coverage is CheckStatus.CHECKED)
 
 
 
@@ -448,56 +480,8 @@ def _independent_field_value_spans(raw: bytes, *, base_offset: int) -> dict[str,
     comments, strings, or a different field. It is a bounded LC02 contract
     check, not the full LC03/LC04 declaration-origin proof.
     """
-    if len(raw) > 2_000_000:
-        raise ValueError('GSL_V0_FIELD_RESOURCE_LIMIT')
-    value = raw.decode('utf-8', 'strict')
-    positions = [base_offset]
-    for char in value:
-        positions.append(positions[-1] + len(char.encode('utf-8')))
-    tokens: list[tuple[str, str, int, int]] = []
-    i = 0
-    while i < len(value):
-        c = value[i]
-        if c.isspace():
-            i += 1
-            continue
-        if value.startswith('//', i):
-            end = value.find('\n', i + 2)
-            i = len(value) if end < 0 else end
-            continue
-        if value.startswith('/*', i):
-            end = value.find('*/', i + 2)
-            if end < 0:
-                raise ValueError('GSL_V0_UNTERMINATED_COMMENT')
-            i = end + 2
-            continue
-        start = i
-        if c == '"':
-            i += 1
-            escaped = False
-            while i < len(value):
-                if value[i] == '"' and not escaped:
-                    i += 1
-                    break
-                if value[i] == '\\' and not escaped:
-                    escaped = True
-                else:
-                    escaped = False
-                i += 1
-            else:
-                raise ValueError('GSL_V0_UNTERMINATED_STRING')
-            kind = 'string'
-        elif c.isascii() and (c.isalpha() or c == '_'):
-            i += 1
-            while i < len(value) and value[i].isascii() and (value[i].isalnum() or value[i] == '_'):
-                i += 1
-            kind = 'name'
-        else:
-            i += 1
-            kind = 'punct'
-        tokens.append((kind, value[start:i], positions[start], positions[i]))
-        if len(tokens) > 100_000:
-            raise ValueError('GSL_V0_FIELD_RESOURCE_LIMIT')
+    tokens = [(t.kind, t.text, t.start, t.end)
+              for t in independent_tokens(raw, base_offset)]
     result: dict[str, list[tuple[int, int]]] = {}
     for idx in range(len(tokens) - 2):
         head = tokens[idx]
@@ -524,7 +508,7 @@ def _independent_field_value_spans(raw: bytes, *, base_offset: int) -> dict[str,
     return {name: tuple(spans) for name, spans in result.items()}
 
 
-def verify_contract_semantics(
+def _verify_interpreted_fields(
     ir: ContractIR,
     bundle: SourceBundle,
     context: CompileContext,
@@ -533,6 +517,7 @@ def verify_contract_semantics(
     expectation: CoverageExpectation | None = None,
     max_atoms: int = 6,
     max_valuations: int = 4096,
+    max_total_valuations: int = 65536,
 ) -> ContractSemanticResult:
     """Fail closed on every interpreted field missing independent grounding.
 
@@ -544,6 +529,10 @@ def verify_contract_semantics(
             or not isinstance(context, CompileContext) or type(groundings) is not tuple
             or any(not isinstance(g, FormulaGrounding) for g in groundings)):
         return ContractSemanticResult(OracleStatus.INVALID_IR, 0, 0, 0, reason='typed contract inputs required')
+    if (type(max_atoms) is not int or max_atoms < 0 or type(max_valuations) is not int
+            or max_valuations <= 0 or type(max_total_valuations) is not int or max_total_valuations <= 0):
+        return ContractSemanticResult(OracleStatus.INCONCLUSIVE_RESOURCE_LIMIT, 0, 0, 0,
+                                      reason='invalid finite evaluation budget')
     if not verify_source_context(bundle, context).ok:
         return ContractSemanticResult(OracleStatus.UNTRUSTED_PIN, 0, 0, 0, reason='source pin is not trusted')
     if expectation is None:
@@ -624,8 +613,12 @@ def verify_contract_semantics(
             return ContractSemanticResult(OracleStatus.MISSING_BINDING, len(interpretations), checked, valuations,
                                           counterexample=grounding,deferred_properties=tuple(deferred),
                                           reason='formula grounding is not the complete value of the named source field')
+        if type(max_total_valuations) is not int or max_total_valuations <= valuations:
+            return ContractSemanticResult(OracleStatus.INCONCLUSIVE_RESOURCE_LIMIT,
+                len(interpretations), checked, valuations, reason='aggregate valuation budget exhausted')
         outcome = verify_semantics(bundle, context, src, candidate,
-                                   max_atoms=max_atoms, max_valuations=max_valuations)
+                                   max_atoms=max_atoms,
+                                   max_valuations=min(max_valuations, max_total_valuations - valuations))
         valuations += outcome.valuations_checked
         if not outcome.acceptable:
             return ContractSemanticResult(outcome.status, len(interpretations), checked, valuations,
@@ -636,3 +629,29 @@ def verify_contract_semantics(
     return ContractSemanticResult(OracleStatus.FINITE_EQUIVALENT, len(interpretations), checked, valuations,
                                   deferred_properties=tuple(deferred), pending_proofs=ir.proofs,
                                   reason='all interpreted V4 fields checked; deferred properties and POs do not qualify')
+
+
+def verify_contract_semantics(
+    ir: ContractIR, bundle: SourceBundle, context: CompileContext,
+    groundings: tuple[FormulaGrounding, ...], *,
+    expectation: CoverageExpectation | None = None,
+    max_atoms: int = 6, max_valuations: int = 4096, max_total_valuations: int = 65536,
+    source_format: str = 'gsl',
+) -> ContractSemanticResult:
+    """Compose distinct checks; no single finite result is a global certificate.
+
+    Original bytes, not the candidate map, establish declaration and field
+    origins. Reference *existence*, historical import completeness, admission,
+    and implementation behavior remain explicit NOT_CHECKED dimensions.
+    """
+    report = _verify_interpreted_fields(ir, bundle, context, groundings,
+        expectation=expectation, max_atoms=max_atoms, max_valuations=max_valuations,
+        max_total_valuations=max_total_valuations)
+    if not report.formula_equivalent:
+        return report
+    correspondence = check_source_correspondence(ir, bundle, context, source_format=source_format)
+    if correspondence.declarations is CheckStatus.MISMATCH:
+        return replace(report, status=OracleStatus.MISSING_BINDING,
+                       correspondence=correspondence, reason=correspondence.reason)
+    return replace(report, correspondence=correspondence,
+                   reason='V4 fields checked; source correspondence and unchecked dimensions are reported separately')

@@ -87,7 +87,8 @@ def test_g00_03_f09_scope_coverage_has_denominator_missing_and_limits():
     u=universe(p,(s,),missing=(MissingSource('lost','old corpus'),),limits=('excluded release 2020',))
     coverage=describe_source_coverage(u)
     assert coverage.scope.corpus==('gsl-foundation',)
-    assert coverage.limitations==('excluded release 2020',)
+    assert coverage.limitations[0]=='excluded release 2020'
+    assert any('SOURCE_MISSING' in limit for limit in coverage.limitations)
     assert not coverage.coverage_qualified
 
 

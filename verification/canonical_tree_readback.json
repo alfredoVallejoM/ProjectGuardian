@@ -1,0 +1,10 @@
+{
+  "subject_sha": "ae8561f020b73693972c8d6d27d541e2709a9d9b",
+  "method": "GitHub git trees API readback 2026-10-23",
+  "files": {
+    "architecture/campaigns.json": "83c00b70fe2bd46b3027c91901bdf45c9620c3c3",
+    "architecture/g00_functional_refinement.json": "b5e2d1d90578dd942647720314047e5d2e4caac2",
+    "architecture/g00_api_contracts.json": "5d4052c617cf0d962b0ba555ad0ae502e5b818f4",
+    "architecture/g00_validation_plan.json": "238e18d9defde4f943d9a6ecda2f719bf9cc0914"
+  }
+}
