@@ -1,0 +1,82 @@
+FFFFFF                                                                   [100%]
+=================================== FAILURES ===================================
+____________ test_named_binding_must_match_record_source_provenance ____________
+
+    def test_named_binding_must_match_record_source_provenance():
+        p,s,records,snapshot,ids=scenario()
+        other=cut(p,name='other-source',path='other.gsl')
+        raw=b'gsl "0.1"; project "project-alpha"; obligation "obligation-main" { requires: property("named_property"); }'
+        a,c=analyze(raw,p,other,lambda c,b:replace(c,symbols=(SymbolBinding('named_property',ids['property-shared'],b.source_ref),)))
+        result=resolve_analyses((a,),c,snapshot=snapshot)
+>       assert not result.ok and 'GSL_SYMBOL_ORIGIN_MISMATCH' in {d.code for d in result.diagnostics}
+E       AssertionError: assert (not True)
+E        +  where True = ResolutionReport(status=<ResolutionStatus.REFERENCES_RESOLVED: 'REFERENCES_RESOLVED'>, declarations=(LinkedDeclaration...(value='rev-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')), basis='SNAPSHOT_RECORD'),), diagnostics=(), unchecked_source_items=()).ok
+
+tests/spec_lang/test_lc04_adversarial_boundaries.py:27: AssertionError
+______ test_explicit_source_symbol_does_not_invent_a_material_source_pin _______
+
+    def test_explicit_source_symbol_does_not_invent_a_material_source_pin():
+        raw=b'gsl "0.1"; project "project-alpha"; source "phantom_source" { locator: "other.gsl"; source_cut: context; }'
+        def inject(c,b):
+            phantom=entity(c.project,K.SOURCE,'phantom-source')
+            return replace(c,symbols=(SymbolBinding('phantom_source',phantom,b.source_ref),))
+        a,c=analyze(raw,transform=inject)
+        result=resolve_analyses((a,),c)
+>       assert not result.ok and 'GSL_SOURCE_NOT_PINNED' in {d.code for d in result.diagnostics}
+E       AssertionError: assert (not True)
+E        +  where True = ResolutionReport(status=<ResolutionStatus.REFERENCES_RESOLVED: 'REFERENCES_RESOLVED'>, declarations=(LinkedDeclaration...d(value='rev-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')), basis='PINNED_CONTEXT'),), diagnostics=(), unchecked_source_items=()).ok
+
+tests/spec_lang/test_lc04_adversarial_boundaries.py:37: AssertionError
+_______ test_reference_diagnostics_identify_owning_record_not_only_field _______
+
+    def test_reference_diagnostics_identify_owning_record_not_only_field():
+        _,_,records,snapshot,ids=scenario()
+        errors=validate_references((records[0],records[1]),snapshot).diagnostics
+>       assert any('objective-one' in d.path for d in errors)
+E       assert False
+E        +  where False = any(<generator object test_reference_diagnostics_identify_owning_record_not_only_field.<locals>.<genexpr> at 0x7f84eb8b6740>)
+
+tests/spec_lang/test_lc04_adversarial_boundaries.py:43: AssertionError
+______ test_declaration_budget_is_enforced_even_without_expression_nodes _______
+
+    def test_declaration_budget_is_enforced_even_without_expression_nodes():
+        raw=b'gsl "0.1"; project "project-alpha";'+b''.join(f'property "property-{i}" {{}}'.encode() for i in range(20))
+        a,c=analyze(raw)
+        result=resolve_analyses((a,),c,max_nodes=5)
+>       assert not result.ok and 'GSL_RESOLUTION_RESOURCE_LIMIT' in {d.code for d in result.diagnostics}
+E       AssertionError: assert (not True)
+E        +  where True = ResolutionReport(status=<ResolutionStatus.REFERENCES_RESOLVED: 'REFERENCES_RESOLVED'>, declarations=(LinkedDeclaration...roperty-19', fields=(), span=TextSpan(start=500, end=525)))), references=(), diagnostics=(), unchecked_source_items=()).ok
+
+tests/spec_lang/test_lc04_adversarial_boundaries.py:51: AssertionError
+________ test_unchecked_source_items_remain_immutable_in_public_result _________
+
+    def test_unchecked_source_items_remain_immutable_in_public_result():
+        raw=b'gsl "0.1"; project "project-alpha"; objective "objective-main" {from:source_item("source-main","item");}'
+        a,c=analyze(raw);report=resolve_analyses((a,),c);assert report.ok
+>       with pytest.raises(TypeError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'TypeError'>
+
+tests/spec_lang/test_lc04_adversarial_boundaries.py:57: Failed
+____ test_linked_reference_rejects_untyped_or_foreign_declaration_metadata _____
+
+    def test_linked_reference_rejects_untyped_or_foreign_declaration_metadata():
+        raw=b'gsl "0.1"; project "project-alpha"; scope "scope-main" {project: project("project-alpha");}'
+        a,c=analyze(raw);r=resolve_analyses((a,),c).references[0]
+>       with pytest.raises(TypeError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'TypeError'>
+
+tests/spec_lang/test_lc04_adversarial_boundaries.py:64: Failed
+=========================== short test summary info ============================
+FAILED tests/spec_lang/test_lc04_adversarial_boundaries.py::test_named_binding_must_match_record_source_provenance - AssertionError: assert (not True)
+ +  where True = ResolutionReport(status=<ResolutionStatus.REFERENCES_RESOLVED: 'REFERENCES_RESOLVED'>, declarations=(LinkedDeclaration...(value='rev-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')), basis='SNAPSHOT_RECORD'),), diagnostics=(), unchecked_source_items=()).ok
+FAILED tests/spec_lang/test_lc04_adversarial_boundaries.py::test_explicit_source_symbol_does_not_invent_a_material_source_pin - AssertionError: assert (not True)
+ +  where True = ResolutionReport(status=<ResolutionStatus.REFERENCES_RESOLVED: 'REFERENCES_RESOLVED'>, declarations=(LinkedDeclaration...d(value='rev-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')), basis='PINNED_CONTEXT'),), diagnostics=(), unchecked_source_items=()).ok
+FAILED tests/spec_lang/test_lc04_adversarial_boundaries.py::test_reference_diagnostics_identify_owning_record_not_only_field - assert False
+ +  where False = any(<generator object test_reference_diagnostics_identify_owning_record_not_only_field.<locals>.<genexpr> at 0x7f84eb8b6740>)
+FAILED tests/spec_lang/test_lc04_adversarial_boundaries.py::test_declaration_budget_is_enforced_even_without_expression_nodes - AssertionError: assert (not True)
+ +  where True = ResolutionReport(status=<ResolutionStatus.REFERENCES_RESOLVED: 'REFERENCES_RESOLVED'>, declarations=(LinkedDeclaration...roperty-19', fields=(), span=TextSpan(start=500, end=525)))), references=(), diagnostics=(), unchecked_source_items=()).ok
+FAILED tests/spec_lang/test_lc04_adversarial_boundaries.py::test_unchecked_source_items_remain_immutable_in_public_result - Failed: DID NOT RAISE <class 'TypeError'>
+FAILED tests/spec_lang/test_lc04_adversarial_boundaries.py::test_linked_reference_rejects_untyped_or_foreign_declaration_metadata - Failed: DID NOT RAISE <class 'TypeError'>
+6 failed in 0.23s

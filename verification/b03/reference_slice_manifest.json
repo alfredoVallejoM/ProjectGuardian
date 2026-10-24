@@ -1,0 +1,108 @@
+{
+  "schema": "guardian.b03-reference-slice/v1",
+  "base_commit": "19c6cf31b5b686362568cf2b3aaed538504b127c",
+  "authority": "ORIGINAL_G00_UNCHANGED",
+  "scope": [
+    "G00-B03 six immutable record models",
+    "G00-B06 exact record resolver subset",
+    "GSL0-LC04 linking subset"
+  ],
+  "development_claim": "IMPLEMENTED_BOUNDED_SLICE_NOT_FULL_BLOCKS",
+  "campaign_closed": false,
+  "ratified": false,
+  "clauses": [
+    {
+      "id": "G00-05-F01",
+      "test": "tests/domain/test_b03_commitments.py::test_f01_objective_is_not_a_task_or_completed_flag",
+      "claim": "BEHAVIOR_EXERCISED_NOT_PARENT_CLOSURE"
+    },
+    {
+      "id": "G00-05-F02",
+      "test": "tests/domain/test_b03_commitments.py::test_f02_capability_requires_behavior_owner_and_contracts_not_implementation_path",
+      "claim": "BEHAVIOR_EXERCISED_NOT_PARENT_CLOSURE"
+    },
+    {
+      "id": "G00-05-F03",
+      "test": "tests/domain/test_b03_commitments.py::test_f03_f09_shared_property_and_multiple_objectives_keep_one_identity",
+      "claim": "BEHAVIOR_EXERCISED_NOT_PARENT_CLOSURE"
+    },
+    {
+      "id": "G00-05-F04",
+      "test": "tests/domain/test_b03_commitments.py::test_f04_f05_required_obligation_contracts_cannot_be_missing_null_or_empty",
+      "claim": "BEHAVIOR_EXERCISED_NOT_PARENT_CLOSURE"
+    },
+    {
+      "id": "G00-05-F05",
+      "test": "tests/domain/test_b03_commitments.py::test_f04_f05_required_obligation_contracts_cannot_be_missing_null_or_empty",
+      "claim": "BEHAVIOR_EXERCISED_NOT_PARENT_CLOSURE"
+    },
+    {
+      "id": "G00-05-F06",
+      "test": "tests/domain/test_b03_commitments.py::test_f06_verification_contract_reference_never_creates_run_or_pass",
+      "claim": "BEHAVIOR_EXERCISED_NOT_PARENT_CLOSURE"
+    },
+    {
+      "id": "G00-05-F07",
+      "test": "tests/domain/test_b03_commitments.py::test_f07_architecture_is_normative_not_observed_and_conflicting_rules_fail",
+      "claim": "BEHAVIOR_EXERCISED_NOT_PARENT_CLOSURE"
+    },
+    {
+      "id": "G00-05-F08",
+      "test": "tests/domain/test_b03_commitments.py::test_f08_membership_is_reference_not_a_copy_and_no_auto_closure",
+      "claim": "BEHAVIOR_EXERCISED_NOT_PARENT_CLOSURE"
+    },
+    {
+      "id": "G00-05-F09",
+      "test": "tests/domain/test_b03_commitments.py::test_f03_f09_shared_property_and_multiple_objectives_keep_one_identity",
+      "claim": "BEHAVIOR_EXERCISED_NOT_PARENT_CLOSURE"
+    },
+    {
+      "id": "G00-05-F10",
+      "test": "tests/domain/test_b03_commitments.py::test_f10_future_research_and_current_are_not_changed_by_validation",
+      "claim": "BEHAVIOR_EXERCISED_NOT_PARENT_CLOSURE"
+    }
+  ],
+  "apis": [
+    "G00-API-008",
+    "G00-API-025",
+    "G00-API-026",
+    "G00-API-027",
+    "G00-API-028",
+    "G00-API-029",
+    "G00-API-030",
+    "G00-API-038",
+    "G00-API-043",
+    "G00-API-058"
+  ],
+  "tests": [
+    "tests/domain/test_b03_commitments.py",
+    "tests/domain/test_exact_record_resolution.py",
+    "tests/spec_lang/test_lc04_reference_linking.py",
+    "tests/spec_lang/test_lc04_adversarial_boundaries.py",
+    "tests/integration/test_b03_lc04_product_path.py"
+  ],
+  "explicit_open": [
+    "G00-B03 permissive draft lifecycle and complete authorized normative admission",
+    "G00-B04 scope/applicability evaluation",
+    "G00-B05 authority, rules and conflict engine",
+    "G00-B06 all record kinds and domain codecs",
+    "GSL0-LC04 import syntax, full module namespaces and import graph",
+    "GSL0-LC05 typechecking",
+    "GSL0-LC06 lowering",
+    "LC09 logical source-item historical coverage",
+    "independent review",
+    "protected operator installation"
+  ],
+  "source_pins": {
+    "architecture/campaigns.json": "83c00b70fe2bd46b3027c91901bdf45c9620c3c3",
+    "architecture/g00_functional_refinement.json": "b5e2d1d90578dd942647720314047e5d2e4caac2",
+    "architecture/g00_api_contracts.json": "5d4052c617cf0d962b0ba555ad0ae502e5b818f4",
+    "architecture/g00_validation_plan.json": "238e18d9defde4f943d9a6ecda2f719bf9cc0914",
+    "architecture/g00_design_decisions.json": "63c70c384dea1fbe36335a57a487e755ed785eaa",
+    "docs/campaigns/G-00.md": "b5051d450e5895d0706624cf93ecd8e375d407ac",
+    "docs/campaigns/G-00/13_FUNCTIONAL_REFINEMENT_MATRIX.md": "b0c12cc25e7828e672d08e0db656d3e4d05a2c78",
+    "docs/campaigns/G-00/14_API_CONTRACT_CATALOG.md": "9c17992047e271b4d32f573678b134c1663bea0a",
+    "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md": "8f0fb33a33d69cab363eddd2ceabbea0bd325ce0",
+    "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md": "9f1c88a664b6ac2ab8114aa349e9a5ec605219d0"
+  }
+}

@@ -3,7 +3,8 @@
 All parsers are total over caller-provided values and return typed diagnostics.
 Direct dataclass construction is checked too, so it cannot bypass validity.
 The contract does not use clocks, randomness, filesystem, network or globals.
-G00-08's full cross-project resolver is deliberately not supplied here.
+Content resolution delegates to the B03/B06 reference kernel. Unsupported
+record bodies remain explicit; no alias or anchor fabricates their content.
 """
 from __future__ import annotations
 
@@ -11,7 +12,11 @@ import re
 import unicodedata
 from dataclasses import dataclass
 from enum import Enum
-from typing import Mapping
+from typing import Mapping, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from .record_base import RecordRevision
+    from .references import RecordSnapshot, TrustedEntityImports, ResolvedEntity, ReferenceValidation
 
 from .outcomes import Diagnostic, Result
 
@@ -328,3 +333,18 @@ def register_identity(index: IdentityIndex, identity: EntityId, lineage: str) ->
     if record in index.registrations:
         return Result(index)
     return Result(IdentityIndex(index.registrations + (record,)))
+
+
+def resolve_entity(ref: EntityRef, view: RecordSnapshot, kind: EntityKind,
+                   grants: TrustedEntityImports | None = None, *,
+                   require_current: bool = False) -> Result[ResolvedEntity]:
+    """G00-API-008: canonical facade; one semantic owner in references."""
+    from .references import resolve_entity as resolve_content
+    return resolve_content(ref, view, kind, grants, require_current=require_current)
+
+
+def validate_references(entities: tuple[RecordRevision, ...], view: RecordSnapshot,
+                        grants: TrustedEntityImports | None = None) -> ReferenceValidation:
+    """G00-API-043: exact local integrity, not the global G-02 graph."""
+    from .references import validate_references as validate_content_references
+    return validate_content_references(entities, view, grants)

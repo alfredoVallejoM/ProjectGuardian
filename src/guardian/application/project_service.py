@@ -148,3 +148,22 @@ def analyze_project_source(view:ReadOnlyProjectView,bundle:SourceBundle,context:
     if not allowed.ok:
         return FrontendAnalysis(CompileStatus.REJECTED,CompilationStage.ACQUIRE,(),allowed.diagnostics)
     return analyze_source(bundle,context,source_format=source_format)
+
+
+def build_record_snapshot(view: ReadOnlyProjectView, records: tuple, revision, *, historical=frozenset()):
+    """Attach actual B03 bodies to the existing project/source view.
+
+    Existing reference-only anchors remain distinguishable from content; the
+    content resolver never turns them into resolved or ratified placeholders.
+    """
+    from guardian.domain.references import RecordSnapshot
+    if type(view) is not ReadOnlyProjectView:
+        return Result(diagnostics=(Diagnostic('PROJECT_SNAPSHOT_INVALID', '$.view',
+            'ReadOnlyProjectView', type(view).__name__, 'explicit source view required'),))
+    try:
+        snapshot = RecordSnapshot(view.project_id, revision, records,
+            tuple(s for s in view.sources if view.contains_source(s.ref)), view.entities, historical)
+    except (TypeError, ValueError) as exc:
+        return Result(diagnostics=(Diagnostic('PROJECT_SNAPSHOT_INVALID', '$.records',
+            'consistent record snapshot', 'invalid', str(exc)),))
+    return Result(snapshot)

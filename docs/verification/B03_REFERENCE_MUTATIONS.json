@@ -1,0 +1,114 @@
+{
+  "scope": "DIRECTED_B03_REFERENCE_LINKING_NOT_EXHAUSTIVE",
+  "results": [
+    {
+      "id": "B03_ACCEPTANCE",
+      "status": "KILLED",
+      "test": "tests/domain/test_b03_commitments.py::test_f04_f05_required_obligation_contracts_cannot_be_missing_null_or_empty",
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "returncode": 1
+    },
+    {
+      "id": "REF_KIND",
+      "status": "KILLED",
+      "test": "tests/domain/test_exact_record_resolution.py::test_exact_body_is_returned_not_a_matching_name_or_placeholder",
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "returncode": 1
+    },
+    {
+      "id": "REF_SCOPE",
+      "status": "KILLED",
+      "test": "tests/domain/test_exact_record_resolution.py::test_scoped_import_requires_exact_entity_and_material_source_cut",
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "returncode": 1
+    },
+    {
+      "id": "REF_CUT",
+      "status": "KILLED",
+      "test": "tests/domain/test_exact_record_resolution.py::test_scoped_import_requires_exact_entity_and_material_source_cut",
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "returncode": 1
+    },
+    {
+      "id": "REF_REVISION",
+      "status": "KILLED",
+      "test": "tests/domain/test_exact_record_resolution.py::test_no_latest_fallback_and_historical_never_promoted_to_current",
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "returncode": 1
+    },
+    {
+      "id": "NO_COMPILED",
+      "status": "KILLED",
+      "test": "tests/spec_lang/test_lc04_reference_linking.py::test_two_pass_forward_references_cycles_sources_and_project_share_nominal_ids",
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "returncode": 1
+    },
+    {
+      "id": "SYMBOL_ORIGIN",
+      "status": "KILLED",
+      "test": "tests/spec_lang/test_lc04_adversarial_boundaries.py::test_named_binding_must_match_record_source_provenance",
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "returncode": 1
+    },
+    {
+      "id": "SOURCE_PIN",
+      "status": "KILLED",
+      "test": "tests/spec_lang/test_lc04_adversarial_boundaries.py::test_explicit_source_symbol_does_not_invent_a_material_source_pin",
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "returncode": 1
+    },
+    {
+      "id": "MEMBERSHIP",
+      "status": "KILLED",
+      "test": "tests/domain/test_b03_commitments.py::test_f08_membership_is_reference_not_a_copy_and_no_auto_closure",
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "returncode": 1
+    },
+    {
+      "id": "BUDGET",
+      "status": "KILLED",
+      "test": "tests/spec_lang/test_lc04_adversarial_boundaries.py::test_expression_budget_is_counted_after_declaration_budget",
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "returncode": 1
+    },
+    {
+      "id": "AUTHORITY",
+      "status": "KILLED",
+      "test": "tests/domain/test_b03_commitments.py::test_proposal_approved_label_is_never_authenticated_by_constructor",
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "returncode": 1
+    },
+    {
+      "id": "NO_ADMISSION",
+      "status": "KILLED",
+      "test": "tests/domain/test_exact_record_resolution.py::test_exact_body_is_returned_not_a_matching_name_or_placeholder",
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "returncode": 1
+    }
+  ],
+  "execution": "Two subsets, merged by unique mutation ID; no timeout counted as kill"
+}
