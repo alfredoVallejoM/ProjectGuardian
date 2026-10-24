@@ -1,0 +1,71 @@
+{
+  "scope": "TARGETED_EXTERNAL_CONTRACT_PROTECTIONS",
+  "independent_actor_review": false,
+  "killed": 9,
+  "total": 9,
+  "results": [
+    {
+      "id": "EX-ID",
+      "status": "KILLED",
+      "test": "test_each_declaration_population_identity_origin_and_order_is_bound",
+      "executed": 56,
+      "failures": 24
+    },
+    {
+      "id": "EX-ORIGIN",
+      "status": "KILLED",
+      "test": "test_each_declaration_population_identity_origin_and_order_is_bound",
+      "executed": 56,
+      "failures": 8
+    },
+    {
+      "id": "EX-FIELD",
+      "status": "KILLED",
+      "test": "test_every_field_is_checked_not_only_interpreted_formulas",
+      "executed": 25,
+      "failures": 23
+    },
+    {
+      "id": "EX-TYPE",
+      "status": "KILLED",
+      "test": "test_every_field_discriminant_is_compared",
+      "executed": 25,
+      "failures": 25
+    },
+    {
+      "id": "EX-V4",
+      "status": "KILLED",
+      "test": "test_every_field_is_checked_not_only_interpreted_formulas",
+      "executed": 25,
+      "failures": 2
+    },
+    {
+      "id": "EX-PROOF",
+      "status": "KILLED",
+      "test": "test_all_remaining_deferred_field_and_proofs_preserved_without_promotion",
+      "executed": 1,
+      "failures": 1
+    },
+    {
+      "id": "EX-SOURCE-PIN",
+      "status": "KILLED",
+      "test": "test_rewriting_source_and_all_candidate_digests_cannot_change_operator_pin",
+      "executed": 1,
+      "failures": 1
+    },
+    {
+      "id": "EX-BUDGET",
+      "status": "KILLED",
+      "test": "test_aggregate_budget_cannot_emit_partial_positive",
+      "executed": 5,
+      "failures": 2
+    },
+    {
+      "id": "EX-PROMOTION",
+      "status": "KILLED",
+      "test": "test_all_eight_product_declarations_pass_complete_external_correspondence",
+      "executed": 1,
+      "failures": 1
+    }
+  ]
+}

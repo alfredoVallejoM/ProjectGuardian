@@ -1,0 +1,257 @@
+{
+  "schema": "guardian.b00-external-correspondence-execution/v1",
+  "date": "2026-10-24",
+  "base_commit": "edeb5c565012909f61feb1d27770f7bc037d0b79",
+  "python": "3.13.5",
+  "baseline": {
+    "passed": 780
+  },
+  "final_suite": {
+    "passed": 976,
+    "failed": 0,
+    "skipped": 0,
+    "new_cases": 196
+  },
+  "installed_wheel_suite": {
+    "passed": 976,
+    "guardian_modules_from_isolated_installation": 17
+  },
+  "compileall": "PASS",
+  "previous_mutations": {
+    "killed": 16,
+    "total": 16
+  },
+  "new_external_mutations": {
+    "killed": 9,
+    "total": 9
+  },
+  "mutation_scope": "DIRECTED_NOT_EXHAUSTIVE",
+  "initial_profile_gate": {
+    "acceptance_rows": 18,
+    "campaign_closed": false,
+    "distinct_test_functions": 24,
+    "errors": [],
+    "executed_cases": 976,
+    "gate_scope": "PROFILE_AND_EXECUTION_BINDINGS_NOT_SEMANTIC_SUFFICIENCY",
+    "ratified": false,
+    "status": "PASS"
+  },
+  "b00_reconciliation_gate": {
+    "apis": 58,
+    "campaign_closed": false,
+    "clauses": 120,
+    "decisions": 24,
+    "errors": [],
+    "executed_cases": 976,
+    "implementation_completeness": "NOT_CLAIMED",
+    "missing_authority_files": [
+      "architecture/campaigns.json",
+      "architecture/g00_functional_refinement.json",
+      "architecture/g00_api_contracts.json",
+      "architecture/g00_validation_plan.json",
+      "architecture/g00_design_decisions.json",
+      "docs/campaigns/G-00.md",
+      "docs/campaigns/G-00/13_FUNCTIONAL_REFINEMENT_MATRIX.md",
+      "docs/campaigns/G-00/14_API_CONTRACT_CATALOG.md",
+      "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md"
+    ],
+    "original_source_bytes": "EXTERNAL_GIT_READBACK_REQUIRED",
+    "parents": 12,
+    "ratification": "HOLD_EXTERNAL",
+    "runtime_named_functions": 23,
+    "semantic_review": "AUTHORED_NOT_INDEPENDENTLY_REVIEWED",
+    "status": "TECHNICAL_DISPOSITION_RECORDS_CHECKED"
+  },
+  "protected_installation": {
+    "errors": [
+      "IDENTITIES_NOT_SEPARATED",
+      "CANDIDATE_CAN_REPLACE_VERIFIER:worker",
+      "CANDIDATE_CAN_REPLACE_VERIFIER:launcher"
+    ],
+    "independent_review": "NOT_CHECKED",
+    "normative_approval": "NOT_CHECKED",
+    "observations": [
+      {
+        "owner_uid": 0,
+        "pin_matches": true,
+        "role": "worker",
+        "symlink": false,
+        "writable_ancestor": true,
+        "writable_by_candidate": true
+      },
+      {
+        "owner_uid": 0,
+        "pin_matches": true,
+        "role": "launcher",
+        "symlink": false,
+        "writable_ancestor": true,
+        "writable_by_candidate": true
+      }
+    ],
+    "signed_attestation": false,
+    "status": "HOLD"
+  },
+  "external_worker_guarantee": "SOURCE_IR_CORRESPONDENCE_ONLY_FOR_PINNED_PROFILE",
+  "normative_ratification": false,
+  "independent_actor_review": false,
+  "signed_attestation": false,
+  "not_run": [
+    "Python 3.12",
+    "static typechecker",
+    "independent actor review",
+    "operator-protected installation"
+  ],
+  "original_architecture_tree": "0f675d7754efaefa96974e1630cbcd7721cabb9a",
+  "original_source_verification": "Pinned GitHub source reads plus unchanged base-tree entries; not falsely claimed as local original-byte gate",
+  "files": {
+    "verification/external_v0/contract_worker.py": {
+      "sha256": "bcaf2a0d7ee9e02e450043b115d8c12645513514258176b8a3907e208c6a5474",
+      "git_blob": "f17272e4df6fbc11d3ff87ff75af6f7831839e4c",
+      "bytes": 27443
+    },
+    "tools/run_external_v0.py": {
+      "sha256": "5a6753ca33c3c467a520cae742769151e814d1ffd4b176ceee4b6fa37e7b94aa",
+      "git_blob": "97e709aabb1744746e9f21b6dc5d8402b8462f59",
+      "bytes": 3159
+    },
+    "tools/check_b00_reconciliation.py": {
+      "sha256": "51c02e3293e79886590b7d074f1307ebff5de645a77c7ceb3ebff1371d2f77b3",
+      "git_blob": "bd47fb1eae3856b8c11d45e8c100b6a2871c8c64",
+      "bytes": 8423
+    },
+    "tools/check_external_verifier_installation.py": {
+      "sha256": "cc587482e157535ee98d55782192906e9b94beab786a9b919393b6d8ee2e88cd",
+      "git_blob": "3657c41ddf6f7473e25dad75d33d3e3cd8d03813",
+      "bytes": 3029
+    },
+    "tools/run_b00_closure_mutations.py": {
+      "sha256": "392d5be209d675c2cbdfd4144a418da2849c148b97a44fc41ad529e615cdcdec",
+      "git_blob": "df25ab42bef8f554e15b979fdc7752672859ae93",
+      "bytes": 4142
+    },
+    "tools/validate_record_envelope.py": {
+      "sha256": "657135efecc581aad7fef5851fe30ab651ae9249e1841ebedb82b3f05ee659cd",
+      "git_blob": "7fc603679836394d267f1a4b186b767250061f5a",
+      "bytes": 4685
+    },
+    "tests/closure/test_external_contract.py": {
+      "sha256": "2c6f6101241fa68924befc4373c9ee12bba74a1df197e173c347b2fa7896d8f0",
+      "git_blob": "49b89ac0b91af84c0a43064f9f995d8309b5f01c",
+      "bytes": 17456
+    },
+    "tests/closure/test_record_envelope.py": {
+      "sha256": "304acfd2ff23746e22db7454d7c56f5499015d936ade7bf09abfaa4194aa51a7",
+      "git_blob": "90e222bcf456e53d7f3de547839a34e9933bc933",
+      "bytes": 5424
+    },
+    "tests/closure/test_b00_reconciliation.py": {
+      "sha256": "d718342c848a7fa6640f01ea4fa22338d2ba244b72ecf6230f10d3c5123abbfe",
+      "git_blob": "647c7129784b27bb98356065cb4cfed80fe5c785",
+      "bytes": 5563
+    },
+    "src/guardian/spec_lang/ir.py": {
+      "sha256": "894868570e7a912c1f1d327146668f7f104da937194aaa26b09f1f1f98e0a1cc",
+      "git_blob": "f5e9fa1ab3de53852d56dcbb7c43f85d7ee8c96c",
+      "bytes": 20122
+    },
+    "tests/test_audit_contract_gaps.py": {
+      "sha256": "ec7b5998c4448b8787a18ea7510e1487806c2a93db195816779e2ef1b7e4eafd",
+      "git_blob": "c2e610b1638ebe916ca0d588a6abe637ee86a9ba",
+      "bytes": 9293
+    },
+    "pyproject.toml": {
+      "sha256": "96fadf56bdac3d0490d3df8c4e87cebba1187e048402d1ff9d0778975ca39bfc",
+      "git_blob": "aedd39c253e4aa02fb1581b038e7675c749286bb",
+      "bytes": 475
+    },
+    "verification/b00/apis.tsv": {
+      "sha256": "1477ee13d2f01fb44d7e11db1897e63bc4b4520b723a37525ce686f4743c5e5a",
+      "git_blob": "ecfb0132db7d646d3353319253ef13a650d67471",
+      "bytes": 13380
+    },
+    "verification/b00/clauses.tsv": {
+      "sha256": "d4e132788bd77d60e74080d6fc3dbf1874142dbea6ead738c1161a1501d2d29b",
+      "git_blob": "dea35f995bb6759407a88ca273116be4a86523b4",
+      "bytes": 14489
+    },
+    "verification/b00/decisions.tsv": {
+      "sha256": "90e19c9066d418406dd8d3ba284a0bd485c9a617272f1a4110d1919f5ed7d2e9",
+      "git_blob": "741c752d2a93e6a234d101b943f245b9d55e3cf2",
+      "bytes": 4460
+    },
+    "verification/b00/format_catalog.json": {
+      "sha256": "95ad30e090a72d32306a016cbc2819d0e38ce771a247075f1360c70ec82a9560",
+      "git_blob": "2404ea07954bae845815beb8356f1ebd10aa81c3",
+      "bytes": 6185
+    },
+    "verification/b00/parents.json": {
+      "sha256": "ec40fdd3d2c79f09a3ca43c012333841dd5219a3368955b51ddd9a64f7b8a893",
+      "git_blob": "25b61d7d0b79c3cb906d9b082797d9fa68a05cf9",
+      "bytes": 6076
+    },
+    "verification/b00/reconciliation_manifest.json": {
+      "sha256": "4db0f27a5dd6af42cf070327e757395d9a945168250106660c31867753128555",
+      "git_blob": "1b45d957c4c9466571a06f906317a947602f5b27",
+      "bytes": 4192
+    },
+    "verification/b00/schema_pins.json": {
+      "sha256": "6254ece946813db2c07d785d225d2992b70c4c039645d5ea8e804d8caa0c7abd",
+      "git_blob": "64a510c4c104cb5125e19f5c6a9d622dd3e6902a",
+      "bytes": 404
+    },
+    "schemas/guardian/contract-ir-v0.1.schema.json": {
+      "sha256": "ad5ce6f59f49fb06622f54a2f9d07dbc5aff0e657843452fb828035027ccb47e",
+      "git_blob": "df2db6e3fdb05440b125aa12d236055c57b41d0c",
+      "bytes": 21262
+    },
+    "schemas/guardian/identity-v1.schema.json": {
+      "sha256": "6235df2d46bb6de1eab37d43128c59c24582bc061e191c29e3291bfade660c06",
+      "git_blob": "dd125ff9194a8a3074ff8be620eb4f688ecf39a4",
+      "bytes": 2774
+    },
+    "schemas/guardian/normative-envelope-v1.schema.json": {
+      "sha256": "226f33147b85f82825256d13a7dc7bffe77c98e00b9ec6569656fb3828a8815b",
+      "git_blob": "d06563b3f450b1860f78d91f7334d87216ebd4fa",
+      "bytes": 5000
+    },
+    "schemas/guardian/status-v1.schema.json": {
+      "sha256": "34f684141c0afe8d18717d9b5832e5ed1b546c719aa5a26ea3ba07bfb12a286a",
+      "git_blob": "658adfa311ec163a9f33c1561ea15da1ec0e00e9",
+      "bytes": 2341
+    },
+    "docs/closure/B00_LC00_RECONCILIATION_AND_EXTERNAL_CORRESPONDENCE.md": {
+      "sha256": "c7b26edc03c2df4e4052341363bd31488435c97f4532bec6254b8b0a633127c9",
+      "git_blob": "9feacd5fb82b161e14c4b1903365ca4b0d854ead",
+      "bytes": 11085
+    },
+    "docs/verification/B00_FINAL_TESTS.txt": {
+      "sha256": "07fa38f4f0d732cafb6ce4de1496d243376688ae148b940cd31e503922edcd6b",
+      "git_blob": "e544bbd6905c51426fe7b4c362d5c0a02c77d454",
+      "bytes": 1141
+    },
+    "docs/verification/B00_EXTERNAL_MUTATIONS.json": {
+      "sha256": "ec12341938687eb41ad0370615dd6d5444d9f0bd8a4dbbd4b0770bebcb311923",
+      "git_blob": "8608931802166640486a16375e29617ef930787f",
+      "bytes": 1809
+    },
+    "docs/verification/B00_PREVIOUS_MUTATIONS.json": {
+      "sha256": "fa9220f738e890283c4994bfd16cfebdb972adfddf15ae295ba151d74d12da4d",
+      "git_blob": "d06ada78709e771af0f5277bb580e61cc1012f1c",
+      "bytes": 5090
+    },
+    "docs/verification/B00_INSTALLATION_CHECK.json": {
+      "sha256": "b3d3764fb1ff971848fdccdc4b2b51bdf538274ccf4396db49c96698b4fe570f",
+      "git_blob": "b0b60d08538e0cd8c37c18b0f5405a61febd5469",
+      "bytes": 532
+    }
+  },
+  "log_sha256": {
+    "guardian-final.xml": "5f7d91390f64a478eef2b9c2427ad1880bf2a4917bc59a0729fca2ff16b9d069",
+    "guardian-final.txt": "07fa38f4f0d732cafb6ce4de1496d243376688ae148b940cd31e503922edcd6b",
+    "guardian-installed.xml": "38fd10fca0ce33ed911587daf450c5b0390ac274fc0c040d971f9e3b50de37de",
+    "guardian-installed.txt": "6599b551f2d5167e8b0119814d2289a437ee14735f4b86987c30b67635e0b92e",
+    "guardian-wheel-build.txt": "92fa08828234d8317511711cff28fe25134d89efd7f3dff1ddb2274eb6cde76a",
+    "guardian-wheel-install.txt": "8a63891f473135647c31f27fe3564020d21f2807060b4d8b37b69c3cbf2e223c"
+  }
+}

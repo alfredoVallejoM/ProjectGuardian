@@ -1,0 +1,25 @@
+id	candidate_selection	authority_state	reason
+G00-DD-001	Frozen nominal wrappers	AWAITING_EXTERNAL_RATIFICATION	Tipos distintos en tiempo de ejecución; ninguna coerción desde str-enums o cadenas intercambiables.
+G00-DD-002	ASCII token 3..96; rev-hex32; Unicode aliases	AWAITING_EXTERNAL_RATIFICATION	Gramáticas actuales fijadas como ABI candidata; los aliases históricos no se reinterpretan como IDs nuevos.
+G00-DD-003	Exact EntityRef revision	AWAITING_EXTERNAL_RATIFICATION	HEAD y navegación por alias se resuelven fuera del contrato admitido; nunca fallback latest.
+G00-DD-004	SHA256/SHA512 tagged content digest	AWAITING_EXTERNAL_RATIFICATION	Digest conserva algoritmo y bytes; igualdad de contenido no prueba sujeto, permiso ni suficiencia.
+G00-DD-005	Ambiguous alias is an error	AWAITING_EXTERNAL_RATIFICATION	AliasIndex explícito e inmutable; se conserva procedencia y no se elige por orden.
+G00-DD-006	EMBEDDED/SIDECAR/FEDERATED descriptors	AWAITING_EXTERNAL_RATIFICATION	Repositorios gestionados y repositorio de autoridad se registran por separado sin duplicar autoridad normativa.
+G00-DD-007	Explicit exact-cut import grants	AWAITING_EXTERNAL_RATIFICATION	Grant materialmente fijado no autoriza otro commit o ruta; autenticación corresponde a frontera externa.
+G00-DD-008	Git and document cuts; explicit history roles	AWAITING_EXTERNAL_RATIFICATION	BASE/DELTA/SUPERSEDED/REFERENCE no prueban disjunción; identidad material y baseline se validan independientemente.
+G00-DD-009	Bounded universe with missing sources	AWAITING_EXTERNAL_RATIFICATION	Conservar known_missing y adquisición MISSING; ninguna cifra de filas sustituye el universo objetivo.
+G00-DD-010	Immutable reference-based aggregate	AWAITING_EXTERNAL_RATIFICATION	Muchos-a-muchos y entidades distintas; Campaign/Architecture son detalles transversales explícitos, no prueba de realización.
+G00-DD-011	No writable completion authority	AWAITING_EXTERNAL_RATIFICATION	El compromiso describe requisitos; material, auditoría y cualificación se almacenan aparte.
+G00-DD-012	Typed finite scope AST	AWAITING_EXTERNAL_RATIFICATION	Atom/All/Any/Not y constantes explícitas; contratos definidos, motor completo en B04/B07.
+G00-DD-013	Four-valued evidence pair	AWAITING_EXTERNAL_RATIFICATION	Fijadas tablas AND/OR/NOT; testigos scoped pertenecen a la API de ámbito, no al escalar V4.
+G00-DD-014	Reject implicit vacuous applicability	AWAITING_EXTERNAL_RATIFICATION	ALL/ANY vacíos requieren una elección explícita de constante; no auto-PASS del conjunto vacío.
+G00-DD-015	Due distinct from approval and applicability	AWAITING_EXTERNAL_RATIFICATION	DueStatus conserva CURRENT/FUTURE/CONDITIONAL/OPTIONAL/RESEARCH aparte del ciclo de vida CommitmentStatus.
+G00-DD-016	External AuthorityContext	AWAITING_EXTERNAL_RATIFICATION	APPROVED textual es observación; ratificación efectiva requiere aprobación y ámbito confiables, no renombrado.
+G00-DD-017	Partial scoped precedence	AWAITING_EXTERNAL_RATIFICATION	Observación y norma no se ordenan por fecha; sustitución necesita autoridad y revisión.
+G00-DD-018	Localized conflict with two witnesses	AWAITING_EXTERNAL_RATIFICATION	Dependencias suministradas permiten localización pura; G-02 desarrolla el grafo global.
+G00-DD-019	Trusted versioned pure evaluator registry	AWAITING_EXTERNAL_RATIFICATION	No callbacks del proyecto ni evaluación de scripts; implementación completa permanece B07.
+G00-DD-020	Nine axes plus separate due classification	AWAITING_EXTERNAL_RATIFICATION	Enums actuales fijados por profile; las variantes de diseño no presentes se documentan como selección de representación, no promociones.
+G00-DD-021	Pinned strict schemas and required features	AWAITING_EXTERNAL_RATIFICATION	Los cuatro esquemas de transporte no sustituyen los decoders de dominio futuros; entero grande etiquetado y extensiones info.*.
+G00-DD-022	Deterministic per-field and aggregate budgets	AWAITING_EXTERNAL_RATIFICATION	Agotamiento es inconcluso y nunca PASS parcial; límites del verificador quedan fijados por operador.
+G00-DD-023	Typed diagnostic causes and versioned wire tags	AWAITING_EXTERNAL_RATIFICATION	Error operativo distinto de incumplimiento; aliases de nombres se registran, no se pierden causas ni localización.
+G00-DD-024	External verifier and operator-controlled pins	AWAITING_EXTERNAL_RATIFICATION	Worker y launcher se fijan externamente; proceso aislado no demuestra permisos protegidos, firma o auditor distinto.

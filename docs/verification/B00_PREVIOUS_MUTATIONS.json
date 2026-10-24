@@ -1,0 +1,204 @@
+{
+  "profile": "targeted-semantic-mutations/v1",
+  "full_execution_log_sha256": "e1ac75db9b334ed8fbb66df3312d8589a6cfc49d98516d1839f617e1f8e0e4c6",
+  "publication_note": "Per-mutation results; verbose pytest output omitted, full run identified by SHA-256. No execution result changed.",
+  "results": [
+    {
+      "id": "Q01",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q01_status_parser_rejects_an_enum_from_another_axis",
+      "substitutions": [
+        1,
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "Q02",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q02_sidcar_governance_repository_is_a_valid_project_source",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "Q03",
+      "status": "KILLED",
+      "test": "tests/test_q_mutation_controls.py::test_physical_alias_reports_specific_diagnostic",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "Q04",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q04_document_baseline_cycles_are_diagnosed",
+      "substitutions": [
+        1,
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "Q05",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q05_missing_source_entry_is_visible_in_coverage_description",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "Q06",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q06_compile_context_cannot_hold_mutable_source_pins",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "Q07",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q07_compiled_result_rejects_an_untyped_digest",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "Q08",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q08_normative_unit_rejects_invalid_byte_boundaries",
+      "substitutions": [
+        1,
+        1
+      ],
+      "returncode": 1,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "Q09",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q09_domain_does_not_import_application",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "Q10",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q10_status_validator_rejects_orphan_entity_and_scope",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "Q11",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q11_frontend_result_cannot_pair_a_foreign_ast_with_local_source",
+      "substitutions": [
+        1,
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "Q12",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q12_true_literal_is_not_accepted_as_an_uninterpreted_atom",
+      "substitutions": [
+        2
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "Q13",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q13_v0_accepts_legal_block_comments_inside_formula",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "Q14",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q14_declaration_origin_swap_cannot_earn_source_to_ir_equivalence",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "Q15",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q15_ir_reference_changes_are_not_full_contract_equivalence",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "NO_PARTIAL_PASS",
+      "status": "KILLED",
+      "test": "tests/spec_lang/test_lc01_lc02_semantic_audit.py::test_entire_interpreted_contract_matches_pinned_source",
+      "substitutions": [
+        1,
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    }
+  ]
+}

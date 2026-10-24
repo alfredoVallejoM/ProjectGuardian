@@ -1,0 +1,6 @@
+{
+  "contract-ir-v0.1.schema.json": "ad5ce6f59f49fb06622f54a2f9d07dbc5aff0e657843452fb828035027ccb47e",
+  "identity-v1.schema.json": "6235df2d46bb6de1eab37d43128c59c24582bc061e191c29e3291bfade660c06",
+  "normative-envelope-v1.schema.json": "226f33147b85f82825256d13a7dc7bffe77c98e00b9ec6569656fb3828a8815b",
+  "status-v1.schema.json": "34f684141c0afe8d18717d9b5832e5ed1b546c719aa5a26ea3ba07bfb12a286a"
+}

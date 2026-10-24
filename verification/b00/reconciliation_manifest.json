@@ -1,0 +1,49 @@
+{
+  "schema": "guardian.b00-technical-reconciliation/v1",
+  "revision": "candidate-2026-10-24",
+  "base_commit": "edeb5c565012909f61feb1d27770f7bc037d0b79",
+  "scope": "Completed technical disposition of B00 clauses, APIs, formats; external contract correspondence. Not full G00 implementation.",
+  "ratified": false,
+  "campaign_closed": false,
+  "original_blob_pins": {
+    "architecture/campaigns.json": "83c00b70fe2bd46b3027c91901bdf45c9620c3c3",
+    "architecture/g00_functional_refinement.json": "b5e2d1d90578dd942647720314047e5d2e4caac2",
+    "architecture/g00_api_contracts.json": "5d4052c617cf0d962b0ba555ad0ae502e5b818f4",
+    "architecture/g00_validation_plan.json": "238e18d9defde4f943d9a6ecda2f719bf9cc0914",
+    "architecture/g00_design_decisions.json": "63c70c384dea1fbe36335a57a487e755ed785eaa",
+    "docs/campaigns/G-00.md": "b5051d450e5895d0706624cf93ecd8e375d407ac",
+    "docs/campaigns/G-00/13_FUNCTIONAL_REFINEMENT_MATRIX.md": "b0c12cc25e7828e672d08e0db656d3e4d05a2c78",
+    "docs/campaigns/G-00/14_API_CONTRACT_CATALOG.md": "9c17992047e271b4d32f573678b134c1663bea0a",
+    "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md": "8f0fb33a33d69cab363eddd2ceabbea0bd325ce0",
+    "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md": "9f1c88a664b6ac2ab8114aa349e9a5ec605219d0"
+  },
+  "artifacts": {
+    "schemas/guardian/contract-ir-v0.1.schema.json": "ad5ce6f59f49fb06622f54a2f9d07dbc5aff0e657843452fb828035027ccb47e",
+    "schemas/guardian/identity-v1.schema.json": "6235df2d46bb6de1eab37d43128c59c24582bc061e191c29e3291bfade660c06",
+    "schemas/guardian/normative-envelope-v1.schema.json": "226f33147b85f82825256d13a7dc7bffe77c98e00b9ec6569656fb3828a8815b",
+    "schemas/guardian/status-v1.schema.json": "34f684141c0afe8d18717d9b5832e5ed1b546c719aa5a26ea3ba07bfb12a286a",
+    "verification/b00/apis.tsv": "1477ee13d2f01fb44d7e11db1897e63bc4b4520b723a37525ce686f4743c5e5a",
+    "verification/b00/clauses.tsv": "d4e132788bd77d60e74080d6fc3dbf1874142dbea6ead738c1161a1501d2d29b",
+    "verification/b00/decisions.tsv": "90e19c9066d418406dd8d3ba284a0bd485c9a617272f1a4110d1919f5ed7d2e9",
+    "verification/b00/format_catalog.json": "95ad30e090a72d32306a016cbc2819d0e38ce771a247075f1360c70ec82a9560",
+    "verification/b00/parents.json": "ec40fdd3d2c79f09a3ca43c012333841dd5219a3368955b51ddd9a64f7b8a893"
+  },
+  "acceptance_tests": [
+    "tests/closure/test_b00_reconciliation.py::test_120_clause_dispositions_and_12_parent_judgments_preserve_all_original_ids",
+    "tests/closure/test_b00_reconciliation.py::test_removing_or_reassigning_any_clause_or_api_is_detectable",
+    "tests/closure/test_b00_reconciliation.py::test_operator_manifest_pin_cannot_be_replaced_by_candidate",
+    "tests/closure/test_b00_reconciliation.py::test_junit_gate_rejects_missing_failed_or_skipped_required_tests",
+    "tests/closure/test_b00_reconciliation.py::test_future_apis_and_payloads_are_not_promoted_by_listing_them",
+    "tests/closure/test_external_contract.py::test_all_eight_product_declarations_pass_complete_external_correspondence",
+    "tests/closure/test_external_contract.py::test_each_declaration_population_identity_origin_and_order_is_bound",
+    "tests/closure/test_external_contract.py::test_every_field_is_checked_not_only_interpreted_formulas",
+    "tests/closure/test_external_contract.py::test_external_process_accepts_real_product_IR_and_rejects_rehashed_scope_change",
+    "tests/closure/test_external_contract.py::test_all_remaining_deferred_field_and_proofs_preserved_without_promotion",
+    "tests/closure/test_external_contract.py::test_external_worker_does_not_import_guardian_even_with_poisoned_path",
+    "tests/closure/test_record_envelope.py::test_existing_wire_kinds_roundtrip_without_semantic_promotion",
+    "tests/closure/test_record_envelope.py::test_required_fields_never_default_missing_or_null",
+    "tests/closure/test_record_envelope.py::test_unknown_feature_and_unimplemented_record_kind_fail_closed",
+    "tests/closure/test_record_envelope.py::test_large_integers_are_tagged_and_exact_not_rounded",
+    "tests/closure/test_b00_reconciliation.py::test_verifier_owned_by_candidate_cannot_be_called_protected"
+  ]
+}

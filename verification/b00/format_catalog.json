@@ -1,0 +1,36 @@
+{
+ "schema":"guardian.b00-format-reconciliation/v1",
+ "authority":"CANDIDATE_NOT_RATIFIED",
+ "generic_domain_decoder_implemented":false,
+ "policy":{
+  "envelope":"guardian/normative-envelope/v1",
+  "discriminant":"record_type and payload_schema; no inferred defaults",
+  "identity":"project_id/logical_id/revision_id are nominal envelopes, not interchangeable strings",
+  "normative_features":"required, nonempty, unique; reader capabilities are external inputs",
+  "numbers":"JSON-safe exact integers only; larger values use {$type:exact_integer,decimal:canonical-string}",
+  "unknown_normative_fields":"REJECTED",
+  "missing_null_empty":"distinct, never substituted by permissive defaults",
+  "extensions":"info.* namespace; preserved but never merged into policy",
+  "compatibility":"exact registered schema; semantic change requires explicit migration, not latest lookup",
+  "authority":"wire format, domain integrity, proof and admission are separate checks"
+ },
+ "formats":[
+  {"record_type":"IDENTITY_RECORD","payload_schema":"guardian.identity/v1","schema_file":"schemas/guardian/identity-v1.schema.json","runtime_domain_decoder":"EXISTING_BOUNDED_CODEC","owner":"domain/identity.py","contract":"decode_identity preserves project/kind/revision; no resolution or authority"},
+  {"record_type":"STATUS_RECORD","payload_schema":"guardian.status/v1","schema_file":"schemas/guardian/status-v1.schema.json","runtime_domain_decoder":"EXISTING_BOUNDED_CODEC","owner":"domain/outcomes.py","contract":"axis+variant exact; no promotion or lifecycle projection"},
+  {"record_type":"CONTRACT_IR","payload_schema":"guardian/gsl0/typed-ir/v0.1","schema_file":"schemas/guardian/contract-ir-v0.1.schema.json","runtime_domain_decoder":"EXISTING_BOUNDED_CODEC","owner":"spec_lang/ir.py","contract":"eight declaration kinds; full correspondence is separate from shape and reference existence"},
+  {"record_type":"PROJECT_REVISION","runtime_domain_decoder":"NOT_IMPLEMENTED","owner":"B02/B06","required_payload":["definition","source_policy","storage","constitution_ref","repository_cuts"],"contract":"No mutable current_project; codecs must preserve all pinned references"},
+  {"record_type":"SOURCE_UNIVERSE_REVISION","runtime_domain_decoder":"NOT_IMPLEMENTED","owner":"B02/B06","required_payload":["scope","entries","included","excluded","known_missing","declared_limits"],"contract":"No broadening grants, implicit disjointness or missing-source erasure"},
+  {"record_type":"OBJECTIVE_REVISION","runtime_domain_decoder":"NOT_IMPLEMENTED","owner":"B03/B06","required_payload":["purpose","criteria","exclusions","source_refs","decision_refs","capability_refs","normative_state"],"contract":"Purpose not task; proposed draft distinct from executable obligation"},
+  {"record_type":"CAPABILITY_REVISION","runtime_domain_decoder":"NOT_IMPLEMENTED","owner":"B03/B06","required_payload":["semantic_owner_ref","behavior_contract","input_kind_refs","output_kind_refs","applicability","property_refs","contract_version","source_refs","exclusions"],"contract":"Multiple realizations may implement one capability; no file-exists completion"},
+  {"record_type":"PROPERTY_REVISION","runtime_domain_decoder":"NOT_IMPLEMENTED","owner":"B03/B06","required_payload":["statement","scope_refs","hypotheses","forbidden_claims","verification_spec_refs","source_refs","assertion_kind"],"contract":"Independent from tests and from code; no automatic PROVED"},
+  {"record_type":"OBLIGATION_REVISION","runtime_domain_decoder":"NOT_IMPLEMENTED","owner":"B03/B06","required_payload":["kind","statement","applicability","commitment_scope","due_milestones","required_property_refs","acceptance_contract","falsification_contract","verification_spec_refs","source_refs","authority_ref","architecture_rule_refs","consumer_contract_refs","resource_contract_refs","prerequisite_expr","owner_ref","exclusions","lineage_refs"],"contract":"Admission profile requires complete contracts; absent/null/empty have separate diagnostics; no completed/verified/migrated authority flags"},
+  {"record_type":"CAMPAIGN_REVISION","runtime_domain_decoder":"NOT_IMPLEMENTED","owner":"B03/B06","required_payload":["membership","milestones","closure_policy","source_refs","authority_ref"],"contract":"Membership pins obligation/revision/scope; no duplicate normative authority"},
+  {"record_type":"ARCHITECTURE_REVISION","runtime_domain_decoder":"NOT_IMPLEMENTED","owner":"B03/B06","required_payload":["components","owners","interfaces","allowed_dependencies","required_dependencies","forbidden_dependencies","source_refs"],"contract":"Normative architecture not inferred from observed imports"},
+  {"record_type":"RULE_REVISION","runtime_domain_decoder":"NOT_IMPLEMENTED","owner":"B05/B06","required_payload":["kind","scope","predicate","authority_ref","semantic_version","source_refs"],"contract":"Only registered pure semantics; unknown kind must be reported, not skipped"},
+  {"record_type":"DECISION_REVISION","runtime_domain_decoder":"NOT_IMPLEMENTED","owner":"B05/B06","required_payload":["statement","status","approval_refs","scope","prior_refs","source_refs"],"contract":"APPROVED data distinct from externally established ratification"},
+  {"record_type":"STATUS_OBSERVATION","runtime_domain_decoder":"NOT_IMPLEMENTED","owner":"B01/B06","required_payload":["entity","status","source_ref","scope_ref","revision","observer","evidence_refs","due"],"contract":"Current in-memory model exists; codec and authorized state projection are different obligations"}
+ ],
+ "planned_payload_policy":"Descriptions freeze required semantic information, not final domain decoder implementation. Future record types are rejected by the current envelope schema, never accepted as opaque dictionaries.",
+ "status_representation_decision":"Current CommitmentStatus is lifecycle; DueStatus separately preserves CURRENT/FUTURE/CONDITIONAL/OPTIONAL/RESEARCH. The B00 selection records this split; no implicit enum renaming or ratification.",
+ "source_basis":["docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md","docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md","docs/campaigns/G-00/06_ORTHOGONAL_STATUS_AND_OUTCOMES.md"]
+}

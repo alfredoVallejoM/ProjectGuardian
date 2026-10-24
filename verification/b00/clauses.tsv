@@ -1,0 +1,121 @@
+id	relation	bridge	disposition
+G00-01-F01	REFINES	G00-07	La distinción nominal materializa tipos diferentes; el mismo texto no autoriza conversión.
+G00-01-F02	CROSS_CONTRACT	G00-02	Proyecto y clase forman la identidad; impide colisiones entre universos aislados.
+G00-01-F03	DESIGN_CHOICE	G00-DD-002	La gramática concreta es una elección de ABI; debe validar sin redefinir identidad histórica.
+G00-01-F04	DESIGN_CHOICE	G00-DD-005	El alias es una navegación con procedencia, no identidad canónica ni selección por orden.
+G00-01-F05	REFINES	G00-02	Separar metadatos preserva la identidad ante renombrados; no requiere migrador persistente.
+G00-01-F06	CROSS_CONTRACT	G00-08	La referencia fija revisión; la resolución exacta exige además el snapshot de G00-08.
+G00-01-F07	DESIGN_CHOICE	G00-DD-004	Algoritmo y longitud delimitan identidad de bytes, nunca equivalencia semántica.
+G00-01-F08	CROSS_CONTRACT	G00-10	Recibir IDs evita reloj y aleatoriedad en el núcleo; la generación externa no es obligación del parser.
+G00-01-F09	REFINES	G00-09	Serialización debe conservar discriminantes, proyecto y revisión, no solo cadenas.
+G00-01-F10	REFINES	G00-08	Una colisión debe diagnosticarse sin sobrescritura; la revisión nueva no crea por sí sola otra entidad.
+G00-02-F01	REFINES	G00-01	La definición conserva ProjectId al cambiar el nombre y evita reiniciar el linaje.
+G00-02-F02	REFINES	G00-03	La fuente de autoridad exige política explícita por proyecto; conocer un repositorio no lo autoriza.
+G00-02-F03	DESIGN_CHOICE	G00-DD-006	Los tres modos son descriptores de autoridad, no instalación ni sincronización Git.
+G00-02-F04	REFINES	G00-10	Seleccionar ProjectId en cada llamada evita una autoridad global dependiente de sesión.
+G00-02-F05	REFINES	G00-04	La importación exige descriptor y contexto externo; parecido textual no sustituye permiso.
+G00-02-F06	REFINES	G00-08	El permiso limita corte y ruta; un grant de archivo no se propaga al repositorio.
+G00-02-F07	CROSS_CONTRACT	G00-04	Fijar revisión de política conserva evaluación histórica; no hay selección latest.
+G00-02-F08	DESIGN_CHOICE	G00-DD-006	La federación conserva identidad, corte y dueño de cada repositorio; no comparte SHA implícito.
+G00-02-F09	REFINES	G00-01	Un nombre compartido entre proyectos no une sus namespaces ni sus decisiones.
+G00-02-F10	CROSS_CONTRACT	G00-10	Vista inmutable y contexto explícito impiden que validar altere el proyecto.
+G00-03-F01	DESIGN_CHOICE	G00-DD-008	El corte Git incluye repositorio y commit completo; branch no es revisión fija.
+G00-03-F02	REFINES	G00-01	Un documento necesita identidad de revisión/captura; título o locator solo no acreditan versión.
+G00-03-F03	REFINES	G00-02	El conjunto incluido delimita el universo; cambiarlo crea otro corte, no reinterpreta el anterior.
+G00-03-F04	CROSS_CONTRACT	G00-04	Excluir exige razón y autoridad; no permite reducir el denominador para ocultar incumplimientos.
+G00-03-F05	REFINES	G00-07	Ausencias y no disponibilidad se preservan como conocimiento faltante, nunca reconciliación inventada.
+G00-03-F06	DESIGN_CHOICE	G00-DD-008	BASE/DELTA/SUPERSEDED/REFERENCE explican solapamientos; la etiqueta no prueba disjunción material.
+G00-03-F07	CROSS_CONTRACT	G00-07	Niveles de adquisición separan identificación, contenido y reconciliación; no implican cualificación.
+G00-03-F08	CROSS_CONTRACT	G00-04	Una observación de fuente no ratifica una decisión ni sustituye la constitución.
+G00-03-F09	REFINES	G00-12	La cobertura necesita universo objetivo y límites; validar las filas cargadas no prueba exhaustividad.
+G00-03-F10	REFINES	G00-06	Corpus, plataforma, features y ventanas hacen explícito el denominador de cada afirmación.
+G00-04-F01	DESIGN_CHOICE	G00-DD-016	APPROVED describe una decisión; RATIFIED efectivo exige contexto confiable y nunca un alias automático.
+G00-04-F02	REFINES	G00-07	Separar ApprovalRef del texto permite exigir evidencia sin autenticarla dentro de G00.
+G00-04-F03	REFINES	G00-06	Regla identificada, versionada y scoped evita normas incompletas aplicadas universalmente.
+G00-04-F04	REFINES	G00-03	Hecho observado y norma tienen funciones distintas; un cambio de código no reescribe obligaciones.
+G00-04-F05	BOUNDARY	G-09	G00 recibe autoridad explícita y valida consistencia; autenticación externa sigue siendo G-09.
+G00-04-F06	CROSS_CONTRACT	G00-11	Sustitución aprobada afecta solo su ámbito y revisión; no elimina la historia.
+G00-04-F07	REFINES	G00-11	La precedencia no se deduce de fecha o SHA; desacuerdo sin política sigue en conflicto.
+G00-04-F08	CROSS_CONTRACT	G00-11	Se conservan ambos testigos y dependientes afectados; no basta devolver un booleano.
+G00-04-F09	REFINES	G00-02	Autoridad y política pertenecen al proyecto y ámbito concedidos; no hay herencia implícita.
+G00-04-F10	BOUNDARY	G-09	Crear una propuesta de enmienda es puro; aprobar/publicar su propia modificación no pertenece a G00.
+G00-05-F01	REFINES	G00-01	Objective es propósito con fuentes y exclusiones; no task ni estado de ejecución.
+G00-05-F02	REFINES	G00-07	Capability expresa comportamiento y owner; la existencia de un archivo no realiza la capacidad.
+G00-05-F03	REFINES	G00-06	Property fija hipótesis, garantía y ámbito y puede compartirse sin duplicar autoridad.
+G00-05-F04	REFINES	G00-04	Obligation registra compromiso, applicability, due, fuente y autoridad; no todo TODO está admitido.
+G00-05-F05	REFINES	G00-12	Aceptación, falsación y verificación hacen comprobable el compromiso; existe test no es aceptación suficiente.
+G00-05-F06	CROSS_CONTRACT	G00-07	VerificationSpec describe qué verificar; no crea ValidationRun ni material PASS.
+G00-05-F07	CROSS_CONTRACT	G00-DD-010	ArchitectureRevision es detalle transversal de diseño, no consecuencia de distinguir cuatro entidades; conservarlo sin inferir conformidad observada.
+G00-05-F08	CROSS_CONTRACT	G00-DD-010	CampaignRevision agrega referencias al compromiso; no copia la autoridad ni exige evolución persistida G-01.
+G00-05-F09	DESIGN_CHOICE	G00-DD-010	Muchos-a-muchos preserva reutilización de propiedades; la topología uno-a-uno no está autorizada por el padre.
+G00-05-F10	CROSS_CONTRACT	G00-07	Separar investigación y exigibilidad evita que una observación cambie CURRENT por conveniencia.
+G00-06-F01	REFINES	G00-02	SupportProfile tipa proyecto, revisión y dimensiones; dato ausente conserva incertidumbre.
+G00-06-F02	DESIGN_CHOICE	G00-DD-012	El AST de operadores registrado es el mecanismo de evaluación, no un intérprete de scripts del proyecto.
+G00-06-F03	REFINES	G00-07	Los cuatro valores y sus testigos distinguen contradicción de ignorancia y no son autoridad probatoria.
+G00-06-F04	DESIGN_CHOICE	G00-DD-013	AND usa intersección positiva y unión negativa; tablas solas no sustituyen los testigos scoped.
+G00-06-F05	DESIGN_CHOICE	G00-DD-013	OR y NOT conservan los dos soportes; no aplicar negación booleana a UNKNOWN o CONFLICT.
+G00-06-F06	REFINES	G00-03	Ausencia implica NO únicamente bajo un universo explícitamente exhaustivo; el resto es UNKNOWN.
+G00-06-F07	CROSS_CONTRACT	G00-05	Aplicabilidad no activa exigibilidad temporal ni ratifica compromisos.
+G00-06-F08	BOUNDARY	G00-10	Predicado sin interpretación confiable conserva UNKNOWN; no ejecuta plugins suministrados por el candidato.
+G00-06-F09	CROSS_CONTRACT	G00-10	Presupuesto es estado operativo separado; agotarlo no permite declarar completitud.
+G00-06-F10	REFINES	G00-02	Cada testigo conserva proyecto, revisión y perfil; evidencia extranjera exige importación explícita.
+G00-07-F01	DESIGN_CHOICE	G00-DD-020	Nueve ejes refinan estados originales y decisiones/compromisos de otros padres; son nominalmente distintos.
+G00-07-F02	REFINES	G00-03	Adquisición de una fuente no modifica implementación ni reconciliación semántica.
+G00-07-F03	CROSS_CONTRACT	G00-04	Estado de decisión y compromiso temporal son independientes; observar no promueve CURRENT.
+G00-07-F04	REFINES	G00-12	DEVELOPED y NOT_RUN pueden coexistir; autoría de prueba no demuestra ejecución.
+G00-07-F05	BOUNDARY	G-06	G00 representa AuditRecord requerido; dictamen independiente y política operativa pertenecen a assurance.
+G00-07-F06	BOUNDARY	G-06	Observación de soporte/cualificación no emite certificado; necesita evidencia y ámbito futuros.
+G00-07-F07	BOUNDARY	G-10	Un estado de migración es independiente de un smoke test; paridad material corresponde a G-10.
+G00-07-F08	REFINES	G00-08	Observación conserva sujeto, fuente, revisión, actor y scope; no es proyección autorizada.
+G00-07-F09	REFINES	G00-12	NOT_RUN debe permanecer visible y distinto de éxito y fallo.
+G00-07-F10	REFINES	G00-12	Presentación conserva todos los ejes exigidos y evidencia faltante; no reduce a DONE.
+G00-08-F01	REFINES	G00-01	Ref fija proyecto, clase, ID y revisión; navegación por latest no es referencia normativa.
+G00-08-F02	REFINES	G00-05	Resolver verifica clase esperada antes de devolver entidad; una cadena igual no basta.
+G00-08-F03	REFINES	G00-02	Snapshot delimita revisiones disponibles; la histórica no se transforma en actual.
+G00-08-F04	CROSS_CONTRACT	G00-01	Un alias ambiguo produce diagnóstico; el orden no decide identidad.
+G00-08-F05	BOUNDARY	G-02	No imponer aciclicidad universal a relaciones; ciclos de ejecución y de ontología son contratos distintos.
+G00-08-F06	CROSS_CONTRACT	G00-02	Grants acotados condicionan refs extranjeras por corte; no hay permiso global por enlazar.
+G00-08-F07	REFINES	G00-03	Ruta relativa canónica bloquea traversal y absolutos; no sustituye aislamiento del adaptador de archivos.
+G00-08-F08	REFINES	G00-01	Referencia inexistente es error tipado; no crea placeholder ratificado.
+G00-08-F09	REFINES	G00-03	SourceRef requiere contexto material propio; un EntityId o URL cualquiera no identifica corte Git.
+G00-08-F10	CROSS_CONTRACT	G00-10	Resolver es lectura determinista; no crea revisiones ni muta el catálogo.
+G00-09-F01	REFINES	G00-01	Envelope fija versión y discriminante; no hay default normativo para registros ambiguos.
+G00-09-F02	REFINES	G00-10	Features requeridas desconocidas bloquean al lector en vez de borrar condiciones.
+G00-09-F03	REFINES	G00-07	Variante desconocida se rechaza sin traducirla al UNKNOWN de otro dominio.
+G00-09-F04	REFINES	G00-05	Ausencia, null y vacío son casos distintos; aceptación omitida no se rellena silenciosamente.
+G00-09-F05	REFINES	G00-01	Roundtrip conserva identidad, tipos, revisión y fuentes además del contenido.
+G00-09-F06	DESIGN_CHOICE	G00-DD-021	Enteros fuera del intervalo interoperable requieren representación exacta etiquetada.
+G00-09-F07	REFINES	G00-10	JSON estricto rechaza NaN/infinito y claves duplicadas para impedir ambigüedad de interpretación.
+G00-09-F08	DESIGN_CHOICE	G00-DD-021	Extensiones informativas solo en namespace declarado; nunca añaden semántica normativa implícita.
+G00-09-F09	BOUNDARY	G-01/G-12	Compatibilidad se diagnostica; migración semántica no se ejecuta como efecto de lectura.
+G00-09-F10	REFINES	G00-10	Registry y versión son argumentos fijados; no se consulta latest ni red.
+G00-10-F01	REFINES	G00-02	Todos los contextos entran explícitos; ausencia es error, no lectura de configuración ambiental.
+G00-10-F02	REFINES	G00-09	Prevalidación separa input inválido de propiedad científica falsa.
+G00-10-F03	REFINES	G00-12	Toda regla permanece en el denominador y en el informe aunque su evaluador no exista.
+G00-10-F04	CROSS_CONTRACT	G00-06	NOT_APPLICABLE exige NO justificado; UNKNOWN no se elimina de la evaluación.
+G00-10-F05	CROSS_CONTRACT	G00-04/G00-11	Precedencia necesita autoridad y scope; no se deriva del texto más reciente.
+G00-10-F06	DESIGN_CHOICE	G00-DD-019	Registro confiable versionado fija funciones puras; determinismo incluye sus dependencias.
+G00-10-F07	REFINES	G00-04	El contrato es datos; no autoriza cargar callbacks o ejecutar código arbitrario.
+G00-10-F08	REFINES	G00-06	Límites conservan lista de reglas no examinadas; no se devuelve PASS por timeout.
+G00-10-F09	REFINES	G00-11	Cada regla produce resultado y testigos; una violación no oculta las demás.
+G00-10-F10	REFINES	G00-12	Permutaciones no semánticas preservan resultado y no mutan hechos; orden normativo sí se conserva.
+G00-11-F01	REFINES	G00-04	Hecho, regla, decisión e inferencia tienen autoridad distinta; observar no enmienda.
+G00-11-F02	CROSS_CONTRACT	G00-06	Incompatibilidad requiere intersección efectiva de ámbitos, no desacuerdo textual global.
+G00-11-F03	CROSS_CONTRACT	G00-04	Cortes históricos pueden coexistir; sustitución autorizada no borra antecedentes.
+G00-11-F04	REFINES	G00-03	ConflictRecord conserva ambas fuentes y perfiles; contradicción no se degrada a ignorancia.
+G00-11-F05	REFINES	G00-04	Fecha, SHA y orden no constituyen precedencia aprobada.
+G00-11-F06	REFINES	G00-04	Supersesión solo resuelve donde el contexto confiable la autoriza.
+G00-11-F07	BOUNDARY	G-02	G00 usa dependencias tipadas suministradas para localizar; no implementa el SupportCone global.
+G00-11-F08	REFINES	G00-10	Agregación parcial conserva conflictos pendientes y sus testigos.
+G00-11-F09	CROSS_CONTRACT	G00-10	Diagnósticos ordenados son reproducibles sin elegir ganador por orden.
+G00-11-F10	CROSS_CONTRACT	G00-02	Normas de universos diferentes no compiten sin importación y autoridad explícitas.
+G00-12-F01	REFINES	G00-01	Pruebas ejercitan confusión de tipos, aliases, revisión y roundtrip, no mera presencia de clases.
+G00-12-F02	REFINES	G00-03	Falsaciones deben detectar cortes mutables, faltas y grants excesivos con causa correcta.
+G00-12-F03	REFINES	G00-04	Positivos y negativos comprueban aprobación y precedencia con contexto confiable separado.
+G00-12-F04	REFINES	G00-05	Uso compartido muchos-a-muchos debe conservar identidad y ausencia de autocertificación.
+G00-12-F05	REFINES	G00-06	Tablas V4 incluyen testigos y alcance; álgebra escalar sola no completa esta familia.
+G00-12-F06	REFINES	G00-07	Combinaciones de ejes y parsers deben bloquear promociones incluso con enums de texto iguales.
+G00-12-F07	REFINES	G00-09	Versiones, features y payload hostil se prueban junto con roundtrip y ausencia/null/vacío.
+G00-12-F08	REFINES	G00-10	Permutación, presupuesto y no-I/O se prueban contra reglas e informes completos.
+G00-12-F09	CROSS_CONTRACT	G00-02/G00-04	La vertical usa dos constituciones y fuentes reales en memoria; un test de ProjectId no la reemplaza.
+G00-12-F10	REFINES	G00-11	Cada familia requiere una mutación pertinente; error de colección, timeout o skip no cuentan como detección.

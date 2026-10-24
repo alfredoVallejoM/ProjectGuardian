@@ -28,7 +28,7 @@ _MAX_IR_BYTES = 8_000_000
 _MAX_IR_DECLARATIONS = 25_000
 _MAX_IR_PROOFS = 50_000
 _MAX_IR_FIELDS_PER_DECLARATION = 1_000
-_FORMULA_RESERVED = frozenset({'and', 'or', 'not', 'yes', 'no', 'unknown', 'conflict'})
+_FORMULA_RESERVED = frozenset({'and', 'or', 'not', 'yes', 'no', 'unknown', 'conflict', 'true', 'false'})
 
 
 class IRType(str, Enum):

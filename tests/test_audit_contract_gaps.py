@@ -111,7 +111,13 @@ def test_Q12_true_literal_is_not_accepted_as_an_uninterpreted_atom():
     e=r.units[0].ast.declarations[0].fields[0].expr
     assert e.tag=='bool' and e.value is True
     origin=SourceOrigin(b.source_ref,b.expected_digest,e.span.start,e.span.end)
-    report=verify_semantics(b,c,origin,FormulaIR('atom',name='true'))
+    # Direct construction now rejects literal keywords. Keep the original
+    # verifier attack too, using an explicitly forged object as untrusted input.
+    forged = object.__new__(FormulaIR)
+    object.__setattr__(forged, 'op', 'atom')
+    object.__setattr__(forged, 'name', 'true')
+    object.__setattr__(forged, 'args', ())
+    report=verify_semantics(b,c,origin,forged)
     assert not report.acceptable, 'true is parsed as bool in LC03 but as free atom in LC02'
 
 

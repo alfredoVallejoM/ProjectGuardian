@@ -18,6 +18,7 @@ import tempfile
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--mode', choices=('formulas', 'contract'), default='formulas')
     parser.add_argument('--worker', required=True)
     parser.add_argument('--expected-worker-sha256', required=True)
     parser.add_argument('--source', required=True)
@@ -43,13 +44,16 @@ def main():
         if completed.returncode not in (0, 1):
             raise ValueError('EXTERNAL_WORKER_EXECUTION_FAILED')
         result = json.loads(completed.stdout)
-        if not isinstance(result, dict) or (completed.returncode == 0) != (result.get('status') == 'FINITE_EQUIVALENT'):
+        positive = 'SOURCE_IR_CORRESPONDENT' if args.mode == 'contract' else 'FINITE_EQUIVALENT'
+        expected_claim = 'SOURCE_IR_CORRESPONDENCE_ONLY' if args.mode == 'contract' else 'PINNED_FORMULAS_ONLY'
+        if (not isinstance(result, dict) or result.get('claim') != expected_claim
+                or (completed.returncode == 0) != (result.get('status') == positive)):
             raise ValueError('EXTERNAL_WORKER_PROTOCOL_MISMATCH')
         result.update(worker_sha256=digest, isolation_flags=['-I', '-S'], signed_attestation=False)
     except (OSError, ValueError, subprocess.TimeoutExpired) as exc:
         result = dict(status='EXECUTION_REJECTED', reason=str(exc), signed_attestation=False)
     print(json.dumps(result, sort_keys=True))
-    return 0 if result['status'] == 'FINITE_EQUIVALENT' else 1
+    return 0 if result['status'] == ('SOURCE_IR_CORRESPONDENT' if args.mode == 'contract' else 'FINITE_EQUIVALENT') else 1
 
 
 if __name__ == '__main__':
