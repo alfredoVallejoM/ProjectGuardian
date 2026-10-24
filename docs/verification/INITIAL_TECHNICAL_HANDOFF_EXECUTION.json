@@ -1,0 +1,102 @@
+{
+  "schema": "guardian.initial-technical-handoff-execution/v1",
+  "date": "2026-10-24",
+  "base_commit": "9fcc6cb0be8bccdc8729b9c4828fb14c3bce71c7",
+  "scope": "Partial technical deliverables: candidate profile, executed acceptance bindings, external finite V4 process",
+  "python": "3.13.5",
+  "baseline_tests": 691,
+  "final_tests": {
+    "passed": 780,
+    "failed": 0,
+    "skipped": 0,
+    "new_cases": 89
+  },
+  "compileall": "PASS",
+  "profile_gate": {
+    "acceptance_rows": 18,
+    "campaign_closed": false,
+    "distinct_test_functions": 24,
+    "errors": [],
+    "executed_cases": 780,
+    "gate_scope": "PROFILE_AND_EXECUTION_BINDINGS_NOT_SEMANTIC_SUFFICIENCY",
+    "ratified": false,
+    "status": "PASS"
+  },
+  "previous_directed_mutations": {
+    "killed": 16,
+    "survived": 0,
+    "invalid_runs": 0,
+    "execution": "prefix and suffix runs combined by unique mutation ID"
+  },
+  "external_process": {
+    "positive": "FINITE_EQUIVALENT",
+    "valuation_count": 16,
+    "mutated_formula": "COUNTEREXAMPLE",
+    "imports_guardian": false,
+    "protected_operator_installation": "NOT_INSTALLED",
+    "signed_attestation": false
+  },
+  "unchanged_product_src_tree": "7c4fe929a6e988afd03b0dee9e710c7c784fcd95",
+  "unchanged_original_architecture_tree": "0f675d7754efaefa96974e1630cbcd7721cabb9a",
+  "original_block_status": {
+    "B00": "PARTIAL",
+    "LC00": "CANDIDATE_PROFILE_FIXED_NOT_RATIFIED",
+    "LC01": "BOUNDED_PROFILE_ACCEPTANCE_TESTED",
+    "LC02": "FINITE_EXTERNAL_EXECUTION_READY_FULL_EXTERNAL_CORRESPONDENCE_OPEN"
+  },
+  "not_run": [
+    "Python 3.12",
+    "static typechecker",
+    "independent actor review"
+  ],
+  "files": {
+    "verification/external_v0/worker.py": {
+      "git_blob": "7782db5565f8da0ae88bc4d3dd8479aee1161147",
+      "sha256": "39142c87eda966bccddfdb8ae5dd82aeda56474653e3d2f878d42ff72b5aac26",
+      "bytes": 10830
+    },
+    "tools/run_external_v0.py": {
+      "git_blob": "157c26192a27f60bf432dfa78f6dacc37e9e9be4",
+      "sha256": "887a524b0901662738f033681f721dc9b8a93812aca68ada3977f41e3f855841",
+      "bytes": 2754
+    },
+    "tools/check_initial_milestone.py": {
+      "git_blob": "f12ca8ed16bbf74fa923c90b76f7629d0ca8b3f4",
+      "sha256": "0006ec8d7edd45b54819a9f4dc89890382b7b37dc90dd9fc7e4a385f1aea2b45",
+      "bytes": 5001
+    },
+    "tests/closure/test_external_v0.py": {
+      "git_blob": "456018cb9abe43013da1db9372b66cd73b95b72a",
+      "sha256": "6bbd985653e0f421568fc59203ad1d8f1a1a4f511d7b92a402836cab61b4337c",
+      "bytes": 10930
+    },
+    "tests/closure/test_initial_profile.py": {
+      "git_blob": "eae0620f44844c4f7455f615b816d40931e1fc07",
+      "sha256": "1fda82a1f176076c30171edc117a2e654bdfbe9882fce78d8970607ee125502b",
+      "bytes": 3488
+    },
+    "verification/initial_milestone_profile.json": {
+      "git_blob": "702035006d3c82241c5693d4a49e3fcf2bc8c8d2",
+      "sha256": "4b6b964c05f2c29f99c147b9e58a93cc9ad98fb66c8b3e24a3d34553a1ae71d2",
+      "bytes": 12476
+    },
+    "docs/closure/INITIAL_PROFILE_SHA256.txt": {
+      "git_blob": "19f41b031a9a2b168fe90114910b65c232434786",
+      "sha256": "063e0eff3b53fe5d69ba9a6da1d82d65f3fe630b69af9dee911da4ca491e7b9a",
+      "bytes": 65
+    },
+    "docs/closure/2026_10_24_INITIAL_TECHNICAL_HANDOFF.md": {
+      "git_blob": "7587f843c39a4ba3c542d53763c2d4e9584db3ec",
+      "sha256": "da909da5ca99ecdb74ad38884f18312e661f9c40e4c48ce5748556887ca4d0e0",
+      "bytes": 7110
+    }
+  },
+  "log_sha256": {
+    "external-positive.json": "b6457dba55498f54140c203015ae25f7a4131460e325867c58850db3599fcb0e",
+    "full.xml": "4771138b09b0b26f2852783c8445b9b5bb16a6b96a9ab055fa56c95dca442aa3",
+    "mutations.json": "82f1678643dd1d37c5bac43ed056412733175ecd106c48f214d3cfa70dedc183",
+    "full.txt": "7440695956c983070d11eb22da1a1092d39098c6d8ad5f1eb42375902eb20056",
+    "acceptance.json": "03404a83b9514d41de0e3494811a2b54062ad7dfa08187bca74e68e6d9981e93",
+    "external-counterexample.json": "a287f25635e8e00bcbc9e1a1ca823795be266a69769ea435887df12d35aa2d1c"
+  }
+}

@@ -1,0 +1,426 @@
+{
+  "schema": "guardian.initial-milestone-profile/v1",
+  "revision": "initial-profile-2026-10-24.1",
+  "base_commit": "9fcc6cb0be8bccdc8729b9c4828fb14c3bce71c7",
+  "ratified": false,
+  "campaign_closed": false,
+  "meaning": "Frozen candidate technical profile, not a replacement of original G-00/GSL obligations.",
+  "original_authority_pins": {
+    "architecture/campaigns.json": "83c00b70fe2bd46b3027c91901bdf45c9620c3c3",
+    "architecture/g00_functional_refinement.json": "b5e2d1d90578dd942647720314047e5d2e4caac2",
+    "architecture/g00_api_contracts.json": "5d4052c617cf0d962b0ba555ad0ae502e5b818f4",
+    "architecture/g00_validation_plan.json": "238e18d9defde4f943d9a6ecda2f719bf9cc0914"
+  },
+  "original_scope": {
+    "G00_parent_obligations": 12,
+    "G00_clauses": 120,
+    "G00_APIs": 58,
+    "G00_adversaries": 36,
+    "G00_verticals": 7
+  },
+  "runtime": {
+    "language_version": "0.1",
+    "semantic_version": "gsl0/v4-0.1",
+    "ir_schema": "guardian/gsl0/typed-ir/v0.1",
+    "stages": [
+      "C00_SOURCE_ACQUIRE",
+      "C01_MARKDOWN_EXTRACT",
+      "C02_LOSSLESS_SCAN",
+      "C03_GSL_LEX",
+      "C04_GSL_CST",
+      "C05_GSL_AST",
+      "C06_GSL_RESOLVE",
+      "C07_GSL_TYPECHECK",
+      "C08_GSL_SEMANTIC_CHECK",
+      "C09_GSL_ELABORATE",
+      "C10_GSL_PROOF_OBLIGATIONS",
+      "C11_IR_VALIDATE",
+      "C12_CANONICALIZE",
+      "C13_CONTRACT_DIFF",
+      "C14_BUNDLE_EMIT"
+    ],
+    "compile_statuses": [
+      "REJECTED",
+      "ANALYZED",
+      "COMPILED"
+    ],
+    "proof_states": [
+      "UNPROVEN",
+      "COUNTEREXAMPLE",
+      "CHECKED_FINITE_DOMAIN"
+    ],
+    "entity_kinds": [
+      "objective",
+      "capability",
+      "property",
+      "obligation",
+      "campaign",
+      "architecture",
+      "constitution",
+      "decision",
+      "rule",
+      "source",
+      "source_policy",
+      "source_universe",
+      "scope",
+      "clause",
+      "relation",
+      "verification",
+      "implementation",
+      "project"
+    ],
+    "digest_algorithms": [
+      "sha256",
+      "sha512"
+    ],
+    "status_axes": [
+      "source",
+      "decision",
+      "commitment",
+      "implementation",
+      "audit",
+      "material",
+      "support",
+      "qualification",
+      "migration"
+    ],
+    "ir_value_tags": [
+      "text",
+      "bool",
+      "integer",
+      "ref",
+      "source_item",
+      "kind",
+      "v4",
+      "deferred"
+    ],
+    "commitment_kinds": [
+      "existence",
+      "behavior",
+      "constitution",
+      "execution",
+      "development",
+      "integration",
+      "migration"
+    ],
+    "relation_kinds": [
+      "proposed_detail",
+      "references"
+    ],
+    "fields": {
+      "source": {
+        "locator": "text",
+        "source_cut": "ref"
+      },
+      "scope": {
+        "project": "ref",
+        "campaign": "text"
+      },
+      "objective": {
+        "from": "source_item",
+        "scope": "ref"
+      },
+      "capability": {
+        "from": "source_item",
+        "scope": "ref"
+      },
+      "property": {
+        "from": "source_item",
+        "kind": "kind",
+        "subject": "ref",
+        "holds": "v4",
+        "deferred_semantics": "deferred"
+      },
+      "obligation": {
+        "from": "source_item",
+        "kind": "kind",
+        "scope": "ref",
+        "when": "v4",
+        "requires": "ref",
+        "verification": "ref"
+      },
+      "verification": {
+        "from": "source_item",
+        "target": "ref",
+        "property": "ref",
+        "method": "text"
+      },
+      "relation": {
+        "kind": "kind",
+        "parent": "ref",
+        "child": "ref"
+      }
+    },
+    "required": {
+      "source": [
+        "locator",
+        "source_cut"
+      ],
+      "scope": [
+        "project"
+      ],
+      "objective": [
+        "from",
+        "scope"
+      ],
+      "capability": [
+        "from",
+        "scope"
+      ],
+      "property": [
+        "kind",
+        "subject"
+      ],
+      "obligation": [
+        "from",
+        "kind",
+        "scope",
+        "when"
+      ],
+      "verification": [
+        "from",
+        "method",
+        "property",
+        "target"
+      ],
+      "relation": [
+        "child",
+        "kind",
+        "parent"
+      ]
+    },
+    "reference_kinds": {
+      "source.source_cut": "source",
+      "scope.project": "project",
+      "objective.scope": "scope",
+      "capability.scope": "scope",
+      "property.subject": "project",
+      "obligation.scope": "scope",
+      "obligation.requires": "property",
+      "obligation.verification": "verification",
+      "verification.target": "obligation",
+      "verification.property": "property",
+      "relation.parent": "obligation",
+      "relation.child": "clause"
+    }
+  },
+  "expression_semantics": {
+    "constants": {
+      "unknown": [
+        0,
+        0
+      ],
+      "yes": [
+        1,
+        0
+      ],
+      "no": [
+        0,
+        1
+      ],
+      "conflict": [
+        1,
+        1
+      ]
+    },
+    "aliases": {
+      "true": "yes",
+      "false": "no"
+    },
+    "operators": [
+      "not",
+      "and",
+      "or"
+    ],
+    "precedence": [
+      "not",
+      "and",
+      "or"
+    ],
+    "comments": [
+      "// terminated by CR or LF",
+      "/* non-nested block */"
+    ],
+    "atoms": "ASCII [A-Za-z_][A-Za-z_0-9]* excluding reserved words",
+    "value_is_authority": false
+  },
+  "not_claimed": [
+    "Full LC04-LC09 pipeline",
+    "Whole G-00 implementation",
+    "Historical source completeness",
+    "Normative ratification",
+    "Independent human/agent audit",
+    "Operator account protection installed"
+  ],
+  "acceptance": [
+    {
+      "id": "LC00-SOURCE",
+      "original_basis": "GSL0 Formal Compiler Contract I/II: pinned UTF-8 sources",
+      "test_nodes": [
+        "tests/spec_lang/test_contract.py::test_context_validates_external_pinned_source",
+        "tests/spec_lang/test_contract.py::test_candidate_cannot_change_both_payload_and_digest_against_external_context"
+      ]
+    },
+    {
+      "id": "LC00-CONTEXT",
+      "original_basis": "GSL0 Formal Compiler Contract I: immutable Gamma",
+      "test_nodes": [
+        "tests/spec_lang/test_q_source_correspondence.py::test_mutable_or_malformed_source_pin_pairs_are_rejected"
+      ]
+    },
+    {
+      "id": "LC00-REGISTRY",
+      "original_basis": "GSL0 Formal Compiler Contract III: typed versioned signatures",
+      "test_nodes": [
+        "tests/spec_lang/test_lc00_contract_extended.py::test_pinned_predicate_registry_digest_is_materially_checked"
+      ]
+    },
+    {
+      "id": "LC00-ABI",
+      "original_basis": "architecture/gsl0_compiler_contract_candidate.json: C00-C14",
+      "test_nodes": [
+        "tests/spec_lang/test_lc00_contract_extended.py::test_stage_manifest_preserves_c00_to_c14_without_conflating_scanner_and_lexer"
+      ]
+    },
+    {
+      "id": "LC00-NONADMISSION",
+      "original_basis": "GSL-T09/GSL-T12: result stages do not grant normative authority",
+      "test_nodes": [
+        "tests/spec_lang/test_q_source_correspondence.py::test_compiled_result_and_partial_result_cannot_exchange_guarantees"
+      ]
+    },
+    {
+      "id": "LC00-LEXICAL-PROFILE",
+      "original_basis": "GSL-T05/GSL-T11: literal and comment semantics",
+      "test_nodes": [
+        "tests/spec_lang/test_q_source_correspondence.py::test_frontend_and_v0_share_literal_and_comment_semantics"
+      ]
+    },
+    {
+      "id": "LC01-NOMINAL",
+      "original_basis": "GSL-T04 structural part: nominal references",
+      "test_nodes": [
+        "tests/spec_lang/test_typed_ir.py::test_ref_types_cannot_be_interchanged_or_cast_from_plain_string"
+      ]
+    },
+    {
+      "id": "LC01-CODEC",
+      "original_basis": "GSL0 Formal Compiler Contract III: canonical roundtrip",
+      "test_nodes": [
+        "tests/spec_lang/test_typed_ir.py::test_canonical_roundtrip_preserves_all_types_and_source"
+      ]
+    },
+    {
+      "id": "LC01-SCHEMA",
+      "original_basis": "GSL0 Formal Compiler Contract III: unknown normative fields fail closed",
+      "test_nodes": [
+        "tests/spec_lang/test_typed_ir.py::test_decoder_rejects_schema_extension_recomputed_digest_and_duplicate_json_keys"
+      ]
+    },
+    {
+      "id": "LC01-ORIGIN",
+      "original_basis": "GSL-T06 structural part: source bounds and UTF-8 spans",
+      "test_nodes": [
+        "tests/spec_lang/test_typed_ir.py::test_source_origin_utf8_byte_boundaries_and_digest"
+      ]
+    },
+    {
+      "id": "LC01-DEFERRED",
+      "original_basis": "GSL0 Formal Compiler Contract I: deferred properties are not proved",
+      "test_nodes": [
+        "tests/spec_lang/test_typed_ir.py::test_property_cannot_fake_proof_by_omitting_interpreted_vs_deferred"
+      ]
+    },
+    {
+      "id": "LC02-V4",
+      "original_basis": "GSL-T05/GSL-T11 finite fragment: independent finite reference",
+      "test_nodes": [
+        "tests/spec_lang/test_v0.py::test_all_16_binary_v4_truth_table_matches_independent_oracle",
+        "tests/spec_lang/test_v0.py::test_exhaustive_64_semantic_cases_source_and_ir"
+      ]
+    },
+    {
+      "id": "LC02-REHASH",
+      "original_basis": "GSL-T05: rehashed semantic tampering is still detected",
+      "test_nodes": [
+        "tests/spec_lang/test_lc01_lc02_semantic_audit.py::test_ir_mutation_and_rehashed_digest_cannot_deceive_independent_oracle"
+      ]
+    },
+    {
+      "id": "LC02-GROUNDING",
+      "original_basis": "GSL-T06/GSL-T07 declared source correspondence",
+      "test_nodes": [
+        "tests/spec_lang/test_q_source_correspondence.py::test_swap_only_v4_value_span_and_declaration_origin_is_detected_independently",
+        "tests/spec_lang/test_lc02_grounding_spoof.py::test_attack_ir_formula_bound_to_comment_instead_of_named_field"
+      ]
+    },
+    {
+      "id": "LC02-NONV4",
+      "original_basis": "GSL0 Formal Compiler Contract III: normative field preservation",
+      "test_nodes": [
+        "tests/spec_lang/test_q_source_correspondence.py::test_changing_non_v4_normative_fields_cannot_pass_as_source_correspondence"
+      ]
+    },
+    {
+      "id": "LC02-BOUNDARIES",
+      "original_basis": "GSL0 Formal Compiler Contract IV: correspondence is not reference existence or admission",
+      "test_nodes": [
+        "tests/spec_lang/test_q_source_correspondence.py::test_full_source_correspondence_positive_keeps_unchecked_guarantees_visible"
+      ]
+    },
+    {
+      "id": "LC02-BUDGET",
+      "original_basis": "GSL0 Formal Compiler Contract III: resource limits never PASS",
+      "test_nodes": [
+        "tests/spec_lang/test_q_source_correspondence.py::test_aggregate_oracle_budget_cannot_be_spent_once_per_field"
+      ]
+    },
+    {
+      "id": "LC02-EXTERNAL-PROCESS",
+      "original_basis": "B00 V0 bootstrap: external execution of a pinned finite-formula verifier",
+      "test_nodes": [
+        "tests/closure/test_external_v0.py::test_external_runs_without_guardian_or_candidate_imports",
+        "tests/closure/test_external_v0.py::test_worker_pin_is_verified_before_any_code_execution",
+        "tests/closure/test_external_v0.py::test_expectation_pin_and_source_pin_cannot_be_replaced_by_candidate",
+        "tests/closure/test_external_v0.py::test_candidate_cannot_select_a_different_formula_span"
+      ]
+    }
+  ],
+  "original_holds": [
+    {
+      "id": "B00-SUFFICIENCY",
+      "status": "OPEN",
+      "reason": "Conclusive reconciliation of all 120 clauses against 12 parents is not replaced by test linkage."
+    },
+    {
+      "id": "B00-API-ENVELOPES",
+      "status": "PARTIAL",
+      "reason": "Current implemented ABI frozen; full 58 API contract reconciliation and domain envelope decisions remain open."
+    },
+    {
+      "id": "B00-DD-RATIFICATION",
+      "status": "EXTERNAL_DECISION",
+      "reason": "24 DD and parent ADR have no newly invented approvals."
+    },
+    {
+      "id": "LC00-RATIFICATION",
+      "status": "EXTERNAL_DECISION",
+      "reason": "Candidate profile fixed, not ratified."
+    },
+    {
+      "id": "LC02-EXTERNAL-CORRESPONDENCE",
+      "status": "PARTIAL",
+      "reason": "External worker checks operator-pinned formulas; whole-declaration/field correspondence stays in internal V0."
+    },
+    {
+      "id": "EXTERNAL-TRUST-ROOT",
+      "status": "DEPLOYMENT_REQUIRED",
+      "reason": "Maintainer must protect launcher/worker/pins; same-actor local separation is not an authenticated trust root."
+    },
+    {
+      "id": "INDEPENDENT-REVIEW",
+      "status": "NOT_RUN",
+      "reason": "No reviewer independent of the constructor has executed this acceptance."
+    }
+  ]
+}
