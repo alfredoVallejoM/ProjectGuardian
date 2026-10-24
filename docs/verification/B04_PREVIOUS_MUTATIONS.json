@@ -1,0 +1,219 @@
+{
+  "profile": "targeted-semantic-mutations/v1",
+  "results": [
+    {
+      "id": "Q01",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q01_status_parser_rejects_an_enum_from_another_axis",
+      "substitutions": [
+        1,
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "output_sha256": "4ae26078ed2987dd77de79341c3d59320e52850e0fe12dedc07f4e8213e70ee2"
+    },
+    {
+      "id": "Q02",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q02_sidcar_governance_repository_is_a_valid_project_source",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "output_sha256": "ffdb611094d66a4b7136d7c99acb4af2d79cdb718cbce8c01913bc030b261b69"
+    },
+    {
+      "id": "Q03",
+      "status": "KILLED",
+      "test": "tests/test_q_mutation_controls.py::test_physical_alias_reports_specific_diagnostic",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "output_sha256": "efa2fd6cd7b15012dd0083c262b0e709f8503e3c59ef0a8bee64c2887b7b5039"
+    },
+    {
+      "id": "Q04",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q04_document_baseline_cycles_are_diagnosed",
+      "substitutions": [
+        1,
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "output_sha256": "7853f5b1c8e2a5527719288fdc0009a9fc956f84ba0e2b7321a196fcf4381cfc"
+    },
+    {
+      "id": "Q05",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q05_missing_source_entry_is_visible_in_coverage_description",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "output_sha256": "61f70703b5573fd93e1bb13e71b032379d1654a39bc85bd147fc5344beab81d6"
+    },
+    {
+      "id": "Q06",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q06_compile_context_cannot_hold_mutable_source_pins",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "output_sha256": "38c00844add53aa2fd0ea1aeb60205fa91e56d9e71109bee00364e6920fd49c7"
+    },
+    {
+      "id": "Q07",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q07_compiled_result_rejects_an_untyped_digest",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "output_sha256": "cc9a606ee5e9aab787979a599a54f7a5c7b955ef67e502e0111cc5ac0c105ec3"
+    },
+    {
+      "id": "Q08",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q08_normative_unit_rejects_invalid_byte_boundaries",
+      "substitutions": [
+        1,
+        1
+      ],
+      "returncode": 1,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0,
+      "output_sha256": "ac6ac26aa681c98aaabb12a9e680c52636989083488f4201c1f2aa56cb3682dd"
+    },
+    {
+      "id": "Q09",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q09_domain_does_not_import_application",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "output_sha256": "e2ac1cd48e3b99de9b9f80d4b2938d40a5d23fe0b29800fdf132f908463ec0bf"
+    },
+    {
+      "id": "Q10",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q10_status_validator_rejects_orphan_entity_and_scope",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "output_sha256": "a05ed9bc93c93c9075a3352e946893e6de284e11a6e7be9b6dfe955bedaf3e0a"
+    },
+    {
+      "id": "Q11",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q11_frontend_result_cannot_pair_a_foreign_ast_with_local_source",
+      "substitutions": [
+        1,
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "output_sha256": "48cd8c21c9a5ad0d83d6632e95220c0ce0f9cc528ce8fe88ffaff54405e164a3"
+    },
+    {
+      "id": "Q12",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q12_true_literal_is_not_accepted_as_an_uninterpreted_atom",
+      "substitutions": [
+        2
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "output_sha256": "2707f60c5d6fdaf8180d1c308e060daf467cb4c7d23f6a5d01a1c73c20cd4d3a"
+    },
+    {
+      "id": "Q13",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q13_v0_accepts_legal_block_comments_inside_formula",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "output_sha256": "ceeaa064c59f940e795aa26196de3cc29c93b3c33ce2a19529e1f04e58cb4256"
+    },
+    {
+      "id": "Q14",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q14_declaration_origin_swap_cannot_earn_source_to_ir_equivalence",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "output_sha256": "ef7da07af9ba64e1184d3190ddc604c552a872a8239df91ee08fcffe5e25d733"
+    },
+    {
+      "id": "Q15",
+      "status": "KILLED",
+      "test": "tests/test_audit_contract_gaps.py::test_Q15_ir_reference_changes_are_not_full_contract_equivalence",
+      "substitutions": [
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "output_sha256": "c31f5e7628b9dafeb02dc8761ae02929795e900a11c9bccd8a8248830576de50"
+    },
+    {
+      "id": "NO_PARTIAL_PASS",
+      "status": "KILLED",
+      "test": "tests/spec_lang/test_lc01_lc02_semantic_audit.py::test_entire_interpreted_contract_matches_pinned_source",
+      "substitutions": [
+        1,
+        1
+      ],
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "output_sha256": "beee46b9b0a59831dac4ef4139a91359ad517e9d90b8d8959218512bd18be5c5"
+    }
+  ],
+  "detail_log_sha256": "7558fdfafd5a0ba17726787aa98369e8b1e284beda0c599a6bc59c7745be5412"
+}

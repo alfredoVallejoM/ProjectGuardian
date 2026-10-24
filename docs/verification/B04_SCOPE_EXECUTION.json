@@ -1,0 +1,237 @@
+{
+  "schema": "guardian.g00-b04-scope-execution/v1",
+  "date": "2026-10-24",
+  "base_commit": "1da717ffefb1fa3fa5e7d1a12dcb9e8746318d9a",
+  "scope": "G00-B04 implementation and full product-suite replay, not full G00 closure",
+  "python": "3.13.5",
+  "baseline_suite": {
+    "passed": 1071,
+    "failed": 0,
+    "skipped": 0
+  },
+  "baseline_exact_git_trees": {
+    "src": "a76e144bf214fa1b7d5c849f18c832233a159942",
+    "tests": "f79ac61f80ea69ec198cdb462150f9bdef3e94ef",
+    "schemas": "d983ab5c47f6b15a03beda1bdc8ff1276e3de2d9"
+  },
+  "final_suite": {
+    "passed": 1214,
+    "failed": 0,
+    "skipped": 0,
+    "new_cases": 143
+  },
+  "installed_wheel_suite": {
+    "passed": 1214,
+    "failed": 0,
+    "skipped": 0,
+    "guardian_modules_from_isolated_installation": 29,
+    "wheel_sha256": "eea65a3a855fe9369200e72984e03a9e28d517182166f986d54ad633ad1fed70"
+  },
+  "original_self_review_failures": 5,
+  "b04_directed_mutations": {
+    "killed": 12,
+    "survived": 0,
+    "invalid": 0
+  },
+  "previous_Q_mutations": {
+    "killed": 16,
+    "survived": 0,
+    "invalid": 0
+  },
+  "mutation_scope": "DIRECTED_NOT_EXHAUSTIVE",
+  "compileall": "PASS",
+  "clause_test_links_checked": 10,
+  "adversarial_contracts_linked": 5,
+  "initial_profile_gate": {
+    "acceptance_rows": 18,
+    "campaign_closed": false,
+    "distinct_test_functions": 24,
+    "errors": [],
+    "executed_cases": 1214,
+    "gate_scope": "PROFILE_AND_EXECUTION_BINDINGS_NOT_SEMANTIC_SUFFICIENCY",
+    "ratified": false,
+    "status": "PASS"
+  },
+  "b00_gate": {
+    "apis": 58,
+    "campaign_closed": false,
+    "clauses": 120,
+    "decisions": 24,
+    "errors": [],
+    "executed_cases": 1214,
+    "implementation_completeness": "NOT_CLAIMED",
+    "missing_authority_files": [
+      "architecture/campaigns.json",
+      "architecture/g00_functional_refinement.json",
+      "architecture/g00_api_contracts.json",
+      "architecture/g00_validation_plan.json",
+      "architecture/g00_design_decisions.json",
+      "docs/campaigns/G-00.md",
+      "docs/campaigns/G-00/13_FUNCTIONAL_REFINEMENT_MATRIX.md",
+      "docs/campaigns/G-00/14_API_CONTRACT_CATALOG.md",
+      "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md"
+    ],
+    "original_source_bytes": "EXTERNAL_GIT_READBACK_REQUIRED",
+    "parents": 12,
+    "ratification": "HOLD_EXTERNAL",
+    "runtime_named_functions": 40,
+    "semantic_review": "AUTHORED_NOT_INDEPENDENTLY_REVIEWED",
+    "status": "TECHNICAL_DISPOSITION_RECORDS_CHECKED"
+  },
+  "original_architecture_tree": "0f675d7754efaefa96974e1630cbcd7721cabb9a",
+  "normative_source_mode": "PINNED_GITHUB_READBACK_NOT_ALL_ORIGINAL_BYTES_LOCAL",
+  "G00_DEVELOPMENT_COMPLETE": false,
+  "G00_CAMPAIGN_CLOSED": false,
+  "ratified": false,
+  "signed_attestation": false,
+  "independent_actor_review": false,
+  "not_run": [
+    "Python 3.12",
+    "static typechecker",
+    "independent actor review",
+    "protected external operator installation"
+  ],
+  "remaining_G00": [
+    "B03 general incomplete-draft flow",
+    "B05 authority/constitution/conflicts",
+    "B06 remaining bodies and general codecs",
+    "B07 pure constitutional evaluator",
+    "B08 complete required verticals",
+    "B09 qualification"
+  ],
+  "files": {
+    "README.md": {
+      "git_blob": "9810df4e824985bf654ebb851a5d9ca1b84d519b",
+      "sha256": "9029e091d840f49c61b44b5d2832d98c396dcdfb2cb19efa2857aebf4e693357",
+      "bytes": 3798
+    },
+    "src/guardian/domain/scope.py": {
+      "git_blob": "e4a4cfca4befadf394e88ba6ae281cc77d5756d9",
+      "sha256": "242334de5c7b8eb4e22de2245f43ee33d31f552e4c784059714736f25a957c56",
+      "bytes": 38696
+    },
+    "src/guardian/domain/scope_codec.py": {
+      "git_blob": "15b873691f553dc8a45ece48cb7da090aeed964e",
+      "sha256": "3298278040b557286e574b3f7b05107a7413de4871a1baa5daf07cd7471fce35",
+      "bytes": 5226
+    },
+    "src/guardian/domain/references.py": {
+      "git_blob": "e56ac952ad41f9749b1200cbf42e35afda5c2c04",
+      "sha256": "0cd6ddb7e1fdef1818368f742a744c7599010a686676b553d129e020e8df1c7d",
+      "bytes": 11927
+    },
+    "src/guardian/domain/campaign.py": {
+      "git_blob": "917e364e8aec895a31aa1158fdfa2bce46b46685",
+      "sha256": "2233182a4df7ade11ab71ca40edae8a5519b0327c733916a5d3477651d2f68b7",
+      "bytes": 5352
+    },
+    "src/guardian/application/contract_service.py": {
+      "git_blob": "3730d9f9fc7d9840751e4ad51a74fafde2031b41",
+      "sha256": "f7c198471a0436e1a33443ddfb9cabb0c04650d8567c4e6fea7fc8b8e26a93ae",
+      "bytes": 5309
+    },
+    "tests/foundation_b04.py": {
+      "git_blob": "c9061dfdacd0e1f378fb8e1c62fdfce32c79e4a3",
+      "sha256": "738af84e19d3584e309fa670dd556c37998ee7401b104ed8a826ab57f9ff695e",
+      "bytes": 2208
+    },
+    "tests/domain/test_b04_scope.py": {
+      "git_blob": "44ef1f9376168d20ee3b14b52a6f02314cc89c1e",
+      "sha256": "3bbde2e5b23cab31443819bbf4e5e933c4a1cc05ec4e27fb11c27738afe24235",
+      "bytes": 14259
+    },
+    "tests/domain/test_b04_adversarial.py": {
+      "git_blob": "8866f35361dbb95b2140ed19b48beffafac7b499",
+      "sha256": "4777b1433942ca9ad48d3381dff9292682938b2d3214b4adb6fa4c2925450a30",
+      "bytes": 2493
+    },
+    "tests/domain/test_b04_composition_properties.py": {
+      "git_blob": "114a0e5d74d654ebb64d519e5fedcdb675d76685",
+      "sha256": "9191a970f670125f0207019d44c19a2a7ee5a04d8387f7a274b04aba03309e11",
+      "bytes": 6928
+    },
+    "tests/integration/test_b04_applicability_product_path.py": {
+      "git_blob": "cc9e1a0e648e4cec6719809edc8357b121d1b3db",
+      "sha256": "95549c5b79d91c6aeaee8c8d7d836b47fac6e89f8abd2e4db035a839b633c157",
+      "bytes": 3931
+    },
+    "tools/run_b04_scope_mutations.py": {
+      "git_blob": "eec1d04f576430e7e8b6457abbd94eae495c5a9a",
+      "sha256": "f122a857fd22c12bddd6b039dd3d5fd28854d0acb5834a301a54ca691ef7c3fd",
+      "bytes": 7386
+    },
+    "verification/b04/scope_manifest.json": {
+      "git_blob": "713fa857d94c48867d10b59d27ed85eaae4fbe18",
+      "sha256": "5e4040662fad93c3750fd00b977ffc897b2815234ade51a2034f89a90a58de4c",
+      "bytes": 9906
+    },
+    "verification/b00/apis.tsv": {
+      "git_blob": "7d4117b0f5f8cac7448b1dd17790cae569389a39",
+      "sha256": "a089b6098d07663af2b40aa30f604151a9dbcf79cb8111c1bf8382bfe703303f",
+      "bytes": 17983
+    },
+    "verification/b00/reconciliation_manifest.json": {
+      "git_blob": "50005d40ae0bd01364711fbb67611bda0acce9e4",
+      "sha256": "335b2f665c62352dc6abfff2fc8b4eb2c000c9c762d8e8f3110ff7be7254ad1c",
+      "bytes": 4213
+    },
+    "docs/implementation/G00_B04_SCOPE_APPLICABILITY.md": {
+      "git_blob": "680375fc3c76e0c39e8f862f6d41db56fd02c020",
+      "sha256": "812b3492f5af068016b304a0ae564d37e528db0da544e56a01b54d30277c18fa",
+      "bytes": 7688
+    },
+    "docs/verification/B04_FULL_BASELINE.txt": {
+      "git_blob": "883c4c6cf95e4db41380d4924cc1d7ff9872db2b",
+      "sha256": "786d34d85e16448f699932ff43f63248bb87fbf5f7e556d1fc3294368e40b0a9",
+      "bytes": 1222
+    },
+    "docs/verification/B04_FULL_TESTS.txt": {
+      "git_blob": "8c873de27c338508dfaee9909b40ce43ba5445f7",
+      "sha256": "1463cf8c84a62616e6f26b19417c2d36c80c87e6952534f492d4e7e95714c4e9",
+      "bytes": 1382
+    },
+    "docs/verification/B04_INSTALLED_TESTS.txt": {
+      "git_blob": "8c3270eb55abf0607bfe4585325f7208e730c033",
+      "sha256": "2bf68846c5e9fdd192be323498555643115a61e6bf2dc3f112f61672ae15359a",
+      "bytes": 1382
+    },
+    "docs/verification/B04_INITIAL_FALSIFICATIONS.txt": {
+      "git_blob": "b0366ae9d9965ee8fb9bb04a40088677293b03d9",
+      "sha256": "f897275a17408291cd5e912ea96837f38ac3fd33cbcbc9cd53cd525dad5774cc",
+      "bytes": 6002
+    },
+    "docs/verification/B04_SCOPE_MUTATIONS.json": {
+      "git_blob": "8be2b4aacc59c363668462aef52b9c829af4ccd0",
+      "sha256": "6639e7d47fbfec4cf90a89207be627b33f67966262b43b4fd59a17244e3a6c8b",
+      "bytes": 5014
+    },
+    "docs/verification/B04_PREVIOUS_MUTATIONS.json": {
+      "git_blob": "e57c8aeb6775088921209fee1f5f5026e2533c05",
+      "sha256": "fc669f3848854acc48a8c3f140798e43134452d86036317f4cfe2bd4aa6946c1",
+      "bytes": 6399
+    }
+  },
+  "log_sha256": {
+    "b04-installed.txt": "2bf68846c5e9fdd192be323498555643115a61e6bf2dc3f112f61672ae15359a",
+    "b04-b00-gate.json": "0cdf95bb491ffd544ac768e5f61960511438f9694a65c23629eaa5b5af13960c",
+    "b04-installed.xml": "e4f83657c2e379ad43d627b2f1a493d16d717a36cf805b84c23ac5478fc91ef8",
+    "b04-mutations.json": "8fe45e1af8825239fe63f2ff69f6f1bdb0c4fd780692602cf3d8474b02bc46b1",
+    "b04-mutations.txt": "88bc11007c270b2854403567ec964eb67ed490117a7560175269edf5f3897117",
+    "b04-compileall.txt": "113a6c7cc7d48cf164a257520a571ca70460d50f789652dab1fd10a74f44187d",
+    "full-baseline.txt": "786d34d85e16448f699932ff43f63248bb87fbf5f7e556d1fc3294368e40b0a9",
+    "b04-previous-mutations.txt": "1e59052ba8e09ce93cb3577b04d420c10eec7babf2a7fe893fd3dea759969d16",
+    "b04-expanded.txt": "8504d6c1e988fba9428a48f3b004afe090bbdf12bab21f28492b3b8cc0e99d48",
+    "b04-full.txt": "1463cf8c84a62616e6f26b19417c2d36c80c87e6952534f492d4e7e95714c4e9",
+    "b04-previous-mutations.json": "7558fdfafd5a0ba17726787aa98369e8b1e284beda0c599a6bc59c7745be5412",
+    "b04-red.txt": "f897275a17408291cd5e912ea96837f38ac3fd33cbcbc9cd53cd525dad5774cc",
+    "b04-installed-origins.json": "ebbb86ae57177b5f10b395290eb4cbf4fe6502389fffd93afe5aba7ea5179937",
+    "b04-wheel-build.txt": "e9ca70b05fe85443d15b849bb7c0712db414b8dfc3584b86085729a85a9bea03",
+    "b04-full.xml": "2a68c666f67c73dd54e3452f645017220bfd88168f7ad11cdb9c248c5acff135",
+    "b04-fixed.txt": "f291500a8353478fb640b44210915a2bf31b6897773a4cd3822f9e272f58381b",
+    "b04-wheel-install.txt": "b60cf7f9d0acbce36e57ab8752a823c4729673af41b8a6eddf1dbc02f77a4b0a",
+    "b04-first.txt": "75400c098bee3b83732b89327f70fbdf40d53dea4cf6837597b806d41321f5bd",
+    "full-baseline.xml": "20d233d7337fa10f9e39b78587e765a95fc8954881d6bc4848ed19f76c38e07a",
+    "b04-initial-gate.json": "f23f9392d24d5b5a626e370804ec90a56268fcf5d7331a38dde0e9c19e6b9738"
+  }
+}

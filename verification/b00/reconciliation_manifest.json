@@ -1,8 +1,8 @@
 {
   "schema": "guardian.b00-technical-reconciliation/v1",
-  "revision": "candidate-2026-10-24-b03-reference-slice",
-  "base_commit": "19c6cf31b5b686362568cf2b3aaed538504b127c",
-  "scope": "B00 technical dispositions preserved; ten runtime API rows refreshed for the bounded B03/B06/LC04 slice. No G00 campaign closure.",
+  "revision": "candidate-2026-10-24-b04-scope",
+  "base_commit": "1da717ffefb1fa3fa5e7d1a12dcb9e8746318d9a",
+  "scope": "B00 original dispositions preserved; scope APIs 031-038 connected to G00-B04 with scoped witnesses and budgets. No G00 campaign closure.",
   "ratified": false,
   "campaign_closed": false,
   "original_blob_pins": {
@@ -22,7 +22,7 @@
     "schemas/guardian/identity-v1.schema.json": "6235df2d46bb6de1eab37d43128c59c24582bc061e191c29e3291bfade660c06",
     "schemas/guardian/normative-envelope-v1.schema.json": "226f33147b85f82825256d13a7dc7bffe77c98e00b9ec6569656fb3828a8815b",
     "schemas/guardian/status-v1.schema.json": "34f684141c0afe8d18717d9b5832e5ed1b546c719aa5a26ea3ba07bfb12a286a",
-    "verification/b00/apis.tsv": "0642ac62c158b7ec47bd67b372ab9a77ee6dde51887ceffac96988d5afeb232e",
+    "verification/b00/apis.tsv": "a089b6098d07663af2b40aa30f604151a9dbcf79cb8111c1bf8382bfe703303f",
     "verification/b00/clauses.tsv": "d4e132788bd77d60e74080d6fc3dbf1874142dbea6ead738c1161a1501d2d29b",
     "verification/b00/decisions.tsv": "90e19c9066d418406dd8d3ba284a0bd485c9a617272f1a4110d1919f5ed7d2e9",
     "verification/b00/format_catalog.json": "95ad30e090a72d32306a016cbc2819d0e38ce771a247075f1360c70ec82a9560",

@@ -1,0 +1,131 @@
+{
+  "schema": "guardian.directed-b04-mutations/v1",
+  "scope": "DIRECTED_NOT_EXHAUSTIVE",
+  "independent_audit": false,
+  "mutations": [
+    {
+      "id": "B04-M01",
+      "status": "KILLED",
+      "target": "src/guardian/domain/scope.py",
+      "test": "tests/domain/test_b04_scope.py::test_f06_complete_sets_not_missing_data_can_supply_negative_witness",
+      "cases": 4,
+      "assertion_failures": 1,
+      "returncode": 1,
+      "tail_sha256": "91b4e7cd64bebc6a925d04d83178e34173bd694bc5a5ec2fa0990eaef86bb3eb"
+    },
+    {
+      "id": "B04-M02",
+      "status": "KILLED",
+      "target": "src/guardian/domain/scope.py",
+      "test": "tests/domain/test_b04_scope.py::test_f10_evidence_from_another_profile_context_is_rejected",
+      "cases": 4,
+      "assertion_failures": 4,
+      "returncode": 1,
+      "tail_sha256": "43d21d40ffe65901a5aff92a1bf2ce7933ffca8bc75e8bff463599cea408191d"
+    },
+    {
+      "id": "B04-M03",
+      "status": "KILLED",
+      "target": "src/guardian/domain/scope.py",
+      "test": "tests/domain/test_b04_scope.py::test_f04_f05_exact_support_tables_and_contributing_witnesses",
+      "cases": 16,
+      "assertion_failures": 12,
+      "returncode": 1,
+      "tail_sha256": "cd26e388c1df29460257beeaa36cc77f95bb9a1fbf5050674dada3771454b261"
+    },
+    {
+      "id": "B04-M04",
+      "status": "KILLED",
+      "target": "src/guardian/domain/scope.py",
+      "test": "tests/domain/test_b04_composition_properties.py::test_all_64_scoped_valuations_match_independent_nested_tables",
+      "cases": 64,
+      "assertion_failures": 48,
+      "returncode": 1,
+      "tail_sha256": "2fc925759293784d0f0a3860bc1482cf3d7713a3100c60b9947de029911cd52e"
+    },
+    {
+      "id": "B04-M05",
+      "status": "KILLED",
+      "target": "src/guardian/domain/scope.py",
+      "test": "tests/domain/test_b04_scope.py::test_explicit_constants_require_scoped_authorization_not_empty_all",
+      "cases": 1,
+      "assertion_failures": 1,
+      "returncode": 1,
+      "tail_sha256": "9505d61ed3d47658023cee4e060ae34bfb05662f1afd140bf075f690bf2fe98c"
+    },
+    {
+      "id": "B04-M06",
+      "status": "KILLED",
+      "target": "src/guardian/domain/scope.py",
+      "test": "tests/domain/test_b04_composition_properties.py::test_exact_budget_boundary_and_unexamined_failure_are_not_boolean_values",
+      "cases": 1,
+      "assertion_failures": 1,
+      "returncode": 1,
+      "tail_sha256": "26e0060b5465586148e73fff04488288d3b73a88c5e3e332c1ad75cd5eb802c2"
+    },
+    {
+      "id": "B04-M07",
+      "status": "KILLED",
+      "target": "src/guardian/domain/scope.py",
+      "test": "tests/domain/test_b04_adversarial.py::test_direct_composition_preserves_conflict_witnesses_when_final_value_is_decisive",
+      "cases": 2,
+      "assertion_failures": 2,
+      "returncode": 1,
+      "tail_sha256": "0c05959a40de5562fe16d489a8c13a2f080e864d8c3881d070360e0125eb3b67"
+    },
+    {
+      "id": "B04-M08",
+      "status": "KILLED",
+      "target": "src/guardian/domain/scope_codec.py",
+      "test": "tests/domain/test_b04_adversarial.py::test_scope_codec_does_not_invoke_candidate_schema_equality",
+      "cases": 1,
+      "assertion_failures": 1,
+      "returncode": 1,
+      "tail_sha256": "2b22d01fdf15d7f64cca8349d983a395716b39cfe0af82a922fb1692054246c8"
+    },
+    {
+      "id": "B04-M09",
+      "status": "KILLED",
+      "target": "src/guardian/domain/scope.py",
+      "test": "tests/domain/test_b04_composition_properties.py::test_source_selector_does_not_take_another_sources_negative_witness",
+      "cases": 1,
+      "assertion_failures": 1,
+      "returncode": 1,
+      "tail_sha256": "a276b2b0e5924efb610c4730116b4c8d50c7ea02d6a4eee982d254ad887a4955"
+    },
+    {
+      "id": "B04-M10",
+      "status": "KILLED",
+      "target": "src/guardian/domain/campaign.py",
+      "test": "tests/domain/test_b04_scope.py::test_f07_applicability_does_not_promote_future_to_current_or_approve",
+      "cases": 1,
+      "assertion_failures": 1,
+      "returncode": 1,
+      "tail_sha256": "48c54d6ae506235478edbd1d619baeac0761ca4d42ad84e35852ce4c058d5e75"
+    },
+    {
+      "id": "B04-M11",
+      "status": "KILLED",
+      "target": "src/guardian/application/contract_service.py",
+      "test": "tests/integration/test_b04_applicability_product_path.py::test_unobserved_sources_cannot_supply_applicability_witnesses",
+      "cases": 1,
+      "assertion_failures": 1,
+      "returncode": 1,
+      "tail_sha256": "7ec00d3a6687d03355f6561f60170a70cbafe08b8064ee8b72d0ba192484d727"
+    },
+    {
+      "id": "B04-M12",
+      "status": "KILLED",
+      "target": "src/guardian/domain/scope.py",
+      "test": "tests/domain/test_b04_adversarial.py::test_complete_report_cannot_hide_unexamined_nodes",
+      "cases": 1,
+      "assertion_failures": 1,
+      "returncode": 1,
+      "tail_sha256": "b3b420e298724f3c95b662136b6cec8ec2500aed1f4cf9d33ac1f4e5d0c692ea"
+    }
+  ],
+  "killed": 12,
+  "survived": 0,
+  "invalid": 0,
+  "detail_log_sha256": "8fe45e1af8825239fe63f2ff69f6f1bdb0c4fd780692602cf3d8474b02bc46b1"
+}

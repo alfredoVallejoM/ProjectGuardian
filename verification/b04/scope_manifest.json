@@ -1,0 +1,173 @@
+{
+  "schema": "guardian.g00-b04-scope-contract/v1",
+  "base_commit": "1da717ffefb1fa3fa5e7d1a12dcb9e8746318d9a",
+  "date": "2026-10-24",
+  "status": "IMPLEMENTED_AND_LOCALLY_TESTED_CANDIDATE",
+  "canonical_parent": "G00-06",
+  "original_scope_document": {
+    "path": "docs/campaigns/G-00/05_SCOPE_AND_APPLICABILITY.md",
+    "git_blob": "51f7865df58c6a7c4fdf6ccf7b5024277850cdc6"
+  },
+  "clause_tests": {
+    "G00-06-F01": [
+      "tests/domain/test_b04_scope.py::test_f01_profile_is_typed_versioned_and_unknown_dimensions_are_explicit",
+      "tests/domain/test_b04_scope.py::test_f01_dimension_types_do_not_coerce_values",
+      "tests/domain/test_b04_composition_properties.py::test_registered_extension_works_without_a_second_evaluator_or_plugins"
+    ],
+    "G00-06-F02": [
+      "tests/domain/test_b04_scope.py::test_f02_ast_arity_types_and_registered_operators",
+      "tests/domain/test_b04_scope.py::test_deep_and_cyclic_scope_inputs_fail_closed_without_python_recursion"
+    ],
+    "G00-06-F03": [
+      "tests/domain/test_b04_scope.py::test_f03_all_four_values_preserve_typed_context_and_witnesses_in_roundtrip"
+    ],
+    "G00-06-F04": [
+      "tests/domain/test_b04_scope.py::test_f04_f05_exact_support_tables_and_contributing_witnesses",
+      "tests/domain/test_b04_composition_properties.py::test_all_64_scoped_valuations_match_independent_nested_tables"
+    ],
+    "G00-06-F05": [
+      "tests/domain/test_b04_scope.py::test_f04_f05_exact_support_tables_and_contributing_witnesses",
+      "tests/domain/test_b04_adversarial.py::test_direct_composition_preserves_conflict_witnesses_when_final_value_is_decisive"
+    ],
+    "G00-06-F06": [
+      "tests/domain/test_b04_scope.py::test_f06_complete_sets_not_missing_data_can_supply_negative_witness",
+      "tests/domain/test_b04_scope.py::test_f06_completeness_needs_its_own_witness_and_is_not_a_boolean_claim",
+      "tests/domain/test_b04_scope.py::test_f06_incomplete_set_equality_is_not_promoted_to_yes"
+    ],
+    "G00-06-F07": [
+      "tests/domain/test_b04_scope.py::test_f07_applicability_does_not_promote_future_to_current_or_approve",
+      "tests/integration/test_b04_applicability_product_path.py::test_scope_body_replaces_anchor_and_future_obligation_remains_future"
+    ],
+    "G00-06-F08": [
+      "tests/domain/test_b04_scope.py::test_f08_external_predicate_is_not_executed_and_requires_matching_verified_input"
+    ],
+    "G00-06-F09": [
+      "tests/domain/test_b04_scope.py::test_f09_budget_exhaustion_has_no_applicability_value",
+      "tests/domain/test_b04_composition_properties.py::test_exact_budget_boundary_and_unexamined_failure_are_not_boolean_values",
+      "tests/domain/test_b04_adversarial.py::test_complete_report_cannot_hide_unexamined_nodes"
+    ],
+    "G00-06-F10": [
+      "tests/domain/test_b04_scope.py::test_f10_evidence_from_another_profile_context_is_rejected",
+      "tests/domain/test_b04_scope.py::test_f10_foreign_source_and_unknown_catalog_are_not_silently_accepted",
+      "tests/domain/test_b04_composition_properties.py::test_source_selector_does_not_take_another_sources_negative_witness",
+      "tests/integration/test_b04_applicability_product_path.py::test_unobserved_sources_cannot_supply_applicability_witnesses"
+    ]
+  },
+  "adversarial_tests": {
+    "ADV-16": [
+      "tests/domain/test_b04_scope.py::test_f06_complete_sets_not_missing_data_can_supply_negative_witness",
+      "tests/domain/test_b04_scope.py::test_f06_completeness_needs_its_own_witness_and_is_not_a_boolean_claim"
+    ],
+    "ADV-17": [
+      "tests/domain/test_b04_scope.py::test_f04_f05_exact_support_tables_and_contributing_witnesses"
+    ],
+    "ADV-18": [
+      "tests/domain/test_b04_scope.py::test_internal_conflicts_survive_and_no_short_circuit_hides_them",
+      "tests/domain/test_b04_adversarial.py::test_direct_composition_preserves_conflict_witnesses_when_final_value_is_decisive"
+    ],
+    "ADV-19": [
+      "tests/domain/test_b04_scope.py::test_f02_ast_arity_types_and_registered_operators",
+      "tests/domain/test_b04_scope.py::test_deep_and_cyclic_scope_inputs_fail_closed_without_python_recursion"
+    ],
+    "ADV-20": [
+      "tests/domain/test_b04_scope.py::test_f09_budget_exhaustion_has_no_applicability_value",
+      "tests/domain/test_b04_composition_properties.py::test_exact_budget_boundary_and_unexamined_failure_are_not_boolean_values",
+      "tests/domain/test_b04_adversarial.py::test_complete_report_cannot_hide_unexamined_nodes"
+    ]
+  },
+  "api_dispositions": [
+    {
+      "id": "G00-API-031",
+      "owner": "src/guardian/domain/scope.py",
+      "operation": "validate_support_profile",
+      "block": "B04",
+      "disposition": "PRODUCTIVE_SCOPE_CONTRACT",
+      "runtime_signature": "(profile: object)->Result[SupportProfile]",
+      "decision": "SupportProfile conserva contexto nominal, universo, política y dimensión versionada; desconocido no es falso. Registro inyectado, sin latest ni I/O. Véase docs/implementation/G00_B04_SCOPE_APPLICABILITY.md."
+    },
+    {
+      "id": "G00-API-032",
+      "owner": "src/guardian/domain/scope.py",
+      "operation": "validate_scope_expression",
+      "block": "B04",
+      "disposition": "PRODUCTIVE_SCOPE_CONTRACT",
+      "runtime_signature": "(expr: object, registry: DimensionRegistry, budget: StepBudget=StepBudget())->Result[ScopeExpression]",
+      "decision": "AST nominal Atom/All/Any/Not/VerifierPredicate/constantes; aridades, tipos, ciclos y límites comprobados sin ejecutar callbacks. Véase docs/implementation/G00_B04_SCOPE_APPLICABILITY.md."
+    },
+    {
+      "id": "G00-API-033",
+      "owner": "src/guardian/domain/scope.py",
+      "operation": "evaluate_atom",
+      "block": "B04",
+      "disposition": "PRODUCTIVE_SCOPE_CONTRACT",
+      "runtime_signature": "(atom: Atom, profile: SupportProfile, facts: FactSet, budget: StepBudget=StepBudget())->ScopeEvaluation",
+      "decision": "Átomos usan hechos con testigos, fuente y contexto exactos. Ausencia en conjunto incompleto permanece UNKNOWN; cierre explícito con testigo permite NO. Véase docs/implementation/G00_B04_SCOPE_APPLICABILITY.md."
+    },
+    {
+      "id": "G00-API-034",
+      "owner": "src/guardian/domain/scope.py",
+      "operation": "evaluate_scope",
+      "block": "B04",
+      "disposition": "PRODUCTIVE_SCOPE_CONTRACT",
+      "runtime_signature": "(expr: object, profile: SupportProfile, facts: FactSet, budget: StepBudget=StepBudget())->ScopeEvaluation",
+      "decision": "Evaluación pura completa con V4, traza, conflictos internos preservados y contadores deterministas. ResourceLimited no lleva valor de aplicabilidad. Véase docs/implementation/G00_B04_SCOPE_APPLICABILITY.md."
+    },
+    {
+      "id": "G00-API-035",
+      "owner": "src/guardian/domain/scope.py",
+      "operation": "and_evidence",
+      "block": "B04",
+      "disposition": "PRODUCTIVE_SCOPE_CONTRACT",
+      "runtime_signature": "(left: ApplicabilityResult, right: ApplicabilityResult)->ApplicabilityResult",
+      "decision": "Conjunción de evidencias V4 con unión de testigos contribuyentes, contexto exacto y retención tipada de ambos lados de conflictos internos. Véase docs/implementation/G00_B04_SCOPE_APPLICABILITY.md."
+    },
+    {
+      "id": "G00-API-036",
+      "owner": "src/guardian/domain/scope.py",
+      "operation": "or_evidence",
+      "block": "B04",
+      "disposition": "PRODUCTIVE_SCOPE_CONTRACT",
+      "runtime_signature": "(left: ApplicabilityResult, right: ApplicabilityResult)->ApplicabilityResult",
+      "decision": "Disyunción de evidencias V4 conserva testigos, conflicto interno y contexto. YES final no oculta contradicción de un operando. Véase docs/implementation/G00_B04_SCOPE_APPLICABILITY.md."
+    },
+    {
+      "id": "G00-API-037",
+      "owner": "src/guardian/domain/scope.py",
+      "operation": "negate_evidence",
+      "block": "B04",
+      "disposition": "PRODUCTIVE_SCOPE_CONTRACT",
+      "runtime_signature": "(value: ApplicabilityResult)->ApplicabilityResult",
+      "decision": "Negación intercambia soporte y testigos positivos/negativos; UNKNOWN y CONFLICT no se reducen a booleanos. Véase docs/implementation/G00_B04_SCOPE_APPLICABILITY.md."
+    },
+    {
+      "id": "G00-API-038",
+      "owner": "src/guardian/domain/campaign.py",
+      "operation": "inspect_due",
+      "block": "B03/B04",
+      "disposition": "PRODUCTIVE_SCOPE_CONTRACT",
+      "runtime_signature": "(obligation: object, milestone: str, profile: SupportProfile | None=None, *, facts: FactSet | None=None, scope_record: ScopeRevision | None=None, budget: StepBudget | None=None)->Result[DueDescription]",
+      "decision": "Sin perfil conserva la descripción temporal; con perfil exige hechos y cuerpo ScopeRevision exactos. Aplicabilidad no aprueba ni activa FUTURE; normatively_due queda desconocido sin autoridad. Véase docs/implementation/G00_B04_SCOPE_APPLICABILITY.md."
+    }
+  ],
+  "producer_consumer_contract": "B02 acquired sources + B03 obligation -> exact B06 ScopeRevision -> B04 applicability; no authority promotion",
+  "conditions": [
+    "Explicit project/snapshot/profile/registry/universe/policy revisions",
+    "Witnesses from caller-supplied observed source catalog",
+    "Completeness needs its own witness",
+    "Constants need externally supplied scoped authorization",
+    "No project code is evaluated",
+    "No implicit foreign-witness import",
+    "UNKNOWN/CONFLICT never drop obligation",
+    "Resource failure carries no applicability value",
+    "Internal conflicts retain both sides under decisive outer value"
+  ],
+  "limits": [
+    "Facts and authorization inputs are not authenticated by G00",
+    "Domain scopes are not translated from GSL in this cut",
+    "No generic domain schema codec B06 is claimed",
+    "No constitutional evaluator B07 or seven global verticals claimed"
+  ],
+  "campaign_closed": false,
+  "normative_ratification": false,
+  "independent_actor_review": false
+}
