@@ -1,0 +1,21 @@
+Selected pytest output: failing case headings and terminal summary, not full tracebacks.
+Base: 55fe58a28fde3f4e6c3f23b05643f303e38dd6d2
+Python: 3.13.5
+
+FAILED verification/review_2026_10_26/test_gate_findings.py::test_review_A01_api_operation_must_match_original_or_explicit_adapter - AssertionError: {'campaign_closed': False, 'errors': [], 'executed_cases': 2, 'independent_review': 'NOT_CHECKED', ...}
+FAILED verification/review_2026_10_26/test_gate_findings.py::test_review_A02_diagnostic_property_is_not_substring_match - AssertionError: {'campaign_closed': False, 'errors': [], 'executed_cases': 2, 'independent_review': 'NOT_CHECKED', ...}
+FAILED verification/review_2026_10_26/test_gate_findings.py::test_review_A03_loaded_module_provenance_is_bound[omitted] - AssertionError: {'campaign_closed': False, 'errors': [], 'executed_cases': 2, 'independent_review': 'NOT_CHECKED', ...}
+FAILED verification/review_2026_10_26/test_gate_findings.py::test_review_A03_loaded_module_provenance_is_bound[foreign] - AssertionError: {'campaign_closed': False, 'errors': [], 'executed_cases': 2, 'independent_review': 'NOT_CHECKED', ...}
+FAILED verification/review_2026_10_26/test_gate_findings.py::test_review_A03_loaded_module_provenance_is_bound[wrong_digest] - AssertionError: {'campaign_closed': False, 'errors': [], 'executed_cases': 2, 'independent_review': 'NOT_CHECKED', ...}
+FAILED verification/review_2026_10_26/test_gate_findings.py::test_review_A03_loaded_module_provenance_is_bound[empty] - AssertionError: {'campaign_closed': False, 'errors': [], 'executed_cases': 2, 'independent_review': 'NOT_CHECKED', ...}
+FAILED verification/review_2026_10_26/test_gate_findings.py::test_review_A04_real_runner_imports_other_code_but_gate_accepts - AssertionError: {'campaign_closed': False, 'errors': [], 'executed_cases': 2, 'independent_review': 'NOT_CHECKED', ...}
+FAILED verification/review_2026_10_26/test_source_and_rebuild_findings.py::test_review_G01_split_delete_add_must_not_bypass_revision_immutability[False] - AssertionError: Split deletion/addition rewrites the source and scope under exactly the same revision
+FAILED verification/review_2026_10_26/test_source_and_rebuild_findings.py::test_review_G01_split_delete_add_must_not_bypass_revision_immutability[True] - AssertionError: Split deletion/addition rewrites the source and scope under exactly the same revision
+FAILED verification/review_2026_10_26/test_source_and_rebuild_findings.py::test_review_D01_source_validator_must_validate_payload_not_only_class[git] - AssertionError: Exported source validator accepts invalid concrete payload solely by isinstance
+FAILED verification/review_2026_10_26/test_source_and_rebuild_findings.py::test_review_D01_source_validator_must_validate_payload_not_only_class[document] - AssertionError: Exported source validator accepts invalid concrete payload solely by isinstance
+FAILED verification/review_2026_10_26/test_source_and_rebuild_findings.py::test_review_D01_universe_does_not_reject_mutable_git_cut_subclass - AssertionError: Universe validation accepts a mutable branch in an unchecked GitSourceCut subclass
+FAILED verification/review_2026_10_26/test_extraction_binding_findings.py::test_review_G02_extraction_cannot_erase_a_normative_fence - AssertionError: Original source has TWO normative fences but an altered extraction yields one accepted IR declaration
+FAILED verification/review_2026_10_26/test_extraction_binding_findings.py::test_review_G02_extraction_cannot_promote_an_example_fence - AssertionError: An EXAMPLE fence was promoted to a normative declaration by supplying a structurally valid extraction
+FAILED verification/review_2026_10_26/test_extraction_binding_findings.py::test_review_G02_emitter_and_reconstruction_must_rederive_unit_membership[omit-normative] - AssertionError: Source-pinned emission and source reconstruction both accept altered normative-unit membership
+FAILED verification/review_2026_10_26/test_extraction_binding_findings.py::test_review_G02_emitter_and_reconstruction_must_rederive_unit_membership[promote-example] - AssertionError: Source-pinned emission and source reconstruction both accept altered normative-unit membership
+16 failed, 52 passed in 4.70s

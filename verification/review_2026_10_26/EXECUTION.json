@@ -1,0 +1,220 @@
+{
+  "schema": "guardian/in-depth-review-execution/v1",
+  "date": "2026-10-26",
+  "base_commit": "55fe58a28fde3f4e6c3f23b05643f303e38dd6d2",
+  "python": "3.13.5",
+  "reviewer": "constructor self-review, not independent actor",
+  "status": "OPEN_FINDINGS_NOT_CLOSED",
+  "published_baseline_gate_tests": {
+    "passed": 44,
+    "failed": 0
+  },
+  "new_cases": {
+    "total": 24,
+    "passed": 8,
+    "failed": 16,
+    "errors": 0,
+    "skipped": 0
+  },
+  "combined": {
+    "total": 68,
+    "passed": 52,
+    "failed": 16,
+    "errors": 0,
+    "skipped": 0
+  },
+  "original_denominator": {
+    "parents": 12,
+    "clauses": 120,
+    "apis": 58,
+    "adversaries": 36,
+    "verticals": 7
+  },
+  "disposition_rows": 120,
+  "disposition_meaning": "Contract review work items, not semantic PASS decisions",
+  "full_checkout_executed": false,
+  "files_stable_before_after": true,
+  "findings": [
+    {
+      "id": "A01",
+      "family": "B08_API_BINDING",
+      "classification": "REPRODUCED",
+      "severity": "P1",
+      "paths": [
+        "tools/g00_acceptance.py"
+      ],
+      "related": [
+        "G00-12-F10",
+        "G00 API contract correspondence"
+      ],
+      "failure_cases": 1,
+      "problem": "An existing unrelated operation can replace the original operation without explicit authorised adapter mapping; original row hash still matches.",
+      "fix": "Compare operation/owner with authoritative API or a separately reviewed explicit adapter correspondence."
+    },
+    {
+      "id": "A02",
+      "family": "B08_DIAGNOSTIC_SCHEMA",
+      "classification": "REPRODUCED",
+      "severity": "P2",
+      "paths": [
+        "tools/g00_acceptance.py"
+      ],
+      "related": [
+        "G00-12-F10"
+      ],
+      "failure_cases": 1,
+      "problem": "A malformed scalar diagnostic string is searched by substring, so NOT_OBSERVED:SYNTHETIC_REJECT:UNRELATED satisfies expected SYNTHETIC_REJECT.",
+      "fix": "Strictly validate receipt property structure as lists of plain strings and exact code membership."
+    },
+    {
+      "id": "A03",
+      "family": "EXECUTED_CODE_PROVENANCE",
+      "classification": "REPRODUCED_WITH_REAL_PYTEST_SUBPROCESS",
+      "severity": "P1",
+      "paths": [
+        "tools/g00_acceptance.py",
+        "tools/pytest_g00_receipt.py"
+      ],
+      "related": [
+        "G00-12-F08",
+        "G00-12-F10"
+      ],
+      "failure_cases": 5,
+      "problem": "The gate ignores loaded_guardian_modules; an actual run imports different code from an external directory while the gate accepts local-file hashes.",
+      "fix": "Bind loaded module byte hashes and required runtime module population to operator-pinned inputs; support installed wheels through explicit hash mappings rather than path alone."
+    },
+    {
+      "id": "G01",
+      "family": "GSL_SOURCE_DELTA_IMMUTABILITY",
+      "classification": "REPRODUCED_PRODUCT_PATH",
+      "severity": "P1",
+      "paths": [
+        "src/guardian/spec_lang/rebuild.py"
+      ],
+      "related": [
+        "G00-01-F06",
+        "G00-03-F01",
+        "GSL frozen-source contract",
+        "GSL-T08 preconditions"
+      ],
+      "failure_cases": 2,
+      "problem": "Split remove/add bypasses the same-revision changed-bytes rejection enforced on direct replacements, in both delta orders.",
+      "fix": "Compare every resulting entry with the complete old population before committing the delta, independently of individual SourceChange representation."
+    },
+    {
+      "id": "D01",
+      "family": "SOURCE_VALIDATOR_REVALIDATION",
+      "classification": "REPRODUCED_OBJECT_BOUNDARY",
+      "severity": "P2",
+      "paths": [
+        "src/guardian/domain/source.py"
+      ],
+      "related": [
+        "G00-03-F01",
+        "G00-03-F02",
+        "G00-API-013",
+        "G00-API-014",
+        "G00-API-015"
+      ],
+      "failure_cases": 3,
+      "problem": "Unchecked subclasses with main commit or empty document version are accepted by exported source validators; mutable Git cut also passes universe validation.",
+      "fix": "Exact nominal admission or invoke base invariants explicitly at validation boundaries, including nested cuts. Ordinary constructors already reject these values; no full constitutional admission exploit claimed."
+    },
+    {
+      "id": "G02",
+      "family": "SOURCE_EXTRACTION_MEMBERSHIP",
+      "classification": "REPRODUCED_THROUGH_TYPING_ELABORATION_EMISSION_AND_RECONSTRUCTION",
+      "severity": "P1",
+      "paths": [
+        "src/guardian/spec_lang/syntax.py",
+        "src/guardian/spec_lang/typecheck.py",
+        "src/guardian/spec_lang/elaboration.py",
+        "src/guardian/spec_lang/emission.py"
+      ],
+      "related": [
+        "GSL-T03",
+        "GSL-T06",
+        "GSL-T07",
+        "LC03 extraction",
+        "LC05",
+        "LC06",
+        "C14 emission"
+      ],
+      "failure_cases": 4,
+      "problem": "Structurally valid caller-supplied analyses can omit a normative Markdown fence or promote an example. Re-typing reuses these analyses instead of re-deriving extraction from original bytes. Both emit_program and verify_emission accept the altered membership.",
+      "fix": "Pin the declared source format and re-extract/reparse full original bytes before accepting public analysis/program objects; compare the exact normative population. Retain positive controls: analyze_source correctly distinguishes both cases. No global parser defect or external V0 bypass claimed."
+    }
+  ],
+  "production_modified": false,
+  "not_run": [
+    "entire repository suite",
+    "all 120 canonical clause acceptance tests",
+    "all 58 API postconditions",
+    "all 36 original adversaries",
+    "all seven verticals on this run",
+    "Python 3.12",
+    "static type checker",
+    "independent review",
+    "protected runner"
+  ],
+  "source_reconstruction": "Selected exact blobs recovered from prior attachments and live GitHub reads; not a full checkout. All loaded product modules matched pinned Git object identities.",
+  "runtime_module_count": 19,
+  "tests_outside_default_suite": "Intentionally failing review probes in verification/review_2026_10_26; no xfail/skip and no original tests modified. Run explicitly using the command below.",
+  "command": "PYTHONPATH=. python -m pytest -q tests/acceptance/test_execution_bindings.py verification/review_2026_10_26/test_gate_findings.py verification/review_2026_10_26/test_source_and_rebuild_findings.py verification/review_2026_10_26/test_extraction_binding_findings.py -p tools.pytest_g00_receipt --g00-receipt=/tmp/g00-review.json --junitxml=/tmp/g00-review.xml",
+  "junit_sha256": "af64da3555d31db6b5255fb9a4c833ac1d2b617c9dc7fb37d90a7a4233d47fdd",
+  "log_sha256": "1b30c4ca917be9505e128e6ce01ee3020f3e61bca36be9bfb965e096e4657438",
+  "exact_git_blobs": {
+    "src/guardian/__init__.py": "dfe7217fd7eea4f2df9e2c365b83622b017163f6",
+    "src/guardian/domain/__init__.py": "88d07f3d1b9be4348bae3b7ff88c7d5fb78a48cd",
+    "src/guardian/domain/identity.py": "5418d234461c71ef8590176e25456111c9526979",
+    "src/guardian/domain/outcomes.py": "214b7aab22531d6ab4be0081d1ea3222c3c61d0b",
+    "src/guardian/domain/project.py": "b0ac19e3b0a4ad37b4703d7b9deec71e80f8b5db",
+    "src/guardian/domain/project_view.py": "cf58fa84fc593b8042c25c43fa39ab647f2ea41d",
+    "src/guardian/domain/record_base.py": "b252f37ce68bc237c63d41010d51177138c366dd",
+    "src/guardian/domain/references.py": "547d13d91f9c1e24abb2a51528c6e51199cf4cf9",
+    "src/guardian/domain/source.py": "cf8ac2e7e77e79821585e6a5fb270c985ac05dc2",
+    "src/guardian/spec_lang/__init__.py": "fc178775efc6d140ea934d913c6170920972bd86",
+    "src/guardian/spec_lang/contract.py": "7e55d2e99b8d3e47f2e4f5b6f4f02ae63bd0ae13",
+    "src/guardian/spec_lang/elaboration.py": "7bfae3c43404e4dbca2cc8a86444f5615e4a8267",
+    "src/guardian/spec_lang/emission.py": "fcbb4e7f5c617670db7d883546aabd6470def295",
+    "src/guardian/spec_lang/ir.py": "f5e9fa1ab3de53852d56dcbb7c43f85d7ee8c96c",
+    "src/guardian/spec_lang/rebuild.py": "3b3a503bc0a3fb6a22809f04c52f1e29d6ffca25",
+    "src/guardian/spec_lang/resolution.py": "15dbf51c291abf567f0509c7179b927f6a2bdce3",
+    "src/guardian/spec_lang/syntax.py": "924ec024d0100a2b070e72f000445096f4687b87",
+    "src/guardian/spec_lang/text.py": "19134d987cecbcdf6097a7c0d520f0deec72ac45",
+    "src/guardian/spec_lang/typecheck.py": "876639c97f405445750f5dd2f4ccbd94de1728b0",
+    "tools/g00_acceptance.py": "b5597e01aba344eb4c5b0d6be22b9d2aef7c085d",
+    "tools/pytest_g00_receipt.py": "c89d1f207c41d1aa9b359f87ae55ecd31dd3b8f1",
+    "tests/acceptance/test_execution_bindings.py": "3348871de8920b9dc910bd872502fcc271ebb9cc",
+    "tests/foundation_b02.py": "319ded4279e7d5d369971476b247d8726aadf053",
+    "pyproject.toml": "aedd39c253e4aa02fb1581b038e7675c749286bb"
+  },
+  "failed_cases": [
+    "verification.review_2026_10_26.test_gate_findings.test_review_A01_api_operation_must_match_original_or_explicit_adapter",
+    "verification.review_2026_10_26.test_gate_findings.test_review_A02_diagnostic_property_is_not_substring_match",
+    "verification.review_2026_10_26.test_gate_findings.test_review_A03_loaded_module_provenance_is_bound[omitted]",
+    "verification.review_2026_10_26.test_gate_findings.test_review_A03_loaded_module_provenance_is_bound[foreign]",
+    "verification.review_2026_10_26.test_gate_findings.test_review_A03_loaded_module_provenance_is_bound[wrong_digest]",
+    "verification.review_2026_10_26.test_gate_findings.test_review_A03_loaded_module_provenance_is_bound[empty]",
+    "verification.review_2026_10_26.test_gate_findings.test_review_A04_real_runner_imports_other_code_but_gate_accepts",
+    "verification.review_2026_10_26.test_source_and_rebuild_findings.test_review_G01_split_delete_add_must_not_bypass_revision_immutability[False]",
+    "verification.review_2026_10_26.test_source_and_rebuild_findings.test_review_G01_split_delete_add_must_not_bypass_revision_immutability[True]",
+    "verification.review_2026_10_26.test_source_and_rebuild_findings.test_review_D01_source_validator_must_validate_payload_not_only_class[git]",
+    "verification.review_2026_10_26.test_source_and_rebuild_findings.test_review_D01_source_validator_must_validate_payload_not_only_class[document]",
+    "verification.review_2026_10_26.test_source_and_rebuild_findings.test_review_D01_universe_does_not_reject_mutable_git_cut_subclass",
+    "verification.review_2026_10_26.test_extraction_binding_findings.test_review_G02_extraction_cannot_erase_a_normative_fence",
+    "verification.review_2026_10_26.test_extraction_binding_findings.test_review_G02_extraction_cannot_promote_an_example_fence",
+    "verification.review_2026_10_26.test_extraction_binding_findings.test_review_G02_emitter_and_reconstruction_must_rederive_unit_membership[omit-normative]",
+    "verification.review_2026_10_26.test_extraction_binding_findings.test_review_G02_emitter_and_reconstruction_must_rederive_unit_membership[promote-example]"
+  ],
+  "command_note": "Output destinations were /mnt/data/review_runner.json and /mnt/data/review_combined.xml in the recorded run; output paths above are portable equivalents.",
+  "review_artifacts_sha256": {
+    "test_extraction_binding_findings.py": "f1d7b9b686ac2a89129e0de66daa4e8120f41a3667e145d81524a3070f8d9753",
+    "test_gate_findings.py": "095c30c9b9bfdbd5cb80941201fc0a296bac1472e1744316b8642bd44216398d",
+    "test_source_and_rebuild_findings.py": "5adcc9e403c0382f146d336cfc21ff8c947e7d3bc6a405a3aaf7300b90679a0e",
+    "CLAUSE_DISPOSITIONS.md": "dd64c8098e970df5fd6270eeef9c568bf989590b92b43250ff9fa4ad111c26f3",
+    "RESULTS_EXCERPT.txt": "f55ce2afd14a1d7bb77614fb84fae83aef3c2eb0cd047b228d6f49579d75f8cb",
+    "docs/audit/2026_10_26_G00_GSL_DEEP_REVIEW.md": "ce4c8517396e9e82224acb4c5813fc7c8ff42e9916ee703c3de6f04e0d1f205a"
+  },
+  "unsigned_runner_receipt_sha256": "7c42846c6502ba9944de0454084d3a05a44cb9022a9cc39af158adba4d288af8"
+}
