@@ -24,8 +24,15 @@ def record_types() -> tuple[type[RecordRevision], ...]:
     from .campaign import CampaignRevision
     from .architecture import ArchitectureRevision
     from .scope import ScopeRevision
+    from .authority import DecisionRevision
+    from .constitution import RuleRevision, ConstitutionRevision
+    from .verification import VerificationSpecRevision
+    from .clause import ClauseRevision
+    from .foundation_records import SourcePolicyRevision, SourceUniverseRecord, ProjectRevision
     return (ObjectiveRevision, CapabilityRevision, PropertyRevision,
-            ObligationRevision, CampaignRevision, ArchitectureRevision, ScopeRevision)
+            ObligationRevision, CampaignRevision, ArchitectureRevision, ScopeRevision, DecisionRevision, RuleRevision,
+            ConstitutionRevision, VerificationSpecRevision, SourcePolicyRevision,
+            SourceUniverseRecord, ProjectRevision, ClauseRevision)
 
 
 def issue(code: str, path: str, reason: str) -> Diagnostic:

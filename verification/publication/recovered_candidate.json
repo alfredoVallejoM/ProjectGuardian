@@ -1,0 +1,21 @@
+{
+  "schema": "guardian.recovered-candidate-publication/v1",
+  "date": "2026-10-26",
+  "base_commit": "627ee8d83b396bc1b573b41493718e04ee7a666b",
+  "recovered_root_tree": "041f43d54c9aa878df00ed036c8648d4d4a98387",
+  "recovered_trees": {
+    "src": "3421babcf11fc7e65f4cfccee535b2bf5dc0a347",
+    "tests": "88cf85c18a8c730dc3ea7d64ea354ecb6051d595",
+    "tools": "61d60b0c50c98ccb7585ac1d43fe95fa4aeced31",
+    "schemas": "20dccbeb8cb30509428a03668c93be6de9161c1b"
+  },
+  "preserved_authority_tree": "0f675d7754efaefa96974e1630cbcd7721cabb9a",
+  "api_projection_blob": "47011bad516f9652956488db35bde472edbbe23d",
+  "prior_reported_execution": {"passed":1598,"failed":0,"skipped":0,"status":"HISTORICAL_REPORT_NOT_NEW_EXECUTION"},
+  "publication_session_full_suite": "NOT_RUN_AT_THIS_CHECKPOINT",
+  "independent_review": false,
+  "ratified": false,
+  "G00_DEVELOPMENT_COMPLETE": false,
+  "G00_CAMPAIGN_CLOSED": false,
+  "GSL0_COMPLETE": false
+}
