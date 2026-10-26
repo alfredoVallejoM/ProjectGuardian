@@ -1,0 +1,115 @@
+{
+  "schema": "guardian/review-remediation-mutations/v1",
+  "python": "3.13.5",
+  "independent_review": false,
+  "exhaustive": false,
+  "killed": 9,
+  "survived": 0,
+  "invalid": 0,
+  "mutants": [
+    {
+      "id": "A01_ENDPOINT",
+      "file": "tools/g00_acceptance.py",
+      "test": "tests/remediation/test_boundary_repairs.py::test_api_substitution_rejected_even_when_code_and_runtime_pins_match",
+      "status": "KILLED",
+      "exit_code": 1,
+      "assertion_failures": [
+        "tests/remediation/test_boundary_repairs.py::test_api_substitution_rejected_even_when_code_and_runtime_pins_match[owner]",
+        "tests/remediation/test_boundary_repairs.py::test_api_substitution_rejected_even_when_code_and_runtime_pins_match[operation]"
+      ]
+    },
+    {
+      "id": "A01_ADAPTER_PIN",
+      "file": "tools/g00_evidence_bindings.py",
+      "test": "tests/remediation/test_boundary_repairs.py::test_explicit_adapter_needs_separate_operator_pin_and_bound_review",
+      "status": "KILLED",
+      "exit_code": 1,
+      "assertion_failures": [
+        "tests/remediation/test_boundary_repairs.py::test_explicit_adapter_needs_separate_operator_pin_and_bound_review"
+      ]
+    },
+    {
+      "id": "A02_EXACT_CODE",
+      "file": "tools/g00_evidence_bindings.py",
+      "test": "tests/remediation/test_boundary_repairs.py::test_similar_but_not_equal_diagnostic_does_not_count",
+      "status": "KILLED",
+      "exit_code": 1,
+      "assertion_failures": [
+        "tests/remediation/test_boundary_repairs.py::test_similar_but_not_equal_diagnostic_does_not_count"
+      ]
+    },
+    {
+      "id": "A02_PROPERTY_SCHEMA",
+      "file": "tools/g00_acceptance.py",
+      "test": "tests/remediation/test_boundary_repairs.py::test_diagnostic_properties_require_exact_typed_lists",
+      "status": "KILLED",
+      "exit_code": 1,
+      "assertion_failures": [
+        "tests/remediation/test_boundary_repairs.py::test_diagnostic_properties_require_exact_typed_lists[PREFIX_SYNTHETIC_REJECT_SUFFIX]",
+        "tests/remediation/test_boundary_repairs.py::test_diagnostic_properties_require_exact_typed_lists[None]",
+        "tests/remediation/test_boundary_repairs.py::test_diagnostic_properties_require_exact_typed_lists[value2]",
+        "tests/remediation/test_boundary_repairs.py::test_diagnostic_properties_require_exact_typed_lists[value3]",
+        "tests/remediation/test_boundary_repairs.py::test_diagnostic_properties_require_exact_typed_lists[value4]",
+        "tests/remediation/test_boundary_repairs.py::test_diagnostic_properties_require_exact_typed_lists[value5]"
+      ]
+    },
+    {
+      "id": "A03_EXECUTED_BYTES",
+      "file": "tools/g00_acceptance.py",
+      "test": "tests/remediation/test_boundary_repairs.py::test_actual_isolated_import_allows_identical_copy_and_rejects_other_code",
+      "status": "KILLED",
+      "exit_code": 1,
+      "assertion_failures": [
+        "tests/remediation/test_boundary_repairs.py::test_actual_isolated_import_allows_identical_copy_and_rejects_other_code[False]"
+      ]
+    },
+    {
+      "id": "D01_REVALIDATE_PAYLOAD",
+      "file": "src/guardian/domain/source.py",
+      "test": "tests/remediation/test_boundary_repairs.py::test_exact_nominal_object_reconstructed_with_invalid_payload_is_revalidated",
+      "status": "KILLED",
+      "exit_code": 1,
+      "assertion_failures": [
+        "tests/remediation/test_boundary_repairs.py::test_exact_nominal_object_reconstructed_with_invalid_payload_is_revalidated[git]",
+        "tests/remediation/test_boundary_repairs.py::test_exact_nominal_object_reconstructed_with_invalid_payload_is_revalidated[document]"
+      ]
+    },
+    {
+      "id": "G01_WHOLE_DELTA",
+      "file": "src/guardian/spec_lang/rebuild.py",
+      "test": "tests/remediation/test_review_source_active.py::test_review_G01_split_delete_add_must_not_bypass_revision_immutability",
+      "status": "KILLED",
+      "exit_code": 1,
+      "assertion_failures": [
+        "tests/remediation/test_review_source_active.py::test_review_G01_split_delete_add_must_not_bypass_revision_immutability[False]",
+        "tests/remediation/test_review_source_active.py::test_review_G01_split_delete_add_must_not_bypass_revision_immutability[True]"
+      ]
+    },
+    {
+      "id": "G02_REEXTRACT",
+      "file": "src/guardian/spec_lang/syntax.py",
+      "test": "tests/remediation/test_boundary_repairs.py::test_each_public_consumer_rejects_a_lost_normative_unit",
+      "status": "KILLED",
+      "exit_code": 1,
+      "assertion_failures": [
+        "tests/remediation/test_boundary_repairs.py::test_each_public_consumer_rejects_a_lost_normative_unit[resolve]",
+        "tests/remediation/test_boundary_repairs.py::test_each_public_consumer_rejects_a_lost_normative_unit[typecheck]",
+        "tests/remediation/test_boundary_repairs.py::test_each_public_consumer_rejects_a_lost_normative_unit[elaborate]",
+        "tests/remediation/test_boundary_repairs.py::test_each_public_consumer_rejects_a_lost_normative_unit[emit]",
+        "tests/remediation/test_boundary_repairs.py::test_each_public_consumer_rejects_a_lost_normative_unit[verify]",
+        "tests/remediation/test_boundary_repairs.py::test_each_public_consumer_rejects_a_lost_normative_unit[rebuild]"
+      ]
+    },
+    {
+      "id": "G02_FORMAT_PIN",
+      "file": "src/guardian/spec_lang/syntax.py",
+      "test": "tests/remediation/test_boundary_repairs.py::test_declared_format_is_fixed_in_context_not_chosen_by_supplied_analysis",
+      "status": "KILLED",
+      "exit_code": 1,
+      "assertion_failures": [
+        "tests/remediation/test_boundary_repairs.py::test_declared_format_is_fixed_in_context_not_chosen_by_supplied_analysis[markdown]"
+      ]
+    }
+  ],
+  "run_note": "Nine mutants run as three explicit groups. Earlier tool-level timeout excluded. Only actual AssertionError during test call counts."
+}

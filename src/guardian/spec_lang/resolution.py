@@ -14,7 +14,7 @@ from guardian.domain.identity import EntityId, EntityKind, EntityRef, ProjectId,
 from guardian.domain.outcomes import Diagnostic
 from guardian.domain.references import RecordSnapshot, TrustedEntityImports, resolve_entity
 from .contract import CompileContext, SymbolBinding, verify_source_context
-from .syntax import Expr, FrontendAnalysis, ParsedDeclaration
+from .syntax import Expr, FrontendAnalysis, ParsedDeclaration, validate_analysis_source
 from .text import TextSpan
 
 REFERENCE_CALLS = MappingProxyType({
@@ -159,6 +159,11 @@ def resolve_analyses(analyses: tuple[FrontendAnalysis, ...], context: CompileCon
     seen_labels = set()
     for analysis in analyses:
         try:
+            source_check = validate_analysis_source(analysis, context)
+            if not source_check.ok:
+                errors.extend(source_check.diagnostics)
+                continue
+            analysis = source_check.value
             FrontendAnalysis.__post_init__(analysis)
             for unit in analysis.units:
                 type(unit).__post_init__(unit)

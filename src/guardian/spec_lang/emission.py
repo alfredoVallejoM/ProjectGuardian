@@ -174,10 +174,7 @@ def emit_program(program: TypedProgram, output: ElaboratedProgram | None = None,
         sources = sorted((a.extraction.source for a in program.analyses), key=lambda b: _key(b.source_ref))
         formats = {}
         for analysis in program.analyses:
-            kinds = {unit.format for unit in analysis.extraction.units}
-            if len(kinds) != 1:
-                raise ValueError('GSL_BUNDLE_MIXED_SOURCE_FORMAT')
-            formats[analysis.extraction.source.source_ref] = 'gsl' if kinds == {'gsl'} else 'markdown'
+            formats[analysis.extraction.source.source_ref] = analysis.source_format
         source_rows = [{'source': encode_identity(b.source_ref), 'digest': encode_identity(b.expected_digest),
                         'format': formats[b.source_ref], 'utf8': b.source_bytes.decode('utf-8')} for b in sources]
         contracts = [{'canonical_ir': raw.decode('utf-8'), 'contract_digest': encode_identity(digest)}
@@ -315,7 +312,8 @@ def _validate_transport(data: dict, contracts: tuple) -> None:
     context = CompileContext(_id(c['project'], ProjectId), c['language_version'], c['semantic_version'],
         CompilerIdentity(compiler['implementation'], compiler['semantic_version'], _id(compiler['binary_digest'], ContentDigest)),
         tuple(pins), frozenset(features), tuple(symbol(x) for x in _list(c['symbols'])),
-        registry(c['type_registry']), registry(c['predicate_registry']), tuple(imports))
+        registry(c['type_registry']), registry(c['predicate_registry']), tuple(imports),
+        tuple((_id(item['source'], EntityRef), item['format']) for item in _list(data['sources'])))
     for binding in _list(c['external_symbols']):
         symbol(binding)
     if c['snapshot_revision'] is not None:

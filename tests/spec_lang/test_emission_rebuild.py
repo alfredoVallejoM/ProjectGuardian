@@ -35,6 +35,8 @@ def typed(raw=None, fmt='gsl'):
         'kind: behavior; scope: scope("scope-main"); when: yes; requires: property("property-main"); }\r\n'
     ).encode()
     bundle, context = bundle_context(p, source, raw)
+    if fmt != 'gsl':
+        context = replace(context, source_formats=((bundle.source_ref, fmt),))
     analysis = analyze_source(bundle, context, source_format=fmt)
     assert analysis.ok, analysis.diagnostics
     checked = typecheck_analyses((analysis,), context)

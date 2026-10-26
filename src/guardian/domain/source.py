@@ -90,16 +90,52 @@ class DocumentSourceCut:
 SourceCut=GitSourceCut|DocumentSourceCut
 
 
+def _validate_cut(cut: object, expected: type, code: str) -> Result:
+    """Validate exact nominal data, never a caller-defined subclass hook."""
+    try:
+        if type(cut) is not expected:
+            raise TypeError('EXACT_SOURCE_CUT_TYPE_REQUIRED')
+        # Reconstructed dataclasses may bypass their normal constructors.
+        # Check base nominal values before using equality, hashes or membership.
+        ref = cut.ref
+        if (type(ref) is not EntityRef or type(ref.project) is not ProjectId
+                or type(ref.revision) is not RevisionId or type(ref.kind) is not EntityKind):
+            raise TypeError('EXACT_SOURCE_IDENTITY_REQUIRED')
+        from .identity import EntityId
+        if type(ref.entity) is not EntityId or type(ref.entity.project) is not ProjectId:
+            raise TypeError('EXACT_SOURCE_IDENTITY_REQUIRED')
+        ProjectId.__post_init__(ref.project)
+        ProjectId.__post_init__(ref.entity.project)
+        RevisionId.__post_init__(ref.revision)
+        EntityId.__post_init__(ref.entity)
+        EntityRef.__post_init__(ref)
+        if cut.observed_digest is not None:
+            if type(cut.observed_digest) is not ContentDigest:
+                raise TypeError('EXACT_SOURCE_DIGEST_REQUIRED')
+            ContentDigest.__post_init__(cut.observed_digest)
+        if expected is GitSourceCut:
+            if type(cut.repository) is not RepositoryId or type(cut.object_kind) is not GitObjectKind:
+                raise TypeError('EXACT_GIT_CUT_CONTEXT_REQUIRED')
+            RepositoryId.__post_init__(cut.repository)
+        expected.__post_init__(cut)
+        return Result(cut)
+    except (TypeError, ValueError, AttributeError) as exc:
+        return Result(diagnostics=(Diagnostic(code, '$.source', expected.__name__,
+                                             type(cut).__name__, str(exc)),))
+
+
 def validate_git_source_cut(cut:object)->Result[GitSourceCut]:
-    if not isinstance(cut,GitSourceCut):
-        return Result(diagnostics=(Diagnostic('SOURCE_CUT_NOT_PINNED','$.source','immutable GitSourceCut',type(cut).__name__,'source cut missing or malformed'),))
-    return Result(cut)
+    return _validate_cut(cut, GitSourceCut, 'SOURCE_CUT_NOT_PINNED')
 
 
 def validate_document_source(cut:object)->Result[DocumentSourceCut]:
-    if not isinstance(cut,DocumentSourceCut):
-        return Result(diagnostics=(Diagnostic('SOURCE_REVISION_REQUIRED','$.source','versioned DocumentSourceCut',type(cut).__name__,'document source not pinned'),))
-    return Result(cut)
+    return _validate_cut(cut, DocumentSourceCut, 'SOURCE_REVISION_REQUIRED')
+
+
+def _validate_any_cut(cut: object) -> Result:
+    if type(cut) is DocumentSourceCut:
+        return validate_document_source(cut)
+    return validate_git_source_cut(cut)
 
 
 @dataclass(frozen=True,slots=True)
@@ -150,6 +186,9 @@ class TrustedImportGrants:
 def check_source_membership(project:ProjectDefinition, source:SourceCut, grants:TrustedImportGrants|None=None)->MembershipVerdict:
     if not isinstance(project,ProjectDefinition) or not isinstance(source,(GitSourceCut,DocumentSourceCut)):
         return MembershipVerdict(MembershipStatus.UNKNOWN,'INVALID_SOURCE','project and typed source required')
+    valid = _validate_any_cut(source)
+    if not valid.ok:
+        return MembershipVerdict(MembershipStatus.DENIED, valid.diagnostics[0].code, valid.diagnostics[0].reason)
     if source.ref.project==project.project_id:
         if isinstance(source,GitSourceCut) and source.repository not in project.permitted_source_repositories:
             return MembershipVerdict(MembershipStatus.DENIED,'SOURCE_REPOSITORY_DENIED','repo absent from project allowlist')
@@ -307,6 +346,18 @@ def validate_source_universe(universe:SourceUniverseRevision,project:ProjectDefi
     """
     if not isinstance(universe,SourceUniverseRevision) or not isinstance(project,ProjectDefinition) or not isinstance(source_catalog,Mapping):
         raise TypeError('source universe validator needs typed universe, project, catalog')
+    # Validate nested cuts BEFORE hashing their references or consulting the
+    # supplied catalog. Exact class admission does not rely on subclass hooks.
+    SourceUniverseRevision.__post_init__(universe)
+    invalid = []
+    for i, entry in enumerate(universe.entries):
+        if type(entry) is not SourceEntry:
+            invalid.append(_diag('INVALID_SOURCE_ENTRY', f'$.entries[{i}]', 'exact SourceEntry required'))
+            continue
+        checked = _validate_any_cut(entry.cut)
+        invalid.extend(_diag(d.code, f'$.entries[{i}].cut', d.reason) for d in checked.diagnostics)
+    if invalid:
+        return SourceUniverseValidation(tuple(invalid), (), universe.scope, False)
     findings=list(validate_inclusion_exclusion(universe))
     if universe.identity.project!=project.project_id:
         findings.append(_diag('WRONG_PROJECT','$.identity','universe belongs to another project'))

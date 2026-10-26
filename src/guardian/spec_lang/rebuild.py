@@ -73,10 +73,7 @@ def rebuild_program(previous: TypedProgram, changes: tuple[SourceChange, ...], c
         inputs = {}
         for analysis in previous.analyses:
             source = analysis.extraction.source
-            formats = {unit.format for unit in analysis.extraction.units}
-            if len(formats) != 1:
-                raise ValueError('GSL_REBUILD_MIXED_FORMAT')
-            inputs[source.source_ref] = (source, 'gsl' if formats == {'gsl'} else 'markdown')
+            inputs[source.source_ref] = (source, analysis.source_format)
         removed = set()
         added = set()
         # Validate the whole delta against the original population before changing
@@ -97,6 +94,16 @@ def rebuild_program(previous: TypedProgram, changes: tuple[SourceChange, ...], c
                 if change.after.source_ref in added:
                     raise ValueError('GSL_REBUILD_DUPLICATE_REPLACEMENT')
                 added.add(change.after.source_ref)
+        # Compare the complete old population with ALL replacements, even when
+        # remove and add are separate operations or presented in reverse order.
+        for change in changes:
+            if change.after is not None and change.after.source_ref in inputs:
+                old, old_format = inputs[change.after.source_ref]
+                if (change.after.source_bytes != old.source_bytes
+                        or change.after.expected_digest != old.expected_digest):
+                    raise ValueError('GSL_SOURCE_REVISION_REUSE')
+                if change.source_format != old_format:
+                    raise ValueError('GSL_SOURCE_FORMAT_REVISION_REUSE')
         if added & (set(inputs) - removed):
             raise ValueError('GSL_REBUILD_SOURCE_COLLISION')
         inputs = {ref: item for ref, item in inputs.items() if ref not in removed}

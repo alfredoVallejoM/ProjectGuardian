@@ -22,7 +22,7 @@ def fixture(tmp_path):
     rows = {
         'clauses': [{'id': name, 'parent_obligation': name[:6], 'acceptance': 'synthetic acceptance ' + name}
                     for name in sorted(gate.CLAUSES)],
-        'apis': [{'id': name, 'operation': 'behavior'} for name in sorted(gate.APIS)],
+        'apis': [{'id': name, 'function_name': 'behavior', 'owner_path': 'src/component.py'} for name in sorted(gate.APIS)],
         'attacks': [{'id': name, 'expected_diagnostic': 'SYNTHETIC_REJECT'} for name in sorted(gate.ATTACKS)],
         'verticals': [{'id': name, 'purpose': 'synthetic vertical'} for name in sorted(gate.VERTICALS)],
     }
@@ -63,6 +63,11 @@ def fixture(tmp_path):
             if label == 'apis': item.update(owner='src/component.py', operation='behavior')
             if label == 'attacks': item['expected_diagnostic'] = 'SYNTHETIC_REJECT'
             plan[label].append(item)
+    plan['expected_runtime_modules'] = {'guardian.component': {
+        'source_path': 'src/component.py', 'sha256': manifest['src/component.py'],
+        'allowed_paths': ['src/component.py']}}
+    receipt['loaded_guardian_modules'] = {'guardian.component': {
+        'path': 'src/component.py', 'sha256': manifest['src/component.py']}}
     return plan, receipt
 
 

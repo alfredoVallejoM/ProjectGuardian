@@ -227,6 +227,9 @@ class CompileContext:
     type_registry: RegistrySnapshot | None = None
     predicate_registry: RegistrySnapshot | None = None
     import_scopes: tuple[ExternalImportScope, ...] = ()
+    # Empty means the legacy raw-GSL profile only. Markdown requires a complete,
+    # explicit interpretation map from the caller, never inferred from analyses.
+    source_formats: tuple[tuple[EntityRef, str], ...] = ()
 
     def __post_init__(self) -> None:
         if not isinstance(self.project, ProjectId) or not isinstance(self.compiler, CompilerIdentity):
@@ -253,6 +256,16 @@ class CompileContext:
             if source_ref in seen:
                 raise ValueError('duplicate source reference')
             seen.add(source_ref)
+        if type(self.source_formats) is not tuple:
+            raise TypeError('GSL_IMMUTABLE_SOURCE_FORMAT_PINS_REQUIRED')
+        format_refs = []
+        for pair in self.source_formats:
+            if (type(pair) is not tuple or len(pair) != 2 or type(pair[0]) is not EntityRef
+                    or type(pair[1]) is not str or pair[1] not in ('gsl', 'markdown')):
+                raise TypeError('GSL_INVALID_SOURCE_FORMAT_PIN')
+            format_refs.append(pair[0])
+        if self.source_formats and (len(set(format_refs)) != len(format_refs) or set(format_refs) != seen):
+            raise ValueError('GSL_SOURCE_FORMAT_PIN_POPULATION')
         if type(self.symbols) is not tuple or any(not isinstance(x, SymbolBinding) for x in self.symbols):
             raise TypeError('symbols must be typed immutable bindings')
         if len({(x.name, x.identity.project) for x in self.symbols}) != len(self.symbols):

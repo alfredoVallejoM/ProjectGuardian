@@ -11,8 +11,14 @@ import ast
 from hashlib import sha1, sha256
 import json
 from pathlib import Path, PurePosixPath
+if __name__ == '__main__' and not __package__:
+    from g00_evidence_bindings import (check_runtime_modules, check_properties,
+        observed_code, api_adapters, check_api_endpoint)
+else:
+    from tools.g00_evidence_bindings import (check_runtime_modules, check_properties,
+        observed_code, api_adapters, check_api_endpoint)
 
-PLAN_SCHEMA = 'guardian/g00/acceptance-plan/v1'
+PLAN_SCHEMA = 'guardian/g00/acceptance-plan/v2'
 RECEIPT_SCHEMA = 'guardian/pytest-execution/v1'
 MAX_BYTES = 32_000_000
 CLAUSES = frozenset(f'G00-{parent:02d}-F{clause:02d}' for parent in range(1, 13) for clause in range(1, 11))
@@ -117,7 +123,8 @@ def _executed(cases, collected, links, label, errors):
 
 
 def check(root: Path, plan_bytes: bytes, receipt_bytes: bytes, *,
-          expected_plan_sha256: str, expected_receipt_sha256: str) -> dict:
+          expected_plan_sha256: str, expected_receipt_sha256: str,
+          expected_api_adapters_sha256: str | None = None) -> dict:
     """Conservative structural acceptance; missing originals/rows/tests are HOLD.
 
     Even a successful result is not an independent semantic review. The caller
@@ -164,6 +171,10 @@ def check(root: Path, plan_bytes: bytes, receipt_bytes: bytes, *,
                     errors.append('EXECUTED_FILE_CHANGED:' + name)
             except (ValueError, OSError) as exc:
                 errors.append(str(exc) + ':' + str(name))
+        check_runtime_modules(plan, receipt, before, errors)
+        check_properties(cases, errors)
+        adapters = api_adapters(plan, expected_api_adapters_sha256, originals.get('apis', {}),
+                                before, canonical, digest, errors)
         selected = set(collected)
         _executed(cases, selected, collected, 'ENTIRE_COLLECTION', errors)
         for label, ids in (('clauses', CLAUSES), ('apis', APIS), ('attacks', ATTACKS), ('verticals', VERTICALS)):
@@ -189,6 +200,7 @@ def check(root: Path, plan_bytes: bytes, receipt_bytes: bytes, *,
                 if type(review) is not str or not review.strip():
                     errors.append('SEMANTIC_REVIEW_UNRECORDED:' + identity)
                 if label == 'apis' and original is not None:
+                    check_api_endpoint(identity, row, original, adapters, errors)
                     owner, operation = row.get('owner'), row.get('operation')
                     if type(owner) is not str or type(operation) is not str or owner not in (paths or []):
                         errors.append('API_OWNER_OR_OPERATION_MISSING:' + identity)
@@ -200,7 +212,7 @@ def check(root: Path, plan_bytes: bytes, receipt_bytes: bytes, *,
                     diagnostic = row.get('expected_diagnostic')
                     if type(diagnostic) is not str or not diagnostic.strip():
                         errors.append('ADVERSARY_DIAGNOSTIC_NOT_RECONCILED:' + identity)
-                    elif not any(diagnostic in cases.get(node, {}).get('properties', {}).get('guardian.diagnostic', [])
+                    elif not any(observed_code(cases.get(node, {}), diagnostic)
                                  for node in (negative or [])):
                         errors.append('ADVERSARY_DIAGNOSTIC_NOT_RECORDED:' + identity)
         parents = _population(plan.get('parents'), PARENTS, 'PARENTS', errors)
@@ -224,9 +236,11 @@ def main() -> int:
     parser.add_argument('--receipt', type=Path, required=True)
     parser.add_argument('--plan-sha256', required=True)
     parser.add_argument('--receipt-sha256', required=True)
+    parser.add_argument('--api-adapters-sha256', default=None)
     args = parser.parse_args()
     result = check(args.root, args.plan.read_bytes(), args.receipt.read_bytes(),
-                   expected_plan_sha256=args.plan_sha256, expected_receipt_sha256=args.receipt_sha256)
+                   expected_plan_sha256=args.plan_sha256, expected_receipt_sha256=args.receipt_sha256,
+                   expected_api_adapters_sha256=args.api_adapters_sha256)
     print(json.dumps(result, sort_keys=True, indent=2))
     return 0 if result['status'] == 'STRUCTURAL_EXECUTION_BINDINGS_CHECKED' else 2
 

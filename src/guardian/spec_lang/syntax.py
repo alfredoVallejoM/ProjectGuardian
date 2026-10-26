@@ -9,7 +9,7 @@ import json
 from dataclasses import dataclass, replace
 from typing import TypeAlias
 
-from guardian.domain.outcomes import Diagnostic
+from guardian.domain.outcomes import Diagnostic, Result
 from guardian.spec_lang.contract import (CompileContext, CompileStatus,
     CompilationStage, SourceBundle, verify_source_context)
 from .text import (Extraction, FrontendError, NormativeUnit, TextSpan, TextSegment,
@@ -290,8 +290,11 @@ class FrontendAnalysis:
     diagnostics:tuple[Diagnostic,...]
     extraction:Extraction|None=None
     segments:tuple[TextSegment,...]=()
+    source_format:str|None=None
 
     def __post_init__(self)->None:
+        if self.source_format is not None and (type(self.source_format) is not str or self.source_format not in ('gsl', 'markdown')):
+            raise ValueError('GSL_UNKNOWN_SOURCE_FORMAT')
         if self.status not in (CompileStatus.ANALYZED,CompileStatus.REJECTED):
             raise ValueError('LC03_FRONTEND_CANNOT_COMPILE')
         if not isinstance(self.stage,CompilationStage) or type(self.units) is not tuple or type(self.diagnostics) is not tuple:
@@ -345,7 +348,42 @@ def analyze_source(bundle:SourceBundle,context:CompileContext,*,source_format:st
             if ast.project!=context.project.value:
                 raise FrontendError('GSL_FOREIGN_PROJECT',ast.span.start,'source declares a different project')
             analyzed.append(AnalyzedUnit(stream,cst,ast))
-        return FrontendAnalysis(CompileStatus.ANALYZED,CompilationStage.ABSTRACT,tuple(analyzed),(),extraction,segments)
+        return FrontendAnalysis(CompileStatus.ANALYZED,CompilationStage.ABSTRACT,tuple(analyzed),(),extraction,segments,source_format)
     except FrontendError as exc:
         return FrontendAnalysis(CompileStatus.REJECTED,stage,tuple(analyzed),
             (Diagnostic(exc.code,f'$.source.byte[{exc.byte_start}]','valid GSL syntax','invalid',exc.message),),extraction,segments)
+
+
+def validate_analysis_source(analysis: FrontendAnalysis, context: CompileContext) -> Result[FrontendAnalysis]:
+    """Reconstruct the FULL extraction, scan and syntax from pinned source bytes.
+
+    The declared format is an explicit input, not inferred from a caller's
+    selected units. This establishes representation fidelity under that format,
+    not authentication of the caller's context or semantic source-item coverage.
+    The normal parser is reused; this is not the independent V0 oracle.
+    """
+    try:
+        if type(analysis) is not FrontendAnalysis or not analysis.ok:
+            raise TypeError('GSL_COMPLETE_ANALYSIS_REQUIRED')
+        if type(analysis.source_format) is not str or analysis.source_format not in ('gsl', 'markdown'):
+            raise ValueError('GSL_DECLARED_SOURCE_FORMAT_REQUIRED')
+        if type(context) is not CompileContext:
+            raise TypeError('GSL_CONTEXT_INVALID')
+        CompileContext.__post_init__(context)
+        FrontendAnalysis.__post_init__(analysis)
+        if type(analysis.extraction) is not Extraction or type(analysis.extraction.source) is not SourceBundle:
+            raise TypeError('GSL_EXACT_EXTRACTION_SOURCE_REQUIRED')
+        SourceBundle.__post_init__(analysis.extraction.source)
+        expected_format = dict(context.source_formats).get(analysis.extraction.source.source_ref, 'gsl')
+        if analysis.source_format != expected_format:
+            raise ValueError('GSL_SOURCE_FORMAT_PIN_MISMATCH')
+        fresh = analyze_source(analysis.extraction.source, context, source_format=analysis.source_format)
+        if not fresh.ok:
+            return Result(diagnostics=fresh.diagnostics)
+        if analysis != fresh:
+            raise ValueError('GSL_ANALYSIS_SOURCE_RECONSTRUCTION_MISMATCH')
+        return Result(fresh)
+    except (TypeError, ValueError, AttributeError, RecursionError) as exc:
+        code = str(exc) if str(exc).startswith('GSL_') and str(exc).replace('_', '').isalnum() else 'GSL_ANALYSIS_SOURCE_INVALID'
+        return Result(diagnostics=(Diagnostic(code, '$.source', 'complete reconstruction from original bytes',
+                                             type(exc).__name__, str(exc)),))

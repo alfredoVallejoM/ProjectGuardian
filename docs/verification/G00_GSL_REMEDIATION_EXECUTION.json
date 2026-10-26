@@ -1,0 +1,314 @@
+{
+  "schema": "guardian/review-boundary-remediation/v1",
+  "date": "2026-10-26",
+  "base_commit": "9a673c4b5a83485c3c349ce0c36d2fa2791ebc2a",
+  "status": "REMEDIATED_SELECTED_EXECUTION",
+  "python": "3.13.5",
+  "before": {
+    "passed": 52,
+    "failed": 16,
+    "errors": 0,
+    "skipped": 0,
+    "historical_case_inventory": "verification/review_2026_10_26/EXECUTION.json"
+  },
+  "selected_after": {
+    "passed": 961,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "per_test_file": {
+      "tests/acceptance/test_execution_bindings.py": 44,
+      "tests/closure/test_external_v0.py": 75,
+      "tests/closure/test_initial_profile.py": 14,
+      "tests/domain/test_adversarial_new_gaps.py": 9,
+      "tests/domain/test_domain_identity.py": 29,
+      "tests/domain/test_domain_outcomes.py": 14,
+      "tests/domain/test_domain_strict_adversarial.py": 5,
+      "tests/domain/test_g00_07_observations.py": 4,
+      "tests/domain/test_g00_b02_project.py": 18,
+      "tests/domain/test_g00_b02_source.py": 32,
+      "tests/domain/test_q_nominal_and_source_contracts.py": 383,
+      "tests/integration/test_foundation_pipeline.py": 2,
+      "tests/integration/test_g00_b02_gsl0_lc03.py": 9,
+      "tests/remediation/test_boundary_repairs.py": 50,
+      "tests/remediation/test_review_extraction_active.py": 6,
+      "tests/remediation/test_review_gate_active.py": 7,
+      "tests/remediation/test_review_source_active.py": 11,
+      "tests/spec_lang/test_contract.py": 7,
+      "tests/spec_lang/test_emission_rebuild.py": 63,
+      "tests/spec_lang/test_lc00_contract_extended.py": 5,
+      "tests/spec_lang/test_lc01_lc02_semantic_audit.py": 16,
+      "tests/spec_lang/test_lc02_grounding_spoof.py": 5,
+      "tests/spec_lang/test_lc03_scan_pipeline_guard.py": 2,
+      "tests/spec_lang/test_lc03_syntax.py": 22,
+      "tests/spec_lang/test_lc03_text.py": 21,
+      "tests/spec_lang/test_q_source_correspondence.py": 58,
+      "tests/spec_lang/test_typed_ir.py": 10,
+      "tests/spec_lang/test_v0.py": 16,
+      "tests/test_audit_contract_gaps.py": 16,
+      "tests/test_q_mutation_controls.py": 1,
+      "tests/test_remediation_traceability.py": 7
+    },
+    "command": [
+      "-q",
+      "tests",
+      "-p",
+      "tools.pytest_g00_receipt",
+      "--g00-receipt=/mnt/data/pg-evidence/final-receipt.json",
+      "--junitxml=/mnt/data/pg-evidence/final.xml"
+    ],
+    "extended_cases": 50
+  },
+  "historical_probes_preserved": {
+    "test_source_and_rebuild_findings.py": "9dc744c7a8245185b3aba626490674d96f1f36e0",
+    "test_extraction_binding_findings.py": "333e656e795f208c5e7f1653e9708f4264fdcb3a",
+    "test_gate_findings.py": "04eba3d8a6a88b008270abe01208412e5a4f30bd"
+  },
+  "loaded_modules": {
+    "guardian": {
+      "path": "src/guardian/__init__.py",
+      "git_blob": "dfe7217fd7eea4f2df9e2c365b83622b017163f6"
+    },
+    "guardian.application": {
+      "path": "src/guardian/application/__init__.py",
+      "git_blob": "fa148ea9f8f822b5794d0cf64888517d83e198e2"
+    },
+    "guardian.application.project_service": {
+      "path": "src/guardian/application/project_service.py",
+      "git_blob": "a607c048f83d5538c1424d9c407495ad9eb0a66d"
+    },
+    "guardian.application.specification_service": {
+      "path": "src/guardian/application/specification_service.py",
+      "git_blob": "e8679fc4fcc940c02eee549aacf774693820937f"
+    },
+    "guardian.domain": {
+      "path": "src/guardian/domain/__init__.py",
+      "git_blob": "88d07f3d1b9be4348bae3b7ff88c7d5fb78a48cd"
+    },
+    "guardian.domain.evidence_logic": {
+      "path": "src/guardian/domain/evidence_logic.py",
+      "git_blob": "92de77ac79f5045088baf71623011edcdbee62af"
+    },
+    "guardian.domain.identity": {
+      "path": "src/guardian/domain/identity.py",
+      "git_blob": "5418d234461c71ef8590176e25456111c9526979"
+    },
+    "guardian.domain.outcomes": {
+      "path": "src/guardian/domain/outcomes.py",
+      "git_blob": "214b7aab22531d6ab4be0081d1ea3222c3c61d0b"
+    },
+    "guardian.domain.project": {
+      "path": "src/guardian/domain/project.py",
+      "git_blob": "b0ac19e3b0a4ad37b4703d7b9deec71e80f8b5db"
+    },
+    "guardian.domain.project_view": {
+      "path": "src/guardian/domain/project_view.py",
+      "git_blob": "cf58fa84fc593b8042c25c43fa39ab647f2ea41d"
+    },
+    "guardian.domain.record_base": {
+      "path": "src/guardian/domain/record_base.py",
+      "git_blob": "b252f37ce68bc237c63d41010d51177138c366dd"
+    },
+    "guardian.domain.references": {
+      "path": "src/guardian/domain/references.py",
+      "git_blob": "547d13d91f9c1e24abb2a51528c6e51199cf4cf9"
+    },
+    "guardian.domain.source": {
+      "path": "src/guardian/domain/source.py",
+      "git_blob": "fce18033f0b56a212242cb78099ea05937660435"
+    },
+    "guardian.spec_lang": {
+      "path": "src/guardian/spec_lang/__init__.py",
+      "git_blob": "fc178775efc6d140ea934d913c6170920972bd86"
+    },
+    "guardian.spec_lang.contract": {
+      "path": "src/guardian/spec_lang/contract.py",
+      "git_blob": "4bccaf3c4960affe6aa1837e96efaa4233d2afae"
+    },
+    "guardian.spec_lang.elaboration": {
+      "path": "src/guardian/spec_lang/elaboration.py",
+      "git_blob": "7bfae3c43404e4dbca2cc8a86444f5615e4a8267"
+    },
+    "guardian.spec_lang.emission": {
+      "path": "src/guardian/spec_lang/emission.py",
+      "git_blob": "e130359a56aea6af49a793c948628644db045719"
+    },
+    "guardian.spec_lang.ir": {
+      "path": "src/guardian/spec_lang/ir.py",
+      "git_blob": "f5e9fa1ab3de53852d56dcbb7c43f85d7ee8c96c"
+    },
+    "guardian.spec_lang.rebuild": {
+      "path": "src/guardian/spec_lang/rebuild.py",
+      "git_blob": "f7abecead6a48be082f70229ce6c1088e24813c4"
+    },
+    "guardian.spec_lang.resolution": {
+      "path": "src/guardian/spec_lang/resolution.py",
+      "git_blob": "c3e1861e79dd9ea160e18f4e7992920e0333bb9d"
+    },
+    "guardian.spec_lang.source_inventory": {
+      "path": "src/guardian/spec_lang/source_inventory.py",
+      "git_blob": "3e168f43203e76b15c7052b3ef3eb3a328926400"
+    },
+    "guardian.spec_lang.syntax": {
+      "path": "src/guardian/spec_lang/syntax.py",
+      "git_blob": "7f0cec9c424d4cf0cc1df5a09f8807eda9cde599"
+    },
+    "guardian.spec_lang.text": {
+      "path": "src/guardian/spec_lang/text.py",
+      "git_blob": "19134d987cecbcdf6097a7c0d520f0deec72ac45"
+    },
+    "guardian.spec_lang.typecheck": {
+      "path": "src/guardian/spec_lang/typecheck.py",
+      "git_blob": "876639c97f405445750f5dd2f4ccbd94de1728b0"
+    },
+    "guardian.spec_lang.v0": {
+      "path": "src/guardian/spec_lang/v0.py",
+      "git_blob": "2f837d2b3f2ba6ee31ba22bc566c461f3f64993e"
+    }
+  },
+  "input_file_count": 77,
+  "input_stable_before_after": true,
+  "execution_input_hashes": {
+    "pyproject.toml": "8d5b766b8ba4503d659fdeb3a6a5c08ad3189740151a385cf05b00d53d52a94f",
+    "src/guardian/__init__.py": "bf95a67dce58ecbe6b9de4a44d8207b85b5f7d1158396812ad8a1f367d5a18ca",
+    "src/guardian/application/__init__.py": "e3d9e24e17e5e2113771c36c91282dce2b57fa3b4bd8d9ed271a6e929ef85109",
+    "src/guardian/application/project_service.py": "16d3d72ec95c9b7c0444d04ef1fcf7c16da20dbbaa9bd8710e0b3429684fb536",
+    "src/guardian/application/specification_service.py": "2d8a949f52c480ec349da3f8ed3b26521f7f1221d7f52e2a91b8983d10763830",
+    "src/guardian/domain/__init__.py": "2be4a23cca43a8f40f0c15a15b1d706db1b3e9f6320afb2bf7a00502261c030d",
+    "src/guardian/domain/evidence_logic.py": "650c6326c02c8c7db48d15befb4b0d7e3607765ce35c82a6685b67c2276d1990",
+    "src/guardian/domain/identity.py": "a086c4785ea44adbf7908b02c0303163d34d73ceaec4b1a37fcda9814df8ec82",
+    "src/guardian/domain/outcomes.py": "225a55109d25d5771c8d0477c24be5e9f5c107e1e6ca33e5549f7d7283f58b28",
+    "src/guardian/domain/project.py": "8579dcf9df64e6a52c22c9d74dc02eac93f9029681eb71bb860b43ba36de0695",
+    "src/guardian/domain/project_view.py": "23642b9a40ddb8ef65a96515f2015684bf061644c3501842cc871ae8eeff9fd7",
+    "src/guardian/domain/record_base.py": "fcc0db00acbc71764627b7653fcc1d6fdbedd1b685e76613aec3f1d51ac8cc1f",
+    "src/guardian/domain/references.py": "498ca6754e010cd85600c4d428be5e0c3324edf744ce72a07319878c0518043a",
+    "src/guardian/domain/source.py": "b8cdf34541ef0ddd4d4cfa45a6e600228dc207cdb6c4b08f091f4f959052327e",
+    "src/guardian/spec_lang/__init__.py": "909580b5915f44ee3592a1d7ecdb115a5d51c49f0455176be0d16797b5cf4983",
+    "src/guardian/spec_lang/contract.py": "1751ffc153da5daa5a1444c0e9ff3b79f9155fd773ed1d08c11a793be4d8d13d",
+    "src/guardian/spec_lang/elaboration.py": "795aaec68b97138378fce3d909825bd2c6b8af3d20106d8ca7ee442640dcd6d6",
+    "src/guardian/spec_lang/emission.py": "f47c76e88296009f45dd6feccc4ad41c0432e9032150156b3807db4542f96205",
+    "src/guardian/spec_lang/ir.py": "894868570e7a912c1f1d327146668f7f104da937194aaa26b09f1f1f98e0a1cc",
+    "src/guardian/spec_lang/rebuild.py": "0897f2b073cb0e8b24f934e1ed5535cb07075d2a143d5423d987feb7e9eb7135",
+    "src/guardian/spec_lang/resolution.py": "429f00c5129a733720236df3a7d224d9da03dbeebdf34fd82c166ea7296347f1",
+    "src/guardian/spec_lang/source_inventory.py": "192047c52e901c79ed2758f4cc74bae18387f958b3fd01c5bebb1fa346d642d0",
+    "src/guardian/spec_lang/syntax.py": "3578eed00f76856122f5bf840a7783961f557abd1b7f2b4a96c413f7357a1dcc",
+    "src/guardian/spec_lang/text.py": "9f663f80db727884536296eeaec90fb1d3560bb38ca93a74a787af919854fba6",
+    "src/guardian/spec_lang/typecheck.py": "cb776a1d5e0c34919b10946d0b258d77e8fe9d7479dd1f452bd78edb4d5ae2ed",
+    "src/guardian/spec_lang/v0.py": "d10beb0dde4f39b70701913e70eb1ff1080f4f599a609d976aa2f6dd8f72d2fe",
+    "tests/acceptance/test_execution_bindings.py": "cc4d28f06c67e82ba0e07d95c02643cbf676d3d3b0ce14433c35d153abda91fe",
+    "tests/closure/test_external_v0.py": "6bbd985653e0f421568fc59203ad1d8f1a1a4f511d7b92a402836cab61b4337c",
+    "tests/closure/test_initial_profile.py": "1fda82a1f176076c30171edc117a2e654bdfbe9882fce78d8970607ee125502b",
+    "tests/domain/test_adversarial_new_gaps.py": "a430d9797bc4befbdb1d47ebe6432d2d46a222e8b84b44c32b1e92d1f1710d39",
+    "tests/domain/test_domain_identity.py": "b1ee3aa058d5b119eedd73cc5862a01201df9ec96179b8d513358fe7e086720e",
+    "tests/domain/test_domain_outcomes.py": "a2f39689972357008741a9dabde8829b407b64170b97c2889da48db7261235e6",
+    "tests/domain/test_domain_strict_adversarial.py": "300b4db04d2deb96759b5428b38ed3d6b5f80f8447144eb81a28dc7417cbfe35",
+    "tests/domain/test_g00_07_observations.py": "df57eac972e2834a77fa11ed94ea58553eb502df20606ddb96718fac6af6ae2f",
+    "tests/domain/test_g00_b02_project.py": "1a0822a41979232526fab0f8a7abece22274264f23efee3e2dd149d6d98e061f",
+    "tests/domain/test_g00_b02_source.py": "d07d3767c464c9494ec8d522f57fbbae4be87458570b187f256660535418d8dd",
+    "tests/domain/test_q_nominal_and_source_contracts.py": "7066b1734a37116638e9dd962c87ee7ffa1187b9533d0f665f260b8a047c99ae",
+    "tests/foundation_b02.py": "08ebc80e99c9a7a0a26565450fba48b3977b916151865f0ec6168c5775edcd73",
+    "tests/integration/test_foundation_pipeline.py": "b322039baffa490984712317244b808739926d7f3885b8395ec77b1a31072a42",
+    "tests/integration/test_g00_b02_gsl0_lc03.py": "f4541a3af8c75c6960b87c004a72ca26693667daed0d2ba1c3c5f1c25353bf9d",
+    "tests/oracles/v4_oracle.py": "195ddc863e560548273a626e32986c2acb22082617183f5bd2a99bc53aecd222",
+    "tests/remediation/test_boundary_repairs.py": "3c7acf49fb37613bfa2fd878adf110234803b5f9e1c6a31accb4f21d54d4fc7e",
+    "tests/remediation/test_review_extraction_active.py": "e8a34162af7515995f17351ff5d15cc0d9b7f6135dca44ce006f2b71b67317a6",
+    "tests/remediation/test_review_gate_active.py": "b83a727fc74751db8c79a721c9b7019880ce64039cdb2ef53f1d3f8d1851bfba",
+    "tests/remediation/test_review_source_active.py": "5adcc9e403c0382f146d336cfc21ff8c947e7d3bc6a405a3aaf7300b90679a0e",
+    "tests/spec_lang/conftest.py": "1b615fa327ded1c973408100573a8763d9930f94eca33f814b92f6701da2f382",
+    "tests/spec_lang/test_contract.py": "834982bffd894ae671d729376397a0182410509697977d404b7c1c2992ab9e23",
+    "tests/spec_lang/test_emission_rebuild.py": "eea365f0ff4d9312105837dac810422bcc592d7145a5c9ab15abb16500f31657",
+    "tests/spec_lang/test_lc00_contract_extended.py": "ebf6276287b39ad76d779676f79c373af3ee2515495490bd9249343dcd0d3cd2",
+    "tests/spec_lang/test_lc01_lc02_semantic_audit.py": "1736fdc84f2a5a42cb991891c647d0679933fc6a2b4134105b7ece8dc6ea08c2",
+    "tests/spec_lang/test_lc02_grounding_spoof.py": "7b0a084b21d61d129de7e080e1bf8fa9796a5eb21d3f03c40b65b1117d002fc5",
+    "tests/spec_lang/test_lc03_scan_pipeline_guard.py": "e2fd1bcfd977041a2425ab18c8dae53ec9f043b63674a7b571d9a1108380f003",
+    "tests/spec_lang/test_lc03_syntax.py": "8106233005bc14f2b5fc642539a297015e65aba33a6ca34d91a1cb6ed7f00c69",
+    "tests/spec_lang/test_lc03_text.py": "5436329c842a414f7f576cf49277e14b72f66fdaa89518f10460f56b719f8857",
+    "tests/spec_lang/test_q_source_correspondence.py": "42f1854f77c5f7f343b51fc7b94df0fe1df3a70630a403449b7ff4c62c28218a",
+    "tests/spec_lang/test_typed_ir.py": "545899cdfa62e0b3f659c419031349264c477aaad6d1e8b8614aa65b62e8090b",
+    "tests/spec_lang/test_v0.py": "ce0d20716471561685f3691d9b93738e32d0d40005d5481b069f515d24e835cd",
+    "tests/test_audit_contract_gaps.py": "ec7b5998c4448b8787a18ea7510e1487806c2a93db195816779e2ef1b7e4eafd",
+    "tests/test_q_mutation_controls.py": "330384f2d64e8a76b6afb70225ea900e936972c73e49356645ec50b10d89064c",
+    "tests/test_remediation_traceability.py": "765860d514ef97448d287e2c253c2b5da90172556f7fc7b36ca4525388e6e01b",
+    "tools/check_initial_milestone.py": "0006ec8d7edd45b54819a9f4dc89890382b7b37dc90dd9fc7e4a385f1aea2b45",
+    "tools/check_remediation_contracts.py": "26adf2515f41419dc0492435295d63c1de9cc79e7ef61a89cba92e4f3dab0de4",
+    "tools/g00_acceptance.py": "7c6199e53af55e4d7e4e69698e74620d281c7f01a8a1b6d7e20ea55e4b923b63",
+    "tools/g00_evidence_bindings.py": "5e63c9e96a62acb4c959c451116e0079417e568cee99c9a9db3729e3ab1c5b0b",
+    "tools/pytest_g00_receipt.py": "d4801f848a447776d9b5a893e229b097d684e5b33d7678dec065955c5b4e1e98",
+    "tools/run_external_v0.py": "887a524b0901662738f033681f721dc9b8a93812aca68ada3977f41e3f855841",
+    "tools/run_foundation_mutations.py": "c8faa957210e363a073d86514cfb3c3a69dd530ba973e2c8c023dbf1efed1386",
+    "tools/run_review_boundary_mutations.py": "e3899bdc40392436410737dc14cf225b15dc948d5d146c71ed009bd86e31ae08",
+    "verification/ae8561f_original_falsifications.py.txt": "a8e2cec9593d3141aa727275a4135065227d247781ef426a016d0569705ff3ec",
+    "verification/ae8561f_remediation_baseline.json": "053980beba36c7545969fcb2e50193def6573b19aa0f75ba40128d651d2b7dcb",
+    "verification/canonical_tree_readback.json": "6157df0914033f447e0de55bad7ce0fc780a2b163e80f1834d8770e0cfcf35b4",
+    "verification/external_v0/worker.py": "39142c87eda966bccddfdb8ae5dd82aeda56474653e3d2f878d42ff72b5aac26",
+    "verification/initial_milestone_profile.json": "4b6b964c05f2c29f99c147b9e58a93cc9ad98fb66c8b3e24a3d34553a1ae71d2",
+    "verification/remediation_manifest.json": "73e00a444087d7e92c7b14c2e995a81fd01967a6c7c75529636ed0565c36fd4e",
+    "verification/review_2026_10_26/test_extraction_binding_findings.py": "f1d7b9b686ac2a89129e0de66daa4e8120f41a3667e145d81524a3070f8d9753",
+    "verification/review_2026_10_26/test_gate_findings.py": "095c30c9b9bfdbd5cb80941201fc0a296bac1472e1744316b8642bd44216398d",
+    "verification/review_2026_10_26/test_source_and_rebuild_findings.py": "5adcc9e403c0382f146d336cfc21ff8c947e7d3bc6a405a3aaf7300b90679a0e"
+  },
+  "changed_code_tests_tools": {
+    "src/guardian/domain/source.py": "fce18033f0b56a212242cb78099ea05937660435",
+    "src/guardian/spec_lang/contract.py": "4bccaf3c4960affe6aa1837e96efaa4233d2afae",
+    "src/guardian/spec_lang/syntax.py": "7f0cec9c424d4cf0cc1df5a09f8807eda9cde599",
+    "src/guardian/spec_lang/resolution.py": "c3e1861e79dd9ea160e18f4e7992920e0333bb9d",
+    "src/guardian/spec_lang/rebuild.py": "f7abecead6a48be082f70229ce6c1088e24813c4",
+    "src/guardian/spec_lang/emission.py": "e130359a56aea6af49a793c948628644db045719",
+    "src/guardian/application/specification_service.py": "e8679fc4fcc940c02eee549aacf774693820937f",
+    "tools/g00_acceptance.py": "9d93c386eb51ad6c7400eb45a9024663483029b2",
+    "tools/g00_evidence_bindings.py": "6625e485568b559df484fc41197fda4310bf779f",
+    "tests/acceptance/test_execution_bindings.py": "c8ed5c041d2c2e60beaf989fa9f2b34a7132b665",
+    "tests/spec_lang/test_emission_rebuild.py": "0b3cbc9bbc84df3d25a8f8b37894d383c96a2c51",
+    "tests/remediation/test_review_gate_active.py": "61a609d7e1f321e4d4a2d4f4741728a753dd6fd9",
+    "tests/remediation/test_review_source_active.py": "9dc744c7a8245185b3aba626490674d96f1f36e0",
+    "tests/remediation/test_review_extraction_active.py": "137f9cabf1ca5d1de57dc7f4026180fd70fe7c62",
+    "tests/remediation/test_boundary_repairs.py": "0433d54dfcba1de4b83e72b32dbff79e6ef692e7",
+    "tools/run_review_boundary_mutations.py": "1f838f3febcb88f038ccfa5b5f98a32bd510fd4b"
+  },
+  "evidence_sha256": {
+    "before.txt": "58a3a099364a839da0dd122b10bf95ee76a7c2e20ac522687e726ed43a59e0fe",
+    "before.xml": "691120a141aaa97347280d741895638cd977c9a3e286a2ac46bb54617003404c",
+    "before-receipt.json": "970710d85a651b54c67850015bf4de40d559a9a2cd32c05e2ad2292c0665c1af",
+    "final.txt": "e2ce782cc248b05443535bc61ffafe4d1f90c48b27e4224c01f5a0181d0ecd8f",
+    "final.xml": "fca40fe5c131fa4ca47fdefc4a77fa11996ea8a12aab219fa162533ba168e372",
+    "final-receipt.json": "007c1e33b09097ca2868bd123cef332c94d7088a2c610f4cc5f621ab572d0189",
+    "mutations.json": "33ac5bc74c38adb4dadb404d5277fb04154b79910f3dc0116466bfe44d8cd1e8"
+  },
+  "directed_mutations": {
+    "killed": 9,
+    "survived": 0,
+    "invalid": 0,
+    "exhaustive": false
+  },
+  "findings": {
+    "A01": "REMEDIATED_WITH_TARGETED_TESTS",
+    "A02": "REMEDIATED_WITH_TARGETED_TESTS",
+    "A03": "REMEDIATED_WITH_TARGETED_TESTS",
+    "D01": "REMEDIATED_WITH_TARGETED_TESTS",
+    "G01": "REMEDIATED_WITH_TARGETED_TESTS",
+    "G02": "REMEDIATED_WITH_TARGETED_TESTS"
+  },
+  "original_denominator": {
+    "parents": 12,
+    "clauses": 120,
+    "apis": 58,
+    "attacks": 36,
+    "verticals": 7
+  },
+  "full_checkout_executed": false,
+  "installed_complete_package_executed": false,
+  "campaign_closed": false,
+  "normatively_admitted": false,
+  "independent_review": false,
+  "not_run": [
+    "complete repository suite",
+    "all original clause/API/adversary/vertical acceptance",
+    "Python 3.12",
+    "static type checker",
+    "protected runner",
+    "independent actor review"
+  ],
+  "command_scope": "Locally recovered explicit file selection above, not all files of published repository. Future reproduction must use exactly those paths or explicitly record the larger scope.",
+  "syntax_compile": "PASS_MODIFIED_CODE_TESTS_TOOLS",
+  "hash_layout": "SHA-256 of every observed input is in execution_input_hashes. Loaded modules map module names to those paths and their Git blob identities. changed_code_tests_tools stores Git blob identities."
+}
