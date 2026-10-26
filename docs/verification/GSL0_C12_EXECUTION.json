@@ -1,0 +1,96 @@
+{
+  "schema": "guardian.gsl0-c12-execution/v1",
+  "date": "2026-10-26",
+  "base_commit": "a361981a4ab29b43110136a47141e070e66c649c",
+  "python": "3.13.5",
+  "status": "SELECTED_EXECUTION_PASS_NOT_CAMPAIGN_CLOSED",
+  "selected_suite": {
+    "passed": 263,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "new_cases": 67,
+    "selected_previous_cases": 196,
+    "test_files": [
+      "tests/spec_lang/test_contract.py",
+      "tests/spec_lang/test_contract_diff.py",
+      "tests/spec_lang/test_lc00_contract_extended.py",
+      "tests/spec_lang/test_lc01_lc02_semantic_audit.py",
+      "tests/spec_lang/test_lc02_grounding_spoof.py",
+      "tests/spec_lang/test_lc03_scan_pipeline_guard.py",
+      "tests/spec_lang/test_lc03_syntax.py",
+      "tests/spec_lang/test_lc03_text.py",
+      "tests/spec_lang/test_q_source_correspondence.py",
+      "tests/spec_lang/test_typed_ir.py",
+      "tests/spec_lang/test_v0.py",
+      "tests/domain/test_domain_identity.py",
+      "tests/domain/test_domain_strict_adversarial.py"
+    ]
+  },
+  "new_directed_mutations": {
+    "killed": 6,
+    "survived": 0,
+    "invalid": 0,
+    "record": "docs/verification/GSL0_C12_MUTATIONS.json"
+  },
+  "syntax_compile": "PASS_NEW_MODULE_TEST_AND_RUNNER",
+  "checked_existing_blobs": 23,
+  "all_checked_blobs_match_published_base": true,
+  "existing_blob_pins": {
+    "src/guardian/domain/identity.py": "5418d234461c71ef8590176e25456111c9526979",
+    "src/guardian/domain/outcomes.py": "214b7aab22531d6ab4be0081d1ea3222c3c61d0b",
+    "src/guardian/domain/evidence_logic.py": "92de77ac79f5045088baf71623011edcdbee62af",
+    "src/guardian/spec_lang/contract.py": "7e55d2e99b8d3e47f2e4f5b6f4f02ae63bd0ae13",
+    "src/guardian/spec_lang/ir.py": "f5e9fa1ab3de53852d56dcbb7c43f85d7ee8c96c",
+    "src/guardian/spec_lang/syntax.py": "924ec024d0100a2b070e72f000445096f4687b87",
+    "src/guardian/spec_lang/text.py": "19134d987cecbcdf6097a7c0d520f0deec72ac45",
+    "src/guardian/spec_lang/v0.py": "2f837d2b3f2ba6ee31ba22bc566c461f3f64993e",
+    "src/guardian/spec_lang/source_inventory.py": "3e168f43203e76b15c7052b3ef3eb3a328926400",
+    "src/guardian/domain/project_view.py": "cf58fa84fc593b8042c25c43fa39ab647f2ea41d",
+    "tests/spec_lang/conftest.py": "d1b91ffd929b2e360d9db4ece3c750d5e8d6a7b4",
+    "tests/spec_lang/test_contract.py": "546a5f7585af2e93da8ad20201c98529fe95a061",
+    "tests/spec_lang/test_lc00_contract_extended.py": "72fb14d45994634062c7cc4b150d6d3e7b99b9da",
+    "tests/spec_lang/test_lc01_lc02_semantic_audit.py": "3112c1eba6d8df586f19e1779ef7aba75fdee10e",
+    "tests/spec_lang/test_lc02_grounding_spoof.py": "e0b5d6ef72047554e875d4f68d6315cdc883b249",
+    "tests/spec_lang/test_lc03_scan_pipeline_guard.py": "761ead9f1a49dab1ec3432f13063b3c668b6deb1",
+    "tests/spec_lang/test_lc03_syntax.py": "b704c6425c63860dfa7b4effc5af1ae330b5bf1a",
+    "tests/spec_lang/test_lc03_text.py": "94ed22cf058c6d659abcabcac116823b6c062e63",
+    "tests/spec_lang/test_q_source_correspondence.py": "bcc426424e894dc7c011e6261dcb879d6c01ce2c",
+    "tests/spec_lang/test_typed_ir.py": "f89918531db717d08b5a5c857322be789581bb14",
+    "tests/spec_lang/test_v0.py": "e6f4b2132b79231af5935af33bc31f0f45ac52e8",
+    "tests/domain/test_domain_identity.py": "d5a57a26f5d9db0bcf607787245464d448e8b624",
+    "tests/domain/test_domain_strict_adversarial.py": "4e9591b06b79a235649aedabf47a22785c325b64"
+  },
+  "new_files": {
+    "src/guardian/spec_lang/contract_diff.py": {
+      "git_blob": "b45ed3744b5a3120fa19008f5fdbb031e134490b",
+      "sha256": "db502893d39beccd5488a7d7fd9687eefc87ced573e8adbf7c0d897055d138cc"
+    },
+    "tests/spec_lang/test_contract_diff.py": {
+      "git_blob": "d8eefd414a64cf1b621228d1c1dc788a512c6b86",
+      "sha256": "ea990cf271013b46b5e338d27f4171b68bb514ff1cd525a04810e585a062c509"
+    },
+    "tools/run_contract_diff_mutations.py": {
+      "git_blob": "da9291fea39a4cd60983edba0b6f4827d21ad440",
+      "sha256": "ebc3c00ae418b61bc0e1dc5ddb89979257105a17e15a906d654d1febe3b852f6"
+    }
+  },
+  "local_junit_sha256": "777ebd3a1c78a22f07c35a02bdb3ac1053b8f39e4907edd8144c20e20c0047e4",
+  "test_log_sha256": "97fa387b29ede5666c82d9cbd4cd55ba3e0f04400b8ea218801856292b4775fc",
+  "mutation_log_sha256": "113754706a9ad73cd0acdd04758dd1c8261d0377c3dd15321596921c912c3fee",
+  "full_repository_suite": "NOT_RUN_IN_THIS_DELIVERY",
+  "prior_1598_case_result": "HISTORICAL_REPORTED_EXECUTION_NOT_REPLAYED_HERE",
+  "installed_wheel": "NOT_RUN_IN_THIS_DELIVERY",
+  "independent_actor_review": false,
+  "ratified": false,
+  "G00_DEVELOPMENT_COMPLETE": false,
+  "G00_CAMPAIGN_CLOSED": false,
+  "GSL0_COMPLETE": false,
+  "remaining": [
+    "G00 B08 120/36/7 semantic acceptance",
+    "Full repository regression",
+    "G00 B09 independent review and trust conditions",
+    "GSL full module/import handling, corpus, incremental/emission/qualification",
+    "Python 3.12 and static typecheck"
+  ]
+}

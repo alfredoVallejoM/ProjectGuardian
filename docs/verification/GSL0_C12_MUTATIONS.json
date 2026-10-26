@@ -1,0 +1,114 @@
+{
+  "baseline": {
+    "cases": 67,
+    "errors": 0,
+    "failing_cases": [],
+    "failures": 0,
+    "returncode": 0,
+    "skipped": 0,
+    "stdout_sha256": "38867934dbf105da25cd50d6c89fa09bce04928d04d5ec82b468e0ab24e9f39a",
+    "verdict": "SURVIVED"
+  },
+  "independent_review": false,
+  "invalid": 0,
+  "killed": 6,
+  "mutations": [
+    {
+      "cases": 3,
+      "errors": 0,
+      "failing_cases": [
+        "test_each_declaration_removal_is_visible_even_when_remaining_rows_are_valid[0]",
+        "test_each_declaration_removal_is_visible_even_when_remaining_rows_are_valid[1]",
+        "test_each_declaration_removal_is_visible_even_when_remaining_rows_are_valid[2]"
+      ],
+      "failures": 3,
+      "id": "hide_removed_declaration",
+      "returncode": 1,
+      "skipped": 0,
+      "stdout_sha256": "9915a2eb014e8cd3b30cbdda9aa5dc267e761def54dc30cdc66d04fa3a9aefd4",
+      "test": "tests/spec_lang/test_contract_diff.py::test_each_declaration_removal_is_visible_even_when_remaining_rows_are_valid",
+      "verdict": "KILLED"
+    },
+    {
+      "cases": 5,
+      "errors": 0,
+      "failing_cases": [
+        "test_declaration_reordering_is_not_normalized_as_a_set[permutation0]",
+        "test_declaration_reordering_is_not_normalized_as_a_set[permutation1]",
+        "test_declaration_reordering_is_not_normalized_as_a_set[permutation2]",
+        "test_declaration_reordering_is_not_normalized_as_a_set[permutation3]",
+        "test_declaration_reordering_is_not_normalized_as_a_set[permutation4]"
+      ],
+      "failures": 5,
+      "id": "hide_declaration_order",
+      "returncode": 1,
+      "skipped": 0,
+      "stdout_sha256": "9cf4989c9305f5a37a9acdaee50729c93cbf56a4bac7bc650d2fe39fcc18fe45",
+      "test": "tests/spec_lang/test_contract_diff.py::test_declaration_reordering_is_not_normalized_as_a_set",
+      "verdict": "KILLED"
+    },
+    {
+      "cases": 1,
+      "errors": 0,
+      "failing_cases": [
+        "test_removing_proof_or_replacing_interpretation_with_deferred_is_not_hidden"
+      ],
+      "failures": 1,
+      "id": "hide_removed_proof",
+      "returncode": 1,
+      "skipped": 0,
+      "stdout_sha256": "1e62b2ddbe32f119f635b5b7e385f4b1fe74d038289ee9078ebd619dc21632b0",
+      "test": "tests/spec_lang/test_contract_diff.py::test_removing_proof_or_replacing_interpretation_with_deferred_is_not_hidden",
+      "verdict": "KILLED"
+    },
+    {
+      "cases": 1,
+      "errors": 0,
+      "failing_cases": [
+        "test_two_projects_with_identical_names_are_incomparable"
+      ],
+      "failures": 1,
+      "id": "cross_project_matching",
+      "returncode": 1,
+      "skipped": 0,
+      "stdout_sha256": "84c02da5422480f4237f917024301b3b30743fd53ce5603270c9492d9fb04ae4",
+      "test": "tests/spec_lang/test_contract_diff.py::test_two_projects_with_identical_names_are_incomparable",
+      "verdict": "KILLED"
+    },
+    {
+      "cases": 1,
+      "errors": 0,
+      "failing_cases": [
+        "test_revision_changes_are_pins_not_deletion_or_latest_selection"
+      ],
+      "failures": 1,
+      "id": "ambiguous_lineage_last_wins",
+      "returncode": 1,
+      "skipped": 0,
+      "stdout_sha256": "82dd86052d65979072aed3b99b24bcc2f1c3d907ff88b3bed83ab22c62ae3ec3",
+      "test": "tests/spec_lang/test_contract_diff.py::test_revision_changes_are_pins_not_deletion_or_latest_selection",
+      "verdict": "KILLED"
+    },
+    {
+      "cases": 1,
+      "errors": 0,
+      "failing_cases": [
+        "test_exact_node_budget_and_determinism_do_not_depend_on_json_key_order"
+      ],
+      "failures": 1,
+      "id": "ignore_node_budget",
+      "returncode": 1,
+      "skipped": 0,
+      "stdout_sha256": "a09b2519d31b60e40ea9d76166025ba93d636152f63c62f8d84e6ad33657b4ff",
+      "test": "tests/spec_lang/test_contract_diff.py::test_exact_node_budget_and_determinism_do_not_depend_on_json_key_order",
+      "verdict": "KILLED"
+    }
+  ],
+  "python": "3.13.5",
+  "schema": "guardian.contract-diff-mutations/v1",
+  "scope": "DIRECTED_C12_ONLY",
+  "source_sha256": "db502893d39beccd5488a7d7fd9687eefc87ced573e8adbf7c0d897055d138cc",
+  "status": "PASS",
+  "survived": 0,
+  "test_sha256": "ea990cf271013b46b5e338d27f4171b68bb514ff1cd525a04810e585a062c509"
+}
