@@ -1,0 +1,322 @@
+{
+  "G00_B08": {
+    "original_denominator": {
+      "adversaries": 36,
+      "apis": 58,
+      "clauses": 120,
+      "parents": 12,
+      "verticals": 7
+    },
+    "real_reviewed_acceptance_plan": "NOT_COMPLETED",
+    "semantic_sufficiency": "NOT_INFERRED_FROM_LINKS",
+    "tool_tests": "44_SYNTHETIC_GATE_CASES_NOT_PRODUCT_OBLIGATION_ACCEPTANCE",
+    "whole_canonical_gate": "NOT_RUN"
+  },
+  "G00_CAMPAIGN_CLOSED": false,
+  "G00_DEVELOPMENT_COMPLETE": false,
+  "GSL": {
+    "chunks": "BOUNDED_BYTE_JOIN_NOT_STREAMING_PARSER",
+    "emission": "EMITTED_FIXED_PROFILE",
+    "external_context_body_export": "NOT_EXPORTED",
+    "rebuild": "FULL_REBUILD_NO_CACHE_REUSE",
+    "runtime_stage": "C14_BUNDLE_EMIT",
+    "source_grounded_check": "REUSES_PRODUCT_COMPILER_NOT_INDEPENDENT_ORACLE",
+    "source_items": "NOT_RECONCILED"
+  },
+  "GSL_CAMPAIGN_CLOSED": false,
+  "architecture_tree_preserved": "0f675d7754efaefa96974e1630cbcd7721cabb9a",
+  "base_commit": "57539a9d4fe6727831629c226e630b2dc5443b4d",
+  "compileall": "PASS_EIGHT_NEW_CHANGED_PYTHON_FILES",
+  "date": "2026-10-26",
+  "execution_bindings": {
+    "all_case_phases_passed": true,
+    "before_after_inputs_equal": true,
+    "case_collection_sha256": "8e2d5a932b8b5944d7f2e73711d4b8f8e790f62d7588fb39bc0395ed421ef123",
+    "existing_test_helper_blobs_checked": 28,
+    "loaded_guardian_modules": 25,
+    "loaded_new_changed_modules": 3,
+    "loaded_original_modules_verified": 22,
+    "new_and_changed_files_match_execution": true
+  },
+  "independent_actor_review": false,
+  "loaded_modules": {
+    "guardian": {
+      "git_blob": "dfe7217fd7eea4f2df9e2c365b83622b017163f6",
+      "path": "src/guardian/__init__.py",
+      "sha256": "bf95a67dce58ecbe6b9de4a44d8207b85b5f7d1158396812ad8a1f367d5a18ca"
+    },
+    "guardian.application": {
+      "git_blob": "fa148ea9f8f822b5794d0cf64888517d83e198e2",
+      "path": "src/guardian/application/__init__.py",
+      "sha256": "e3d9e24e17e5e2113771c36c91282dce2b57fa3b4bd8d9ed271a6e929ef85109"
+    },
+    "guardian.application.project_service": {
+      "git_blob": "a607c048f83d5538c1424d9c407495ad9eb0a66d",
+      "path": "src/guardian/application/project_service.py",
+      "sha256": "16d3d72ec95c9b7c0444d04ef1fcf7c16da20dbbaa9bd8710e0b3429684fb536"
+    },
+    "guardian.application.specification_service": {
+      "git_blob": "aef9cb6ced912e672b8915772cf8068988160632",
+      "path": "src/guardian/application/specification_service.py",
+      "sha256": "3afe35d35978f65351474391f39acab5449bc1e845c9b3c1803f6e0ff5d42d2d"
+    },
+    "guardian.domain": {
+      "git_blob": "88d07f3d1b9be4348bae3b7ff88c7d5fb78a48cd",
+      "path": "src/guardian/domain/__init__.py",
+      "sha256": "2be4a23cca43a8f40f0c15a15b1d706db1b3e9f6320afb2bf7a00502261c030d"
+    },
+    "guardian.domain.evidence_logic": {
+      "git_blob": "92de77ac79f5045088baf71623011edcdbee62af",
+      "path": "src/guardian/domain/evidence_logic.py",
+      "sha256": "650c6326c02c8c7db48d15befb4b0d7e3607765ce35c82a6685b67c2276d1990"
+    },
+    "guardian.domain.identity": {
+      "git_blob": "5418d234461c71ef8590176e25456111c9526979",
+      "path": "src/guardian/domain/identity.py",
+      "sha256": "a086c4785ea44adbf7908b02c0303163d34d73ceaec4b1a37fcda9814df8ec82"
+    },
+    "guardian.domain.outcomes": {
+      "git_blob": "214b7aab22531d6ab4be0081d1ea3222c3c61d0b",
+      "path": "src/guardian/domain/outcomes.py",
+      "sha256": "225a55109d25d5771c8d0477c24be5e9f5c107e1e6ca33e5549f7d7283f58b28"
+    },
+    "guardian.domain.project": {
+      "git_blob": "b0ac19e3b0a4ad37b4703d7b9deec71e80f8b5db",
+      "path": "src/guardian/domain/project.py",
+      "sha256": "8579dcf9df64e6a52c22c9d74dc02eac93f9029681eb71bb860b43ba36de0695"
+    },
+    "guardian.domain.project_view": {
+      "git_blob": "cf58fa84fc593b8042c25c43fa39ab647f2ea41d",
+      "path": "src/guardian/domain/project_view.py",
+      "sha256": "23642b9a40ddb8ef65a96515f2015684bf061644c3501842cc871ae8eeff9fd7"
+    },
+    "guardian.domain.record_base": {
+      "git_blob": "b252f37ce68bc237c63d41010d51177138c366dd",
+      "path": "src/guardian/domain/record_base.py",
+      "sha256": "fcc0db00acbc71764627b7653fcc1d6fdbedd1b685e76613aec3f1d51ac8cc1f"
+    },
+    "guardian.domain.references": {
+      "git_blob": "547d13d91f9c1e24abb2a51528c6e51199cf4cf9",
+      "path": "src/guardian/domain/references.py",
+      "sha256": "498ca6754e010cd85600c4d428be5e0c3324edf744ce72a07319878c0518043a"
+    },
+    "guardian.domain.source": {
+      "git_blob": "cf8ac2e7e77e79821585e6a5fb270c985ac05dc2",
+      "path": "src/guardian/domain/source.py",
+      "sha256": "fac9d512d04a01e8863c655e84b7b6651e3fbf867128d651bf421d2ae465eb55"
+    },
+    "guardian.spec_lang": {
+      "git_blob": "fc178775efc6d140ea934d913c6170920972bd86",
+      "path": "src/guardian/spec_lang/__init__.py",
+      "sha256": "909580b5915f44ee3592a1d7ecdb115a5d51c49f0455176be0d16797b5cf4983"
+    },
+    "guardian.spec_lang.contract": {
+      "git_blob": "7e55d2e99b8d3e47f2e4f5b6f4f02ae63bd0ae13",
+      "path": "src/guardian/spec_lang/contract.py",
+      "sha256": "8089cc4d954dfd8ecce95e0da148f4c922201f3f34387a87d854f067882efe27"
+    },
+    "guardian.spec_lang.elaboration": {
+      "git_blob": "7bfae3c43404e4dbca2cc8a86444f5615e4a8267",
+      "path": "src/guardian/spec_lang/elaboration.py",
+      "sha256": "795aaec68b97138378fce3d909825bd2c6b8af3d20106d8ca7ee442640dcd6d6"
+    },
+    "guardian.spec_lang.emission": {
+      "git_blob": "fcbb4e7f5c617670db7d883546aabd6470def295",
+      "path": "src/guardian/spec_lang/emission.py",
+      "sha256": "687314417f444c3f44775bf6bdd429fa6af31f35a36244a228de282df3120f85"
+    },
+    "guardian.spec_lang.ir": {
+      "git_blob": "f5e9fa1ab3de53852d56dcbb7c43f85d7ee8c96c",
+      "path": "src/guardian/spec_lang/ir.py",
+      "sha256": "894868570e7a912c1f1d327146668f7f104da937194aaa26b09f1f1f98e0a1cc"
+    },
+    "guardian.spec_lang.rebuild": {
+      "git_blob": "3b3a503bc0a3fb6a22809f04c52f1e29d6ffca25",
+      "path": "src/guardian/spec_lang/rebuild.py",
+      "sha256": "06af022120d6b93f2d992250bd5c75191efe51c85aacba6c215525f5277b1f5b"
+    },
+    "guardian.spec_lang.resolution": {
+      "git_blob": "15dbf51c291abf567f0509c7179b927f6a2bdce3",
+      "path": "src/guardian/spec_lang/resolution.py",
+      "sha256": "378cd22782468ae1d54dff8621add8ac6131bcfbcb995b45c50a1015bbe60ef2"
+    },
+    "guardian.spec_lang.source_inventory": {
+      "git_blob": "3e168f43203e76b15c7052b3ef3eb3a328926400",
+      "path": "src/guardian/spec_lang/source_inventory.py",
+      "sha256": "192047c52e901c79ed2758f4cc74bae18387f958b3fd01c5bebb1fa346d642d0"
+    },
+    "guardian.spec_lang.syntax": {
+      "git_blob": "924ec024d0100a2b070e72f000445096f4687b87",
+      "path": "src/guardian/spec_lang/syntax.py",
+      "sha256": "8b8c8537cb29f90d7972a0325314ea890a19ea19f1222f6f729ad5561b68deca"
+    },
+    "guardian.spec_lang.text": {
+      "git_blob": "19134d987cecbcdf6097a7c0d520f0deec72ac45",
+      "path": "src/guardian/spec_lang/text.py",
+      "sha256": "9f663f80db727884536296eeaec90fb1d3560bb38ca93a74a787af919854fba6"
+    },
+    "guardian.spec_lang.typecheck": {
+      "git_blob": "876639c97f405445750f5dd2f4ccbd94de1728b0",
+      "path": "src/guardian/spec_lang/typecheck.py",
+      "sha256": "cb776a1d5e0c34919b10946d0b258d77e8fe9d7479dd1f452bd78edb4d5ae2ed"
+    },
+    "guardian.spec_lang.v0": {
+      "git_blob": "2f837d2b3f2ba6ee31ba22bc566c461f3f64993e",
+      "path": "src/guardian/spec_lang/v0.py",
+      "sha256": "d10beb0dde4f39b70701913e70eb1ff1080f4f599a609d976aa2f6dd8f72d2fe"
+    }
+  },
+  "local_raw_record_hashes_not_attestations": {
+    "g00_gsl_selected.xml": "7f5f867dcfaa83fe50a4845481898d80673eee5615a77be7f84c5412531a19d1",
+    "g00_gsl_selected_receipt.json": "902f46fd832026c6b8daeaa54edb4708860e1e255da8698fdc0131b858bb24b8"
+  },
+  "mutations": {
+    "execution": "Final exact code tested by same runner in four disjoint groups of three. An interrupted all-in-one retry is excluded.",
+    "independent": false,
+    "invalid": 0,
+    "killed": 12,
+    "scope": "DIRECTED_NOT_EXHAUSTIVE",
+    "survived": 0
+  },
+  "new_changed_code_tests_tools": {
+    "src/guardian/application/specification_service.py": {
+      "bytes": 4575,
+      "git_blob": "aef9cb6ced912e672b8915772cf8068988160632",
+      "sha256": "3afe35d35978f65351474391f39acab5449bc1e845c9b3c1803f6e0ff5d42d2d"
+    },
+    "src/guardian/spec_lang/emission.py": {
+      "bytes": 18772,
+      "git_blob": "fcbb4e7f5c617670db7d883546aabd6470def295",
+      "sha256": "687314417f444c3f44775bf6bdd429fa6af31f35a36244a228de282df3120f85"
+    },
+    "src/guardian/spec_lang/rebuild.py": {
+      "bytes": 7785,
+      "git_blob": "3b3a503bc0a3fb6a22809f04c52f1e29d6ffca25",
+      "sha256": "06af022120d6b93f2d992250bd5c75191efe51c85aacba6c215525f5277b1f5b"
+    },
+    "tests/acceptance/test_execution_bindings.py": {
+      "bytes": 10763,
+      "git_blob": "3348871de8920b9dc910bd872502fcc271ebb9cc",
+      "sha256": "b83cc7f66d35ab2020d28ed1d5f9f1e2d77126ca29d2ff89d1511128b63601d5"
+    },
+    "tests/spec_lang/test_emission_rebuild.py": {
+      "bytes": 18448,
+      "git_blob": "8a86fc47397767bbcea25abe2b83ee0f755624b8",
+      "sha256": "24dad7f9c89b48f24cf7570b3ee1d17b36cec51b0c9990f817ca9e46c0d2a2b9"
+    },
+    "tools/g00_acceptance.py": {
+      "bytes": 12509,
+      "git_blob": "b5597e01aba344eb4c5b0d6be22b9d2aef7c085d",
+      "sha256": "8a36be45ca63a2b2ae890b813398abf51ad84ab97c37b73d37594850090919c2"
+    },
+    "tools/pytest_g00_receipt.py": {
+      "bytes": 4710,
+      "git_blob": "c89d1f207c41d1aa9b359f87ae55ecd31dd3b8f1",
+      "sha256": "d4801f848a447776d9b5a893e229b097d684e5b33d7678dec065955c5b4e1e98"
+    },
+    "tools/run_emission_acceptance_mutations.py": {
+      "bytes": 6239,
+      "git_blob": "72bbc6a9f3ee998af9b3654adaac5487d3754da0",
+      "sha256": "520096798028d1ef77cbe25af7a8a9e6d6b23cd8e98f16ad44f37a0e7c03d334"
+    }
+  },
+  "not_run": [
+    "Entire repository checkout suite",
+    "Complete real B08 acceptance plan and original-byte gate",
+    "Installed wheel",
+    "Python 3.12",
+    "mypy/pyright",
+    "Independent actor review",
+    "Protected operator installation"
+  ],
+  "published_logs": {
+    "docs/verification/G00_B08_GSL_EMISSION_MUTATIONS.json": {
+      "bytes": 3988,
+      "git_blob": "9016cd16731b20e8b6b2310cfdb1502ca52b820c",
+      "sha256": "0c2eb81775e4668b5e090487f3cd787cc5d4095c05d22bda62dfce54bdb57532"
+    },
+    "docs/verification/G00_B08_GSL_EMISSION_SELECTED_TESTS.txt": {
+      "bytes": 1060,
+      "git_blob": "6342f63736ae7b7565c3afa1c4abead00fbe6056",
+      "sha256": "c46fe136bca0957a5f61432cf6fcbad266bcdf2b2996f2506cb0e020f3368e7d"
+    }
+  },
+  "python": "3.13.5",
+  "recovery_limit": "Partial filesystem recovery only. A whole-collection attempt failed on an unrecovered dependency; not diagnosed as a product defect. Old local files outside loaded modules/selected tests are NOT represented as verified current code.",
+  "schema": "guardian/g00-b08-gsl-emission-execution/v1",
+  "selected_original_test_helper_blobs": {
+    "tests/closure/test_external_v0.py": "456018cb9abe43013da1db9372b66cd73b95b72a",
+    "tests/closure/test_initial_profile.py": "eae0620f44844c4f7455f615b816d40931e1fc07",
+    "tests/domain/test_adversarial_new_gaps.py": "7f0e0d4606938d42b035f62c150aa9478bea25aa",
+    "tests/domain/test_domain_identity.py": "d5a57a26f5d9db0bcf607787245464d448e8b624",
+    "tests/domain/test_domain_outcomes.py": "9d4ac5b97339bb5d590362bec0977ff85f959e8b",
+    "tests/domain/test_domain_strict_adversarial.py": "4e9591b06b79a235649aedabf47a22785c325b64",
+    "tests/domain/test_g00_07_observations.py": "5205a4466b6e8434d0295205f9aadd2fc356c437",
+    "tests/domain/test_g00_b02_project.py": "53d9ef4a817f79df85f27746b9d740dccfe213d4",
+    "tests/domain/test_g00_b02_source.py": "aace9f9a9f1f5af2510f514e78a6ef4246f51082",
+    "tests/domain/test_q_nominal_and_source_contracts.py": "682d438218c7a533f1f9c691cc55a5a25b9a3dde",
+    "tests/foundation_b02.py": "319ded4279e7d5d369971476b247d8726aadf053",
+    "tests/integration/test_foundation_pipeline.py": "bef81140bf2347052a9fbc36322a3847cf4526b4",
+    "tests/integration/test_g00_b02_gsl0_lc03.py": "13cbeb05f4ba01fb81c9ae197de98d8ce1defbaf",
+    "tests/oracles/v4_oracle.py": "570ee60116bd10a2b7b5d5b7715e8c02fa1d3094",
+    "tests/spec_lang/conftest.py": "d1b91ffd929b2e360d9db4ece3c750d5e8d6a7b4",
+    "tests/spec_lang/test_contract.py": "546a5f7585af2e93da8ad20201c98529fe95a061",
+    "tests/spec_lang/test_lc00_contract_extended.py": "72fb14d45994634062c7cc4b150d6d3e7b99b9da",
+    "tests/spec_lang/test_lc01_lc02_semantic_audit.py": "3112c1eba6d8df586f19e1779ef7aba75fdee10e",
+    "tests/spec_lang/test_lc02_grounding_spoof.py": "e0b5d6ef72047554e875d4f68d6315cdc883b249",
+    "tests/spec_lang/test_lc03_scan_pipeline_guard.py": "761ead9f1a49dab1ec3432f13063b3c668b6deb1",
+    "tests/spec_lang/test_lc03_syntax.py": "b704c6425c63860dfa7b4effc5af1ae330b5bf1a",
+    "tests/spec_lang/test_lc03_text.py": "94ed22cf058c6d659abcabcac116823b6c062e63",
+    "tests/spec_lang/test_q_source_correspondence.py": "bcc426424e894dc7c011e6261dcb879d6c01ce2c",
+    "tests/spec_lang/test_typed_ir.py": "f89918531db717d08b5a5c857322be789581bb14",
+    "tests/spec_lang/test_v0.py": "e6f4b2132b79231af5935af33bc31f0f45ac52e8",
+    "tests/test_audit_contract_gaps.py": "c2e610b1638ebe916ca0d588a6abe637ee86a9ba",
+    "tests/test_q_mutation_controls.py": "d6add6718f5d26e88459017a836bcdf7ac5534d6",
+    "tests/test_remediation_traceability.py": "101be37436e39018e9dc5b3fc239b900dae86e53"
+  },
+  "selected_suite": {
+    "command": "python -m pytest -q tests/domain tests/spec_lang tests/closure tests/acceptance tests/integration/test_foundation_pipeline.py tests/integration/test_g00_b02_gsl0_lc03.py tests/test_audit_contract_gaps.py tests/test_q_mutation_controls.py tests/test_remediation_traceability.py -p tools.pytest_g00_receipt --g00-receipt=/tmp/g00-selected-receipt.json --junitxml=/tmp/g00-selected.xml",
+    "command_scope_note": "Executed in the documented partial recovery. In a full checkout these directory arguments collect additional tests. The exact executed file list above, not this invocation alone, defines this record.",
+    "errors": 0,
+    "failed": 0,
+    "new_breakdown": {
+      "tests/acceptance/test_execution_bindings.py": 44,
+      "tests/spec_lang/test_emission_rebuild.py": 63
+    },
+    "new_cases": 107,
+    "old_cases": 780,
+    "passed": 887,
+    "skipped": 0,
+    "test_files": [
+      "tests/acceptance/test_execution_bindings.py",
+      "tests/closure/test_external_v0.py",
+      "tests/closure/test_initial_profile.py",
+      "tests/domain/test_adversarial_new_gaps.py",
+      "tests/domain/test_domain_identity.py",
+      "tests/domain/test_domain_outcomes.py",
+      "tests/domain/test_domain_strict_adversarial.py",
+      "tests/domain/test_g00_07_observations.py",
+      "tests/domain/test_g00_b02_project.py",
+      "tests/domain/test_g00_b02_source.py",
+      "tests/domain/test_q_nominal_and_source_contracts.py",
+      "tests/integration/test_foundation_pipeline.py",
+      "tests/integration/test_g00_b02_gsl0_lc03.py",
+      "tests/spec_lang/test_contract.py",
+      "tests/spec_lang/test_emission_rebuild.py",
+      "tests/spec_lang/test_lc00_contract_extended.py",
+      "tests/spec_lang/test_lc01_lc02_semantic_audit.py",
+      "tests/spec_lang/test_lc02_grounding_spoof.py",
+      "tests/spec_lang/test_lc03_scan_pipeline_guard.py",
+      "tests/spec_lang/test_lc03_syntax.py",
+      "tests/spec_lang/test_lc03_text.py",
+      "tests/spec_lang/test_q_source_correspondence.py",
+      "tests/spec_lang/test_typed_ir.py",
+      "tests/spec_lang/test_v0.py",
+      "tests/test_audit_contract_gaps.py",
+      "tests/test_q_mutation_controls.py",
+      "tests/test_remediation_traceability.py"
+    ]
+  },
+  "signed_attestation": false,
+  "status": "SELECTED_EXECUTION_PASS_NOT_CAMPAIGN_CLOSED"
+}

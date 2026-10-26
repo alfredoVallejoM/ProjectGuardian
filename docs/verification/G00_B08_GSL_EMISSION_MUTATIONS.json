@@ -1,0 +1,107 @@
+{
+  "cases": [
+    {
+      "executed_cases": 1,
+      "id": "EMIT-PIN",
+      "path": "src/guardian/spec_lang/emission.py",
+      "returncode": 1,
+      "status": "KILLED_BY_ASSERTION",
+      "test": "tests/spec_lang/test_emission_rebuild.py::test_external_pin_is_checked_before_decoding_unverified_bundle"
+    },
+    {
+      "executed_cases": 3,
+      "id": "EMIT-FORGED-IR",
+      "path": "src/guardian/spec_lang/emission.py",
+      "returncode": 1,
+      "status": "KILLED_BY_ASSERTION",
+      "test": "tests/spec_lang/test_emission_rebuild.py::test_self_consistent_elaborated_object_cannot_replace_original_source"
+    },
+    {
+      "executed_cases": 1,
+      "id": "EMIT-RECHECK",
+      "path": "src/guardian/spec_lang/emission.py",
+      "returncode": 1,
+      "status": "KILLED_BY_ASSERTION",
+      "test": "tests/spec_lang/test_emission_rebuild.py::test_rehashed_formula_change_is_detected_by_rebuilding_source"
+    },
+    {
+      "executed_cases": 1,
+      "id": "EMIT-COMPILER",
+      "path": "src/guardian/spec_lang/emission.py",
+      "returncode": 1,
+      "status": "KILLED_BY_ASSERTION",
+      "test": "tests/spec_lang/test_emission_rebuild.py::test_changed_context_cannot_validate_an_earlier_emission[compiler]"
+    },
+    {
+      "executed_cases": 1,
+      "id": "REBUILD-OLD-PIN",
+      "path": "src/guardian/spec_lang/rebuild.py",
+      "returncode": 1,
+      "status": "KILLED_BY_ASSERTION",
+      "test": "tests/spec_lang/test_emission_rebuild.py::test_invalid_update_never_returns_stale_ir[old-digest]"
+    },
+    {
+      "executed_cases": 1,
+      "id": "REBUILD-HISTORY",
+      "path": "src/guardian/spec_lang/rebuild.py",
+      "returncode": 1,
+      "status": "KILLED_BY_ASSERTION",
+      "test": "tests/spec_lang/test_emission_rebuild.py::test_invalid_update_never_returns_stale_ir[same-revision]"
+    },
+    {
+      "executed_cases": 1,
+      "id": "GATE-ORIGINAL",
+      "path": "tools/g00_acceptance.py",
+      "returncode": 1,
+      "status": "KILLED_BY_ASSERTION",
+      "test": "tests/acceptance/test_execution_bindings.py::test_pinned_original_blob_cannot_be_replaced_by_current_author_claim"
+    },
+    {
+      "executed_cases": 1,
+      "id": "GATE-COLLECTION",
+      "path": "tools/g00_acceptance.py",
+      "returncode": 1,
+      "status": "KILLED_BY_ASSERTION",
+      "test": "tests/acceptance/test_execution_bindings.py::test_unlinked_collected_population_cannot_drop_an_expected_regression"
+    },
+    {
+      "executed_cases": 1,
+      "id": "GATE-PHASE",
+      "path": "tools/g00_acceptance.py",
+      "returncode": 1,
+      "status": "KILLED_BY_ASSERTION",
+      "test": "tests/acceptance/test_execution_bindings.py::test_a_green_count_cannot_hide_failed_or_unexecuted_cases[failed-call]"
+    },
+    {
+      "executed_cases": 1,
+      "id": "GATE-FILES",
+      "path": "tools/g00_acceptance.py",
+      "returncode": 1,
+      "status": "KILLED_BY_ASSERTION",
+      "test": "tests/acceptance/test_execution_bindings.py::test_external_pins_and_actual_files_must_match_the_execution[source-changed]"
+    },
+    {
+      "executed_cases": 1,
+      "id": "GATE-CLAUSE",
+      "path": "tools/g00_acceptance.py",
+      "returncode": 1,
+      "status": "KILLED_BY_ASSERTION",
+      "test": "tests/acceptance/test_execution_bindings.py::test_contract_and_test_links_cannot_be_reduced_or_reassigned[requirement]"
+    },
+    {
+      "executed_cases": 1,
+      "id": "GATE-FALSIFICATION",
+      "path": "tools/g00_acceptance.py",
+      "returncode": 1,
+      "status": "KILLED_BY_ASSERTION",
+      "test": "tests/acceptance/test_execution_bindings.py::test_contract_and_test_links_cannot_be_reduced_or_reassigned[negative]"
+    }
+  ],
+  "execution": "Same runner and same final source; four disjoint groups of three mutants. Earlier interrupted all-in-one retry was not counted.",
+  "independent_review": false,
+  "invalid": 0,
+  "killed": 12,
+  "schema": "guardian/emission-acceptance-mutations/v1",
+  "scope": "DIRECTED_NOT_EXHAUSTIVE",
+  "survived": 0
+}

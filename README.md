@@ -6,30 +6,29 @@ y agentes consumen los mismos contratos; producir resultados no concede autorida
 
 ## Estado actual — 26 de octubre de 2026
 
-**Publicado el candidato integrado G-00 y el recorrido acotado de GSL a IR tipado.**
-Incluye borradores, decisiones y aprobaciones, reglas y constituciones, conflictos,
-codecs nominales v2, evaluador puro, remediación R01–R06, tipado, elaboración,
-mapas de origen y PO pendientes. La publicación inicial es
+El candidato integrado G-00 y el recorrido GSL a IR tipado están publicados desde
 [`a361981a`](https://github.com/alfredoVallejoM/ProjectGuardian/commit/a361981a4ab29b43110136a47141e070e66c649c).
+El comparador estructural se añadió en `57539a9d`. Esta entrega incorpora:
 
-Esta entrega añade **C12: diff estructural tipado de ContractIR**, con borrados,
-cambios de campos/referencias/revisión, orden, procedencia y PO visibles. No decide
-equivalencia semántica, no autoriza cambios y no completa todo GSL.
+- **G00/B08:** control de poblaciones, originales fijados, pruebas positivas y
+  falsaciones, fases setup/call/teardown, archivos y colección realmente ejecutada.
+- **GSL C14:** emisión canónica desde fuente, lectura con pin externo y contraste
+  por reconstrucción. El bundle no concede autoridad ni demuestra realización.
+- **GSL-T08/T10:** API de cambios fijados con reconstrucción completa, sin caché,
+  y recomposición exacta de bytes UTF-8 fragmentados.
 
-Validación nueva de C12: **263 PASS, 0 FAIL, 0 SKIP** (67 nuevos y 196 regresiones
-seleccionadas); seis mutaciones dirigidas detectadas. Python 3.13.5. No es una
-reejecución de la suite íntegra. Los 1598 PASS comunicados en la autoría anterior
-son un resultado histórico, no se suman a 263 ni se atribuyen al commit nuevo.
+Validación de este corte: **887 PASS, 0 FAIL, 0 SKIP**: 780 regresiones seleccionadas
+más 107 casos nuevos; doce mutaciones dirigidas detectadas. Python 3.13.5.
+**No es la suite íntegra ni una cifra de obligaciones terminadas.**
 
-**G-00 y GSL-0 siguen abiertos.** B08 necesita la aceptación exhaustiva de las
-120 cláusulas y 36 adversarios originales, junto con las siete verticales. B09
-sigue sin auditoría independiente, ratificación ni recibo protegido. Python 3.12
-y el análisis estático de tipos no se afirman como ejecutados.
+[Implementación, APIs, garantías y pendientes](docs/implementation/G00_B08_GSL_EMISSION_REBUILD.md)
+· [Ejecución y hashes](docs/verification/G00_B08_GSL_EMISSION_EXECUTION.json)
+· [Mutaciones](docs/verification/G00_B08_GSL_EMISSION_MUTATIONS.json).
 
-[Implementación integrada y límites](docs/implementation/G00_COMPLETION_CANDIDATE.md)
-· [Publicación por árboles exactos](verification/publication/recovered_candidate.json)
-· [Contrato C12 y pruebas](docs/implementation/GSL0_C12_STRUCTURAL_DIFF.md)
-· [Ejecución C12](docs/verification/GSL0_C12_EXECUTION.json).
+**G-00 y GSL-0 siguen abiertos.** El comprobador B08 no sustituye la revisión de
+suficiencia de las 120 cláusulas, 36 adversarios y siete verticales. No hay un plan
+nuevo que las declare aceptadas. B09, ratificación, instalación protegida, Python
+3.12 y análisis estático de tipos no se afirman como ejecutados.
 
 ## Contratos e inventario original
 
@@ -51,15 +50,21 @@ El catálogo histórico v1 no debe confundirse con los codecs v2 posteriores.
 [Garantías V0](docs/verification/GSL0_V0_CORRESPONDENCE_PROFILE_V2.md) ·
 [Perfil inicial y V0 externo](docs/closure/2026_10_24_INITIAL_TECHNICAL_HANDOFF.md) ·
 [B03/B06/LC04](docs/implementation/G00_B03_B06_LC04_REFERENCE_SLICE.md) ·
-[B04](docs/implementation/G00_B04_SCOPE_APPLICABILITY.md).
+[B04](docs/implementation/G00_B04_SCOPE_APPLICABILITY.md) ·
+[Núcleo integrado](docs/implementation/G00_COMPLETION_CANDIDATE.md) ·
+[Publicación del núcleo](verification/publication/recovered_candidate.json) ·
+[Diff estructural](docs/implementation/GSL0_C12_STRUCTURAL_DIFF.md) ·
+[Ejecución del diff](docs/verification/GSL0_C12_EXECUTION.json).
 
 Las cifras históricas pertenecen a sus candidatos, no a todo cambio posterior.
+No se suman los 1598 históricos, los 263 seleccionados del diff y los 887 actuales.
 
 ## Continuidad
 
 Terminar la reconciliación de suficiencia B08 y ejecutar el checkout completo;
 resolver hallazgos antes de B09. En GSL quedan imports/módulos generales,
-reconciliación del corpus, incrementalidad, emisión y cualificación completas.
+reconciliación del corpus y cualificación completas. La emisión de perfil fijo y
+el fallback completo de actualización no equivalen a optimización incremental.
 CTK-01 no bloquea este desarrollo. GSL no sustituye la terminación de G-00.
 
 ## Arquitectura y reglas de trabajo
