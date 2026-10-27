@@ -1,0 +1,13 @@
+G00-03 selected source-contract acceptance, 2026-10-27
+Python 3.13.5 / pytest 9.0.2
+Before repair: 8 failed assertions, 0 errors, 0 skipped.
+Final explicit six-file selection:
+........................................................................ [ 63%]
+..........................................                               [100%]
+114 passed in 0.73s
+RECORDED_EXIT 0 INPUTS_STABLE True LOADED_MODULES 8
+
+Breakdown: 80 preserved selected regressions + 20 clause cases + 14 boundary cases.
+Final directed mutation runner: {"detected": 5, "survived": 0, "invalid": 0}
+See G00_03_ACCEPTANCE_EXECUTION.json for exact scope, hashes, environment and limits.
+This is not full repository replay, independent review, parent closure or campaign closure.

@@ -1,0 +1,101 @@
+{
+  "cases": [
+    {
+      "events": {
+        "assertions": [
+          "tests/acceptance/test_g00_03_descriptor_boundaries.py::test_entry_metadata_is_revalidated_before_history_or_acquisition[lineage-]"
+        ],
+        "collected": [
+          "tests/acceptance/test_g00_03_descriptor_boundaries.py::test_entry_metadata_is_revalidated_before_history_or_acquisition[lineage-]"
+        ],
+        "collection_errors": [],
+        "exit_status": 1,
+        "other_failures": [],
+        "skipped": []
+      },
+      "exit_status": 1,
+      "id": "entry-metadata",
+      "status": "DETECTED",
+      "test": "tests/acceptance/test_g00_03_descriptor_boundaries.py::test_entry_metadata_is_revalidated_before_history_or_acquisition[lineage-]"
+    },
+    {
+      "events": {
+        "assertions": [
+          "tests/acceptance/test_g00_03_descriptor_boundaries.py::test_unjustified_exclusion_is_rejected_at_public_boundary[reason-]"
+        ],
+        "collected": [
+          "tests/acceptance/test_g00_03_descriptor_boundaries.py::test_unjustified_exclusion_is_rejected_at_public_boundary[reason-]"
+        ],
+        "collection_errors": [],
+        "exit_status": 1,
+        "other_failures": [],
+        "skipped": []
+      },
+      "exit_status": 1,
+      "id": "exclusion-reason",
+      "status": "DETECTED",
+      "test": "tests/acceptance/test_g00_03_descriptor_boundaries.py::test_unjustified_exclusion_is_rejected_at_public_boundary[reason-]"
+    },
+    {
+      "events": {
+        "assertions": [
+          "tests/acceptance/test_g00_03_descriptor_boundaries.py::test_unrelated_entity_kind_cannot_be_a_source_include"
+        ],
+        "collected": [
+          "tests/acceptance/test_g00_03_descriptor_boundaries.py::test_unrelated_entity_kind_cannot_be_a_source_include"
+        ],
+        "collection_errors": [],
+        "exit_status": 1,
+        "other_failures": [],
+        "skipped": []
+      },
+      "exit_status": 1,
+      "id": "include-kind",
+      "status": "DETECTED",
+      "test": "tests/acceptance/test_g00_03_descriptor_boundaries.py::test_unrelated_entity_kind_cannot_be_a_source_include"
+    },
+    {
+      "events": {
+        "assertions": [
+          "tests/acceptance/test_g00_03_descriptor_boundaries.py::test_missing_source_descriptor_keeps_a_real_reason"
+        ],
+        "collected": [
+          "tests/acceptance/test_g00_03_descriptor_boundaries.py::test_missing_source_descriptor_keeps_a_real_reason"
+        ],
+        "collection_errors": [],
+        "exit_status": 1,
+        "other_failures": [],
+        "skipped": []
+      },
+      "exit_status": 1,
+      "id": "missing-reason",
+      "status": "DETECTED",
+      "test": "tests/acceptance/test_g00_03_descriptor_boundaries.py::test_missing_source_descriptor_keeps_a_real_reason"
+    },
+    {
+      "events": {
+        "assertions": [
+          "tests/acceptance/test_g00_03_descriptor_boundaries.py::test_unjustified_exclusion_is_rejected_at_public_boundary[reason-]"
+        ],
+        "collected": [
+          "tests/acceptance/test_g00_03_descriptor_boundaries.py::test_unjustified_exclusion_is_rejected_at_public_boundary[reason-]"
+        ],
+        "collection_errors": [],
+        "exit_status": 1,
+        "other_failures": [],
+        "skipped": []
+      },
+      "exit_status": 1,
+      "id": "membership-boundary",
+      "status": "DETECTED",
+      "test": "tests/acceptance/test_g00_03_descriptor_boundaries.py::test_unjustified_exclusion_is_rejected_at_public_boundary[reason-]"
+    }
+  ],
+  "detected": 5,
+  "independent_review": false,
+  "invalid": 0,
+  "schema": "guardian/g00-03-directed-mutations/v1",
+  "survived": 0,
+  "execution_note": "Final aggregate runner completed: five call-phase assertion detections, no survivors/invalid runs. Two earlier tool-timeout attempts were not counted; separate runs had also reproduced the five detections.",
+  "runner_git_blob": "e7294c17182a804b17f297eef0b5c8d21780d4f1"
+}

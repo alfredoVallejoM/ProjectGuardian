@@ -321,7 +321,90 @@ def _diag(code:str,path:str,reason:str)->Diagnostic:
     return Diagnostic(code,path,'valid source universe', 'SourceUniverseRevision',reason)
 
 
+def _source_reference(value: object, kind: EntityKind) -> None:
+    """Revalidate reference contents before hashing or inspecting metadata."""
+    from .identity import EntityId
+    if (type(value) is not EntityRef or type(value.project) is not ProjectId
+            or type(value.entity) is not EntityId or type(value.entity.project) is not ProjectId
+            or type(value.revision) is not RevisionId or value.kind is not kind
+            or type(value.entity.kind) is not EntityKind):
+        raise TypeError('EXACT_SOURCE_REFERENCE_REQUIRED')
+    ProjectId.__post_init__(value.project)
+    ProjectId.__post_init__(value.entity.project)
+    EntityId.__post_init__(value.entity)
+    RevisionId.__post_init__(value.revision)
+    EntityRef.__post_init__(value)
+
+
+def _universe_metadata_diagnostics(universe: object) -> tuple[Diagnostic, ...]:
+    """Validate nested declarations, not only source-cut bytes and class tags.
+
+    Reconstruction/deserialization can bypass constructors. This boundary calls
+    only known base validators, never a hook defined by an untrusted subclass.
+    Approval references remain declarations; this does not authenticate them.
+    """
+    try:
+        if type(universe) is not SourceUniverseRevision:
+            raise TypeError('EXACT_SOURCE_UNIVERSE_REQUIRED')
+        SourceUniverseRevision.__post_init__(universe)
+        _source_reference(universe.identity, EntityKind.SOURCE_UNIVERSE)
+        if type(universe.scope) is not CoverageScope:
+            raise TypeError('EXACT_COVERAGE_SCOPE_REQUIRED')
+        CoverageScope.__post_init__(universe.scope)
+    except (TypeError, ValueError, AttributeError) as exc:
+        return (_diag('INVALID_SOURCE_UNIVERSE', '$.universe', str(exc)),)
+    findings = []
+    for i, entry in enumerate(universe.entries):
+        path = f'$.entries[{i}]'
+        if type(entry) is not SourceEntry:
+            findings.append(_diag('INVALID_SOURCE_ENTRY', path, 'exact SourceEntry required'))
+            continue
+        try:
+            checked = _validate_any_cut(entry.cut)
+        except AttributeError as exc:
+            findings.append(_diag('INVALID_SOURCE_ENTRY', path, str(exc)))
+            continue
+        if not checked.ok:
+            findings.extend(_diag(d.code, path + '.cut', d.reason) for d in checked.diagnostics)
+            continue
+        try:
+            if type(entry.role) is not HistoryRole or type(entry.acquisition) is not SourceStatus:
+                raise TypeError('NOMINAL_HISTORY_AND_ACQUISITION_REQUIRED')
+            if entry.baseline_ref is not None:
+                _source_reference(entry.baseline_ref, EntityKind.SOURCE)
+            SourceEntry.__post_init__(entry)
+        except (TypeError, ValueError, AttributeError) as exc:
+            findings.append(_diag('INVALID_SOURCE_ENTRY', path, str(exc)))
+    for i, reference in enumerate(universe.included):
+        try:
+            _source_reference(reference, EntityKind.SOURCE)
+        except (TypeError, ValueError, AttributeError) as exc:
+            findings.append(_diag('INVALID_SOURCE_MEMBERSHIP_REF', f'$.included[{i}]', str(exc)))
+    for i, exclusion in enumerate(universe.excluded):
+        try:
+            if type(exclusion) is not SourceExclusion:
+                raise TypeError('EXACT_SOURCE_EXCLUSION_REQUIRED')
+            _source_reference(exclusion.cut, EntityKind.SOURCE)
+            _source_reference(exclusion.approval_ref, EntityKind.DECISION)
+            SourceExclusion.__post_init__(exclusion)
+        except (TypeError, ValueError, AttributeError) as exc:
+            findings.append(_diag('EXCLUSION_UNJUSTIFIED', f'$.excluded[{i}]', str(exc)))
+    for i, missing in enumerate(universe.known_missing):
+        try:
+            if type(missing) is not MissingSource:
+                raise TypeError('EXACT_MISSING_SOURCE_REQUIRED')
+            MissingSource.__post_init__(missing)
+        except (TypeError, ValueError, AttributeError) as exc:
+            findings.append(_diag('INVALID_MISSING_SOURCE', f'$.known_missing[{i}]', str(exc)))
+    return tuple(findings)
+
+
 def validate_inclusion_exclusion(universe:SourceUniverseRevision)->tuple[Diagnostic,...]:
+    invalid = _universe_metadata_diagnostics(universe)
+    return invalid if invalid else _membership_diagnostics(universe)
+
+
+def _membership_diagnostics(universe:SourceUniverseRevision)->tuple[Diagnostic,...]:
     entries={e.cut.ref for e in universe.entries}
     inc=set(universe.included)
     excluded={e.cut for e in universe.excluded}
@@ -346,19 +429,11 @@ def validate_source_universe(universe:SourceUniverseRevision,project:ProjectDefi
     """
     if not isinstance(universe,SourceUniverseRevision) or not isinstance(project,ProjectDefinition) or not isinstance(source_catalog,Mapping):
         raise TypeError('source universe validator needs typed universe, project, catalog')
-    # Validate nested cuts BEFORE hashing their references or consulting the
-    # supplied catalog. Exact class admission does not rely on subclass hooks.
-    SourceUniverseRevision.__post_init__(universe)
-    invalid = []
-    for i, entry in enumerate(universe.entries):
-        if type(entry) is not SourceEntry:
-            invalid.append(_diag('INVALID_SOURCE_ENTRY', f'$.entries[{i}]', 'exact SourceEntry required'))
-            continue
-        checked = _validate_any_cut(entry.cut)
-        invalid.extend(_diag(d.code, f'$.entries[{i}].cut', d.reason) for d in checked.diagnostics)
+    # Metadata validity precedes hashing, authority membership and history.
+    invalid = _universe_metadata_diagnostics(universe)
     if invalid:
-        return SourceUniverseValidation(tuple(invalid), (), universe.scope, False)
-    findings=list(validate_inclusion_exclusion(universe))
+        return SourceUniverseValidation(invalid, (), universe.scope, False)
+    findings=list(_membership_diagnostics(universe))
     if universe.identity.project!=project.project_id:
         findings.append(_diag('WRONG_PROJECT','$.identity','universe belongs to another project'))
     if trusted_exclusion_decisions is not None and (type(trusted_exclusion_decisions) is not frozenset
@@ -460,6 +535,11 @@ def material_source_key(cut: SourceCut) -> tuple[object, ...]:
 def describe_source_coverage(universe:SourceUniverseRevision)->SourceCoverageDescriptor:
     if not isinstance(universe,SourceUniverseRevision):
         raise TypeError('SourceUniverseRevision required')
+    invalid = _universe_metadata_diagnostics(universe)
+    if invalid:
+        # A coverage descriptor assumes typed acquisition/scope. Do not turn
+        # malformed metadata into a plausible count or an invented scope.
+        raise ValueError('INVALID_SOURCE_COVERAGE_INPUT:' + invalid[0].code)
     included = set(universe.included)
     entries = tuple(e for e in universe.entries if e.cut.ref in included)
     missing = list(universe.known_missing)

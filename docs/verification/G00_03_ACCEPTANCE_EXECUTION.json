@@ -1,0 +1,193 @@
+{
+  "schema": "guardian/g00-03-execution/v1",
+  "date": "2026-10-27",
+  "base_product_commit": "158ff6f0cc98870d53bd350a8a2b6e6f5e53c470",
+  "readme_parent_commit": "d487e8df7b0cc341ddda20c9fef1bacea61148e5",
+  "python": "3.13.5",
+  "pytest": "9.0.2",
+  "status": "DIRECT_G00_03_TRANCHE_PASS_NOT_CAMPAIGN_CLOSED",
+  "before": {
+    "source_git_blob": "fce18033f0b56a212242cb78099ea05937660435",
+    "failed": 8,
+    "passed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      "test_entry_metadata_is_revalidated_before_history_or_acquisition[role-base]",
+      "test_entry_metadata_is_revalidated_before_history_or_acquisition[acquisition-semantic_reconciled]",
+      "test_entry_metadata_is_revalidated_before_history_or_acquisition[lineage-]",
+      "test_entry_metadata_is_revalidated_before_history_or_acquisition[baseline_ref-latest]",
+      "test_unjustified_exclusion_is_rejected_at_public_boundary[reason-]",
+      "test_unjustified_exclusion_is_rejected_at_public_boundary[approval_ref-approved]",
+      "test_unrelated_entity_kind_cannot_be_a_source_include",
+      "test_missing_source_descriptor_keeps_a_real_reason"
+    ],
+    "configuration_note": "Baseline source matched its exact published blob; initial pytest configuration lacked the optional jsonschema dependency declaration. Final regression uses exact base pyproject.toml."
+  },
+  "after": {
+    "passed": 114,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_status": 0,
+    "existing_cases": 80,
+    "new_clause_cases": 20,
+    "new_boundary_cases": 14,
+    "test_files": [
+      "tests/acceptance/test_g00_03_contracts.py",
+      "tests/acceptance/test_g00_03_descriptor_boundaries.py",
+      "tests/domain/test_g00_b02_source.py",
+      "tests/domain/test_domain_identity.py",
+      "tests/domain/test_domain_outcomes.py",
+      "tests/domain/test_domain_strict_adversarial.py"
+    ],
+    "per_test_class": {
+      "tests.acceptance.test_g00_03_contracts": 20,
+      "tests.acceptance.test_g00_03_descriptor_boundaries": 14,
+      "tests.domain.test_g00_b02_source": 32,
+      "tests.domain.test_domain_identity": 29,
+      "tests.domain.test_domain_outcomes": 14,
+      "tests.domain.test_domain_strict_adversarial": 5
+    }
+  },
+  "inputs": {
+    "tests/acceptance/test_g00_03_contracts.py": {
+      "sha256": "d392de14702e273e6e86d5d49ba6a76d55ed7feff259b4a83ec9134dfaef22a3",
+      "git_blob": "4be900a4408f9a06e5ff240d8bf2417ca60e22b5"
+    },
+    "tests/acceptance/test_g00_03_descriptor_boundaries.py": {
+      "sha256": "fef96bd21dfbf8b6baee620d720e9721a30f8bf40ea41f590c0e6220bece3ac3",
+      "git_blob": "2528c7935852331379381c48880f318382331a01"
+    },
+    "tests/domain/test_g00_b02_source.py": {
+      "sha256": "d07d3767c464c9494ec8d522f57fbbae4be87458570b187f256660535418d8dd",
+      "git_blob": "aace9f9a9f1f5af2510f514e78a6ef4246f51082"
+    },
+    "tests/domain/test_domain_identity.py": {
+      "sha256": "b1ee3aa058d5b119eedd73cc5862a01201df9ec96179b8d513358fe7e086720e",
+      "git_blob": "d5a57a26f5d9db0bcf607787245464d448e8b624"
+    },
+    "tests/domain/test_domain_outcomes.py": {
+      "sha256": "a2f39689972357008741a9dabde8829b407b64170b97c2889da48db7261235e6",
+      "git_blob": "9d4ac5b97339bb5d590362bec0977ff85f959e8b"
+    },
+    "tests/domain/test_domain_strict_adversarial.py": {
+      "sha256": "300b4db04d2deb96759b5428b38ed3d6b5f80f8447144eb81a28dc7417cbfe35",
+      "git_blob": "4e9591b06b79a235649aedabf47a22785c325b64"
+    },
+    "tests/foundation_b02.py": {
+      "sha256": "08ebc80e99c9a7a0a26565450fba48b3977b916151865f0ec6168c5775edcd73",
+      "git_blob": "319ded4279e7d5d369971476b247d8726aadf053"
+    },
+    "pyproject.toml": {
+      "sha256": "96fadf56bdac3d0490d3df8c4e87cebba1187e048402d1ff9d0778975ca39bfc",
+      "git_blob": "aedd39c253e4aa02fb1581b038e7675c749286bb"
+    },
+    "src/guardian/__init__.py": {
+      "sha256": "bf95a67dce58ecbe6b9de4a44d8207b85b5f7d1158396812ad8a1f367d5a18ca",
+      "git_blob": "dfe7217fd7eea4f2df9e2c365b83622b017163f6"
+    },
+    "src/guardian/domain/__init__.py": {
+      "sha256": "2be4a23cca43a8f40f0c15a15b1d706db1b3e9f6320afb2bf7a00502261c030d",
+      "git_blob": "88d07f3d1b9be4348bae3b7ff88c7d5fb78a48cd"
+    },
+    "src/guardian/domain/identity.py": {
+      "sha256": "a086c4785ea44adbf7908b02c0303163d34d73ceaec4b1a37fcda9814df8ec82",
+      "git_blob": "5418d234461c71ef8590176e25456111c9526979"
+    },
+    "src/guardian/domain/outcomes.py": {
+      "sha256": "225a55109d25d5771c8d0477c24be5e9f5c107e1e6ca33e5549f7d7283f58b28",
+      "git_blob": "214b7aab22531d6ab4be0081d1ea3222c3c61d0b"
+    },
+    "src/guardian/domain/project.py": {
+      "sha256": "8579dcf9df64e6a52c22c9d74dc02eac93f9029681eb71bb860b43ba36de0695",
+      "git_blob": "b0ac19e3b0a4ad37b4703d7b9deec71e80f8b5db"
+    },
+    "src/guardian/domain/project_view.py": {
+      "sha256": "23642b9a40ddb8ef65a96515f2015684bf061644c3501842cc871ae8eeff9fd7",
+      "git_blob": "cf58fa84fc593b8042c25c43fa39ab647f2ea41d"
+    },
+    "src/guardian/domain/source.py": {
+      "sha256": "4630957a91818ff33e89b179e0994bf45c43330f2a6ccadb75fdf183df5a73b8",
+      "git_blob": "77fc4b193c527825998bdeacb46c2b036ef9976a"
+    },
+    "src/guardian/spec_lang/__init__.py": {
+      "sha256": "909580b5915f44ee3592a1d7ecdb115a5d51c49f0455176be0d16797b5cf4983",
+      "git_blob": "fc178775efc6d140ea934d913c6170920972bd86"
+    },
+    "src/guardian/spec_lang/contract.py": {
+      "sha256": "1751ffc153da5daa5a1444c0e9ff3b79f9155fd773ed1d08c11a793be4d8d13d",
+      "git_blob": "4bccaf3c4960affe6aa1837e96efaa4233d2afae"
+    }
+  },
+  "inputs_stable_before_after": true,
+  "loaded_guardian_modules": {
+    "guardian": {
+      "path": "src/guardian/__init__.py",
+      "git_blob": "dfe7217fd7eea4f2df9e2c365b83622b017163f6"
+    },
+    "guardian.domain": {
+      "path": "src/guardian/domain/__init__.py",
+      "git_blob": "88d07f3d1b9be4348bae3b7ff88c7d5fb78a48cd"
+    },
+    "guardian.domain.identity": {
+      "path": "src/guardian/domain/identity.py",
+      "git_blob": "5418d234461c71ef8590176e25456111c9526979"
+    },
+    "guardian.domain.outcomes": {
+      "path": "src/guardian/domain/outcomes.py",
+      "git_blob": "214b7aab22531d6ab4be0081d1ea3222c3c61d0b"
+    },
+    "guardian.domain.project": {
+      "path": "src/guardian/domain/project.py",
+      "git_blob": "b0ac19e3b0a4ad37b4703d7b9deec71e80f8b5db"
+    },
+    "guardian.domain.source": {
+      "path": "src/guardian/domain/source.py",
+      "git_blob": "77fc4b193c527825998bdeacb46c2b036ef9976a"
+    },
+    "guardian.spec_lang": {
+      "path": "src/guardian/spec_lang/__init__.py",
+      "git_blob": "fc178775efc6d140ea934d913c6170920972bd86"
+    },
+    "guardian.spec_lang.contract": {
+      "path": "src/guardian/spec_lang/contract.py",
+      "git_blob": "4bccaf3c4960affe6aa1837e96efaa4233d2afae"
+    }
+  },
+  "runner": "Explicit six-file pytest.main selection; setup/call/teardown/sessionfinish completed, then streams flushed and os._exit. Interpreter finalization is not tested.",
+  "syntax_compile": "PASS source.py, two new test files and mutation runner",
+  "mutations": {
+    "detected": 5,
+    "survived": 0,
+    "invalid_final": 0,
+    "record": "docs/verification/G00_03_ACCEPTANCE_MUTATIONS.json"
+  },
+  "junit_sha256": "455e7cc0840bd274246dc2a342b33506907f56d6155707d0d2c101eb58c60a0d",
+  "before_junit_sha256": "fbec8b42656648cf350275be7e555229df7031887e8aefe5db463fc228f02b75",
+  "authority_mode": "Original immutable Git references and detailed clause/API/test documents read through connector; all authority JSON bytes not materialized locally.",
+  "original_denominator": {
+    "parents": 12,
+    "clauses": 120,
+    "apis": 58,
+    "attacks": 36,
+    "verticals": 7
+  },
+  "ledger_direct_clause_pairs": 10,
+  "ledger_other_clauses_pending_consolidation": 110,
+  "remaining_does_not_mean_unimplemented": true,
+  "full_checkout_executed": false,
+  "installed_package_executed": false,
+  "independent_review": false,
+  "development_complete": false,
+  "campaign_closed": false,
+  "not_run": [
+    "Constitutional consumer/authority/general codec regression",
+    "Full repository suite",
+    "Complete B08 plan against all original bytes",
+    "Python 3.12",
+    "Static type checker",
+    "Independent actor review",
+    "Protected runner"
+  ]
+}
