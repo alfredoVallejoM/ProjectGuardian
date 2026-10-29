@@ -1,0 +1,49 @@
+{
+  "candidate_commit": "f33c700d1bb2310662e7bc58b511f8b17ef6a6cc",
+  "implementation_base": "f86e5bd1f1be6121dbff28006e9bf5bb2c0c9d95",
+  "expected_cases": 1974,
+  "expected_modules": 52,
+  "python": "3.13.5",
+  "file_counts": {
+    "src": 52,
+    "tests": 68,
+    "schemas": 5
+  },
+  "package_sha256": "6b3735245bf8f6ed6bd87776997d71b061e0f235be998aea5e9a4eb5de24f42d",
+  "receipt_sha256": {
+    "full_suite": "37af90197eaf2018d5e21cfb56b3e0e42ec58dee78fb0e9dc3a807851a9b21df",
+    "installed_package": "da71b9f4a78f950bf2a369cd0abbcbc4ac61d9e26d449f7c145e0ab41a95fb0a"
+  },
+  "invocations": {
+    "full_suite": [
+      "-q",
+      "-p",
+      "tools.pytest_g00_receipt",
+      "--g00-receipt=/mnt/data/g00-01-close/evidence/full-current.json",
+      "--junitxml=/mnt/data/g00-01-close/evidence/full-current.xml"
+    ],
+    "installed_package": [
+      "-q",
+      "-o",
+      "pythonpath=tests",
+      "-p",
+      "tools.pytest_g00_receipt",
+      "--g00-receipt=/mnt/data/g00-01-close/evidence/installed-current.json",
+      "--junitxml=/mnt/data/g00-01-close/evidence/installed-current.xml"
+    ]
+  },
+  "installed_root": "/mnt/data/g00-01-close/installed",
+  "normative_sources": {
+    "architecture/campaigns.json": "83c00b70fe2bd46b3027c91901bdf45c9620c3c3",
+    "architecture/g00_api_contracts.json": "5d4052c617cf0d962b0ba555ad0ae502e5b818f4",
+    "architecture/g00_validation_plan.json": "238e18d9defde4f943d9a6ecda2f719bf9cc0914",
+    "docs/campaigns/G-00/01_IDS_AND_REFERENCES.md": "35dee10d2c42e3a25888dfa98376766442a29d34",
+    "docs/campaigns/G-00/13_FUNCTIONAL_REFINEMENT_MATRIX.md": "b0c12cc25e7828e672d08e0db656d3e4d05a2c78"
+  },
+  "live_git_subtrees": {
+    "src": "541ae9b0161ef7cb2e90323f88c7d2b5c260e65a",
+    "tests": "cbb88749487d04a7e198222ebff8b8db4399daa6",
+    "schemas": "20dccbeb8cb30509428a03668c93be6de9161c1b"
+  },
+  "pin_authentication": "USER_SUPPLIED_RETAINED_EVIDENCE_AND_LIVE_GITHUB_READBACK; NOT_SIGNED"
+}

@@ -1,0 +1,92 @@
+{
+  "candidate_commit": "f33c700d1bb2310662e7bc58b511f8b17ef6a6cc",
+  "date": "2026-10-29",
+  "decision": "DEVELOPMENT_CLOSED",
+  "dossier_findings": [
+    {
+      "finding": "API-005 used one test as both positive and negative evidence",
+      "id": "C01",
+      "resolution": "Separate already-executed negative tests for malformed nominal payload and hostile metaclass; original expectations retained",
+      "status": "RESOLVED"
+    },
+    {
+      "finding": "Historical summary pins the local acceptance document, not the later published metadata revision",
+      "id": "C02",
+      "resolution": "Preserved both digests, reconstructed exact published blob, checked all 25 selectors in both complete receipts, recorded provenance instead of silently replacing a pin",
+      "status": "RESOLVED"
+    }
+  ],
+  "evidence_storage": {
+    "check": "python verification/g00_01/closure/audit_receipts.py --package verification/g00_01/closure/PAIRED_RECEIPTS.json.xz.b64 --acceptance verification/g00_01/ACCEPTANCE.json --pins verification/g00_01/closure/PINS.json",
+    "encoding": "Three base64 text parts of XZ-compressed lossless paired JSON",
+    "package_sha256": "6b3735245bf8f6ed6bd87776997d71b061e0f235be998aea5e9a4eb5de24f42d",
+    "reconstructs_exact_receipt_bytes": true,
+    "tests": "python -m pytest -q verification/g00_01/closure/test_dossier.py"
+  },
+  "fresh_review": {
+    "dossier_checker_cases": 34,
+    "errors": 0,
+    "failed": 0,
+    "full_1974_reexecuted_this_review": false,
+    "identity_product_cases": 67,
+    "junit_sha256": "04ae16fd690a5b0b59e3f82d16357e85a1a2b2446c07e64b4d50d361edbf56e1",
+    "log_sha256": "24ccf5990721151eabfee3e1f263d5bc1aa2935b042380b674e801f6adfe83f0",
+    "passed": 101,
+    "python": "3.13.5",
+    "skipped": 0
+  },
+  "future_reuse": "Only unchanged protected code/test/dependency bytes and compatible input universe allow reuse. A later regression reopens the affected obligation. The full receipts do not establish whole G-00 semantic completion.",
+  "g00_campaign_closed": false,
+  "independent_review": false,
+  "next_obligation": "G00-02",
+  "original_reviewed_scope": {
+    "apis": 8,
+    "clauses": 10,
+    "original_adversaries": 3,
+    "parent_bridge": "alias -> nominal codec -> exact snapshot resolution; no latest or cache-authoritative body substitution"
+  },
+  "retained_runs": {
+    "counts_are_not_additive": true,
+    "direct_identity_cases": 94,
+    "directed_mutations_detected": 20,
+    "full_suite": 1974,
+    "installed_package": 1974,
+    "receipt_sha256": {
+      "full_suite": "37af90197eaf2018d5e21cfb56b3e0e42ec58dee78fb0e9dc3a807851a9b21df",
+      "installed_package": "da71b9f4a78f950bf2a369cd0abbcbc4ac61d9e26d449f7c145e0ab41a95fb0a"
+    },
+    "source_tests_schemas_subtrees": {
+      "schemas": "20dccbeb8cb30509428a03668c93be6de9161c1b",
+      "src": "541ae9b0161ef7cb2e90323f88c7d2b5c260e65a",
+      "tests": "cbb88749487d04a7e198222ebff8b8db4399daa6"
+    }
+  },
+  "review_kind": "CONSTRUCTOR_ADVERSARIAL_REVIEW_OF_RETAINED_MATERIAL_EVIDENCE",
+  "schema": "guardian/g00-01-closure-adversarial-review/v1",
+  "sequential_rule": "G00-01 development is accepted on the pinned candidate. G00-02 may now be the only active development obligation. G00-03 is not opened.",
+  "signed_attestation": false,
+  "technical_development_closed": true,
+  "trust_limits": {
+    "all_production_tests_schemas_materialized": true,
+    "b00_missing_original_files": [
+      "architecture/campaigns.json",
+      "architecture/g00_functional_refinement.json",
+      "architecture/g00_api_contracts.json",
+      "architecture/g00_validation_plan.json",
+      "architecture/g00_design_decisions.json",
+      "docs/campaigns/G-00.md",
+      "docs/campaigns/G-00/13_FUNCTIONAL_REFINEMENT_MATRIX.md",
+      "docs/campaigns/G-00/14_API_CONTRACT_CATALOG.md",
+      "docs/campaigns/G-00/08_SCHEMAS_VERSIONING_AND_SERIALIZATION.md",
+      "docs/campaigns/G-00/04_OBJECTIVES_CAPABILITIES_PROPERTIES_OBLIGATIONS.md"
+    ],
+    "b00_original_source_bytes": "EXTERNAL_READBACK_NOT_ALL_MATERIALIZED",
+    "b08_120_58_36_7_semantic_acceptance": "NOT_ESTABLISHED_BY_TEST_COUNT",
+    "full_repository_all_historical_files_materialized": false,
+    "independent_review": false,
+    "protected_runner": false,
+    "python_3_12": "NOT_RUN",
+    "signed_receipt": false,
+    "static_type_checker": "NOT_RUN"
+  }
+}
