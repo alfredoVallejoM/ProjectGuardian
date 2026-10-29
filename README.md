@@ -38,6 +38,12 @@ G00-01 -> **G00-02** -> G00-03 -> ... -> G00-12. El expediente conserva implemen
 
 Los bloques existentes incluyen proyectos/fuentes, compromisos/borradores, ámbitos V4, autoridad/constitución, resolución y codecs, y evaluador puro. Se aceptarán secuencialmente. El [registro acumulado](verification/completion/obligation_evidence.json) y las matrices históricas conservan el denominador, no certifican bloques posteriores.
 
+## G00-02: avance activo
+
+Se han revalidado proyecto, política, almacenamiento y pertenencia nominal: 31 falsaciones de la base corregidas, 38 casos nuevos superados y nueve mutaciones detectadas. Selección conjunta: **139 PASS** (38 G00-02 + 67 identidad + 34 expediente), no suite global. Las vistas de fuentes, imports y consumidores constitucionales/codecs siguen dentro del mismo G00-02 hasta su cierre.
+
+[Implementación y pendientes de G00-02](verification/g00_02/README.md) · [Matriz](verification/g00_02/ACCEPTANCE.json) · [Ejecución](verification/g00_02/EXECUTION.json).
+
 ## GSL y evidencia histórica
 
 Existe fuente -> extracción/lexer/CST/AST -> resolución del perfil actual -> tipado -> ContractIR, mapas, pruebas pendientes, diff y emisión. Actualizaciones mediante reconstrucción completa. Imports/módulos generales, corpus histórico, dependencias externas y aceptación global siguen pendientes. Compilar no acredita realización del contrato ni admisión normativa.

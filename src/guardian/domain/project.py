@@ -45,19 +45,25 @@ class StorageDescriptor:
     authority_by_class: tuple[tuple[str, RepositoryId], ...] = ()
 
     def __post_init__(self) -> None:
-        if not isinstance(self.mode, StorageMode) or not isinstance(self.authority_repository, RepositoryId):
+        if (type(self.mode) is not StorageMode or not any(self.mode is mode for mode in StorageMode)
+                or type(self.authority_repository) is not RepositoryId):
             raise TypeError('INVALID_STORAGE_DESCRIPTOR')
         if (type(self.repositories) is not tuple or not self.repositories
-                or any(not isinstance(r,RepositoryId) for r in self.repositories)
-                or len(set(self.repositories))!=len(self.repositories)):
+                or any(type(r) is not RepositoryId for r in self.repositories)):
+            raise ValueError('INVALID_STORAGE_REPOSITORIES')
+        RepositoryId.__post_init__(self.authority_repository)
+        for repository in self.repositories:
+            RepositoryId.__post_init__(repository)
+        if len(set(self.repositories)) != len(self.repositories):
             raise ValueError('INVALID_STORAGE_REPOSITORIES')
         if type(self.authority_by_class) is not tuple:
             raise TypeError('INVALID_STORAGE_AUTHORITY_MAP')
         classes=set()
         for item in self.authority_by_class:
-            if (type(item) is not tuple or len(item)!=2 or item[0] not in _AUTHORITY_CLASSES
-                    or not isinstance(item[1],RepositoryId) or item[0] in classes):
+            if (type(item) is not tuple or len(item)!=2 or type(item[0]) is not str or item[0] not in _AUTHORITY_CLASSES
+                    or type(item[1]) is not RepositoryId or item[0] in classes):
                 raise ValueError('AMBIGUOUS_AUTHORITY')
+            RepositoryId.__post_init__(item[1])
             classes.add(item[0])
         if self.mode is StorageMode.EMBEDDED:
             if self.repositories!=(self.authority_repository,) or self.authority_by_class:
@@ -73,9 +79,14 @@ class StorageDescriptor:
 
 
 def validate_storage_mode(descriptor: object) -> Result[StorageDescriptor]:
-    if not isinstance(descriptor, StorageDescriptor):
-        return Result(diagnostics=(Diagnostic('UNSUPPORTED_STORAGE_MODE','$.storage','StorageDescriptor',type(descriptor).__name__,'invalid declarative storage mode'),))
-    return Result(descriptor)
+    try:
+        if type(descriptor) is not StorageDescriptor:
+            raise TypeError('EXACT_STORAGE_DESCRIPTOR_REQUIRED')
+        StorageDescriptor.__post_init__(descriptor)
+        return Result(descriptor)
+    except (TypeError, ValueError, AttributeError) as exc:
+        return Result(diagnostics=(Diagnostic('UNSUPPORTED_STORAGE_MODE','$.storage',
+            'validated StorageDescriptor','StorageDescriptor' if type(descriptor) is StorageDescriptor else 'non-StorageDescriptor',str(exc) or 'invalid storage'),))
 
 
 @dataclass(frozen=True, slots=True)
@@ -85,11 +96,16 @@ class SourcePolicy:
     allow_repositories: tuple[RepositoryId, ...]
 
     def __post_init__(self) -> None:
-        if not isinstance(self.project, ProjectId) or not isinstance(self.revision, RevisionId):
+        if type(self.project) is not ProjectId or type(self.revision) is not RevisionId:
             raise TypeError('source policy needs pinned project and revision')
+        ProjectId.__post_init__(self.project)
+        RevisionId.__post_init__(self.revision)
         if (type(self.allow_repositories) is not tuple or not self.allow_repositories
-                or any(not isinstance(r,RepositoryId) for r in self.allow_repositories)
-                or len(set(self.allow_repositories))!=len(self.allow_repositories)):
+                or any(type(r) is not RepositoryId for r in self.allow_repositories)):
+            raise ValueError('INVALID_SOURCE_POLICY')
+        for repository in self.allow_repositories:
+            RepositoryId.__post_init__(repository)
+        if len(set(self.allow_repositories)) != len(self.allow_repositories):
             raise ValueError('INVALID_SOURCE_POLICY')
 
 
@@ -104,18 +120,23 @@ class ProjectDefinition:
     description: str = ''
 
     def __post_init__(self) -> None:
-        if not isinstance(self.project_id,ProjectId):
+        if type(self.project_id) is not ProjectId:
             raise TypeError('PROJECT_ID_MISSING')
+        ProjectId.__post_init__(self.project_id)
         if type(self.display_name) is not str or not self.display_name.strip() or self.display_name!=self.display_name.strip():
             raise ValueError('PROJECT_NAME_MISSING')
         if type(self.description) is not str:
             raise TypeError('INVALID_PROJECT_DESCRIPTION')
-        if not isinstance(self.constitution_ref,EntityRef) or self.constitution_ref.kind is not EntityKind.CONSTITUTION:
+        if type(self.constitution_ref) is not EntityRef or self.constitution_ref.kind is not EntityKind.CONSTITUTION:
             raise TypeError('INVALID_CONSTITUTION_REF')
-        if not isinstance(self.source_policy_ref,EntityRef) or self.source_policy_ref.kind is not EntityKind.SOURCE_POLICY:
+        if type(self.source_policy_ref) is not EntityRef or self.source_policy_ref.kind is not EntityKind.SOURCE_POLICY:
             raise TypeError('INVALID_SOURCE_POLICY_REF')
-        if not isinstance(self.source_policy,SourcePolicy) or not isinstance(self.storage,StorageDescriptor):
+        if type(self.source_policy) is not SourcePolicy or type(self.storage) is not StorageDescriptor:
             raise TypeError('SOURCE_POLICY_MISSING')
+        EntityRef.__post_init__(self.constitution_ref)
+        EntityRef.__post_init__(self.source_policy_ref)
+        SourcePolicy.__post_init__(self.source_policy)
+        StorageDescriptor.__post_init__(self.storage)
         if (self.constitution_ref.project!=self.project_id or self.source_policy_ref.project!=self.project_id
                 or self.source_policy.project!=self.project_id
                 or self.source_policy.revision!=self.source_policy_ref.revision):
@@ -127,6 +148,9 @@ class ProjectDefinition:
     @property
     def permitted_source_repositories(self) -> tuple[RepositoryId, ...]:
         """Managed repositories plus the explicitly pinned sidecar authority."""
+        if type(self) is not ProjectDefinition:
+            raise TypeError('EXACT_PROJECT_DEFINITION_REQUIRED')
+        ProjectDefinition.__post_init__(self)
         managed = self.source_policy.allow_repositories
         if self.storage.mode is StorageMode.SIDECAR:
             return managed + (self.storage.authority_repository,)
@@ -134,9 +158,15 @@ class ProjectDefinition:
 
 
 def validate_project(definition: object) -> Result[ProjectDefinition]:
-    if not isinstance(definition, ProjectDefinition):
-        return Result(diagnostics=(Diagnostic('PROJECT_SNAPSHOT_INVALID','$.project','ProjectDefinition',type(definition).__name__,'expected validated immutable project'),))
-    return Result(definition)
+    """Validate the complete data contract, not just its dataclass tag."""
+    try:
+        if type(definition) is not ProjectDefinition:
+            raise TypeError('EXACT_PROJECT_DEFINITION_REQUIRED')
+        ProjectDefinition.__post_init__(definition)
+        return Result(definition)
+    except (TypeError, ValueError, AttributeError) as exc:
+        return Result(diagnostics=(Diagnostic('PROJECT_SNAPSHOT_INVALID','$.project',
+            'validated immutable project','ProjectDefinition' if type(definition) is ProjectDefinition else 'non-ProjectDefinition',str(exc) or 'invalid project'),))
 
 
 class MembershipStatus(str, Enum):
@@ -158,8 +188,15 @@ class MembershipVerdict:
 
 
 def check_project_membership(project: ProjectDefinition, ref: EntityRef) -> MembershipVerdict:
-    if not isinstance(project,ProjectDefinition) or not isinstance(ref,EntityRef):
-        return MembershipVerdict(MembershipStatus.UNKNOWN,'INVALID_PROJECT_REFERENCE','typed project and entity reference required')
+    checked = validate_project(project)
+    if not checked.ok:
+        return MembershipVerdict(MembershipStatus.UNKNOWN,'INVALID_PROJECT_REFERENCE',checked.diagnostics[0].reason)
+    try:
+        if type(ref) is not EntityRef:
+            raise TypeError('EXACT_ENTITY_REFERENCE_REQUIRED')
+        EntityRef.__post_init__(ref)
+    except (TypeError, ValueError, AttributeError) as exc:
+        return MembershipVerdict(MembershipStatus.UNKNOWN,'INVALID_PROJECT_REFERENCE',str(exc) or 'invalid reference')
     if ref.project!=project.project_id:
         return MembershipVerdict(MembershipStatus.REQUIRES_APPROVAL,'FORBIDDEN_CROSS_PROJECT_REF','explicit scoped import and external trust required')
     return MembershipVerdict(MembershipStatus.ALLOWED,'PROJECT_MEMBER','scoped reference belongs to this project')
