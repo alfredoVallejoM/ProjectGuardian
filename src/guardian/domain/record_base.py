@@ -34,6 +34,7 @@ def ref(value: object, kinds: EntityKind | tuple[EntityKind, ...], code: str) ->
     permitted = (kinds,) if isinstance(kinds, EntityKind) else kinds
     if type(value) is not EntityRef or value.kind not in permitted:
         raise TypeError(code)
+    EntityRef.__post_init__(value)
 
 
 def refs(values: object, kinds: EntityKind | tuple[EntityKind, ...], code: str,
@@ -59,6 +60,7 @@ class ReferenceUse:
             raise TypeError('TYPED_REFERENCE_USE_REQUIRED')
         if self.target.kind is not self.expected_kind:
             raise TypeError('WRONG_REFERENCE_KIND')
+        EntityRef.__post_init__(self.target)
 
 
 def uses(path: str, values: tuple[EntityRef, ...]) -> tuple[ReferenceUse, ...]:
@@ -118,7 +120,7 @@ def validate_record(record: object, expected: type[TRecord],
     try:
         expected.__post_init__(record)
         links = record.references()
-    except (TypeError, ValueError) as exc:
+    except (TypeError, ValueError, AttributeError) as exc:
         return Result(diagnostics=(Diagnostic(str(exc) if re.fullmatch(r'[A-Z][A-Z0-9_]*', str(exc)) else 'INVALID_RECORD', '$', expected.__name__,
                                              type(record).__name__, str(exc)),))
     if view is None:

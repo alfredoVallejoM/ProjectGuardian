@@ -11,7 +11,8 @@ from typing import Mapping
 from .identity import EntityId, EntityKind, EntityRef, ProjectId, RevisionId
 from .outcomes import Diagnostic, Result
 from .record_base import RecordRevision
-from .source import ApprovedSourceImport, DocumentSourceCut, GitSourceCut, SourceCut
+from .source import (ApprovedSourceImport, DocumentSourceCut, GitSourceCut, SourceCut,
+                     validate_git_source_cut, validate_document_source)
 
 MAX_RECORDS = 25000
 
@@ -55,9 +56,11 @@ class RecordSnapshot:
     def __post_init__(self) -> None:
         if type(self.project_id) is not ProjectId or type(self.revision) is not RevisionId:
             raise TypeError('SNAPSHOT_IDENTITY_REQUIRED')
+        ProjectId.__post_init__(self.project_id)
+        RevisionId.__post_init__(self.revision)
         if type(self.records) is not tuple or len(self.records) > MAX_RECORDS:
             raise ValueError('SNAPSHOT_RECORD_LIMIT')
-        if any(type(r) not in record_types() for r in self.records):
+        if any(not any(type(r) is model for model in record_types()) for r in self.records):
             raise TypeError('UNSUPPORTED_RECORD_TYPE')
         for record in self.records:
             type(record).__post_init__(record)
@@ -68,10 +71,14 @@ class RecordSnapshot:
             raise ValueError('FORBIDDEN_CROSS_PROJECT_REF')
         if type(self.anchors) is not tuple or len(self.anchors) > MAX_RECORDS or any(type(r) is not EntityRef or r.project != self.project_id or r.kind is EntityKind.SOURCE for r in self.anchors):
             raise TypeError('INVALID_SNAPSHOT_ANCHORS')
+        for reference in self.anchors:
+            EntityRef.__post_init__(reference)
         if len(set(self.anchors)) != len(self.anchors):
             raise ValueError('DUPLICATE_SNAPSHOT_ANCHOR')
         if type(self.historical) is not frozenset or any(type(r) is not EntityRef for r in self.historical):
             raise TypeError('HISTORICAL_REFS_REQUIRED')
+        for reference in self.historical:
+            EntityRef.__post_init__(reference)
         if not self.historical <= set(ids):
             raise ValueError('UNKNOWN_HISTORICAL_REVISION')
         current = [r.entity for r in ids if r not in self.historical]
@@ -79,6 +86,11 @@ class RecordSnapshot:
             raise ValueError('MULTIPLE_CURRENT_REVISIONS')
         if type(self.sources) is not tuple or len(self.sources) > MAX_RECORDS or any(type(s) not in (GitSourceCut, DocumentSourceCut) for s in self.sources):
             raise TypeError('PINNED_SNAPSHOT_SOURCES_REQUIRED')
+        for source in self.sources:
+            checked = (validate_git_source_cut(source) if type(source) is GitSourceCut
+                       else validate_document_source(source))
+            if not checked.ok:
+                raise ValueError(checked.diagnostics[0].code)
         if len({s.ref for s in self.sources}) != len(self.sources):
             raise ValueError('DUPLICATE_SOURCE_REVISION')
         if any(s.ref.project != self.project_id for s in self.sources):
@@ -99,6 +111,19 @@ class RecordSnapshot:
         return type(reference) is EntityRef and reference in self._source_by_ref
 
 
+def _checked_snapshot(view: RecordSnapshot) -> RecordSnapshot:
+    """Reconstruct derived indexes from validated immutable input, not caller caches.
+
+    This is not a refresh of the supplied snapshot: its fields and indexes remain
+    untouched. References resolve to the actual record objects in its population.
+    The batch validator does this once, then uses the private checked resolver.
+    """
+    if type(view) is not RecordSnapshot:
+        raise TypeError('SNAPSHOT_REQUIRED')
+    return RecordSnapshot(view.project_id, view.revision, view.records, view.sources,
+                          view.anchors, view.historical)
+
+
 @dataclass(frozen=True, slots=True)
 class EntityImport:
     source_grant: ApprovedSourceImport
@@ -111,12 +136,23 @@ class EntityImport:
         if type(self.entities) is not frozenset or not self.entities or any(type(x) is not EntityRef for x in self.entities):
             raise TypeError('EXACT_ENTITY_IMPORT_SCOPE_REQUIRED')
         grant = self.source_grant
-        if self.snapshot.project_id != grant.source_ref.project:
+        if type(grant.target_project) is not ProjectId:
+            raise TypeError('IMPORT_TARGET_PROJECT_REQUIRED')
+        ProjectId.__post_init__(grant.target_project)
+        if type(grant.source_ref) is not EntityRef or type(grant.approval_ref) is not EntityRef:
+            raise TypeError('IMPORT_REFERENCES_REQUIRED')
+        EntityRef.__post_init__(grant.source_ref)
+        EntityRef.__post_init__(grant.approval_ref)
+        ApprovedSourceImport.__post_init__(grant)
+        for reference in self.entities:
+            EntityRef.__post_init__(reference)
+        snapshot = _checked_snapshot(self.snapshot)
+        if snapshot.project_id != grant.source_ref.project:
             raise ValueError('IMPORT_SNAPSHOT_PROJECT_MISMATCH')
-        if not any(c == grant.pinned_cut for c in self.snapshot.sources):
+        if not any(c == grant.pinned_cut for c in snapshot.sources):
             raise ValueError('IMPORT_MATERIAL_CUT_MISMATCH')
         for target in self.entities:
-            records = [r for r in self.snapshot.records if r.identity == target]
+            records = [r for r in snapshot.records if r.identity == target]
             if len(records) != 1 or grant.source_ref not in records[0].source_refs:
                 raise ValueError('IMPORT_ENTITY_NOT_IN_PINNED_SOURCE')
 
@@ -129,6 +165,10 @@ class TrustedEntityImports:
     def __post_init__(self) -> None:
         if type(self.entries) is not tuple or any(type(e) is not EntityImport for e in self.entries):
             raise TypeError('INVALID_IMPORT_CONTEXT')
+        if len(self.entries) > MAX_RECORDS:
+            raise ValueError('IMPORT_CONTEXT_LIMIT')
+        for entry in self.entries:
+            EntityImport.__post_init__(entry)
         if len(set(self.entries)) != len(self.entries):
             raise ValueError('DUPLICATE_IMPORT')
 
@@ -154,10 +194,23 @@ class ResolvedEntity:
 def resolve_entity(reference: object, view: object, expected_kind: object,
                    grants: TrustedEntityImports | None = None, *, path: str = '$',
                    require_current: bool = False) -> Result[ResolvedEntity]:
+    if (type(require_current) is not bool or type(path) is not str or not path
+            or any(ord(c) < 32 for c in path)):
+        return Result(diagnostics=(issue('INVALID_REFERENCE_INPUT', '$', 'invalid current policy or diagnostic path'),))
     if type(reference) is not EntityRef or type(view) is not RecordSnapshot or type(expected_kind) is not EntityKind:
         return Result(diagnostics=(issue('INVALID_REFERENCE_INPUT', path, 'typed reference, snapshot and kind required'),))
-    if type(require_current) is not bool or type(path) is not str or not path:
-        return Result(diagnostics=(issue('INVALID_REFERENCE_INPUT', '$', 'invalid current policy or diagnostic path'),))
+    try:
+        EntityRef.__post_init__(reference)
+        checked_view = _checked_snapshot(view)
+    except (TypeError, ValueError, AttributeError):
+        return Result(diagnostics=(issue('INVALID_REFERENCE_INPUT', path, 'invalid nominal reference or snapshot contents'),))
+    return _resolve_checked(reference, checked_view, expected_kind, grants,
+                            path=path, require_current=require_current)
+
+
+def _resolve_checked(reference: EntityRef, view: RecordSnapshot, expected_kind: EntityKind,
+                     grants: TrustedEntityImports | None, *, path: str,
+                     require_current: bool = False) -> Result[ResolvedEntity]:
     if reference.kind is not expected_kind:
         return Result(diagnostics=(issue('WRONG_ID_KIND', path, 'field expects a different entity class'),))
     if reference.kind is EntityKind.SOURCE:
@@ -167,6 +220,10 @@ def resolve_entity(reference: object, view: object, expected_kind: object,
     if imported:
         if type(grants) is not TrustedEntityImports:
             return Result(diagnostics=(issue('FORBIDDEN_CROSS_PROJECT_REF', path, 'no external trusted import context'),))
+        try:
+            TrustedEntityImports.__post_init__(grants)
+        except (TypeError, ValueError, AttributeError):
+            return Result(diagnostics=(issue('INVALID_IMPORT_CONTEXT', path, 'invalid pinned import data'),))
         candidates = [e for e in grants.entries if e.source_grant.target_project == view.project_id
                       and reference in e.entities]
         if not candidates:
@@ -176,7 +233,7 @@ def resolve_entity(reference: object, view: object, expected_kind: object,
         if (any(r != matches[0][1] or (reference in s.historical) != (reference in matches[0][0].historical)
                for s, r in matches[1:]) or any(e.source_grant.pinned_cut != candidates[0].source_grant.pinned_cut for e in candidates[1:])):
             return Result(diagnostics=(issue('CONFLICTING_IMPORT_CONTENT', path, 'import catalogs disagree on pinned content'),))
-        selected = matches[0][0]
+        selected = _checked_snapshot(matches[0][0])
     record = selected._by_ref.get(reference)
     if record is None:
         if reference in selected.anchors:
@@ -206,6 +263,10 @@ def validate_references(records: tuple[RecordRevision, ...], view: RecordSnapsho
                         grants: TrustedEntityImports | None = None) -> ReferenceValidation:
     if type(records) is not tuple or any(type(r) not in record_types() for r in records) or type(view) is not RecordSnapshot:
         return ReferenceValidation((issue('INVALID_REFERENCE_INPUT', '$', 'typed record catalog required'),), 0)
+    try:
+        view = _checked_snapshot(view)
+    except (TypeError, ValueError, AttributeError):
+        return ReferenceValidation((issue('INVALID_REFERENCE_INPUT', '$', 'invalid snapshot contents'),), 0)
     errors, checked = [], 0
     for record in records:
         if record.identity.project != view.project_id:
@@ -214,7 +275,7 @@ def validate_references(records: tuple[RecordRevision, ...], view: RecordSnapsho
         try:
             type(record).__post_init__(record)
             links = record.references()
-        except (TypeError, ValueError) as exc:
+        except (TypeError, ValueError, AttributeError) as exc:
             errors.append(issue('INVALID_RECORD', '$.records', str(exc)))
             continue
         owner = f'$.records[{record.identity.kind.value}:{record.identity.entity.value}@{record.identity.revision.value}]'
@@ -225,7 +286,7 @@ def validate_references(records: tuple[RecordRevision, ...], view: RecordSnapsho
                 if not view.contains_source(use.target):
                     errors.append(issue('UNKNOWN_SOURCE', path, 'source absent from exact catalog'))
                 continue
-            outcome = resolve_entity(use.target, view, use.expected_kind, grants, path=path)
+            outcome = _resolve_checked(use.target, view, use.expected_kind, grants, path=path)
             errors.extend(outcome.diagnostics)
     # Cycles between well-typed records are legitimate; no generic DAG check.
     return ReferenceValidation(tuple(sorted(errors, key=lambda e: (e.path, e.code, e.reason))), checked)

@@ -1,0 +1,187 @@
+{
+  "schema": "guardian/g00-01-replay-review/v1",
+  "date": "2026-10-29",
+  "base_commit": "f86e5bd1f1be6121dbff28006e9bf5bb2c0c9d95",
+  "status": "REMEDIATED_PUBLISHED_SELECTED_REPLAY",
+  "current_failures_in_executed_selection": 0,
+  "baseline": {
+    "passed": 44,
+    "failed": 50,
+    "errors": 0,
+    "skipped": 0,
+    "same_direct_tests": true,
+    "groups": {
+      "tests.g00_01.test_boundary_red": {
+        "passed": 0,
+        "failed": 33
+      },
+      "tests.g00_01.test_consumer_boundaries": {
+        "passed": 1,
+        "failed": 9
+      },
+      "tests.g00_01.test_contracts": {
+        "passed": 43,
+        "failed": 2
+      },
+      "tests.g00_01.test_resolution_boundary": {
+        "passed": 0,
+        "failed": 6
+      }
+    },
+    "failed_cases": [
+      "tests.g00_01.test_boundary_red::test_nested_project_is_validated_by_entity_parser",
+      "tests.g00_01.test_boundary_red::test_direct_reference_cannot_embed_a_mutable_revision",
+      "tests.g00_01.test_boundary_red::test_encoder_validates_the_actual_nominal_payload[project]",
+      "tests.g00_01.test_boundary_red::test_encoder_validates_the_actual_nominal_payload[entity]",
+      "tests.g00_01.test_boundary_red::test_encoder_validates_the_actual_nominal_payload[revision]",
+      "tests.g00_01.test_boundary_red::test_encoder_validates_the_actual_nominal_payload[digest]",
+      "tests.g00_01.test_boundary_red::test_encoder_validates_the_actual_nominal_payload[reference]",
+      "tests.g00_01.test_boundary_red::test_invalid_diagnostic_path_never_crashes_a_rejecting_parser[None-parse_project_id-args0]",
+      "tests.g00_01.test_boundary_red::test_invalid_diagnostic_path_never_crashes_a_rejecting_parser[None-parse_entity_id-args1]",
+      "tests.g00_01.test_boundary_red::test_invalid_diagnostic_path_never_crashes_a_rejecting_parser[None-parse_revision_id-args2]",
+      "tests.g00_01.test_boundary_red::test_invalid_diagnostic_path_never_crashes_a_rejecting_parser[None-parse_content_digest-args3]",
+      "tests.g00_01.test_boundary_red::test_invalid_diagnostic_path_never_crashes_a_rejecting_parser[None-decode_identity-args4]",
+      "tests.g00_01.test_boundary_red::test_invalid_diagnostic_path_never_crashes_a_rejecting_parser[0-parse_project_id-args0]",
+      "tests.g00_01.test_boundary_red::test_invalid_diagnostic_path_never_crashes_a_rejecting_parser[0-parse_entity_id-args1]",
+      "tests.g00_01.test_boundary_red::test_invalid_diagnostic_path_never_crashes_a_rejecting_parser[0-parse_revision_id-args2]",
+      "tests.g00_01.test_boundary_red::test_invalid_diagnostic_path_never_crashes_a_rejecting_parser[0-parse_content_digest-args3]",
+      "tests.g00_01.test_boundary_red::test_invalid_diagnostic_path_never_crashes_a_rejecting_parser[0-decode_identity-args4]",
+      "tests.g00_01.test_boundary_red::test_invalid_diagnostic_path_never_crashes_a_rejecting_parser[-parse_project_id-args0]",
+      "tests.g00_01.test_boundary_red::test_invalid_diagnostic_path_never_crashes_a_rejecting_parser[-parse_entity_id-args1]",
+      "tests.g00_01.test_boundary_red::test_invalid_diagnostic_path_never_crashes_a_rejecting_parser[-parse_revision_id-args2]",
+      "tests.g00_01.test_boundary_red::test_invalid_diagnostic_path_never_crashes_a_rejecting_parser[-parse_content_digest-args3]",
+      "tests.g00_01.test_boundary_red::test_invalid_diagnostic_path_never_crashes_a_rejecting_parser[-decode_identity-args4]",
+      "tests.g00_01.test_boundary_red::test_decode_rejects_custom_mapping_without_executing_it",
+      "tests.g00_01.test_boundary_red::test_decode_does_not_call_payload_equality_or_string_conversion",
+      "tests.g00_01.test_boundary_red::test_alias_index_is_revalidated_before_resolution",
+      "tests.g00_01.test_boundary_red::test_registry_revalidates_existing_entries_before_adding",
+      "tests.g00_01.test_boundary_red::test_alias_provenance_cannot_embed_a_floating_revision",
+      "tests.g00_01.test_boundary_red::test_nested_project_is_validated_by_direct_entity_constructor",
+      "tests.g00_01.test_boundary_red::test_fabricated_entity_enum_is_not_a_real_registered_kind[property]",
+      "tests.g00_01.test_boundary_red::test_fabricated_entity_enum_is_not_a_real_registered_kind[made_up]",
+      "tests.g00_01.test_boundary_red::test_fabricated_digest_enum_is_not_a_known_algorithm[sha256]",
+      "tests.g00_01.test_boundary_red::test_fabricated_digest_enum_is_not_a_known_algorithm[made_up]",
+      "tests.g00_01.test_boundary_red::test_encoder_adapter_keeps_external_metaclass_opaque",
+      "tests.g00_01.test_consumer_boundaries::test_reconstructed_mutable_reference_cannot_enter_a_nominal_consumer[bundle]",
+      "tests.g00_01.test_consumer_boundaries::test_reconstructed_mutable_reference_cannot_enter_a_nominal_consumer[proof]",
+      "tests.g00_01.test_consumer_boundaries::test_reconstructed_mutable_reference_cannot_enter_a_nominal_consumer[symbol]",
+      "tests.g00_01.test_consumer_boundaries::test_reconstructed_mutable_reference_cannot_enter_a_nominal_consumer[import]",
+      "tests.g00_01.test_consumer_boundaries::test_compiler_context_revalidates_identity_inputs_not_only_type_tags[source]",
+      "tests.g00_01.test_consumer_boundaries::test_compiler_context_revalidates_identity_inputs_not_only_type_tags[compiler-digest]",
+      "tests.g00_01.test_consumer_boundaries::test_compiler_context_revalidates_identity_inputs_not_only_type_tags[project]",
+      "tests.g00_01.test_consumer_boundaries::test_public_source_context_check_revalidates_reconstructed_source_and_context",
+      "tests.g00_01.test_consumer_boundaries::test_compilation_result_cannot_publish_a_malformed_nominal_digest",
+      "tests.g00_01.test_contracts::test_F08_negative_external_values_cannot_execute_coercion_or_metaclass_hooks",
+      "tests.g00_01.test_contracts::test_identity_rule_consumer_keeps_valid_input_and_rejects_mutable_nested_revision",
+      "tests.g00_01.test_resolution_boundary::test_F06_forged_cache_cannot_substitute_record_with_same_identity",
+      "tests.g00_01.test_resolution_boundary::test_F06_corrupt_snapshot_revision_does_not_resolve",
+      "tests.g00_01.test_resolution_boundary::test_F06_malformed_import_context_is_typed_rejection_not_stopiteration",
+      "tests.g00_01.test_resolution_boundary::test_F06_invalid_reference_and_diagnostic_path_are_total[None]",
+      "tests.g00_01.test_resolution_boundary::test_F06_invalid_reference_and_diagnostic_path_are_total[0]",
+      "tests.g00_01.test_resolution_boundary::test_F06_invalid_reference_and_diagnostic_path_are_total[]"
+    ]
+  },
+  "candidate": {
+    "direct_passed": 94,
+    "selected_passed": 1030,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_files": {
+      "tests/completion/test_authority_and_drafts.py": 32,
+      "tests/completion/test_exact_references_and_adapters.py": 11,
+      "tests/constitution/test_pure_evaluator.py": 45,
+      "tests/domain/test_adversarial_new_gaps.py": 9,
+      "tests/domain/test_domain_identity.py": 29,
+      "tests/domain/test_domain_outcomes.py": 14,
+      "tests/domain/test_domain_strict_adversarial.py": 5,
+      "tests/domain/test_g00_07_observations.py": 4,
+      "tests/domain/test_g00_b02_project.py": 18,
+      "tests/domain/test_g00_b02_source.py": 32,
+      "tests/domain/test_q_nominal_and_source_contracts.py": 383,
+      "tests/g00_01/test_boundary_red.py": 33,
+      "tests/g00_01/test_consumer_boundaries.py": 10,
+      "tests/g00_01/test_contracts.py": 45,
+      "tests/g00_01/test_resolution_boundary.py": 6,
+      "tests/integration/test_foundation_pipeline.py": 2,
+      "tests/integration/test_g00_b02_gsl0_lc03.py": 9,
+      "tests/integration/test_g00_complete_verticals.py": 7,
+      "tests/persistence/test_domain_record_codec.py": 153,
+      "tests/persistence/test_generated_schema.py": 21,
+      "tests/spec_lang/test_contract.py": 7,
+      "tests/spec_lang/test_lc00_contract_extended.py": 5,
+      "tests/spec_lang/test_lc01_lc02_semantic_audit.py": 16,
+      "tests/spec_lang/test_lc02_grounding_spoof.py": 5,
+      "tests/spec_lang/test_lc03_scan_pipeline_guard.py": 2,
+      "tests/spec_lang/test_lc03_syntax.py": 22,
+      "tests/spec_lang/test_lc03_text.py": 21,
+      "tests/spec_lang/test_q_source_correspondence.py": 58,
+      "tests/spec_lang/test_typed_ir.py": 10,
+      "tests/spec_lang/test_v0.py": 16
+    },
+    "hash_seed": "731",
+    "all_phases_pass": true,
+    "phases_complete": true,
+    "collection_errors": [],
+    "deselected": [],
+    "input_files": 84,
+    "files_stable": true,
+    "loaded_module_count": 45,
+    "provenance_errors": []
+  },
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "pytest": "9.0.2",
+  "mutations": {
+    "detected": 20,
+    "survived": 0,
+    "invalid_runs_in_completed_batches": 0,
+    "result": "MUTATIONS_2026_10_29.json"
+  },
+  "input_manifest": "INPUTS_2026_10_29.json",
+  "input_manifest_sha256": "edc8d483585cc3896cb4c57bc849c5f8905ae24412da77998275963a544b3bb1",
+  "executed_sources": {
+    "src/guardian/application/identity_codec_service.py": {
+      "git_blob": "91d61e4798eeda4b4386730e267486edc5642b1b",
+      "sha256": "1ac81f3eddedf87b533c2c04e16ca17f382f1664c5fcce9636eb699b5645d70a"
+    },
+    "src/guardian/domain/identity.py": {
+      "git_blob": "ea440dfcf3da63fe2dda27c700a59f4fff1c8fd9",
+      "sha256": "65ce610f511579397ead9bad7b8fdb33983a7a61bb544f012a0f5b085b4c1385"
+    },
+    "src/guardian/domain/record_base.py": {
+      "git_blob": "0b72e16a1b5b550c99633b73a277b88a7967e9d2",
+      "sha256": "9ab68923675525747fe4b159c8185f62b7ef71e5d55d4eb3fc69a63045c864e8"
+    },
+    "src/guardian/domain/references.py": {
+      "git_blob": "214656f45480b627256db0d445e3515b4ddb1534",
+      "sha256": "52002a760fc9cb77508ad6a91a5f768da04c47165d58c0ba854bd990a557e117"
+    },
+    "src/guardian/spec_lang/contract.py": {
+      "git_blob": "049398a5ea040bfe8a4bb4441e096480e29641f1",
+      "sha256": "dc045b0319fa42ddd78db2a72db7c4913993c6e11b20f2dbf4e1c5dc46fadb02"
+    }
+  },
+  "observer_sha256": "ee275847ebb31b795b7d1d2b0dc22913ee647d738f1ec10a6c72eace4a3fae6d",
+  "raw_local_log_digests": {
+    "direct-baseline-replay.log": "5af9f8c656875be9ef41d64f7a4ee3d03980692043427eb51228e3878d609192",
+    "direct-baseline-replay.xml": "0f4415cbc06d42f3ab37f6506875138c027933784857257f9a6a7be36aa472e0",
+    "observed-replay.log": "de09228076e6594015e42c31a203663977b7eb1aa447bbc39ec19565b70f1655",
+    "observed-replay.json": "3db788df25ea6a9cf5776d5d1eb1708e9b9f161a50f44573bde498846b4b3aeb",
+    "observed-replay.xml": "a11e89d980e402d792bca75f4701e14302c67c6e5599a1d0728fa2d43aae7f5b"
+  },
+  "raw_log_note": "Raw observer/JUnit logs are local records identified by these hashes; the published summary and input manifest are not a signed receipt. The selected stdout is published separately.",
+  "full_checkout_executed": false,
+  "installed_package_complete": false,
+  "python312_executed": false,
+  "static_typing_executed": false,
+  "independent_review": false,
+  "protected_runner": false,
+  "g00_01_closed": false,
+  "next_obligation_allowed": false,
+  "recovery_note": "Recovered files verified against exact Git object IDs. A missing auxiliary test import was restored before the successful replay. Recovery errors are not product failures. The full repository was not materialized in this session.",
+  "reproduction": [
+    "python -m pytest -q tests/g00_01",
+    "PYTHONHASHSEED=731 python verification/g00_01/run_selected.py --root . --manifest verification/g00_01/INPUTS_2026_10_29.json --output /tmp/g00-01-replay.json",
+    "python tools/run_g00_01_mutations.py --output /tmp/g00-01-mutations.json"
+  ]
+}

@@ -4,110 +4,121 @@ Infraestructura independiente para custodiar obligaciones, arquitectura y garant
 Guardian distingue lo exigido, lo implementado y lo acreditado por ámbito.
 Producir código, pruebas o documentos no concede autoridad normativa.
 
-## Prioridad actual: terminar íntegramente la primera campaña G-00
+## Estado actual — 29 de octubre de 2026
 
-**Estado actualizado: 27 de octubre de 2026.** El objetivo es desarrollar las
-**doce obligaciones originales G00-01…G00-12**, con **120 cláusulas, 58 APIs,
-36 adversarios y siete verticales**. B00…B09 son bloques de la misma campaña.
-No se reduce el denominador ni se sustituye aceptación del producto por tests
-del propio comprobador. GSL continúa como frente coordinado, no como sustituto
-de G-00; CTK-01 permanece fuera de alcance y no bloquea el desarrollo.
+**Única obligación activa: G00-01 — identidades tipadas.** La aceptación avanza
+secuencialmente: G00-01 → G00-02 → … → G00-12. No se abre la siguiente mientras
+queden pendientes de implementación, integración, aceptación o publicación de
+la activa. El código posterior se conserva, pero no cuenta como obligación cerrada.
 
-**G00_DEVELOPMENT_COMPLETE y G00_CAMPAIGN_CLOSED siguen sin acreditarse.**
-El núcleo integrado está publicado, pero su aceptación exhaustiva aún no está
-terminada. Los estados históricos de architecture/ no se reescriben para
-aparentar avance.
+El objetivo sigue siendo toda la primera campaña: **12 padres, 120 cláusulas,
+58 APIs, 36 adversarios y siete verticales**. B00…B09 son bloques de G-00;
+no son campañas nuevas. GSL no sustituye este objetivo. CTK-01 queda fuera de alcance.
 
-## Avance de este corte: contratos reales de G00-03
+### G00-01: reparaciones publicadas y fallos revisados
 
-Se han corregido validaciones de metadatos de fuentes: rol histórico, estado de
-adquisición, lineage, baseline, clase de referencias incluidas, justificación
-de exclusiones y motivos de fuentes ausentes. La validación comprueba esos
-datos antes de usar catálogos/historia/autoridad y no ejecuta hooks de subclases.
-Los objetos válidos reconstruidos siguen admitidos.
+El candidato secuencial deja de estar únicamente en un parche local. Se publican
+cinco módulos corregidos: identidad, referencias, base de registros, adaptador
+de codec y consumidor de identidad del contexto GSL. Se conservan las firmas
+públicas, el formato identity/v1 y los tests y originales normativos anteriores.
 
-**Ejecución nueva: 114 PASS, 0 FAIL, 0 ERROR, 0 SKIP**, Python 3.13.5:
-80 regresiones seleccionadas + 20 casos positivo/negativo de G00-03-F01…F10 +
-14 casos de fronteras. Ocho falsaciones fallaron sobre la base antes de reparar.
-Cinco mutaciones dirigidas fueron detectadas. **No es el checkout íntegro ni el
-cierre del padre G00-03**: quedan sus conexiones y la aceptación integral.
+La misma batería de 94 casos da **44 PASS / 50 FAIL** sobre la base sin reparar
+`f86e5bd1`, y **94 PASS** sobre el candidato. Los 50 fallos eran condiciones de
+la versión anterior, no fallos actuales de esa batería. Incluyen parametrizaciones;
+no son cincuenta defectos independientes.
 
-[Implementación, ocho fallos y límites](docs/audit/2026_10_27_G00_03_ACCEPTANCE.md) ·
-[Ejecución y hashes](docs/verification/G00_03_ACCEPTANCE_EXECUTION.json) ·
-[Mutaciones](docs/verification/G00_03_ACCEPTANCE_MUTATIONS.json).
+La nueva ejecución seleccionada da **1.030 PASS, cero FAIL/ERROR/SKIP**, con los
+94 casos nuevos ya incluidos. Se comprobaron setup/call/teardown, 84 entradas
+estables y 45 módulos Guardian con bytes coincidentes. **20/20 mutaciones dirigidas
+detectadas**. Entorno: Python 3.13.5, pytest 9.0.2. Es autoauditoría, no otro revisor.
 
-El [registro de avance contractual](verification/completion/obligation_evidence.json)
-conserva todos los IDs 12/120/58/36/7. Enlaza diez pares de cláusula ejecutados y
-mantiene 110 cláusulas pendientes de consolidación. **No son 110 funcionalidades
-inexistentes**: su implementación y evidencia histórica no se han reconciliado
-en esta nueva proyección. No es un acceptance-plan/v2 ni un certificado.
+**No es el checkout íntegro ni el paquete completo instalado. G00-01 todavía no
+se declara cerrado; G00-02 permanece bloqueado como siguiente objetivo.** La
+publicación resuelve la entrega del parche, no la regresión completa pendiente.
+Python 3.12, tipado estático, revisión independiente y runner protegido no se
+presentan como realizados.
 
-## Base anterior preservada
+[Revisión de fallos y reparaciones](verification/g00_01/REVIEW_2026_10_29.md) ·
+[Matriz de diez cláusulas, ocho APIs y tres adversarios](verification/g00_01/ACCEPTANCE.json) ·
+[Ejecución nueva y selección exacta](verification/g00_01/REPLAY_2026_10_29.json) ·
+[Entradas fijadas](verification/g00_01/INPUTS_2026_10_29.json) ·
+[Mutaciones](verification/g00_01/MUTATIONS_2026_10_29.json) ·
+[Salida de tests](verification/g00_01/TESTS_2026_10_29.txt).
 
-La remediación [`158ff6f0`](https://github.com/alfredoVallejoM/ProjectGuardian/commit/158ff6f0cc98870d53bd350a8a2b6e6f5e53c470)
-corrigió seis familias: extracción normativa y formatos de GSL (G02), revisión
-inmutable en deltas compuestos (G01), validez nominal de cortes (D01), vínculo
-API original/adaptador (A01), diagnósticos exactos (A02) y procedencia de módulos
-ejecutados (A03). Su ejecución seleccionada fue **961 PASS y 9/9 mutaciones**.
+### Reproducción local
 
-[Informe de remediación](docs/audit/2026_10_26_G00_GSL_REMEDIATION.md) ·
-[Registro histórico de ejecución](docs/verification/G00_GSL_REMEDIATION_EXECUTION.json) ·
-[Revisión y falsaciones preservadas](docs/audit/2026_10_26_G00_GSL_DEEP_REVIEW.md).
+```sh
+python -m pytest -q tests/g00_01
+PYTHONHASHSEED=731 python verification/g00_01/run_selected.py \
+  --root . --manifest verification/g00_01/INPUTS_2026_10_29.json \
+  --output /tmp/g00-01-replay.json
+python tools/run_g00_01_mutations.py --output /tmp/g00-01-mutations.json
+```
 
-961, 887, 1598 y los demás contadores anteriores pertenecen a sus cortes y
-selecciones. **No se suman al 114 ni acreditan por sí solos el HEAD actual.**
-Actualizar documentación no es una nueva ejecución; cambios documentales fuera
-del código protegido tampoco invalidan evidencia ajena a esos cambios.
+El observador fija una selección explícita. No convierte tests ausentes en PASS
+ni autentica su propio recibo. Los hashes de logs locales no son firmas ni una
+prueba de que un ejecutor externo sea confiable.
 
-## Desarrollo de G-00 y aceptación pendiente
+## Estado acumulado, sin cerrar obligaciones por presencia de archivos
 
-| Bloque | Entrega existente | Pendiente de cierre |
-|---|---|---|
-| B00 | Reconciliación de diseño, padres, cláusulas, APIs y decisiones candidatas | Aprobaciones y aceptación normativa no se presumen |
-| B01 | Identidades nominales, aliases, revisiones, digests, codecs y estados | Postcondiciones y aceptación integrada |
-| B02 | Proyectos, políticas, universos, historia, exclusiones e imports acotados | Conexiones y variantes completas |
-| B03 | Seis modelos de compromisos, referencias compartidas y borradores | Contratos y transiciones completos |
-| B04 | Aplicabilidad V4, testigos, conflictos y presupuestos | Regresión y aceptación de todos los consumidores |
-| B05 | Decisiones, reglas, constituciones, aprobaciones externas y precedencia | Suficiencia conjunta de acciones/cuerpos/ámbitos |
-| B06 | Resolución exacta y codecs nominales versionados | Postcondiciones, tipos raíz y compatibilidad |
-| B07 | Evaluador puro con población esperada de reglas | Suficiencia e integración completas |
-| B08 | Suites, verticales, recibos y control de aceptación v2 | Matriz semántica completa 120/58/36/7 y ejecución íntegra |
-| B09 | Expediente y límites de confianza | Revisión por otro actor y cualificación material |
+Los bloques productivos existentes incluyen identidades, proyectos y fuentes,
+compromisos y borradores, ámbitos V4, autoridad y constitución, resolución exacta,
+codecs nominales y evaluador estructural. Sus grandes componentes ya están escritos,
+pero su aceptación por obligación se revisa ahora en el orden indicado.
 
-Cada obligación exige contrato original → código productivo → positivo →
-falsación → consumidor → ejecución → límites. Cada padre necesita además el
-juicio sobre la conexión de sus cláusulas. Un nombre de función no es cumplimiento.
+**G00_DEVELOPMENT_COMPLETE y G00_CAMPAIGN_CLOSED no están acreditados.** El control
+B08 existe, pero no reemplaza la suficiencia semántica de cada cláusula ni las
+postcondiciones completas de cada API. B09 sigue requiriendo revisión y
+cualificación separadas. Los estados históricos de architecture/ no se reescriben.
 
-## GSL: perfil funcional y límites
+Cada obligación conserva: contrato original → operación productiva → positivo →
+falsación → consumidor → ejecución → límites. El padre necesita además justificar
+la conexión entre sus cláusulas. Un contador de tests no concede ese juicio.
+
+## Evidencia anterior preservada
+
+El [registro de avance anterior](verification/completion/obligation_evidence.json)
+conserva el inventario 12/120/58/36/7 y el tramo de fuentes de G00-03. No es el plan
+integral de aceptación ni un certificado; sus diez pares ejecutados no implican
+que el resto esté sin implementar. La [matriz activa de G00-01](verification/g00_01/ACCEPTANCE.json)
+lo complementa sin reescribir evidencia histórica.
+
+[G00-03: metadatos y contratos de fuentes](docs/audit/2026_10_27_G00_03_ACCEPTANCE.md) ·
+[Remediación A01–A03/D01/G01/G02](docs/audit/2026_10_26_G00_GSL_REMEDIATION.md) ·
+[Revisión que reprodujo esos fallos](docs/audit/2026_10_26_G00_GSL_DEEP_REVIEW.md) ·
+[Núcleo integrado publicado](docs/implementation/G00_COMPLETION_CANDIDATE.md) ·
+[Reconciliación inicial B00](docs/closure/B00_LC00_RECONCILIATION_AND_EXTERNAL_CORRESPONDENCE.md).
+
+114, 961, 887, 1598 y los demás resultados históricos pertenecen a sus candidatos
+y selecciones. No se suman al 1.030 ni acreditan automáticamente código cambiado.
+Un cambio documental ajeno al perímetro de código probado no invalida su evidencia,
+pero tampoco amplía el ámbito de esa evidencia.
+
+## GSL: consumidor coordinado, no nuevo frente de ampliación
 
 Existe fuente → extracción/lexer/CST/AST → resolución del perfil actual → tipado
-→ ContractIR, con mapas, PO pendientes, diff estructural y emisión canónica.
-Los cambios de fuentes usan reconstrucción completa sin reutilizar caché. Los
-V0 autónomos no participan en la construcción del IR.
+→ ContractIR, con mapas, obligaciones de prueba pendientes, diff y emisión canónica.
+Las actualizaciones utilizan reconstrucción completa, sin caché. Los V0 autónomos
+no participan en la construcción del IR. Compilar no acredita realización en
+código, suficiencia del corpus ni admisión normativa.
 
-Permanecen pendientes imports/módulos generales, reconciliación del corpus,
-dependencias externas y aceptación global LC00…LC12. Compilar no demuestra
-realización en código, suficiencia del corpus ni admisión normativa. No se inventa
-optimización incremental como condición donde se admite reconstrucción completa.
-**No hay ampliaciones productivas de GSL en este corte de G00-03.**
+Imports/módulos generales, reconciliación del corpus, dependencias externas y
+aceptación global LC00…LC12 siguen pendientes. En esta entrega solo se reparan
+consumidores de identidades de G00-01; no se amplía el lenguaje.
 
-[Núcleo integrado](docs/implementation/G00_COMPLETION_CANDIDATE.md) ·
 [Diff](docs/implementation/GSL0_C12_STRUCTURAL_DIFF.md) ·
-[Emisión/reconstrucción/B08](docs/implementation/G00_B08_GSL_EMISSION_REBUILD.md) ·
-[V0 y reconciliación inicial](docs/closure/B00_LC00_RECONCILIATION_AND_EXTERNAL_CORRESPONDENCE.md).
+[Emisión/reconstrucción y B08](docs/implementation/G00_B08_GSL_EMISSION_REBUILD.md).
 
-## Fuentes autoritativas y reglas
+## Fuentes autoritativas y reglas de trabajo
 
 [Índice](docs/README.md) · [G-00](docs/campaigns/G-00/INDEX.md) ·
 [Programa B00…B09](docs/campaigns/G-00/12_IMPLEMENTATION_PROGRAM_AND_EXIT_GATES.md) ·
 [Cláusulas](architecture/g00_functional_refinement.json) ·
 [APIs](architecture/g00_api_contracts.json) ·
-[Pruebas/adversarios](architecture/g00_validation_plan.json) ·
+[Pruebas y adversarios](architecture/g00_validation_plan.json) ·
 [14 campañas y 163 obligaciones](architecture/campaigns.json).
 
-Se conservan originales y pruebas. El catálogo histórico v1 no sustituye a los
-codecs v2. No se confunde autoauditoría con revisión independiente.
-Pendientes de ejecución acreditada en este corte: checkout/paquete íntegros,
-consumidores constitucionales y codecs generales, Python 3.12, tipado estático,
-instalación protegida y otro revisor. Sin ramas nuevas salvo orden ni GitHub
-Actions. Sin reloj/red/fs en el dominio ni callbacks del proyecto como normas.
+Se conservan originales y tests históricos. No se inventan aprobaciones ni se
+confunde revisión del constructor con revisión independiente. Sin ramas nuevas
+no autorizadas ni GitHub Actions. Sin reloj, red o filesystem en las operaciones
+puras del dominio, ni callbacks del proyecto utilizados como normas de confianza.

@@ -1,0 +1,230 @@
+{
+  "schema": "guardian/g00-01-directed-mutations/v1",
+  "date": "2026-10-29",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "independent_review": false,
+  "detected": 20,
+  "mutations": [
+    {
+      "id": "M01",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_boundary_red.py::test_nested_project_is_validated_by_direct_entity_constructor",
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "cf2cc80a78036bb5df360deb0d8454f0adb3d151a8f380477f1b0fa61db2b0da",
+      "junit_sha256": "4488395142a12e86f86d273ec549afac11939c9356d94ca00990cb12d32344bc"
+    },
+    {
+      "id": "M02",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_boundary_red.py::test_direct_reference_cannot_embed_a_mutable_revision",
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "19fa99cefa92ae520dc6df5c12c55c835f310cd6f75097ce6e687b7409224b46",
+      "junit_sha256": "ea93ea96d4977cd774803972cff13b326c1319588af0f7e3389d6c4ad602b89d"
+    },
+    {
+      "id": "M03",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_contracts.py::test_F03_negative_grammar_never_normalizes_invalid_identity",
+      "returncode": 1,
+      "failures": 16,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "eb29b2ced4b02adca5d19a094f581e6f0ac31eebcfd58a3cf3c5fc5ee2a5db6f",
+      "junit_sha256": "359826ad700a4d74155485995a924000c55dcf69c41ffc20dbed25a13f4c9d61"
+    },
+    {
+      "id": "M04",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_contracts.py::test_F09_negative_fields_discriminants_schema_and_namespace_are_never_defaulted_ADV02",
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "55aa1705fbe6678e0a60d78d4527b5871d69a5f5fd0364eb4139345947d5fdd9",
+      "junit_sha256": "b7de99c54ba5834c838d202a392cac9dd32f2b7b055e9206347da4a258a1d7c0"
+    },
+    {
+      "id": "M05",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_contracts.py::test_F04_negative_ambiguous_alias_never_first_wins_ADV03",
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "687cfbeeb1142babdc8708c1007943d3c224f7415d8d45c4afbe12d66703a883",
+      "junit_sha256": "3b28482f299ff89c69988594c871a1463363007999595b2790a2b6056421b43d"
+    },
+    {
+      "id": "M06",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_contracts.py::test_F04_negative_ambiguous_alias_never_first_wins_ADV03",
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "89df6a7523181f910ee0aaa707ea28cf0919a239604892475b780d579f2e28c6",
+      "junit_sha256": "668a5b85ad1f23a2d7f23a1d50a5bc77f14f065d8726289eb63af4eeb71e0aec"
+    },
+    {
+      "id": "M07",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_contracts.py::test_F07_negative_truncation_algorithm_and_nonhex",
+      "returncode": 1,
+      "failures": 2,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "e8b9579c9040799ba5fd60d86a8507cdff06fb1fddd3f28a80c04c6e7d2d8a01",
+      "junit_sha256": "29915b228e595dca168f4a8eb73a19d5488c2098e1e12e1fe4151e69fc5e6f24"
+    },
+    {
+      "id": "M08",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_contracts.py::test_F09_positive_serialization_injective_over_finite_nominal_population",
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "fb5ea46a9fd511e85d758afd7c0c57c478b78ee921ea4f276442842ed9b300b0",
+      "junit_sha256": "5291487662d89f90b6ec2f42d7cc18127a12493768df93c291c18f5e31455a5b"
+    },
+    {
+      "id": "M09",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_contracts.py::test_F10_negative_collision_never_overwrites_previous_identity",
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "142db6f2cb2f2034f44b9428fd4e4bbfcb7d93ca4a6b01411f014858306a2224",
+      "junit_sha256": "894e14d832e50165e5ce7dbb196f91a5d026acf230e4acf2d3db07433851a36a"
+    },
+    {
+      "id": "M10",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_contracts.py::test_F06_negative_no_latest_anchor_or_source_substitution_API008",
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "cc9632fd8ac04b4d153f419a4de1abe122ca41c44f1058bbd4f4c8ba4e1d6e3e",
+      "junit_sha256": "22c8df8c25a367cd692c9791c8d055b62b71fe3a102db63ac860e8b501d9cfc7"
+    },
+    {
+      "id": "M11",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_resolution_boundary.py::test_F06_forged_cache_cannot_substitute_record_with_same_identity",
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "e02d14600955c3b4a4eb6c19a8cbffb38a8a42beffec96f3d212d246ff780b31",
+      "junit_sha256": "3b14886d26bc34b4a3033fa6d729fe9fd9601ae811fda80a1729d41eaae24721"
+    },
+    {
+      "id": "M12",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_contracts.py::test_F06_negative_no_latest_anchor_or_source_substitution_API008",
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "a767bf776b66dd49e37db378f77a39104fdf26a5d22c46d83a6f86c91502e11d",
+      "junit_sha256": "9dd3859a1628c0241c8b41f493a1c6a5266cb36d8355ebcfbd46b5292da16093"
+    },
+    {
+      "id": "M13",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_contracts.py::test_F06_import_is_exact_entity_revision_and_material_cut",
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "9be03ee3ba84b1db7c42c78808d0d40656c6db7f476cdb745e59e7e731e0ed6a",
+      "junit_sha256": "9c65db4c5ddf9c90f7006c09c214602fc539ed7c0a3fecd569a93d329e6012dc"
+    },
+    {
+      "id": "M14",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_contracts.py::test_F08_positive_identity_operations_do_not_use_environment_clock_or_rng",
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "e3050e87cbcd81c46dffe224addbcaf932025601431c0d4b09c669fd747b6978",
+      "junit_sha256": "1c5221c093a0f115c3191020febaaa9374e42b933167ddb70c1991be07ed2832"
+    },
+    {
+      "id": "M15",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_boundary_red.py::test_fabricated_entity_enum_is_not_a_real_registered_kind",
+      "returncode": 1,
+      "failures": 2,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "4de849fc5458a1fa14d3fcb2926df47e14e43af3a8869d2b47ae190df26d790e",
+      "junit_sha256": "5e70e5523d66cd62f661d0a6ff9b19b64f2779e18c0989f31970cde0f3617625"
+    },
+    {
+      "id": "M16",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_boundary_red.py::test_fabricated_digest_enum_is_not_a_known_algorithm[sha256]",
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "50daaabfd9831c61d98fff00c142b3499007e9c4f1511b4cefec063fe601c8c5",
+      "junit_sha256": "623a203d09d88b8486e941eab9edcb5a1e27ff3f2e2908210e8cd2c93878d8ab"
+    },
+    {
+      "id": "M17",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_consumer_boundaries.py::test_reconstructed_mutable_reference_cannot_enter_a_nominal_consumer[bundle]",
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "3dc9a1b42d965d0aff620fba9cb3856c2fc8f5d9ec03bd9afbc33b2d485703d4",
+      "junit_sha256": "dac188a5dc01226785350922a081aaeb63172db0f6c984b63783c1ce471a6f55"
+    },
+    {
+      "id": "M18",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_consumer_boundaries.py::test_public_source_context_check_revalidates_reconstructed_source_and_context",
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "45ffcb68b526328ff4441cb1c80329accd53b90dff87a4d3e917b3d5f9104bc4",
+      "junit_sha256": "7cbd4f43570b3519b62e7e6ba5d40bfa2c21962649e3a19ccf3f852ee3e14544"
+    },
+    {
+      "id": "M19",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_boundary_red.py::test_encoder_adapter_keeps_external_metaclass_opaque",
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "ce95c1c4f9cf1bb205303f86acb23987d4d778d62aad54c23c665697b4c0ad6f",
+      "junit_sha256": "e70a6c82d0edd66c274cf37c64586969b08c660e445a0fba25db79b8281fe379"
+    },
+    {
+      "id": "M20",
+      "status": "DETECTED",
+      "nodeid": "tests/g00_01/test_consumer_boundaries.py::test_compilation_result_cannot_publish_a_malformed_nominal_digest",
+      "returncode": 1,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "d129dffb2758169544eb9937632886d64e44ecb674e5d0676f9eef6f6482ae04",
+      "junit_sha256": "2eff30f6051133fbe0140fece5cde8aa9716c3a0251cae3dc0cdc5ade7cc1d13"
+    }
+  ],
+  "execution_note": "Fresh complete batches M01-M10, M11-M17, M18-M20. Earlier tool-time-limited aggregate attempts are excluded."
+}

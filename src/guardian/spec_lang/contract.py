@@ -21,6 +21,17 @@ CONTRACT_AUTHORITY = 'DESIGN_CANDIDATE_NOT_RATIFIED'
 _SYMBOL_NAME = re.compile(r'[A-Za-z_][A-Za-z_0-9]*\Z', re.ASCII)
 
 
+def _checked_identity(value: object, nominal_type: type) -> None:
+    """Consume G00-01 identities through their known nominal invariant.
+
+    A dataclass tag is not evidence that reconstructed nested values are valid.
+    The type argument is a fixed local class, never selected by external data.
+    """
+    if type(value) is not nominal_type:
+        raise TypeError('GSL_NOMINAL_IDENTITY_REQUIRED')
+    nominal_type.__post_init__(value)
+
+
 class CompilationStage(str, Enum):
     """Stable candidate step order from architecture/gsl0_compiler_contract_candidate.json.
 
@@ -68,6 +79,7 @@ class ProofObligation:
             raise ValueError('proof obligation ID required')
         if not isinstance(self.origin, EntityRef) or not isinstance(self.state, ProofState):
             raise TypeError('proof obligations require nominal origin and state')
+        _checked_identity(self.origin, EntityRef)
 
 
 @dataclass(frozen=True, slots=True)
@@ -89,6 +101,8 @@ class SourceBundle:
             raise TypeError('source payload must be immutable bytes')
         if not isinstance(self.expected_digest, ContentDigest):
             raise TypeError('source digest must be nominal and algorithm tagged')
+        _checked_identity(self.source_ref, EntityRef)
+        _checked_identity(self.expected_digest, ContentDigest)
         alg = self.expected_digest.algorithm
         actual = (sha256(self.source_bytes) if alg is DigestAlgorithm.SHA256 else sha512(self.source_bytes)).hexdigest()
         if actual != self.expected_digest.hex:
@@ -120,6 +134,7 @@ class CompilerIdentity:
             raise ValueError('unsupported semantic version')
         if not isinstance(self.binary_digest, ContentDigest):
             raise TypeError('compiler digest is not nominal')
+        _checked_identity(self.binary_digest, ContentDigest)
 
 
 @dataclass(frozen=True, slots=True)
@@ -162,6 +177,7 @@ class RegistrySnapshot:
             raise ValueError('duplicate registry symbol')
         if not isinstance(self.expected_digest, ContentDigest):
             raise TypeError('registry requires a tagged digest')
+        _checked_identity(self.expected_digest, ContentDigest)
         raw = self.canonical_source()
         alg = self.expected_digest.algorithm
         digest = (sha256(raw) if alg is DigestAlgorithm.SHA256 else sha512(raw)).hexdigest()
@@ -188,6 +204,8 @@ class SymbolBinding:
             raise ValueError('symbol names must be canonical')
         if not isinstance(self.identity, EntityRef) or not isinstance(self.declared_source, EntityRef):
             raise TypeError('symbol requires nominal identity and source')
+        _checked_identity(self.identity, EntityRef)
+        _checked_identity(self.declared_source, EntityRef)
         if self.declared_source.kind is not EntityKind.SOURCE:
             raise TypeError('symbol origin must be a SOURCE reference')
         if self.identity.project != self.declared_source.project:
@@ -210,6 +228,8 @@ class ExternalImportScope:
             raise TypeError('external import needs a pinned source')
         if not isinstance(self.target_project, ProjectId):
             raise TypeError('external import needs the target project')
+        _checked_identity(self.source, EntityRef)
+        _checked_identity(self.target_project, ProjectId)
         if (type(self.admitted_kinds) is not frozenset or not self.admitted_kinds or
                 any(not isinstance(x, EntityKind) for x in self.admitted_kinds)):
             raise ValueError('external import needs a nonempty typed kind scope')
@@ -234,6 +254,10 @@ class CompileContext:
     def __post_init__(self) -> None:
         if not isinstance(self.project, ProjectId) or not isinstance(self.compiler, CompilerIdentity):
             raise TypeError('project and compiler must be typed')
+        _checked_identity(self.project, ProjectId)
+        if type(self.compiler) is not CompilerIdentity:
+            raise TypeError('GSL_COMPILER_IDENTITY_REQUIRED')
+        CompilerIdentity.__post_init__(self.compiler)
         if self.language_version != LANGUAGE_VERSION or self.semantic_version != SEMANTIC_VERSION:
             raise ValueError('GSL_VERSION_UNSUPPORTED')
         if self.compiler.semantic_version != self.semantic_version:
@@ -251,6 +275,8 @@ class CompileContext:
             source_ref, digest = pair
             if not isinstance(source_ref, EntityRef) or source_ref.kind != EntityKind.SOURCE:
                 raise TypeError('expected sources require pinned SOURCE EntityRef')
+            _checked_identity(source_ref, EntityRef)
+            _checked_identity(digest, ContentDigest)
             if source_ref.project != self.project or not isinstance(digest, ContentDigest):
                 raise ValueError('cross-project source or untyped digest')
             if source_ref in seen:
@@ -263,11 +289,16 @@ class CompileContext:
             if (type(pair) is not tuple or len(pair) != 2 or type(pair[0]) is not EntityRef
                     or type(pair[1]) is not str or pair[1] not in ('gsl', 'markdown')):
                 raise TypeError('GSL_INVALID_SOURCE_FORMAT_PIN')
+            _checked_identity(pair[0], EntityRef)
             format_refs.append(pair[0])
         if self.source_formats and (len(set(format_refs)) != len(format_refs) or set(format_refs) != seen):
             raise ValueError('GSL_SOURCE_FORMAT_PIN_POPULATION')
         if type(self.symbols) is not tuple or any(not isinstance(x, SymbolBinding) for x in self.symbols):
             raise TypeError('symbols must be typed immutable bindings')
+        for binding in self.symbols:
+            if type(binding) is not SymbolBinding:
+                raise TypeError('GSL_NOMINAL_SYMBOL_REQUIRED')
+            SymbolBinding.__post_init__(binding)
         if len({(x.name, x.identity.project) for x in self.symbols}) != len(self.symbols):
             raise ValueError('ambiguous symbol binding')
         if any(x.identity.project != self.project or x.declared_source not in seen for x in self.symbols):
@@ -282,6 +313,10 @@ class CompileContext:
             raise ValueError('wrong predicate registry namespace')
         if type(self.import_scopes) is not tuple or any(not isinstance(x, ExternalImportScope) for x in self.import_scopes):
             raise TypeError('import scopes must be immutable typed descriptors')
+        for grant in self.import_scopes:
+            if type(grant) is not ExternalImportScope:
+                raise TypeError('GSL_NOMINAL_IMPORT_SCOPE_REQUIRED')
+            ExternalImportScope.__post_init__(grant)
         if any(g.target_project != self.project for g in self.import_scopes):
             raise ValueError('external scope cannot change local project')
         if len(set(self.import_scopes)) != len(self.import_scopes):
@@ -289,8 +324,14 @@ class CompileContext:
 
 
 def verify_source_context(bundle: SourceBundle, context: CompileContext) -> Result[SourceBundle]:
-    if not isinstance(bundle, SourceBundle) or not isinstance(context, CompileContext):
+    if type(bundle) is not SourceBundle or type(context) is not CompileContext:
         return Result(diagnostics=(Diagnostic('GSL_CONTEXT_INVALID','$.source','SourceBundle+CompileContext','unknown','untyped argument'),))
+    try:
+        SourceBundle.__post_init__(bundle)
+        CompileContext.__post_init__(context)
+    except (TypeError, ValueError, AttributeError) as exc:
+        return Result(diagnostics=(Diagnostic('GSL_CONTEXT_INVALID', '$.source',
+            'valid pinned nominal source and context', 'malformed', str(exc)),))
     if bundle.project != context.project:
         return Result(diagnostics=(Diagnostic('GSL_FOREIGN_PROJECT','$.source','same project','EntityRef','source belongs to another project'),))
     trusted = dict(context.expected_sources)
@@ -317,6 +358,8 @@ class CompilationResult:
             raise TypeError('invalid diagnostics')
         if self.artifact_digest is not None and type(self.artifact_digest) is not ContentDigest:
             raise TypeError('artifact digest must be nominal ContentDigest')
+        if self.artifact_digest is not None:
+            _checked_identity(self.artifact_digest, ContentDigest)
         if self.status == CompileStatus.REJECTED and not self.diagnostics:
             raise ValueError('rejection requires diagnostic')
         if self.status == CompileStatus.COMPILED and (self.diagnostics or self.artifact_digest is None):
